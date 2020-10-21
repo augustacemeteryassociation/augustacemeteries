@@ -1,0 +1,347 @@
+@import url("https://fonts.googleapis.com/css2?family=Secular+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap");
+@font-face {
+  font-family: "Red Rose";
+  src: url("fonts/RedRose-Bold.ttf");
+}
+
+@font-face {
+  font-family: "Cursive";
+  src: url("fonts/cursive.ttf");
+}
+
+body {
+  min-height: 100%;
+  height: auto;
+  padding-bottom: 100px;
+}
+
+body nav {
+  width: 100%;
+  background-color: purple;
+  display: block;
+  border-radius: 10px;
+  font-family: "Red Rose";
+  text-align: center;
+  height: auto;
+}
+
+body nav #logo {
+  width: 100%;
+  font-size: 30px;
+  color: white;
+  height: auto;
+  padding: 20px;
+}
+
+body nav ul {
+  width: 100%;
+  display: inline-block;
+  position: relative;
+  width: auto;
+  list-style: none;
+  margin: 0 auto;
+  bottom: 20px;
+}
+
+body nav ul li {
+  font-size: 25px;
+  list-style: none;
+  position: relative;
+  right: 0;
+  display: inline-block;
+  padding: 5px;
+  margin: 5px;
+  width: auto;
+}
+
+body nav ul li a {
+  text-align: center;
+  width: 200px;
+  display: block;
+  clear: left;
+  text-decoration: none;
+  color: purple;
+  font-weight: bolder;
+  padding: 10px;
+  background-color: white;
+  border-radius: 5px;
+}
+
+body nav ul li:hover a {
+  color: black;
+}
+
+body #pageTitle {
+  width: 100%;
+  position: relative;
+  margin: 0 auto;
+  text-align: center;
+  height: auto;
+}
+
+body #pageTitle h1 {
+  position: relative;
+  display: inline-block;
+  top: 25px;
+  color: white;
+  font-family: "Red Rose";
+  text-align: center;
+  margin: 10px;
+  background-color: purple;
+  border-radius: 10px;
+  text-align: center;
+  padding: 10px 40px;
+  clear: right;
+  margin-bottom: 100px;
+}
+
+body article {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+body article h1.title {
+  font-size: 50px;
+  font-family: "Secular One";
+  color: purple;
+  margin: 0;
+}
+
+body article p {
+  font-size: 30px;
+  text-align: left;
+  position: relative;
+  left: 33%;
+  margin: 0 auto;
+  font-family: "Nunito";
+  font-weight: bold;
+  padding: 10px 0;
+}
+
+body article p a {
+  text-decoration: none;
+  color: #9603bb;
+}
+
+body article p a:hover {
+  color: #109aeb;
+}
+
+body article h2 {
+  font-family: "Secular One";
+  font-size: 2.75em;
+  margin: 5px;
+}
+
+body article ul li {
+  list-style: none;
+  font-family: "Quicksand";
+  font-size: 2em;
+  padding: 2.5px;
+}
+
+body article ul li span.day {
+  font-weight: bolder;
+  color: black;
+}
+
+body article ul li span.hours {
+  color: purple;
+  font-weight: bold;
+}
+
+body form {
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+  vertical-align: center;
+}
+
+body form input {
+  padding: 10px;
+  font-size: 18px;
+  width: 175px;
+}
+
+body form label {
+  padding: 10px;
+  font-size: 25px;
+  position: relative;
+  bottom: -4px;
+  font-weight: bold;
+}
+
+body form select {
+  width: 175px;
+  font-size: 18px;
+  text-align-last: center;
+  height: 50px;
+  margin-right: 10px;
+}
+
+body .center {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+body .center #blockID {
+  font-size: 1.5em;
+  padding: 10px;
+}
+
+body #results {
+  padding-top: 20px;
+  font-size: 28px;
+}
+
+body #results .results {
+  height: auto;
+  width: 60%;
+  font-size: 16px;
+  background-color: white;
+  color: purple;
+  outline-color: black;
+  border-radius: 6px;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  padding-top: 20px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+body #results .results img {
+  padding-top: 30px;
+  width: 350px;
+  height: auto;
+}
+
+body #results .results div {
+  background-color: purple;
+  color: white;
+  margin: 30px auto;
+  padding: 20px;
+  border-radius: 50px;
+}
+
+body #results .moreDetails {
+  width: 100%;
+  z-index: 1;
+}
+
+body #results .moreDetails h2 {
+  background-color: white;
+  color: purple;
+  font-weight: bolder;
+  width: 50%;
+  margin: 0 auto;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+body #results .details {
+  width: 100%;
+  display: none;
+  text-align: left;
+  margin: 0 auto;
+}
+
+body #results .details img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 50%;
+  height: auto;
+}
+
+body #results .details .gravestone {
+  width: 60%;
+}
+
+body #results .details .obituary {
+  width: 80%;
+}
+
+body #results .details h3 {
+  position: relative;
+  left: 25%;
+}
+
+body #results .details span {
+  color: white;
+  font-size: 1.25em;
+  font-weight: bolder;
+}
+
+body #results .resultMessage {
+  width: 80%;
+  background-color: purple;
+  color: white;
+  margin: 30px auto;
+  text-align: center;
+  padding: 20px;
+  border-radius: 50px;
+}
+
+body #results .resultMessage span {
+  font-weight: bolder;
+}
+
+body #results .resultMessage:hover {
+  font-weight: bolder;
+}
+
+body #results .errorMessage {
+  width: 75%;
+  background-color: #8a0909;
+  color: white;
+  margin: 30px auto;
+  text-align: center;
+  padding: 20px;
+  border-radius: 25px;
+}
+
+body #results .errorMessage span {
+  font-weight: bolder;
+}
+
+footer {
+  background: purple;
+  height: auto;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  display: block;
+  float: left;
+  z-index: 10;
+}
+
+footer p {
+  color: white;
+  font-size: 24px;
+  font-family: "Red Rose";
+  text-align: center;
+}
+
+@media (max-width: 1200px) {
+  body {
+    width: 100%;
+  }
+  body #results {
+    width: 100%;
+  }
+  body #results .resultMessage {
+    font-size: 1em;
+    width: 95%;
+  }
+  body #results .results {
+    width: 90%;
+  }
+}
+/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,416 @@
+@font-face {
+    font-family: "Red Rose";
+    src: url("fonts/RedRose-Bold.ttf");
+}
+
+@font-face {
+    font-family: "Cursive";
+    src: url("fonts/cursive.ttf")
+}
+
+// Article Title - Secular One
+@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
+
+// Article Text - Nunito
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
+
+// Article Hours - Quicksand
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+
+body {
+    min-height: 100%;
+    height: auto;
+    padding-bottom: 100px;
+
+    nav {
+
+        width: 100%;
+        background-color: purple;
+        display: block;
+        border-radius: 10px;
+        font-family: "Red Rose";
+        text-align: center;
+        height: auto;
+
+
+        #logo {
+            width: 100%;
+            font-size: 30px;
+            color: white;
+            height: auto;
+            padding: 20px;
+        }
+
+
+        ul {
+            width: 100%;
+            display: inline-block;
+            position: relative;
+            width: auto;
+            list-style: none;
+            margin: 0 auto;
+            bottom: 20px;
+
+            li {
+                font-size: 25px;
+                list-style: none;
+                position: relative;
+
+                right: 0;
+                display: inline-block;
+                // float: left;
+                padding: 5px;
+                margin: 5px;
+                width: auto;
+
+                a {
+                    text-align: center;
+                    width: 200px;
+                    display: block;
+                    clear: left;
+                    text-decoration: none;
+                    color: purple;
+                    font-weight: bolder;
+                    padding: 10px;
+                    background-color: white;
+                    border-radius: 5px;
+                }
+            }
+
+            li:hover {
+                a {
+                    color: black;
+                }
+            }
+
+        }
+    }
+
+
+
+    #pageTitle {
+        width: 100%;
+        position: relative;
+        margin: 0 auto;
+        // margin-left: 50%;
+        text-align: center;
+        height: auto;
+
+        h1 {
+            position: relative;
+            display: inline-block;
+            // left: 33%;
+            top: 25px;
+            color: white;
+            font-family: "Red Rose";
+            text-align: center;
+            margin: 10px;
+            background-color: purple;
+            // width: 300px;
+            // margin-bottom: 100px;
+            // height: auto;
+            border-radius: 10px;
+            // align-self: center;
+            text-align: center;
+            // padding: 15px;
+            padding: 10px 40px;
+            clear: right;
+            margin-bottom: 100px;
+        }
+
+
+    }
+
+    article {
+
+        text-align: center;
+       
+        margin-bottom: 60px;
+
+        h1.title {
+            font-size: 50px;
+            font-family: "Secular One";
+            color: purple;
+            margin: 0;
+        }
+
+        p {
+            font-size: 30px;
+            text-align: left;
+            position: relative;
+            left: 33%;
+            margin: 0 auto;
+            font-family: "Nunito";
+            font-weight: bold;
+            padding: 10px 0;
+
+            a {
+                text-decoration: none;
+                color: rgb(150, 3, 187);
+            }
+
+            a:hover {
+                color: rgb(16, 154, 235);
+            }
+        }
+
+        h2 {
+            font-family: "Secular One";
+            font-size: 2.75em;
+            margin: 5px;
+        }
+
+        ul {
+            li {
+                list-style: none;
+                font-family: "Quicksand";
+                font-size: 2em;
+                padding: 2.5px;
+
+                span.day {
+                    font-weight: bolder;
+                    color: black;
+                }
+
+                span.hours {
+                    color: purple;
+                    font-weight: bold;
+                }
+
+            }
+        }
+
+    }
+
+    form {
+        margin: 0 auto;
+        width: 100%;
+        text-align: center;
+        vertical-align: center;
+
+        input {
+            padding: 10px;
+            font-size: 18px;
+            width: 175px;
+        }
+
+        label {
+            padding: 10px;
+            font-size: 25px;
+            position: relative;
+            bottom: -4px;
+            font-weight: bold;
+        }
+
+        select {
+
+            width: 175px;
+            font-size: 18px;
+            text-align-last: center;
+            height: 50px;
+            margin-right: 10px;
+
+        }
+
+    }
+
+    .center {
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+
+        #blockID {
+            font-size: 1.5em;
+            padding: 10px
+        }
+
+    }
+
+    
+
+    #results {
+        padding-top: 20px;
+        font-size: 28px;
+
+        .results {
+            height: auto;
+            width: 60%;
+            font-size: 16px;
+            background-color: white;
+            color: purple;
+            outline-color: black;
+            border-radius: 6px;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            
+            padding-top: 20px;
+            margin: 0 auto;
+            margin-bottom: 20px;
+
+            img {
+                padding-top: 30px;
+                width: 350px;
+                height: auto;
+            }
+
+            div {
+                background-color: purple;
+                color: white;
+                margin: 30px auto;
+                padding: 20px;
+                border-radius: 50px;
+
+                // span.fullName {
+                //     font-family: "Cursive";
+                //     font-size: 2em;
+                //     font-weight: bold;
+                // }
+
+            }
+        }
+
+        .moreDetails{
+            width: 100%;
+            z-index: 1;
+            h2 {
+                background-color: white;
+                color: purple;
+                font-weight: bolder;
+                width: 50%;
+                margin: 0 auto;
+                padding: 10px;
+                border-radius: 10px;
+            }
+            
+        } 
+
+        .details {
+            width: 100%;
+            display: none;
+            text-align: left;
+            margin: 0 auto;
+            
+        
+            img {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                text-align: center;
+                width: 50%;
+                height: auto;
+            }
+
+            .gravestone {
+                width: 60%;
+            }
+        
+            .obituary {
+                width: 80%;
+            }
+
+            h3 {
+                position: relative;
+                left: 25%;
+
+                
+            }
+
+            span {
+                color: white;
+                font-size: 1.25em;
+                font-weight: bolder;
+            }
+        }
+
+
+        .resultMessage {
+
+            
+
+            width: 80%;
+            background-color: purple;
+            color: white;
+            margin: 30px auto;
+            text-align: center;
+            padding: 20px;
+            border-radius: 50px;
+
+            span {
+                font-weight: bolder;
+            }
+        }
+
+        .resultMessage:hover {
+            font-weight: bolder;
+        }
+
+        .errorMessage{
+            width: 75%;
+            background-color: rgb(138, 9, 9);
+            color: white;
+            margin: 30px auto;
+            text-align: center;
+            padding: 20px;
+            border-radius: 25px;
+
+            span {
+                font-weight: bolder;
+            }
+        }
+        
+    }
+
+    
+
+    
+
+    
+
+
+
+}
+
+footer {
+    background: purple;
+    height: auto;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    display: block;
+    float: left;
+    z-index: 10;
+
+    // margin-top: 100px;
+    p {
+        color: white;
+        font-size: 24px;
+        font-family: "Red Rose";
+        text-align: center;
+    }
+
+}
+
+
+@media (max-width: 1200px) {
+    body {
+
+        width: 100%;
+
+        #results {
+            width: 100%;
+            .resultMessage {
+                font-size: 1em;
+                width: 95%;
+            }
+
+            .results {
+                width: 90%;
+            }
+            
+        }
+    }
+    
+}
