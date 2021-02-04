@@ -33,6 +33,7 @@ body nav #logo {
   color: white;
   height: auto;
   padding: 20px;
+  font-family: "Red Rose";
 }
 
 body nav ul {
@@ -307,6 +308,85 @@ body #results .errorMessage {
 
 body #results .errorMessage span {
   font-weight: bolder;
+}
+
+body .svg {
+  width: 80%;
+  height: auto;
+  margin: 0 auto;
+}
+
+body .svg svg {
+  width: 100%;
+  height: auto;
+  z-index: -1;
+}
+
+body .svg svg rect {
+  background-color: aqua;
+}
+
+body .mapSelection {
+  margin: 0 auto;
+  height: 200px;
+  margin-bottom: 85px;
+  width: 100%;
+}
+
+body .mapSelection h1 {
+  width: 100%;
+  text-align: center;
+  font-size: 4em;
+  margin-bottom: 20px;
+  font-family: "Red Rose";
+  color: purple;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: purple;
+}
+
+body .mapSelection ul {
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  display: inline-block;
+  vertical-align: top;
+  height: auto;
+  text-align: center;
+}
+
+body .mapSelection ul li {
+  position: relative;
+  right: 0;
+  display: inline-block;
+  list-style: none;
+  width: 25%;
+  font-size: 3em;
+  padding-bottom: 30px;
+  padding: 10px;
+  background-color: purple;
+  border-radius: 40px;
+  margin: 0 30px;
+  color: white;
+}
+
+body .mapSelection p {
+  position: relative;
+  top: 0;
+  margin-bottom: 20px;
+  font-size: 30px;
+  text-align: center;
+  width: 100%;
+  font-weight: bolder;
+}
+
+body .toTop {
+  color: white;
+  background: purple;
+  width: 30%;
+  text-align: center;
+  padding: 10px;
+  margin: 100px auto;
+  border-radius: 20px;
 }
 
 footer {
