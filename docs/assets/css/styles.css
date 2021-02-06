@@ -136,6 +136,16 @@ body article h2 {
   margin: 5px;
 }
 
+body article h3 {
+  font-family: "Secular One";
+  font-size: 2em;
+}
+
+body article h4 {
+  font-family: "Secular One";
+  font-size: 1.2em;
+}
+
 body article ul li {
   list-style: none;
   font-family: "Quicksand";
@@ -153,6 +163,50 @@ body article ul li span.hours {
   font-weight: bold;
 }
 
+body .member {
+  margin: 0 auto;
+  margin-bottom: 50px;
+  background-color: purple;
+  width: 50%;
+  border-radius: 30px;
+  height: auto;
+  padding: 60px;
+}
+
+body .member .profilePicture img {
+  padding-top: 50px;
+  width: 30%;
+  height: auto;
+}
+
+body .member .member_info .membership_title {
+  font-size: 3em;
+  font-family: "Nunito";
+}
+
+body .member .member_info h2 {
+  font-family: "Secular One";
+}
+
+body .member .member_info .membership_length {
+  font-size: 2em;
+  font-family: "Red Rose";
+}
+
+body .member .member_info .contact_info h3 {
+  font-size: 1.75em;
+  text-align: left;
+  position: relative;
+  left: 15%;
+}
+
+body .member .member_info .contact_info a {
+  font-size: 1em;
+  font-family: "arial";
+  text-decoration: none;
+  color: #2db0fb;
+}
+
 body form {
   margin: 0 auto;
   width: 100%;
@@ -164,6 +218,8 @@ body form input {
   padding: 10px;
   font-size: 18px;
   width: 175px;
+  font-family: "Red Rose";
+  text-align: center;
 }
 
 body form label {
@@ -172,6 +228,8 @@ body form label {
   position: relative;
   bottom: -4px;
   font-weight: bold;
+  font-family: "Red Rose";
+  padding-left: 50px;
 }
 
 body form select {
@@ -198,94 +256,16 @@ body #results {
   font-size: 28px;
 }
 
-body #results .results {
-  height: auto;
-  width: 60%;
-  font-size: 16px;
-  background-color: white;
-  color: purple;
-  outline-color: black;
-  border-radius: 6px;
-  padding: 20px;
-  border-radius: 15px;
-  text-align: center;
-  padding-top: 20px;
-  margin: 0 auto;
-  margin-bottom: 20px;
-}
-
-body #results .results img {
-  padding-top: 30px;
-  width: 350px;
-  height: auto;
-}
-
-body #results .results div {
-  background-color: purple;
-  color: white;
-  margin: 30px auto;
-  padding: 20px;
-  border-radius: 50px;
-}
-
-body #results .moreDetails {
-  width: 100%;
-  z-index: 1;
-}
-
-body #results .moreDetails h2 {
-  background-color: white;
-  color: purple;
-  font-weight: bolder;
-  width: 50%;
-  margin: 0 auto;
-  padding: 10px;
-  border-radius: 10px;
-}
-
-body #results .details {
-  width: 100%;
-  display: none;
-  text-align: left;
-  margin: 0 auto;
-}
-
-body #results .details img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  width: 50%;
-  height: auto;
-}
-
-body #results .details .gravestone {
-  width: 60%;
-}
-
-body #results .details .obituary {
-  width: 80%;
-}
-
-body #results .details h3 {
-  position: relative;
-  left: 25%;
-}
-
-body #results .details span {
-  color: white;
-  font-size: 1.25em;
-  font-weight: bolder;
-}
-
 body #results .resultMessage {
   width: 80%;
+  font-size: 1.4em;
   background-color: purple;
   color: white;
   margin: 30px auto;
   text-align: center;
   padding: 20px;
   border-radius: 50px;
+  font-family: "Red Rose";
 }
 
 body #results .resultMessage span {
@@ -308,6 +288,126 @@ body #results .errorMessage {
 
 body #results .errorMessage span {
   font-weight: bolder;
+}
+
+body #results .results {
+  height: auto;
+  width: 60%;
+  font-size: 16px;
+  background-color: white;
+  color: purple;
+  outline-color: black;
+  border-radius: 6px;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  padding-top: 20px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+body #results .results img {
+  padding-top: 30px;
+  width: 90%;
+  height: auto;
+}
+
+body #results .results div {
+  background-color: purple;
+  color: white;
+  margin: 30px auto;
+  padding: 20px;
+  border-radius: 50px;
+  width: auto;
+}
+
+body #results .results div img {
+  width: 50%;
+  height: auto;
+}
+
+body #results .results div h1 {
+  font-family: "Red Rose";
+  font-size: 2em;
+}
+
+body #results .results div h3 {
+  font-family: "Red Rose";
+  font-size: 1.7em;
+}
+
+body #results .results div span.fullName {
+  font-family: "Red Rose";
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+body #results .results div div.moreDetails {
+  width: auto;
+  height: auto;
+  z-index: 1;
+}
+
+body #results .results div div.moreDetails h2 {
+  font-family: "Red Rose";
+  font-size: 2em;
+  background-color: white;
+  color: purple;
+  font-weight: bolder;
+  width: 50%;
+  margin: 0 auto;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+body #results .results div .details {
+  width: auto;
+  display: none;
+  text-align: left;
+  margin: 0 auto;
+  padding-bottom: 50px;
+}
+
+body #results .results div .details img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 90%;
+  height: auto;
+}
+
+body #results .results div .details .gravestone {
+  width: 75%;
+}
+
+body #results .results div .details .obituary {
+  width: 80%;
+}
+
+body #results .results div .details h3 {
+  position: relative;
+  left: 15%;
+  margin: 0px;
+  padding: 5px;
+}
+
+body #results .results div .details span {
+  color: white;
+  font-size: 1.25em;
+  font-weight: bolder;
+  position: relative;
+  left: 15px;
+}
+
+body #results .results div .details span a {
+  text-decoration: none;
+  position: relative;
+  color: white;
+}
+
+body #results .results div .details span a:hover {
+  color: #2ff1f5;
 }
 
 body .svg {
@@ -346,6 +446,7 @@ body .mapSelection h1 {
 
 body .mapSelection ul {
   position: relative;
+  right: 50px;
   margin: 0 auto;
   width: 100%;
   display: inline-block;
@@ -360,33 +461,37 @@ body .mapSelection ul li {
   display: inline-block;
   list-style: none;
   width: 25%;
-  font-size: 3em;
+  font-size: 2.75em;
   padding-bottom: 30px;
   padding: 10px;
   background-color: purple;
   border-radius: 40px;
   margin: 0 30px;
   color: white;
+  font-family: "Red Rose";
 }
 
 body .mapSelection p {
   position: relative;
-  top: 0;
+  top: 15px;
   margin-bottom: 20px;
-  font-size: 30px;
+  font-size: 35px;
   text-align: center;
   width: 100%;
   font-weight: bolder;
+  font-family: "Red Rose";
 }
 
 body .toTop {
   color: white;
   background: purple;
-  width: 30%;
+  width: 45%;
   text-align: center;
   padding: 10px;
   margin: 100px auto;
   border-radius: 20px;
+  font-size: 1.2em;
+  font-family: "Red Rose";
 }
 
 footer {
