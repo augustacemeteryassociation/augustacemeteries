@@ -518,8 +518,11 @@ footer p {
   body {
     width: 100%;
   }
+  body nav {
+    width: 100% !important;
+  }
   body nav #logo {
-    font-size: 25px;
+    font-size: 22px;
   }
   body nav ul {
     width: 100%;
@@ -558,7 +561,7 @@ footer p {
     padding: 0 20px;
   }
   body .member {
-    width: 80%;
+    width: 90%;
     padding: 10px;
   }
   body .member .profilePicture {
@@ -593,11 +596,14 @@ footer p {
     margin-top: -20px;
     margin-bottom: 20px;
   }
+  body .cemeteryMaps ul {
+    width: 100% !important;
+  }
   body .cemeteryMaps ul li {
-    font-size: 20px;
+    font-size: 18px;
   }
   body .cemeteryMaps p {
-    font-size: 22px;
+    font-size: 18px;
   }
   body #results .resultMessage {
     margin: 0 auto;
@@ -643,11 +649,26 @@ footer p {
     width: 75%;
     margin: 0 auto;
   }
+  body form {
+    width: 100%;
+    margin-top: -50px;
+  }
+  body form label {
+    padding: 0;
+    display: block;
+    padding: 10px;
+  }
   body form input {
-    margin-bottom: 15px !important;
+    margin-bottom: 10px !important;
+    display: block;
+    margin: 0 auto;
   }
   body form input:last-child {
     margin-top: 20px;
+  }
+  body form #submit {
+    margin-top: 20px;
+    margin: 20px auto;
   }
   body .contacts .title {
     font-size: 30px;
@@ -666,7 +687,7 @@ footer p {
     font-size: 20px;
   }
   body footer .copyright {
-    font-size: 1.2em;
+    font-size: 1em;
   }
 }
 /*# sourceMappingURL=styles.css.map */

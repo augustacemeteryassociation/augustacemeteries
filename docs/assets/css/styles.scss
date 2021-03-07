@@ -593,8 +593,10 @@ footer {
         width: 100%;
 
         nav {
+
+            width: 100% !important;
             #logo {
-                font-size: 25px;
+                font-size: 22px;
             }
             ul {
 
@@ -649,7 +651,7 @@ footer {
 
         // BOARD MEMEBERS PAGE
         .member {
-            width: 80%;
+            width: 90%;
             padding: 10px;
 
             .profilePicture {
@@ -698,13 +700,14 @@ footer {
             }
 
             ul {
+                width: 100% !important;
                 li {
-                    font-size: 20px;
+                    font-size: 18px;
                 }
             }
 
             p {
-                font-size: 22px;
+                font-size: 18px;
             }
 
             
@@ -768,12 +771,27 @@ footer {
 
         // FIND A GRAVE FORM
         form {
-            input {
-                margin-bottom: 15px !important;
+            width: 100%;
+            margin-top: -50px;
+            label {
+                padding: 0;
+                display: block;
+                padding: 10px;
             }
 
-            input:last-child{
+            input {
+                margin-bottom: 10px !important;
+                display: block;
+                margin: 0 auto;
+            }
+
+            input:last-child {
                 margin-top: 20px;
+            }
+
+            #submit {
+                margin-top: 20px;
+                margin: 20px auto;
             }
         }
 
@@ -808,7 +826,7 @@ footer {
         // FOOTER
         footer {
             .copyright {
-                font-size: 1.2em;
+                font-size: 1em;
             }
         }
 
