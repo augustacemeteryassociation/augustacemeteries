@@ -12,7 +12,7 @@
 
     <!-- CSS IMPORTS -->
     <link rel="stylesheet" href="assets/css/styles.css">
-<!--    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">-->
+    <!--    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">-->
 
     <!-- JS IMPORTS -->
     <script type="text/javascript" src="assets/js/jquery-3.5.1.min.js"></script>
@@ -25,101 +25,117 @@
 <body>
 
     <nav></nav>
+    <div class="cemeteryMaps">
+        <div id="pageTitle">
+            <h1>Augusta Cemetery Maps</h1>
+        </div>
 
-    <div id="pageTitle">
-        <h1>Augusta Cemetery Maps</h1>
-    </div>
+        <div class="mapSelection">
+            <h1>Select a Map</h1>
 
-    <div class="mapSelection">
-        <h1>Select a Map</h1>
+            <ul>
+                <li>East Lawn</li>
+                <li>West Lawn</li>
+            </ul>
+        </div>
 
-        <ul>
-            <li>East Lawn</li>
-            <li>West Lawn</li>
-        </ul>
-    </div>
+        <div class="svg"></div>
 
-    <div class="svg"></div>
+        <script>
+            $(".svg").load("./assets/svg/EastLawn.html")
+            $(".mapSelection").append("<p>Select any lot to see who is buried there.</p>")
+            $(".mapSelection li:first-child").css("border", "5px solid black");
+            $(document).ready(function() {
 
-    <script>
-        $(".svg").load("./assets/svg/EastLawn.html")
-        $(".mapSelection").append("<p>Select any lot to see who is buried there.</p>")
-        $(".mapSelection li:first-child").css("border", "5px solid black");
-        $(document).ready(function() {
-            
-            $("li").click(function() {
-                
-                $(".svg").empty()
-                $("#results").empty()
-                $(".mapSelection p").remove()
-                
-                var text = $(this).text()
-                var link = ""
-                if (text == "East Lawn") {
-                    link = "./assets/svg/EastLawn.html";
-                } else if (text == "West Lawn") {
-                    link = "./assets/svg/WestLawn.html";
+                function normalZoom() {
+                    var scale = "scale(1)"
+                    document.body.style.zoom = 1.0;
+                    document.body.style.webkitTransform = scale;
+                    document.body.style.msTransform = scale;
+                    document.body.style.transform = scale;
                 }
                 
-                
-                if (link != "") {
-                    $(".svg").load(link);
-                    $(".mapSelection").append("<p>Select any lot to see who is buried there.</p>")
-                }
-                
-            })
+                $("li").click(function() {
 
-            $(document).on('click', 'rect', function() {
-                var mapInfo = $(this).attr("id").split("-")
-                var cemetery = mapInfo[0]
-                var blockID = mapInfo[1]
-                var lotID = mapInfo[2]
+                    $(".svg").empty()
+                    $("#results").empty()
+                    $(".mapSelection p").remove()
+
+                    var text = $(this).text()
+                    var link = ""
+                    if (text == "East Lawn") {
+                        link = "./assets/svg/EastLawn.html";
+                    } else if (text == "West Lawn") {
+                        link = "./assets/svg/WestLawn.html";
+                    }
 
 
-                
-                if (mapInfo[0] == "EastLawn" || "WestLawn" && mapInfo.length == 3) {
+                    if (link != "") {
+                        $(".svg").load(link);
+                        $(".mapSelection").append("<p>Select any lot to see who is buried there.</p>")
+                    }
+
+                })
+
+                $(document).on('click', 'rect', function() {
+                    var mapInfo = $(this).attr("id").split("-")
+                    var cemetery = mapInfo[0]
+                    var blockID = mapInfo[1]
+                    var lotID = mapInfo[2]
+
+
+
+                    if (mapInfo[0] == "EastLawn" || "WestLawn" && mapInfo.length == 3) {
+
+
+                        $("rect").not("#road").attr("style", "display:inline;fill:#ffffff;stroke:#000000;stroke-width:0.262257;fill-opacity:0");
+                        $(this).not("#road").attr("style", "display:inline;fill:#ffffff;stroke:Red;stroke-width:0.3;fill-opacity:0");
+
+                        //                    console.log(`${cemetery}: Block ${blockID}, lot ${lotID}`)
+
+                        searchMap(cemetery, blockID, lotID)
+
+                        $([document.documentElement, document.body]).stop().animate({
+                            scrollTop: $("#results").offset().top
+                        }, 1250);
+
+
+                    }
+
+                });
+
+                $(document).on('click', '.toTop', function() {
                     
+                    normalZoom();
+                    $("html, body").animate({
+                        scrollTop: 0
+                    }, "slow");
                     
-                    $("rect").not("#road").attr("style", "display:inline;fill:#ffffff;stroke:#000000;stroke-width:0.262257;fill-opacity:0");
-                    $(this).not("#road").attr("style", "display:inline;fill:#ffffff;stroke:Red;stroke-width:0.3;fill-opacity:0");
-
-//                    console.log(`${cemetery}: Block ${blockID}, lot ${lotID}`)
-
-                    searchMap(cemetery, blockID, lotID)
-
-                    $([document.documentElement, document.body]).stop().animate({
-                        scrollTop: $("#results").offset().top
-                    }, 1250);
+                });
 
 
-                }
+                $(document).on('click', '.mapSelection li', function() {
+                    
+                    normalZoom();
+                    $(".mapSelection li").css("border", "0px solid black");
+                    $(this).css("border", "5px solid black");
+                    
+                });
+
+                $(document).on('hover', '.mapSelection li', function() {
+                    normalZoom();
+                    $(".mapSelection li").css("border", "5px solid black");
+                    $(this).css("border", "5px solid black");
+                    
+                });
 
             });
+        </script>
 
-            $(document).on('click', '.toTop', function() {
-                $("html, body").animate({
-                    scrollTop: 0
-                }, "slow");
-            });
-            
-        
-            $(document).on('click', '.mapSelection li', function() {
-                $(".mapSelection li").css("border", "0px solid black");
-                $(this).css("border", "5px solid black");
-            });
-            
-            $(document).on('hover', '.mapSelection li', function() {
-                $(".mapSelection li").css("border", "5px solid black");
-                $(this).css("border", "5px solid black");
-            });
-            
-        });
-    </script>
+        <div id="results"></div>
 
-    <div id="results"></div>
-
-    <script type="text/javascript" src="assets/js/searchMap.js"></script>
-
+        <script type="text/javascript" src="assets/js/searchMap.js"></script>
+    </div>
 </body>
 
 <footer></footer></html>
