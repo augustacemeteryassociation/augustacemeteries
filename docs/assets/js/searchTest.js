@@ -130,8 +130,8 @@ function getDate_string(dateObject) {
             }
 
         } else {
-            console.log(dateObject)
-            console.log(`${year}`)
+//            console.log(dateObject)
+//            console.log(`${year}`)
             return `${year}`
         }
 
@@ -389,7 +389,7 @@ $().ready(function () {
 
         var latestPerson = $(`#results div`).last()
         
-        console.log(fName, lName)
+//        console.log(fName, lName)
         
         appendDetail_Text(latestPerson, "First Name", fName);
         appendDetail_Text(latestPerson, "Middle Name", mName);
