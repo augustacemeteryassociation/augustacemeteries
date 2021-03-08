@@ -25,6 +25,7 @@ function getDate(dateStr) {
 
     switch (dateLen) {
         case 3:
+            
             d.year = parseInt(dateArray[2]);
             d.month = parseInt(dateArray[0]);
             d.day = parseInt(dateArray[1]);
@@ -33,24 +34,23 @@ function getDate(dateStr) {
             d.month = nan(d.month)
             d.day = nan(d.day)
 
-
             break;
 
         case 2:
+            
             d.year = parseInt(dateArray[1]);
             d.month = parseInt(dateArray[0]);
 
             d.year = nan(d.year)
             d.month = nan(d.month)
 
-
             break;
 
         case 1:
             d.year = parseInt(dateArray[0]);
-
-
-            d.year = nan(d.year)
+            d.year = nan(d.year);
+            
+            break;
 
         case '':
             d.year = "Unknown";
@@ -73,29 +73,41 @@ function getDate_string(dateObject) {
 
             switch (month) {
                 case 1:
-                    var monthStr = "January"
+                    var monthStr = "January";
+                    break;
                 case 2:
-                    var monthStr = "February"
+                    var monthStr = "February";
+                    break;
                 case 3:
-                    var monthStr = "March"
+                    var monthStr = "March";
+                    break;
                 case 4:
-                    var monthStr = "April"
+                    var monthStr = "April";
+                    break;
                 case 5:
-                    var monthStr = "May"
+                    var monthStr = "May";
+                    break;
                 case 6:
-                    var monthStr = "June"
+                    var monthStr = "June";
+                    break;
                 case 7:
-                    var monthStr = "July"
+                    var monthStr = "July";
+                    break;
                 case 8:
-                    var monthStr = "August"
+                    var monthStr = "August";
+                    break;
                 case 9:
-                    var monthStr = "September"
+                    var monthStr = "September";
+                    break;
                 case 10:
-                    var monthStr = "October"
+                    var monthStr = "October";
+                    break;
                 case 11:
-                    var monthStr = "November"
+                    var monthStr = "November";
+                    break;
                 case 12:
-                    var monthStr = "December"
+                    var monthStr = "December";
+                    break;
             }
 
 
