@@ -188,7 +188,7 @@ function searchMap(cemetery, blockID, lotID) {
             }
             
         } else if (lotID == "Blank"){
-            $results.append(`<h1 class='resultMessage'>Sorry, the lot that you select is either empty or not available.`);
+            $results.append(`<h1 class='resultMessage'>Sorry, the lot that you selected is either empty or not available.`);
         } else {
             $results.append(`<h1 class='resultMessage'>Sorry, we couldn't find any graves at ${cemetery}, Block ${blockID} - Lot ${lotID}</h1>`);
         }
