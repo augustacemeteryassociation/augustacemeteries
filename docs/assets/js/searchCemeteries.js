@@ -377,12 +377,31 @@ $().ready(function () {
                 <img src="${profileImage}" class="profilePicture"></img>
                 <h1><span class='fullName'>${fName} ${lName}</span><br>(${dateOfBirth.year} - ${dateOfDeath.year})</h1>
                 <h3>${cemetery} - Block ${blockNum}, Lot ${lotNum} : Grave ${graveNum}${graveSubNum}</h3>
+                
+                <a href='mailto:
+                    ?subject=Augusta ${cemeteryLocation} Lawn Cemetery: ${fName} ${lName}
+                    &body=AUGUSTA CEMETERY ASSOCIATION INFORMATION REQUEST:
+                    %0d%0a%0d%0aHere is the information we have on record for ${fName} ${lName}, located in the ${cemeteryLocation} Lawn Cemetery in Block ${blockNum}, Lot ${lotNum} [${graveNum}${graveSubNum}]%0d%0a
+                    %0d%0aFirst Name: ${fName}
+                    %0d%0aMiddle Name: ${mName}
+                    %0d%0aLast Name: ${lName}
+                    %0d%0aMaiden Name: ${maidenName} 
+                    %0d%0aDate of Birth: ${getDate_string(dateOfBirth)}
+                    %0d%0aDate of Death: ${getDate_string(dateOfDeath)}
+                    %0d%0aFindAGrave Link: ${findAGraveLink}
+                    %0d%0aWars / Service: ${warsArray}
+                    %0d%0a%0d%0a
+                    For more information, please visit the Augusta Cemetery Website located at https://www.augustawicemeteries.com%0d%0a
+                    Or to view the Augusta Cemetery Maps, please visit https://www.augustawicemeteries.com/cemeteryMaps.html
+                ' class='emailInfo'>Email Information</a>
 
                 <div class="moreDetails">
                     <h2 class="moreDetailsButton">More Details</h2>
                 </div>
 
                 <div class="details"></div>
+
+                
             </div>
         `);
 

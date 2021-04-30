@@ -321,6 +321,16 @@ body #results .results div {
   width: auto;
 }
 
+body #results .results div .emailInfo {
+  text-decoration: none;
+  font-family: "Red Rose";
+  font-size: 25px;
+  color: purple;
+  background-color: white;
+  padding: 10px 30px;
+  border-radius: 10px;
+}
+
 body #results .results div img {
   width: 50%;
   height: auto;
