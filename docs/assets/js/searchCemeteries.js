@@ -370,6 +370,21 @@ $().ready(function () {
         if (profileImage == "") {
             profileImage = "images/unknown.png"
         }
+        
+        function yearDiff(d1, d2) {
+        
+            if (d1 == "Unknown" || d2 == "Unknown") {
+                return "Unknown"
+            } else if (d1 == "" || d2 == "") { 
+                return "Unknown"
+            } else {
+                let date1 = new Date(d1);
+                let date2 = new Date(d2);
+                let yearsDiff = ~~(date2.getFullYear() - date1.getFullYear());
+                return yearsDiff;
+
+            }
+        }
 
 
         $(`#results #${id}`).last().append(`
@@ -380,7 +395,7 @@ $().ready(function () {
                 
                 <a href='mailto:
                     ?subject=Augusta ${cemeteryLocation} Lawn Cemetery: ${fName} ${lName}
-                    &body=AUGUSTA CEMETERY ASSOCIATION INFORMATION REQUEST:
+                    &body=AUGUSTA CEMETERY ASSOCIATION - INFORMATION REQUEST:
                     %0d%0a%0d%0aHere is the information we have on record for ${fName} ${lName}, located in the ${cemeteryLocation} Lawn Cemetery in Block ${blockNum}, Lot ${lotNum} [${graveNum}${graveSubNum}]%0d%0a
                     %0d%0aFirst Name: ${fName}
                     %0d%0aMiddle Name: ${mName}
@@ -388,6 +403,7 @@ $().ready(function () {
                     %0d%0aMaiden Name: ${maidenName} 
                     %0d%0aDate of Birth: ${getDate_string(dateOfBirth)}
                     %0d%0aDate of Death: ${getDate_string(dateOfDeath)}
+                    %0d%0aEstimated Age: ${yearDiff(d['dateOfBirth'], d['dateOfDeath'])}
                     %0d%0aFindAGrave Link: ${findAGraveLink}
                     %0d%0aWars / Service: ${warsArray}
                     %0d%0a%0d%0a
@@ -400,7 +416,6 @@ $().ready(function () {
                 </div>
 
                 <div class="details"></div>
-
                 
             </div>
         `);
@@ -418,6 +433,7 @@ $().ready(function () {
         appendDetail_Link(latestPerson, "Find A Grave Link", `${fName} ${lName}`, findAGraveLink);
         appendDetail_Text(latestPerson, "Date of Birth", getDate_string(dateOfBirth));
         appendDetail_Text(latestPerson, "Date of Death", getDate_string(dateOfDeath));
+        appendDetail_Text(latestPerson, "Estimated Age", yearDiff(d['dateOfBirth'], d['dateOfDeath']));
         appendDetail_TextArray(latestPerson, "Wars / Service", warsArray);
         appendDetail_Images(latestPerson, "Gravestone Photos", gravestoneImages, "gravestone");
         appendDetail_Images(latestPerson, "Obituary", obituaryImages, "obituary");
