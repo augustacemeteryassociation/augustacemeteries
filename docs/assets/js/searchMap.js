@@ -325,7 +325,6 @@ function displayPeople(d, id = '', hidden = false) {
         $(`#results #${id}`).css("display", "none")
     }
     
-    latestPerson.append(`<a href='mailto:?subject=Augusta ${cemeteryLocation} Cemetery: ${fName} ${lName}'></a>`)
 }
 
 
