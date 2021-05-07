@@ -504,8 +504,9 @@ body {
     .mapSelection {
         margin: 0 auto;
         height: 200px;
-        margin-bottom: 85px;
+        margin-bottom: 175px;
         width: 100%;
+
         h1 {
             width: 100%;
             text-align: center;
@@ -558,6 +559,30 @@ body {
         }
     }
     
+    .lotStatus {
+        padding-bottom: 350px;
+
+        .mapIndex {
+            margin: 50px auto;
+            width: 25%;
+            background-color:white;
+            border-radius: 20px;
+            border: 15px solid purple;
+            clear: left;
+             
+            h1 {
+                font-size: 2.5em;
+            }
+
+            h2 {
+                position: relative;
+                left: 17%;
+                font-family: "Secular One";
+                font-size: 1.6em;
+            }
+        }
+    }
+
     .toTop {
         color: white;
         background: purple;
