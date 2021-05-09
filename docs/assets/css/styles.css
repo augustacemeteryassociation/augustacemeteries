@@ -44,22 +44,21 @@ body nav ul {
   list-style: none;
   margin: 0 auto;
   bottom: 20px;
+  padding: 0;
 }
 
 body nav ul li {
-  font-size: 25px;
+  font-size: 1.2em;
   list-style: none;
   position: relative;
-  right: 0;
   display: inline-block;
-  padding: 5px;
   margin: 5px;
   width: auto;
 }
 
 body nav ul li a {
   text-align: center;
-  width: 200px;
+  width: 160px;
   display: block;
   clear: left;
   text-decoration: none;
@@ -804,9 +803,10 @@ footer p {
   body footer .copyright {
     font-size: .85em;
     padding: 0px;
-    text-align: start;
+    text-align: center;
     position: relative;
-    left: 10%;
+    width: 100%;
+    margin: 7.5px auto;
   }
 }
 /*# sourceMappingURL=styles.css.map */
