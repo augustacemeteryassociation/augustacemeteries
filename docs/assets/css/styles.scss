@@ -475,12 +475,6 @@ body {
 
             }
         }
-
-
-        
-
-
-        
         
     }
 
@@ -596,6 +590,21 @@ body {
         border-radius: 20px;
         font-size: 1.2em;
         font-family: "Red Rose"
+    }
+
+    // LOT / RULES PAGE
+
+    .rules {
+        font-family: "Red Rose";
+        text-align: center;
+        position: relative;
+        bottom: 50px;
+
+        a {
+            color: purple;
+            text-decoration: none;
+        }
+
     }
     
 
@@ -958,6 +967,15 @@ footer {
         }
 
         // LOT INFO
+
+        .rules {
+            font-size: 1.1em !important;
+            position: relative;
+            bottom: 0;
+            margin-top: -20px !important;
+            margin-bottom: 50px !important;
+        }
+
         .lotStatus {
             h1 {
                 font-size: 1.65em;

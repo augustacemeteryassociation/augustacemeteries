@@ -527,6 +527,18 @@ body .toTop {
   font-family: "Red Rose";
 }
 
+body .rules {
+  font-family: "Red Rose";
+  text-align: center;
+  position: relative;
+  bottom: 50px;
+}
+
+body .rules a {
+  color: purple;
+  text-decoration: none;
+}
+
 footer {
   background: purple;
   height: auto;
@@ -786,6 +798,13 @@ footer p {
     margin: 10px auto;
     width: 90%;
     font-size: .9em;
+  }
+  body .rules {
+    font-size: 1.1em !important;
+    position: relative;
+    bottom: 0;
+    margin-top: -20px !important;
+    margin-bottom: 50px !important;
   }
   body .lotStatus h1 {
     font-size: 1.65em;
