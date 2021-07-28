@@ -539,6 +539,20 @@ body .rules a {
   text-decoration: none;
 }
 
+body .selected {
+  color: black;
+  font-size: 2em;
+  font-family: "Red Rose";
+  text-align: center;
+}
+
+body .availability {
+  color: purple;
+  font-size: 1.2em;
+  font-family: "Red Rose";
+  text-align: center;
+}
+
 footer {
   background: purple;
   height: auto;
