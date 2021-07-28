@@ -820,6 +820,13 @@ footer p {
     margin-top: -20px !important;
     margin-bottom: 50px !important;
   }
+  body .selected {
+    font-size: 1em !important;
+  }
+  body .availability {
+    padding-top: 15px;
+    font-size: .65em !important;
+  }
   body .lotStatus h1 {
     font-size: 1.65em;
   }
