@@ -290,6 +290,7 @@
                         }
 
                         let inRoad = false;
+                        let notAvailable = 0;
                         availableArray = [];
                         availableLots = 0;
 
@@ -300,7 +301,9 @@
                                 availableArray.push(c);
                             } else if (lotCheck[c] == "Road") {
                                 inRoad = true;
-                            }    
+                            } else if (lotCheck[c] == "Not Available") {
+                                notAvailable += 1;
+                            }
                             
                         });
 

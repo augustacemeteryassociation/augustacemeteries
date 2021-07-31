@@ -2,6 +2,56 @@ function cleanString(s) {
     return s.replace(/[^a-zA-Z ]/g, "");
 }
 
+
+function yearDiff(d1, d2) {
+
+
+    let date1 = new Date(d1);
+    let date2 = new Date(d2);
+
+    let d1Arr = d1.split("-")
+    let d2Arr = d2.split("-")
+
+    let d1ArrYear = d1Arr[d1Arr.length - 1]
+    let d2ArrYear = d2Arr[d2Arr.length - 1]
+
+    let d2YearVal = Number.isInteger(parseInt(d2ArrYear)) ? parseInt(d2ArrYear) : NaN;
+    let d1YearVal = Number.isInteger(parseInt(d1ArrYear)) ? parseInt(d1ArrYear) : NaN;
+
+    //        console.log(d1, d2)
+    //        console.log(d1Arr, d2Arr)
+    //        console.log(d2YearVal, d1YearVal)
+
+    let d2Time = date2.getTime();
+    let d1Time = date1.getTime();
+
+    let timeYearDiff = Math.floor((d2Time - d1Time) / 31536000000);
+    let yearDiff = Math.floor(d2YearVal - d1YearVal)
+
+
+    if (isNaN(timeYearDiff)) {
+
+        if (isNaN(yearDiff)) {
+            yearDiff = "Unknown"
+        } else if (yearDiff == 0) {
+            yearDiff = "Less than 1 year"
+        }
+
+        //            console.log(`Death Date = ${date2},  Birth Date = ${date1}\nDeath YearTime = ${d2YearVal}, Birth YearTime = ${d1YearVal}\nYear Diff = ${yearDiff}`)
+        return yearDiff
+
+    }
+
+    if (timeYearDiff == 0) {
+        timeYearDiff = "Less than 1 year"
+    }
+
+    //        console.log(`Death Date = ${date2},  Birth Date = ${date1}\nDeath YearTime = ${d2Time}, Birth YearTime = ${d1Time}\nYear Diff = ${timeYearDiff}`)
+
+    return timeYearDiff
+
+}
+
 function getDate(dateStr) {
 
     var d = {}
@@ -25,7 +75,7 @@ function getDate(dateStr) {
 
     switch (dateLen) {
         case 3:
-            
+
             d.year = parseInt(dateArray[2]);
             d.month = parseInt(dateArray[0]);
             d.day = parseInt(dateArray[1]);
@@ -37,7 +87,7 @@ function getDate(dateStr) {
             break;
 
         case 2:
-            
+
             d.year = parseInt(dateArray[1]);
             d.month = parseInt(dateArray[0]);
 
@@ -49,7 +99,7 @@ function getDate(dateStr) {
         case 1:
             d.year = parseInt(dateArray[0]);
             d.year = nan(d.year);
-            
+
             break;
 
         case '':
@@ -158,10 +208,18 @@ function searchMap(cemetery, blockID, lotID) {
                                         d['lotNum'] = lotNum
                                         d['graveNum'] = graveNum
                                         d['graveSubNum'] = g
-                                        
+
                                         if (d['fName'] != "" && d['lName'] != "") {
                                             exactMatch.push(d)
                                         }
+                                        
+                                        // DEBUGGER FOR INVALID AGE (NEGATIVE AGE NUMBER)
+                                        
+                                        // var estimatedAge = yearDiff(d['dateOfBirth'], d['dateOfDeath'])
+                                        // if (estimatedAge < 0) {
+                                        //    console.log(`Age Error @ ${cemetery} - Block ${blockNum}, Lot ${lotNum} - ${graveNum+g}`, d)
+                                        // }
+
                                     }
                                 }
                             }
@@ -169,30 +227,32 @@ function searchMap(cemetery, blockID, lotID) {
                     }
                 }
             }
+
+
         }
 
 
 
         var isExactMatch_length = exactMatch.length
         var isExactMatch = isExactMatch_length >= 1
-        
 
 
-        
+
+
         if (isExactMatch) {
-            
+
             if (isExactMatch_length == 1) {
                 printPersonRusult(exactMatch, `There is ${exactMatch.length} grave located in ${cemetery.substr(0, 4) + " " + cemetery.substr(4, cemetery.length)}, Block ${blockID} - Lot ${lotID}`, "exactMatch", false);
             } else {
                 printPersonRusult(exactMatch, `There are ${exactMatch.length} graves located in ${cemetery.substr(0, 4) + " " + cemetery.substr(4, cemetery.length)}, Block ${blockID} - Lot ${lotID}`, "exactMatch", false);
             }
-            
-        } else if (lotID == "Blank"){
+
+        } else if (lotID == "Blank") {
             $results.append(`<h1 class='resultMessage'>Sorry, the lot that you selected is either empty or not available.`);
         } else {
             $results.append(`<h1 class='resultMessage'>Sorry, we couldn't find any graves at ${cemetery.substr(0, 4) + " " + cemetery.substr(4, cemetery.length)}, Block ${blockID} - Lot ${lotID}</h1>`);
         }
-        
+
         $results.append(`<h1 class='toTop'>Go Back to Top of Page</h1>`);
 
     });
@@ -206,19 +266,19 @@ function printPersonRusult(results, messageTitle, id = 'defautlResult', hidden =
 
     var divResultID = $(`#results #${id}`)
 
-   
-    
+
+
     $results.append(`<h1 class='resultMessage'>${messageTitle}</h1>`);
     $results.append(`<div class="results" id="${id}"></div>`)
-    
+
 
 
     for (var d in results) {
-//        console.log(results[d])
+        //        console.log(results[d])
         displayPeople(results[d], id, hidden);
     }
 
-    
+
 
 }
 
@@ -257,54 +317,7 @@ function displayPeople(d, id = '', hidden = false) {
         profileImage = "images/unknown.png"
     }
 
-    function yearDiff(d1, d2) {
-        
-        
-        let date1 = new Date(d1);
-        let date2 = new Date(d2);
-        
-        let d1Arr = d1.split("-")
-        let d2Arr = d2.split("-")
-        
-        let d1ArrYear = d1Arr[d1Arr.length - 1]
-        let d2ArrYear = d2Arr[d2Arr.length - 1]
-        
-        let d2YearVal = Number.isInteger(parseInt(d2ArrYear)) ? parseInt(d2ArrYear) : NaN;
-        let d1YearVal = Number.isInteger(parseInt(d1ArrYear)) ? parseInt(d1ArrYear) : NaN;
-        
-//        console.log(d1, d2)
-//        console.log(d1Arr, d2Arr)
-//        console.log(d2YearVal, d1YearVal)
-        
-        let d2Time = date2.getTime();
-        let d1Time = date1.getTime();
-        
-        let timeYearDiff = Math.floor((d2Time - d1Time) / 31536000000);
-        let yearDiff = Math.floor(d2YearVal - d1YearVal)
-        
-        
-        if (isNaN(timeYearDiff)) {
-            
-            if (isNaN(yearDiff)) {
-                yearDiff = "Unknown"
-            } else if (yearDiff == 0) {
-                yearDiff =  "Less than 1 year"
-            }
-            
-//            console.log(`Death Date = ${date2},  Birth Date = ${date1}\nDeath YearTime = ${d2YearVal}, Birth YearTime = ${d1YearVal}\nYear Diff = ${yearDiff}`)
-            return yearDiff
-            
-        }
-        
-        if (timeYearDiff == 0) {
-            timeYearDiff = "Less than 1 year"
-        }
-        
-//        console.log(`Death Date = ${date2},  Birth Date = ${date1}\nDeath YearTime = ${d2Time}, Birth YearTime = ${d1Time}\nYear Diff = ${timeYearDiff}`)
-        
-        return timeYearDiff
-        
-    }
+
 
     $(`#results #${id}`).last().append(`
             <div id="${fName_clean}${lName_clean}" class="imgFadeIn">
@@ -342,6 +355,8 @@ function displayPeople(d, id = '', hidden = false) {
 
     var latestPerson = $(`#results div`).last()
 
+
+
     appendDetail_Text(latestPerson, "First Name", fName);
     appendDetail_Text(latestPerson, "Middle Name", mName);
     appendDetail_Text(latestPerson, "Last Name", lName);
@@ -358,7 +373,7 @@ function displayPeople(d, id = '', hidden = false) {
     if (hidden) {
         $(`#results #${id}`).css("display", "none")
     }
-    
+
 }
 
 
