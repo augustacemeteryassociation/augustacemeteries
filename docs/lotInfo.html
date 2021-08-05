@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="description" content="Augusta WI Cemetery Association - Cemetery Maps">
     <meta name="keywords" content="Augusta, WI, Wisconsin, cemetery, cemeteries, association, homepage, map, maps">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width">
 
     <!-- CSS IMPORTS -->
     <link rel="stylesheet" href="assets/css/styles.css">
@@ -49,13 +49,41 @@
         <script>
             $(document).ready(function() {
 
-                function normalZoom() {
-                    var scale = "scale(1)"
-                    document.body.style.zoom = 1.0;
-                    document.body.style.webkitTransform = scale;
-                    document.body.style.msTransform = scale;
-                    document.body.style.transform = scale;
+                function viewPort(setting) {
+                    
+                    var viewportMeta = $("meta[name='viewport']");
+
+                    switch (setting) {
+                        case "init":
+                            viewportMeta.attr("content_original", viewportMeta.attr("content"));
+                            break;
+                        
+                        case "reset":
+                            viewportMeta.attr("content", viewportMeta.attr("content_original")); //then return back to old  viewport conditions
+                            break;
+                    
+                        case "zoomOut":
+                            viewportMeta.attr("content", "user-scalable=yes, width=device-width minimum-scale=1, maximum-scale=1"); //make current viewport full zoom out
+                            break;
+                    }
                 }
+                
+                viewPort("init");
+                
+                //                function normalZoom() {
+                //                    var scale = "scale(1)"
+                //                    document.body.style.zoom = 1.0;
+                //                    document.body.style.webkitTransform = scale;
+                //                    document.body.style.msTransform = scale;
+                //                    document.body.style.transform = scale;
+                //                }
+
+//                function updateZoom(zoomLevel) {
+//                    $('body').css({
+//                        zoom: zoomLevel,
+//                        '-moz-transform': 'scale(' + zoomLevel + ')'
+//                    });
+//                }
 
                 $("li").click(function() {
 
@@ -213,9 +241,7 @@
 
                 $(document).on('click', 'rect', function() {
 
-                    setTimeout(function() {
-                        myScroll.refresh();
-                    });
+                    viewPort("zoomOut")
 
                     var mapInfo = $(this).attr("id").split("-")
                     var cemetery = mapInfo[0]
@@ -342,11 +368,11 @@
 
                     }
 
-                }).zoom(0, 0, 1);
+                });
 
                 $(document).on('click', '.toTop', function() {
 
-                    normalZoom();
+//                    normalZoom();
                     $("html, body").animate({
                         scrollTop: 0
                     }, "slow");
@@ -355,23 +381,18 @@
 
                 $(document).on('click', '.mapSelection li', function() {
 
-                    normalZoom();
+//                    normalZoom();
                     $(".mapSelection li").css("border", "0px solid black");
                     $(this).css("border", "5px solid black");
 
                 });
 
                 $(document).on('hover', '.mapSelection li', function() {
-                    normalZoom();
+//                    normalZoom();
                     $(".mapSelection li").css("border", "5px solid black");
                     $(this).css("border", "5px solid black");
 
                 });
-
-                setTimeout(function() {
-                    myScroll.refresh();
-                });
-
 
             });
         </script>
