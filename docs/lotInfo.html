@@ -59,7 +59,10 @@
                             break;
                         
                         case "reset":
-                            viewportMeta.attr("content", viewportMeta.attr("content_original")); //then return back to old  viewport conditions
+//                            viewportMeta.attr("content", viewportMeta.attr("content_original")); //then return back to old  viewport conditions
+                            viewportMeta.animate(3000, function() {
+                                $(this).attr("content", viewportMeta.attr("content_original"));
+                            })
                             break;
                     
                         case "zoomOut":
@@ -253,7 +256,7 @@
                 $(document).on('click', 'rect', function() {
 
                     viewPort("zoomOut");
-//                    viewPort("reset");
+                    viewPort("reset");
 
                     var mapInfo = $(this).attr("id").split("-")
                     var cemetery = mapInfo[0]
