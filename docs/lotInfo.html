@@ -64,11 +64,17 @@
                     
                         case "zoomOut":
                             
-                            viewportMeta.animate(2000, function() {
-                                 $(this).attr("content", "user-scalable=yes, width=device-width minimum-scale=1, maximum-scale=1"); //make current viewport full zoom out
-                            });
+//                            viewportMeta.animate(2000, function() {
+//                                 $(this).attr("content", "user-scalable=yes, width=device-width minimum-scale=1, maximum-scale=1"); //make current viewport full zoom out
+//                            });
 //                            break;
-//                            viewportMeta.attr("content", "user-scalable=yes, width=device-width minimum-scale=1, maximum-scale=1");
+//                            viewportMeta.animate(2000, 'swing', function() {
+//                                viewportMeta.attr("content", "user-scalable=yes, width=device-width minimum-scale=1, maximum-scale=1");
+//                            
+//                            });
+//                            viewportMeta.fadeOut("slow").attr("content", "user-scalable=yes, width=device-width minimum-scale=1, maximum-scale=1").fadeIn("fast");
+//                            viewportMeta.fadeIn(1000, function() {
+                            viewportMeta.attr("content", "user-scalable=yes, width=device-width minimum-scale=1, maximum-scale=1");
                             break;
                     }
                 }
