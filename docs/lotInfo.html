@@ -213,6 +213,10 @@
 
                 $(document).on('click', 'rect', function() {
 
+                    setTimeout(function() {
+                        myScroll.refresh();
+                    });
+
                     var mapInfo = $(this).attr("id").split("-")
                     var cemetery = mapInfo[0]
                     var blockID = mapInfo[1]
@@ -269,10 +273,10 @@
                                             if (plotStatus == "For Sale") {
                                                 lotCheck[lotid] = "For Sale"
                                             }
-                                            
+
                                         }
                                     }
-                                } 
+                                }
                             } catch (err) {
                                 console.log(err);
                             }
@@ -304,11 +308,11 @@
                             } else if (lotCheck[c] == "Not Available") {
                                 notAvailable += 1;
                             }
-                            
+
                         });
 
 
-//                        console.log(lot, lotCheck, ` - Available Lots = ${availableLots}`, availableArray)
+                        //                        console.log(lot, lotCheck, ` - Available Lots = ${availableLots}`, availableArray)
 
                         let message = ''
 
@@ -338,7 +342,7 @@
 
                     }
 
-                });
+                }).zoom(0, 0, 1);
 
                 $(document).on('click', '.toTop', function() {
 
@@ -363,6 +367,11 @@
                     $(this).css("border", "5px solid black");
 
                 });
+
+                setTimeout(function() {
+                    myScroll.refresh();
+                });
+
 
             });
         </script>
