@@ -59,24 +59,14 @@
                             break;
                         
                         case "reset":
-//                            viewportMeta.attr("content", viewportMeta.attr("content_original")); //then return back to old  viewport conditions
-                            viewportMeta.animate(3000, function() {
-                                $(this).attr("content", viewportMeta.attr("content_original"));
-                            })
+                            viewportMeta.attr("content", viewportMeta.attr("content_original")); //then return back to old  viewport conditions
+//                            viewportMeta.animate(3000, function() {
+//                                $(this).attr("content", viewportMeta.attr("content_original"));
+//                            });
                             break;
                     
                         case "zoomOut":
-                            
-//                            viewportMeta.animate(2000, function() {
-//                                 $(this).attr("content", "user-scalable=yes, width=device-width minimum-scale=1, maximum-scale=1"); //make current viewport full zoom out
-//                            });
-//                            break;
-//                            viewportMeta.animate(2000, 'swing', function() {
-//                                viewportMeta.attr("content", "user-scalable=yes, width=device-width minimum-scale=1, maximum-scale=1");
-//                            
-//                            });
-//                            viewportMeta.fadeOut("slow").attr("content", "user-scalable=yes, width=device-width minimum-scale=1, maximum-scale=1").fadeIn("fast");
-//                            viewportMeta.fadeIn(1000, function() {
+                        
                             viewportMeta.attr("content", "user-scalable=yes, width=device-width minimum-scale=1, maximum-scale=1");
                             break;
                     }
@@ -256,7 +246,7 @@
                 $(document).on('click', 'rect', function() {
 
                     viewPort("zoomOut");
-                    viewPort("reset");
+//                    viewPort("reset");
 
                     var mapInfo = $(this).attr("id").split("-")
                     var cemetery = mapInfo[0]
