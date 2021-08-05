@@ -63,7 +63,12 @@
                             break;
                     
                         case "zoomOut":
-                            viewportMeta.attr("content", "user-scalable=yes, width=device-width minimum-scale=1, maximum-scale=1"); //make current viewport full zoom out
+                            
+                            viewportMeta.animate(2000, function() {
+                                 $(this).attr("content", "user-scalable=yes, width=device-width minimum-scale=1, maximum-scale=1"); //make current viewport full zoom out
+                            });
+//                            break;
+//                            viewportMeta.attr("content", "user-scalable=yes, width=device-width minimum-scale=1, maximum-scale=1");
                             break;
                     }
                 }
