@@ -17,7 +17,38 @@
 // Article Hours - Quicksand
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
 
+html {
+    display: none;
+}
 
+
+// Fade image in
+#imageFade {
+    animation: fadeIn 3s;
+    -webkit-animation: fadeIn 3s;
+    -moz-animation: fadeIn 3s;
+    -o-animation: fadeIn 3s;
+    -ms-animation: fadeIn 3s;
+  }
+  @keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+  
+  @-moz-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+  
+  @-webkit-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+  
+  @-o-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
 
 body {
     min-height: 100%;
@@ -121,10 +152,16 @@ body {
             // padding: 15px;
             padding: 10px 40px;
             clear: right;
-            margin-bottom: 100px;
+            margin-bottom: 75px;
         }
 
 
+    }
+
+    .homePage {
+        h2 {
+            color: purple;
+        }
     }
 
     // DEFAULT ARTICLE
@@ -309,14 +346,16 @@ body {
 
 
         .resultMessage {
-            width: 80%;
-            font-size: 1.4em;
+            width: 50%;
+            height: auto;
+            overflow: auto;
+            font-size: 1em;
             background-color: purple;
             color: white;
             margin: 30px auto;
             text-align: center;
             padding: 20px;
-            border-radius: 50px;
+            border-radius: 30px;
             font-family: "Red Rose";
 
             span {
@@ -329,13 +368,15 @@ body {
         }
 
         .errorMessage{
-            width: 75%;
+            width: 65%;
             background-color: rgb(138, 9, 9);
             color: white;
             margin: 30px auto;
             text-align: center;
-            padding: 20px;
+            padding: 7.5px;
             border-radius: 25px;
+            font-size: 1em;
+            font-family: "Red Rose";
 
             span {
                 font-weight: bolder;
@@ -353,7 +394,6 @@ body {
             padding: 20px;
             border-radius: 15px;
             text-align: center;
-            
             padding-top: 20px;
             margin: 0 auto;
             margin-bottom: 20px;
@@ -390,11 +430,17 @@ body {
                 h1 {
                     font-family: "Red Rose";
                     font-size: 2em;
+                    text-shadow: -3px 0 black, 0 -2px black;
                 }
 
                 h3 {
                     font-family: "Red Rose";
                     font-size: 1.7em;
+                    color: white;
+                    
+                    span {
+                        text-shadow: -3px 0 black, 0 -2px black;
+                    }
                 }
 
                 span.fullName {
@@ -599,6 +645,7 @@ body {
         text-align: center;
         position: relative;
         bottom: 50px;
+        font-size: 1.8em;
 
         a {
             color: purple;
@@ -717,6 +764,8 @@ footer {
                 text-align: left;
                 padding: 0 20px;
             }
+
+            
         }
 
         // BOARD MEMEBERS PAGE

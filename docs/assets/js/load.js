@@ -1,7 +1,6 @@
 $().ready(function() {
-    
+
     //LOAD IMPORTS
-    
     $.ajax({
         type: "GET",
         url: "templates/head.html",
@@ -17,8 +16,8 @@ $().ready(function() {
         var year = new Date().getFullYear();
         $(".currentYear").html(year);
     });
-    
-    
-    
+
+    // fade page in
+    $("html").fadeIn(1250);
     
 });

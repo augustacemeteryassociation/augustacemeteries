@@ -422,10 +422,10 @@ $().ready(function () {
 
 
         $(`#results #${id}`).last().append(`
-            <div id="${fName_clean}${lName_clean}" class="imgFadeIn">
-                <img src="${profileImage}" class="profilePicture"></img>
+            <div id="${fName_clean}${lName_clean}" class="result">
+                <img src="${profileImage}" class="profilePicture" loading="lazy"></img>
                 <h1><span class='fullName'>${fName} ${lName}</span><br>(${dateOfBirth.year} - ${dateOfDeath.year})</h1>
-                <h3>${cemetery} - Block ${blockNum}, Lot ${lotNum} : Grave ${graveNum}${graveSubNum}</h3>
+                <h3>${cemeteryLocation} Lawn - <span>Block ${blockNum}, Lot ${lotNum} : Grave ${graveNum}${graveSubNum}</span></h3>
                 
                 <a href='mailto:
                     ?subject=Augusta ${cemeteryLocation} Lawn Cemetery: ${fName} ${lName}
@@ -510,10 +510,10 @@ $().ready(function () {
             div.append(`<h3>${title}:</h3>`)
 
             if (typeof imagesArray == "string") {
-                div.append(`<img src="${imagesArray.replace("https", "http")}" class="${addClass}">`);
+                div.append(`<img src="${imagesArray.replace("https", "http")}" class="${addClass}" loading="lazy">`);
             } else if (Array.isArray(imagesArray) && imagesArray.length != 0) {
                 for (const i in imagesArray) {
-                    div.append(`<img src="${imagesArray[i].replace("https", "http")}" class="${addClass}">`);
+                    div.append(`<img src="${imagesArray[i].replace("https", "http")}" class="${addClass}" loading="lazy">`);
                 }
             }
         }
@@ -588,4 +588,22 @@ $(document).on('click', '.moreDetails', function () {
 $(document).on('click', '.resultMessage', function () {
     //    console.log("clicked")
     $(this).next(".results").toggle(400, "swing")
+});
+
+
+// only load image when it is visible in window
+// $(window).on('scroll', function () {
+//     $('.gravestone').each(function () {
+//         var imagePos = $(this).offset().top;
+
+//         var topOfWindow = $(window).scrollTop();
+//         if (imagePos < topOfWindow + 400) {
+//             $(this).attr('src', $(this).data('src'));
+//         }
+//     });
+// });
+
+// when image is loading, fade in
+$(document).on('load', 'img', function () {
+    $(this).fadeIn(1000);
 });
