@@ -242,9 +242,9 @@ function searchMap(cemetery, blockID, lotID) {
         if (isExactMatch) {
 
             if (isExactMatch_length == 1) {
-                printPersonRusult(exactMatch, `There is ${exactMatch.length} grave located in ${cemetery.substr(0, 4) + " " + cemetery.substr(4, cemetery.length)}, Block ${blockID} - Lot ${lotID}`, "exactMatch", false);
+                printPersonRusult(exactMatch, `There is ${exactMatch.length} grave located in:<br> ${cemetery.substr(0, 4) + " " + cemetery.substr(4, cemetery.length)}, Block ${blockID} - Lot ${lotID}`, "exactMatch", false);
             } else {
-                printPersonRusult(exactMatch, `There are ${exactMatch.length} graves located in ${cemetery.substr(0, 4) + " " + cemetery.substr(4, cemetery.length)}, Block ${blockID} - Lot ${lotID}`, "exactMatch", false);
+                printPersonRusult(exactMatch, `There are ${exactMatch.length} graves located in:<br> ${cemetery.substr(0, 4) + " " + cemetery.substr(4, cemetery.length)}, Block ${blockID} - Lot ${lotID}`, "exactMatch", false);
             }
 
         } else if (lotID == "Blank") {

@@ -424,9 +424,9 @@
                         let message = ''
 
                         if (availableLots == 1) {
-                            message = `There is ${availableLots} potential lot available \(Lot ${availableArray.join(', ')}\).`
+                            message = `There is ${availableLots} potential lot available \(Lot ${availableArray.join(', ')}\)`
                         } else if (availableLots > 1) {
-                            message = `There are ${availableLots} potential lots available \(Lots ${availableArray.join(', ')}\).`
+                            message = `There are ${availableLots} potential lots available \(Lots ${availableArray.join(', ')}\)`
                         } else if (notAvailable == 6) {
                             message = `Sorry, Block ${blockID}, lot ${lot=="Blank" ? "N/A": lot} is Not Available or Reserved`
                         } else {
