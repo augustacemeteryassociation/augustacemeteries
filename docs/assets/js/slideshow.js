@@ -24,6 +24,10 @@ $().ready(function(){
 
             // Start the slideshow, passing in the images array
             startSlideshow(images);
+        },
+        error: function(data){
+            // console.log("Error getting images from folder");
+            startSlideshow(["1.jpg", "2.jpg", "3.jpg", "4.jpg"]);
         }
     });
 
