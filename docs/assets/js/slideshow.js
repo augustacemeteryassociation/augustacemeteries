@@ -27,7 +27,7 @@ $().ready(function(){
         },
         error: function(data){
             // console.log("Error getting images from folder");
-            startSlideshow(["1.jpg", "2.jpg", "3.jpg", "4.jpg"]);
+            startSlideshow(["assets/images/homepage/slideshow/1.jpg", "assets/images/homepage/slideshow/2.jpg", "assets/images/homepage/slideshow/3.jpg", "assets/images/homepage/slideshow/4.jpg"]);
         }
     });
 
