@@ -164,6 +164,14 @@ body {
         }
     }
 
+    .slideshow > img {
+        width: 30%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        padding-top: 20px;
+    }
+
     // DEFAULT ARTICLE
     article {
 
@@ -767,6 +775,12 @@ footer {
 
             
         }
+
+        .slideshow > img {
+            width: 75%;
+            height: auto;
+        }
+
 
         // BOARD MEMEBERS PAGE
         .member {
