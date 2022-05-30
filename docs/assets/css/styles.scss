@@ -172,6 +172,63 @@ body {
         padding-top: 20px;
     }
 
+
+    #itemContainer {
+        // overflow: auto;
+        width: 100%;
+        display: flex;
+
+        padding-top: 30px;
+
+        .itemDetails {
+            
+            width: 33%;
+            height: auto;
+            margin-top: 50px;
+
+            h3 {
+                background-color: purple;
+                color: white;
+                width: 75%;
+                margin: 0 auto;
+                padding: 10px;
+                border-radius: 30px;
+            }
+
+            div.imgContainer {
+                position: relative;
+                display: inline-block;
+                padding: 50px;
+
+                img {
+                    width: 60%;
+                    height: 50%;
+                    padding: 5px;
+                    vertical-align: middle;
+                }
+
+                .imgBigger {
+                    width: 75% !important;
+                }
+
+                .imgSmaller {
+                    width: 40% !important;
+                }
+
+                
+            }
+
+            a {
+                text-decoration: none;
+            }
+            
+
+        }
+
+    }
+    
+
+
     // DEFAULT ARTICLE
     article {
 
@@ -281,9 +338,12 @@ body {
             .contact_info {
                 h3 {
                     font-size: 1.75em;
-                    text-align: left;
+                    // text-align: left;
+                    margin: 0 auto;
+                    margin-top: 20px;
                     position: relative;
-                    left: 15%
+                    color: white;
+                    // left: 15%
                 }
 
                 a {
@@ -675,6 +735,55 @@ body {
         font-family: "Red Rose";
         text-align: center;
     }
+
+
+    // DONTATION PAGE
+    #donationTypes ul{
+        width: 100% !important;
+        margin: 0 auto;
+        padding-bottom: 50px;
+        li {
+            position: relative;
+            display: inline-block;
+            background-color: purple;
+            color: white;
+            font-family: "Nunito";
+            font-weight: bold;
+            width: 30%;
+            padding: 10px 20px;
+            border-radius: 50px;
+            margin: 0 auto;
+            margin-left: 10%;
+            clear: left;
+
+            h1 {
+                font-size: 2em;
+                text-align: center;
+                margin: 0 auto;
+                width: auto;
+                padding: 10px;
+                border-radius: 5px;
+                color: white;
+                font-weight: bold;
+
+            }
+
+            a {
+                text-decoration: none;
+                color: white;
+            }
+        }
+   
+    }
+
+    .donationInfo {
+        padding-top: 5px;
+        text-align: center;
+        line-height: 1em;
+        font-size: 1.75em;
+        font-family: "Red Rose";
+       
+    }
     
 
 }
@@ -782,6 +891,61 @@ footer {
         }
 
 
+        #itemContainer {
+            // overflow: auto;
+            width: 100%;
+            display: block;
+    
+            padding-top: 30px;
+    
+            .itemDetails {
+                
+                width: 100%;
+                height: auto;
+                margin-top: 50px;
+    
+                h3 {
+                    background-color: purple;
+                    color: white;
+                    width: 50%;
+                    font-size: 1.2em;
+                    margin: 0 auto;
+                    padding: 10px;
+                    border-radius: 30px;
+                }
+    
+                div.imgContainer {
+                    position: relative;
+                    display: inline-block;
+                    padding: 50px;
+    
+                    img {
+                        width: 60%;
+                        height: 50%;
+                        padding: 5px;
+                        vertical-align: middle;
+                    }
+    
+                    .imgBigger {
+                        width: 75% !important;
+                    }
+    
+                    .imgSmaller {
+                        width: 50% !important;
+                    }
+    
+                    
+                }
+    
+    
+                
+    
+            }
+    
+        }
+
+
+
         // BOARD MEMEBERS PAGE
         .member {
             width: 85%;
@@ -809,14 +973,19 @@ footer {
                     font-size: 1.25em !important;
                 }
     
-                
+                .contact_info {
+                    margin-top: 20px !important;
+                }
+
                 .email {
-                    left: 8% !important;
+                    // left: 8% !important;
+                    margin-top: 5px !important;
                     font-size: 0.8em !important;
-                    left: 20px;
+                    // left: 20px;
                 }
     
                 .phone {
+                    margin-top: 5px !important;
                     font-size: 1em !important;
                     color: black;
                 }
@@ -1081,6 +1250,64 @@ footer {
                 }
             }
         }
+
+
+        // DONTATION PAGE
+        #donationTypes ul{
+            width: 100% !important;
+            padding: 10px 20px;
+            margin: 0 auto;
+
+
+
+
+            li {
+                position: relative;
+                display: inline-block;
+                background-color: purple;
+                color: white;
+                font-family: "Nunito";
+                font-weight: bold;
+                width: 85%;
+                padding: 0;
+                border-radius: 50px;
+                margin: 0 auto;
+                margin-bottom: 20px;
+                clear: left;
+
+                h1 {
+                    font-size: 1.2em;
+                    text-align: center;
+                    margin: 0 auto;
+                    width: auto;
+                    padding: 5px;
+                    border-radius: 5px;
+                    color: white;
+                    font-weight: bold;
+
+                }
+
+                a {
+                    text-decoration: none;
+                    color: white;
+                }
+            }
+    
+        }
+
+        .donationInfo {
+            width: 90%;
+            padding-top: 20px;
+            text-align: center;
+            // line-height: 1.5em;
+            font-size: .8em;
+            font-family: "Red Rose";
+            margin: 0px auto;
+        
+        }
+
+
+
 
         // FOOTER
         footer {
