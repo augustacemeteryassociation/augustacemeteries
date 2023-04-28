@@ -132,8 +132,8 @@ body .homePage h2 {
 }
 
 body .slideshow > img {
-  width: 30%;
-  height: auto;
+  height: 500px;
+  width: auto;
   display: block;
   margin: 0 auto;
   padding-top: 20px;
@@ -655,25 +655,27 @@ body .availability {
   text-align: center;
 }
 
+body #donationTypes {
+  width: 100%;
+  text-align: center;
+}
+
 body #donationTypes ul {
   width: 100% !important;
   margin: 0 auto;
+  padding: 0;
   padding-bottom: 50px;
 }
 
 body #donationTypes ul li {
-  position: relative;
   display: inline-block;
   background-color: purple;
   color: white;
   font-family: "Nunito";
   font-weight: bold;
   width: 30%;
-  padding: 10px 20px;
   border-radius: 50px;
   margin: 0 auto;
-  margin-left: 10%;
-  clear: left;
 }
 
 body #donationTypes ul li h1 {
@@ -1033,36 +1035,12 @@ footer p {
   }
   body #donationTypes ul {
     width: 100% !important;
-    padding: 10px 20px;
+    padding: 20px 0;
     margin: 0 auto;
   }
   body #donationTypes ul li {
-    position: relative;
-    display: inline-block;
-    background-color: purple;
-    color: white;
-    font-family: "Nunito";
-    font-weight: bold;
-    width: 85%;
-    padding: 0;
-    border-radius: 50px;
-    margin: 0 auto;
-    margin-bottom: 20px;
-    clear: left;
-  }
-  body #donationTypes ul li h1 {
-    font-size: 1.2em;
-    text-align: center;
-    margin: 0 auto;
-    width: auto;
-    padding: 5px;
-    border-radius: 5px;
-    color: white;
-    font-weight: bold;
-  }
-  body #donationTypes ul li a {
-    text-decoration: none;
-    color: white;
+    width: 50%;
+    font-size: .5em;
   }
   body .donationInfo {
     width: 90%;

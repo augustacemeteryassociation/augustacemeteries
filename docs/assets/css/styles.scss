@@ -1,11 +1,11 @@
 @font-face {
-    font-family: "Red Rose";
-    src: url("fonts/RedRose-Bold.ttf");
+	font-family: "Red Rose";
+	src: url("fonts/RedRose-Bold.ttf");
 }
 
 @font-face {
-    font-family: "Cursive";
-    src: url("fonts/cursive.ttf")
+	font-family: "Cursive";
+	src: url("fonts/cursive.ttf")
 }
 
 // Article Title - Secular One
@@ -18,1314 +18,1324 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
 
 html {
-    display: none;
+	display: none;
 }
 
 
 // Fade image in
 #imageFade {
-    animation: fadeIn 3s;
-    -webkit-animation: fadeIn 3s;
-    -moz-animation: fadeIn 3s;
-    -o-animation: fadeIn 3s;
-    -ms-animation: fadeIn 3s;
+	animation: fadeIn 3s;
+	-webkit-animation: fadeIn 3s;
+	-moz-animation: fadeIn 3s;
+	-o-animation: fadeIn 3s;
+	-ms-animation: fadeIn 3s;
   }
   @keyframes fadeIn {
-    0% {opacity:0;}
-    100% {opacity:1;}
+	0% {opacity:0;}
+	100% {opacity:1;}
   }
   
   @-moz-keyframes fadeIn {
-    0% {opacity:0;}
-    100% {opacity:1;}
+	0% {opacity:0;}
+	100% {opacity:1;}
   }
   
   @-webkit-keyframes fadeIn {
-    0% {opacity:0;}
-    100% {opacity:1;}
+	0% {opacity:0;}
+	100% {opacity:1;}
   }
   
   @-o-keyframes fadeIn {
-    0% {opacity:0;}
-    100% {opacity:1;}
+	0% {opacity:0;}
+	100% {opacity:1;}
   }
 
 body {
-    min-height: 100%;
-    height: auto;
-    padding-bottom: 100px;
-
-    nav {
-
-        width: 100%;
-        background-color: purple;
-        display: block;
-        border-radius: 10px;
-        font-family: "Red Rose";
-        text-align: center;
-        height: auto;
-
-
-        #logo {
-            width: 100%;
-            font-size: 30px;
-            color: white;
-            height: auto;
-            padding: 20px;
-            font-family: "Red Rose";
-        }
-
-
-        ul {
-            width: 100%;
-            display: inline-block;
-            position: relative;
-            width: auto;
-            list-style: none;
-            margin: 0 auto;
-            bottom: 20px;
-            padding: 0;
-
-
-            li {
-                font-size: 1.2em;
-                list-style: none;
-                position: relative;
-
-                // right: 4%;
-                display: inline-block;
-                // float: left;
-                // padding: 5px;
-                margin: 5px;
-                width: auto;
-
-
-                a {
-                    text-align: center;
-                    width: 160px;
-                    display: block;
-                    clear: left;
-                    text-decoration: none;
-                    color: purple;
-                    font-weight: bolder;
-                    padding: 10px;
-                    background-color: white;
-                    border-radius: 5px;
-                }
-            }
-
-            li:hover {
-                a {
-                    color: black;
-                }
-            }
-
-        }
-    }
-
-    
-
-    #pageTitle {
-        width: 100%;
-        position: relative;
-        margin: 0 auto;
-        // margin-left: 50%;
-        text-align: center;
-        height: auto;
-
-        h1 {
-            position: relative;
-            display: inline-block;
-            // left: 33%;
-            top: 25px;
-            color: white;
-            font-family: "Red Rose";
-            text-align: center;
-            margin: 10px;
-            background-color: purple;
-            // width: 300px;
-            // margin-bottom: 100px;
-            // height: auto;
-            border-radius: 10px;
-            // align-self: center;
-            text-align: center;
-            // padding: 15px;
-            padding: 10px 40px;
-            clear: right;
-            margin-bottom: 75px;
-        }
-
-
-    }
-
-    .homePage {
-        h2 {
-            color: purple;
-        }
-    }
-
-    .slideshow > img {
-        width: 30%;
-        height: auto;
-        display: block;
-        margin: 0 auto;
-        padding-top: 20px;
-    }
-
-
-    #itemContainer {
-        // overflow: auto;
-        width: 100%;
-        display: flex;
-
-        padding-top: 30px;
-
-        .itemDetails {
-            
-            width: 33%;
-            height: auto;
-            margin-top: 50px;
-
-            h3 {
-                background-color: purple;
-                color: white;
-                width: 75%;
-                margin: 0 auto;
-                padding: 10px;
-                border-radius: 30px;
-            }
-
-            div.imgContainer {
-                position: relative;
-                display: inline-block;
-                padding: 50px;
-
-                img {
-                    width: 60%;
-                    height: 50%;
-                    padding: 5px;
-                    vertical-align: middle;
-                }
-
-                .imgBigger {
-                    width: 75% !important;
-                }
-
-                .imgSmaller {
-                    width: 40% !important;
-                }
-
-                
-            }
-
-            a {
-                text-decoration: none;
-            }
-            
-
-        }
-
-    }
-    
-
-
-    // DEFAULT ARTICLE
-    article {
-
-        text-align: center;
-       
-        margin-bottom: 60px;
-
-        h1.title {
-            font-size: 50px;
-            font-family: "Secular One";
-            color: purple;
-            margin: 0;
-        }
-
-        p {
-            font-size: 30px;
-            text-align: left;
-            position: relative;
-            left: 33%;
-            margin: 0 auto;
-            font-family: "Nunito";
-            font-weight: bold;
-            padding: 10px 0;
-
-            a {
-                text-decoration: none;
-                color: rgb(150, 3, 187);
-            }
-
-            a:hover {
-                color: rgb(16, 154, 235);
-            }
-        }
-
-        h2 {
-            font-family: "Secular One";
-            font-size: 2.75em;
-            margin: 5px;
-        }
-
-        h3 {
-            font-family: "Secular One";
-            font-size: 2em;
-        }
-
-        h4 {
-            font-family: "Secular One";
-            font-size: 1.2em;
-        }
-
-        ul {
-            li {
-                list-style: none;
-                font-family: "Quicksand";
-                font-size: 2em;
-                padding: 2.5px;
-
-                span.day {
-                    font-weight: bolder;
-                    color: black;
-                }
-
-                span.hours {
-                    color: purple;
-                    font-weight: bold;
-                }
-
-            }
-        }
-
-    }
-
-
-    // MEMBER CSS
-    .member {
-        margin: 0 auto;
-        margin-bottom: 50px;
-        background-color: purple;
-        width: 50%;
-        border-radius: 30px;
-        height: auto;
-        padding: 60px;
-
-        .profilePicture {
-            img {
-                padding-top: 50px;
-                width: 30%;
-                height: auto;
-            }
-        }
-
-        .member_info {
-            .membership_title {
-                font-size: 3em;
-                font-family: "Nunito";
-            }
-
-            h2 {
-                font-family: "Secular One";
-            }
-
-            .membership_length {
-                font-size: 2em;
-                font-family: "Red Rose";
-            }
-
-            .contact_info {
-                h3 {
-                    font-size: 1.75em;
-                    // text-align: left;
-                    margin: 0 auto;
-                    margin-top: 20px;
-                    position: relative;
-                    color: white;
-                    // left: 15%
-                }
-
-                a {
-                    font-size: 1em;
-                    font-family: "arial";
-                    text-decoration: none;
-                    color: rgb(45, 176, 251)
-                }
-            }
-
-        }
-    }
-
-
-    // FORM AND RESULT CSS
-    form {
-        margin: 0 auto;
-        width: 100%;
-        text-align: center;
-        vertical-align: center;
-
-        input {
-            padding: 10px;
-            font-size: 18px;
-            width: 175px;
-            font-family: "Red Rose";
-            text-align: center;
-        }
-
-        label {
-            padding: 10px;
-            font-size: 25px;
-            position: relative;
-            bottom: -4px;
-            font-weight: bold;
-            font-family: "Red Rose";
-
-            padding-left: 50px;
-        }
-
-        select {
-
-            width: 175px;
-            font-size: 18px;
-            text-align-last: center;
-            height: 50px;
-            margin-right: 10px;
-
-        }
-
-    }
-
-    .center {
-        width: 100%;
-        margin: 0 auto;
-        text-align: center;
-
-        #blockID {
-            font-size: 1.5em;
-            padding: 10px
-        }
-
-    }
-
-    #results {
-        padding-top: 20px;
-        font-size: 28px;
-
-
-        .resultMessage {
-            width: 50%;
-            height: auto;
-            overflow: auto;
-            font-size: 1em;
-            background-color: purple;
-            color: white;
-            margin: 30px auto;
-            text-align: center;
-            padding: 20px;
-            border-radius: 30px;
-            font-family: "Red Rose";
-
-            span {
-                font-weight: bolder;
-            }
-        }
-
-        .resultMessage:hover {
-            font-weight: bolder;
-        }
-
-        .errorMessage{
-            width: 65%;
-            background-color: rgb(138, 9, 9);
-            color: white;
-            margin: 30px auto;
-            text-align: center;
-            padding: 7.5px;
-            border-radius: 25px;
-            font-size: 1em;
-            font-family: "Red Rose";
-
-            span {
-                font-weight: bolder;
-            }
-        }
-
-        .results {
-            height: auto;
-            width: 60%;
-            font-size: 16px;
-            background-color: white;
-            color: purple;
-            outline-color: black;
-            border-radius: 6px;
-            padding: 20px;
-            border-radius: 15px;
-            text-align: center;
-            padding-top: 20px;
-            margin: 0 auto;
-            margin-bottom: 20px;
-
-            img {
-                padding-top: 30px;
-                width: 90%;
-                height: auto;
-            }
-
-            div {
-                background-color: purple;
-                color: white;
-                margin: 30px auto;
-                padding: 20px;
-                border-radius: 50px;
-                width: auto;
-
-                .emailInfo {
-                    text-decoration: none;
-                    font-family: "Red Rose";
-                    font-size: 25px;
-                    color: purple;
-                    background-color: white;
-                    padding: 10px 30px;
-                    border-radius: 10px;
-                }
-
-                img {
-                    width: 50%;
-                    height: auto;
-                }
-
-                h1 {
-                    font-family: "Red Rose";
-                    font-size: 2em;
-                    text-shadow: -3px 0 black, 0 -2px black;
-                }
-
-                h3 {
-                    font-family: "Red Rose";
-                    font-size: 1.7em;
-                    color: white;
-                    
-                    span {
-                        text-shadow: -3px 0 black, 0 -2px black;
-                    }
-                }
-
-                span.fullName {
-                    font-family: "Red Rose";
-                    font-size: 1.5em;
-                    font-weight: bold;
-                }
-
-                div.moreDetails {
-
-                    width: auto;
-                    height: auto;
-                    z-index: 1;
-
-                    h2 {
-                        font-family: "Red Rose";
-                        font-size: 2em;
-                        background-color: white;
-                        color: purple;
-                        font-weight: bolder;
-                        width: 50%;
-                        margin: 0 auto;
-                        padding: 10px;
-                        border-radius: 10px;
-                    }
-                }
-
-                .details {
-                    width: auto;
-                    display: none;
-                    text-align: left;
-                    margin: 0 auto;
-                    padding-bottom: 50px;
-                    
-                
-                    img {
-                        display: block;
-                        margin-left: auto;
-                        margin-right: auto;
-                        text-align: center;
-                        width: 90%;
-                        height: auto;
-                    }
-        
-                    .gravestone {
-                        width: 75%;
-                    }
-                
-                    .obituary {
-                        width: 80%;
-                    }
-        
-                    h3 {
-                        position: relative;
-                        left: 15%;
-                        margin: 0px;
-                        padding: 5px;
-                    }
-        
-                    span {
-                        color: white;
-                        font-size: 1.25em;
-                        font-weight: bolder;
-                        position: relative; 
-                        left: 15px;
-
-                        a {
-                            text-decoration: none;
-                            position: relative;
-                            color: white;
-                        }
-
-                        a:hover {
-                            color: rgb(47, 241, 245);
-                        }
-                    }
-                }
-
-            }
-        }
-        
-    }
-
-    
-    // MAP PAGE CSS
-    .svg {
-        width: 80%;
-        height: auto;
-        margin: 0 auto;
-    
-        svg {
-            width: 100%;
-            height: auto;
-            z-index: -1;
-    
-            rect {
-                background-color: aqua;
-            }
-    
-        }
-    
-    }
-
-    .mapSelection {
-        margin: 0 auto;
-        height: 200px;
-        margin-bottom: 175px;
-        width: 100%;
-
-        h1 {
-            width: 100%;
-            text-align: center;
-            font-size: 4em;
-            margin-bottom: 20px;
-            font-family: "Red Rose";
-            color: purple;
-            -webkit-text-stroke-width: 2px;
-            -webkit-text-stroke-color: purple;
-        }
-    
-        ul {
-            position: relative;
-            right: 50px;
-            margin: 0 auto;
-            width: 100%;
-            display: inline-block;
-            vertical-align: top;
-            height: auto;
-            text-align: center;
-           
-            li {
-                position: relative;
-                right: 0;
-                display: inline-block;
-                list-style: none;
-                width: 25%;
-                font-size: 2.75em;
-                padding-bottom: 30px;
-                padding: 10px;
-                background-color: purple;
-                border-radius: 40px;
-                margin: 0 30px;
-                color: white;
-                font-family: "Red Rose";
-            }
-
-            
-        }
-
-        p {
-            position: relative;
-            top: 15px;
-            margin-bottom: 20px;
-            font-size: 35px;
-            text-align: center;
-            width: 100%;
-            font-weight: bolder;
-            font-family: "Red Rose";
-        }
-    }
-    
-    .lotStatus {
-        padding-bottom: 350px;
-
-        .mapIndex {
-            margin: 50px auto;
-            width: 25%;
-            background-color:white;
-            border-radius: 20px;
-            border: 15px solid purple;
-            clear: left;
-             
-            h1 {
-                font-size: 2.5em;
-            }
-
-            h2 {
-                position: relative;
-                left: 17%;
-                font-family: "Secular One";
-                font-size: 1.6em;
-            }
-        }
-    }
-
-    .toTop {
-        color: white;
-        background: purple;
-        width: 45%;
-        text-align: center;
-        padding: 10px;
-        margin: 100px auto;
-        border-radius: 20px;
-        font-size: 1.2em;
-        font-family: "Red Rose"
-    }
-
-    // LOT / RULES PAGE
-
-    .rules {
-        font-family: "Red Rose";
-        text-align: center;
-        position: relative;
-        bottom: 50px;
-        font-size: 1.8em;
-
-        a {
-            color: purple;
-            text-decoration: none;
-        }
-
-    }
-
-    .selected {
-        color: black;
-        font-size: 2em;
-        font-family: "Red Rose";
-        text-align: center;
-    }
-
-    .availability {
-        color: purple;
-        font-size: 1.2em;
-        font-family: "Red Rose";
-        text-align: center;
-    }
-
-
-    // DONTATION PAGE
-    #donationTypes ul{
-        width: 100% !important;
-        margin: 0 auto;
-        padding-bottom: 50px;
-        li {
-            position: relative;
-            display: inline-block;
-            background-color: purple;
-            color: white;
-            font-family: "Nunito";
-            font-weight: bold;
-            width: 30%;
-            padding: 10px 20px;
-            border-radius: 50px;
-            margin: 0 auto;
-            margin-left: 10%;
-            clear: left;
-
-            h1 {
-                font-size: 2em;
-                text-align: center;
-                margin: 0 auto;
-                width: auto;
-                padding: 10px;
-                border-radius: 5px;
-                color: white;
-                font-weight: bold;
-
-            }
-
-            a {
-                text-decoration: none;
-                color: white;
-            }
-        }
-   
-    }
-
-    .donationInfo {
-        padding-top: 5px;
-        text-align: center;
-        line-height: 1em;
-        font-size: 1.75em;
-        font-family: "Red Rose";
-       
-    }
-    
+	min-height: 100%;
+	height: auto;
+	padding-bottom: 100px;
+
+	nav {
+
+		width: 100%;
+		background-color: purple;
+		display: block;
+		border-radius: 10px;
+		font-family: "Red Rose";
+		text-align: center;
+		height: auto;
+
+
+		#logo {
+			width: 100%;
+			font-size: 30px;
+			color: white;
+			height: auto;
+			padding: 20px;
+			font-family: "Red Rose";
+		}
+
+
+		ul {
+			width: 100%;
+			display: inline-block;
+			position: relative;
+			width: auto;
+			list-style: none;
+			margin: 0 auto;
+			bottom: 20px;
+			padding: 0;
+
+
+			li {
+				font-size: 1.2em;
+				list-style: none;
+				position: relative;
+
+				// right: 4%;
+				display: inline-block;
+				// float: left;
+				// padding: 5px;
+				margin: 5px;
+				width: auto;
+
+
+				a {
+					text-align: center;
+					width: 160px;
+					display: block;
+					clear: left;
+					text-decoration: none;
+					color: purple;
+					font-weight: bolder;
+					padding: 10px;
+					background-color: white;
+					border-radius: 5px;
+				}
+			}
+
+			li:hover {
+				a {
+					color: black;
+				}
+			}
+
+		}
+	}
+
+	
+
+	#pageTitle {
+		width: 100%;
+		position: relative;
+		margin: 0 auto;
+		// margin-left: 50%;
+		text-align: center;
+		height: auto;
+
+		h1 {
+			position: relative;
+			display: inline-block;
+			// left: 33%;
+			top: 25px;
+			color: white;
+			font-family: "Red Rose";
+			text-align: center;
+			margin: 10px;
+			background-color: purple;
+			// width: 300px;
+			// margin-bottom: 100px;
+			// height: auto;
+			border-radius: 10px;
+			// align-self: center;
+			text-align: center;
+			// padding: 15px;
+			padding: 10px 40px;
+			clear: right;
+			margin-bottom: 75px;
+		}
+
+
+	}
+
+	.homePage {
+		h2 {
+			color: purple;
+		}
+	}
+
+	.slideshow > img {
+		height: 500px;
+		width: auto;
+		display: block;
+		margin: 0 auto;
+		padding-top: 20px;
+	}
+
+
+	#itemContainer {
+		// overflow: auto;
+		width: 100%;
+		display: flex;
+
+		padding-top: 30px;
+
+		.itemDetails {
+			
+			width: 33%;
+			height: auto;
+			margin-top: 50px;
+
+			h3 {
+				background-color: purple;
+				color: white;
+				width: 75%;
+				margin: 0 auto;
+				padding: 10px;
+				border-radius: 30px;
+			}
+
+			div.imgContainer {
+				position: relative;
+				display: inline-block;
+				padding: 50px;
+
+				img {
+					width: 60%;
+					height: 50%;
+					padding: 5px;
+					vertical-align: middle;
+				}
+
+				.imgBigger {
+					width: 75% !important;
+				}
+
+				.imgSmaller {
+					width: 40% !important;
+				}
+
+				
+			}
+
+			a {
+				text-decoration: none;
+			}
+			
+
+		}
+
+	}
+	
+
+
+	// DEFAULT ARTICLE
+	article {
+
+		text-align: center;
+	   
+		margin-bottom: 60px;
+
+		h1.title {
+			font-size: 50px;
+			font-family: "Secular One";
+			color: purple;
+			margin: 0;
+		}
+
+		p {
+			font-size: 30px;
+			text-align: left;
+			position: relative;
+			left: 33%;
+			margin: 0 auto;
+			font-family: "Nunito";
+			font-weight: bold;
+			padding: 10px 0;
+
+			a {
+				text-decoration: none;
+				color: rgb(150, 3, 187);
+			}
+
+			a:hover {
+				color: rgb(16, 154, 235);
+			}
+		}
+
+		h2 {
+			font-family: "Secular One";
+			font-size: 2.75em;
+			margin: 5px;
+		}
+
+		h3 {
+			font-family: "Secular One";
+			font-size: 2em;
+		}
+
+		h4 {
+			font-family: "Secular One";
+			font-size: 1.2em;
+		}
+
+		ul {
+			li {
+				list-style: none;
+				font-family: "Quicksand";
+				font-size: 2em;
+				padding: 2.5px;
+
+				span.day {
+					font-weight: bolder;
+					color: black;
+				}
+
+				span.hours {
+					color: purple;
+					font-weight: bold;
+				}
+
+			}
+		}
+
+	}
+
+
+	// MEMBER CSS
+	.member {
+		margin: 0 auto;
+		margin-bottom: 50px;
+		background-color: purple;
+		width: 50%;
+		border-radius: 30px;
+		height: auto;
+		padding: 60px;
+
+		.profilePicture {
+			img {
+				padding-top: 50px;
+				width: 30%;
+				height: auto;
+			}
+		}
+
+		.member_info {
+			.membership_title {
+				font-size: 3em;
+				font-family: "Nunito";
+			}
+
+			h2 {
+				font-family: "Secular One";
+			}
+
+			.membership_length {
+				font-size: 2em;
+				font-family: "Red Rose";
+			}
+
+			.contact_info {
+				h3 {
+					font-size: 1.75em;
+					// text-align: left;
+					margin: 0 auto;
+					margin-top: 20px;
+					position: relative;
+					color: white;
+					// left: 15%
+				}
+
+				a {
+					font-size: 1em;
+					font-family: "arial";
+					text-decoration: none;
+					color: rgb(45, 176, 251)
+				}
+			}
+
+		}
+	}
+
+
+	// FORM AND RESULT CSS
+	form {
+		margin: 0 auto;
+		width: 100%;
+		text-align: center;
+		vertical-align: center;
+
+		input {
+			padding: 10px;
+			font-size: 18px;
+			width: 175px;
+			font-family: "Red Rose";
+			text-align: center;
+		}
+
+		label {
+			padding: 10px;
+			font-size: 25px;
+			position: relative;
+			bottom: -4px;
+			font-weight: bold;
+			font-family: "Red Rose";
+
+			padding-left: 50px;
+		}
+
+		select {
+
+			width: 175px;
+			font-size: 18px;
+			text-align-last: center;
+			height: 50px;
+			margin-right: 10px;
+
+		}
+
+	}
+
+	.center {
+		width: 100%;
+		margin: 0 auto;
+		text-align: center;
+
+		#blockID {
+			font-size: 1.5em;
+			padding: 10px
+		}
+
+	}
+
+	#results {
+		padding-top: 20px;
+		font-size: 28px;
+
+
+		.resultMessage {
+			width: 50%;
+			height: auto;
+			overflow: auto;
+			font-size: 1em;
+			background-color: purple;
+			color: white;
+			margin: 30px auto;
+			text-align: center;
+			padding: 20px;
+			border-radius: 30px;
+			font-family: "Red Rose";
+
+			span {
+				font-weight: bolder;
+			}
+		}
+
+		.resultMessage:hover {
+			font-weight: bolder;
+		}
+
+		.errorMessage{
+			width: 65%;
+			background-color: rgb(138, 9, 9);
+			color: white;
+			margin: 30px auto;
+			text-align: center;
+			padding: 7.5px;
+			border-radius: 25px;
+			font-size: 1em;
+			font-family: "Red Rose";
+
+			span {
+				font-weight: bolder;
+			}
+		}
+
+		.results {
+			height: auto;
+			width: 60%;
+			font-size: 16px;
+			background-color: white;
+			color: purple;
+			outline-color: black;
+			border-radius: 6px;
+			padding: 20px;
+			border-radius: 15px;
+			text-align: center;
+			padding-top: 20px;
+			margin: 0 auto;
+			margin-bottom: 20px;
+
+			img {
+				padding-top: 30px;
+				width: 90%;
+				height: auto;
+			}
+
+			div {
+				background-color: purple;
+				color: white;
+				margin: 30px auto;
+				padding: 20px;
+				border-radius: 50px;
+				width: auto;
+
+				.emailInfo {
+					text-decoration: none;
+					font-family: "Red Rose";
+					font-size: 25px;
+					color: purple;
+					background-color: white;
+					padding: 10px 30px;
+					border-radius: 10px;
+				}
+
+				img {
+					width: 50%;
+					height: auto;
+				}
+
+				h1 {
+					font-family: "Red Rose";
+					font-size: 2em;
+					text-shadow: -3px 0 black, 0 -2px black;
+				}
+
+				h3 {
+					font-family: "Red Rose";
+					font-size: 1.7em;
+					color: white;
+					
+					span {
+						text-shadow: -3px 0 black, 0 -2px black;
+					}
+				}
+
+				span.fullName {
+					font-family: "Red Rose";
+					font-size: 1.5em;
+					font-weight: bold;
+				}
+
+				div.moreDetails {
+
+					width: auto;
+					height: auto;
+					z-index: 1;
+
+					h2 {
+						font-family: "Red Rose";
+						font-size: 2em;
+						background-color: white;
+						color: purple;
+						font-weight: bolder;
+						width: 50%;
+						margin: 0 auto;
+						padding: 10px;
+						border-radius: 10px;
+					}
+				}
+
+				.details {
+					width: auto;
+					display: none;
+					text-align: left;
+					margin: 0 auto;
+					padding-bottom: 50px;
+					
+				
+					img {
+						display: block;
+						margin-left: auto;
+						margin-right: auto;
+						text-align: center;
+						width: 90%;
+						height: auto;
+					}
+		
+					.gravestone {
+						width: 75%;
+					}
+				
+					.obituary {
+						width: 80%;
+					}
+		
+					h3 {
+						position: relative;
+						left: 15%;
+						margin: 0px;
+						padding: 5px;
+					}
+		
+					span {
+						color: white;
+						font-size: 1.25em;
+						font-weight: bolder;
+						position: relative; 
+						left: 15px;
+
+						a {
+							text-decoration: none;
+							position: relative;
+							color: white;
+						}
+
+						a:hover {
+							color: rgb(47, 241, 245);
+						}
+					}
+				}
+
+			}
+		}
+		
+	}
+
+	
+	// MAP PAGE CSS
+	.svg {
+		width: 80%;
+		height: auto;
+		margin: 0 auto;
+	
+		svg {
+			width: 100%;
+			height: auto;
+			z-index: -1;
+	
+			rect {
+				background-color: aqua;
+			}
+	
+		}
+	
+	}
+
+	.mapSelection {
+		margin: 0 auto;
+		height: 200px;
+		margin-bottom: 175px;
+		width: 100%;
+
+		h1 {
+			width: 100%;
+			text-align: center;
+			font-size: 4em;
+			margin-bottom: 20px;
+			font-family: "Red Rose";
+			color: purple;
+			-webkit-text-stroke-width: 2px;
+			-webkit-text-stroke-color: purple;
+		}
+	
+		ul {
+			position: relative;
+			right: 50px;
+			margin: 0 auto;
+			width: 100%;
+			display: inline-block;
+			vertical-align: top;
+			height: auto;
+			text-align: center;
+		   
+			li {
+				position: relative;
+				right: 0;
+				display: inline-block;
+				list-style: none;
+				width: 25%;
+				font-size: 2.75em;
+				padding-bottom: 30px;
+				padding: 10px;
+				background-color: purple;
+				border-radius: 40px;
+				margin: 0 30px;
+				color: white;
+				font-family: "Red Rose";
+			}
+
+			
+		}
+
+		p {
+			position: relative;
+			top: 15px;
+			margin-bottom: 20px;
+			font-size: 35px;
+			text-align: center;
+			width: 100%;
+			font-weight: bolder;
+			font-family: "Red Rose";
+		}
+	}
+	
+	.lotStatus {
+		padding-bottom: 350px;
+
+		.mapIndex {
+			margin: 50px auto;
+			width: 25%;
+			background-color:white;
+			border-radius: 20px;
+			border: 15px solid purple;
+			clear: left;
+			 
+			h1 {
+				font-size: 2.5em;
+			}
+
+			h2 {
+				position: relative;
+				left: 17%;
+				font-family: "Secular One";
+				font-size: 1.6em;
+			}
+		}
+	}
+
+	.toTop {
+		color: white;
+		background: purple;
+		width: 45%;
+		text-align: center;
+		padding: 10px;
+		margin: 100px auto;
+		border-radius: 20px;
+		font-size: 1.2em;
+		font-family: "Red Rose"
+	}
+
+	// LOT / RULES PAGE
+
+	.rules {
+		font-family: "Red Rose";
+		text-align: center;
+		position: relative;
+		bottom: 50px;
+		font-size: 1.8em;
+
+		a {
+			color: purple;
+			text-decoration: none;
+		}
+
+	}
+
+	.selected {
+		color: black;
+		font-size: 2em;
+		font-family: "Red Rose";
+		text-align: center;
+	}
+
+	.availability {
+		color: purple;
+		font-size: 1.2em;
+		font-family: "Red Rose";
+		text-align: center;
+	}
+
+
+	// DONTATION PAGE
+	#donationTypes {
+
+		width: 100%;
+		text-align: center;
+		ul {
+		
+			width: 100% !important;
+			margin: 0 auto;
+			padding: 0;
+			padding-bottom: 50px;
+	
+			li {
+				// position: relative;
+				display: inline-block;
+				background-color: purple;
+				color: white;
+				font-family: "Nunito";
+				font-weight: bold;
+				width: 30%;
+				// padding: 10px 20px;
+				border-radius: 50px;
+				margin: 0 auto;
+				// margin-left: 10%;
+				// align-items: center;
+				// clear: left;
+	
+				h1 {
+					font-size: 2em;
+					text-align: center;
+					margin: 0 auto;
+					width: auto;
+					padding: 10px;
+					border-radius: 5px;
+					color: white;
+					font-weight: bold;
+	
+				}
+	
+				a {
+					text-decoration: none;
+					color: white;
+				}
+			}
+		}
+	}
+
+	.donationInfo {
+		padding-top: 5px;
+		text-align: center;
+		line-height: 1em;
+		font-size: 1.75em;
+		font-family: "Red Rose";
+	   
+	}
+	
 
 }
 
 footer {
-    background: purple;
-    height: auto;
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    width: 100%;
-    display: block;
-    float: left;
-    z-index: 10;
+	background: purple;
+	height: auto;
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	width: 100%;
+	display: block;
+	float: left;
+	z-index: 10;
 
-    // margin-top: 100px;
-    p {
-        color: white;
-        font-size: 24px;
-        font-family: "Red Rose";
-        text-align: center;
-    }
+	// margin-top: 100px;
+	p {
+		color: white;
+		font-size: 24px;
+		font-family: "Red Rose";
+		text-align: center;
+	}
 
 }
 
 
 @media screen and (max-width: 800px) {
-    body {
-
-        width: 100%;
-
-        nav {
-
-            width: 100% !important;
-            #logo {
-                font-size: 1.2em;
-                padding: 20px 0px;
-            }
-            ul {
-
-                width: 100%;
-                padding: 0px;
-                display: inline-block;
-                list-style: none;
-                margin: 0 auto;
-
-                li {
-                    display: inline-block;
-                    width: 25%;
-                    margin: 0 auto;
-
-                    a {
-                        padding: 5px 0;
-                        // position: relative;
-                        width: 100%;
-                        // left: 20%;
-                        font-size: .4em;
-                    }
-                }
-            }
-        }
-
-        #pageTitle {
-            
-            h1 {
-                padding: 5px;
-                width: 75%;
-                font-size: 1.25em;
-                margin-top: 5%;
-                margin-bottom: 15%;
-            }
-        }
-
-        #results {
-            width: 100%;
-            .resultMessage {
-                font-size: 1em;
-                width: 95%;
-            }
-
-            .results {
-                width: 90%;
-            }
-            
-        }
-
-        // HOME PAGE
-        .homePage {
-            h2 {
-                font-size: 1.25em;
-            }
-            h4 {
-                font-size: 12px;
-                text-align: left;
-                padding: 0 20px;
-            }
-
-            
-        }
-
-        .slideshow > img {
-            width: 75%;
-            height: auto;
-        }
-
-
-        #itemContainer {
-            // overflow: auto;
-            width: 100%;
-            display: block;
-    
-            padding-top: 30px;
-    
-            .itemDetails {
-                
-                width: 100%;
-                height: auto;
-                margin-top: 50px;
-    
-                h3 {
-                    background-color: purple;
-                    color: white;
-                    width: 50%;
-                    font-size: 1.2em;
-                    margin: 0 auto;
-                    padding: 10px;
-                    border-radius: 30px;
-                }
-    
-                div.imgContainer {
-                    position: relative;
-                    display: inline-block;
-                    padding: 50px;
-    
-                    img {
-                        width: 60%;
-                        height: 50%;
-                        padding: 5px;
-                        vertical-align: middle;
-                    }
-    
-                    .imgBigger {
-                        width: 75% !important;
-                    }
-    
-                    .imgSmaller {
-                        width: 50% !important;
-                    }
-    
-                    
-                }
-    
-    
-                
-    
-            }
-    
-        }
-
-
-
-        // BOARD MEMEBERS PAGE
-        .member {
-            width: 85%;
-            padding: 10px 0px;
-            margin: 30px auto;
-
-            .profilePicture {
-                width: 100%;
-                margin: 0;
-            }
-    
-            .member_info {
-                color: white;
-    
-                .membership_title {
-                    font-size: 1.85em !important;
-                    margin: 10px;
-                }
-                .name {
-                    font-size: 1.75em;
-                    color: black
-                }
-    
-                .membership_length {
-                    font-size: 1.25em !important;
-                }
-    
-                .contact_info {
-                    margin-top: 20px !important;
-                }
-
-                .email {
-                    // left: 8% !important;
-                    margin-top: 5px !important;
-                    font-size: 0.8em !important;
-                    // left: 20px;
-                }
-    
-                .phone {
-                    margin-top: 5px !important;
-                    font-size: 1em !important;
-                    color: black;
-                }
-    
-            }
-        }
-        
-        
-        // CEMETERY MAPS
-        
-
-
-        .cemeteryMaps {
-
-            .mapSelection {
-                margin: 0;
-                margin-bottom: 75px;
-
-            }
-
-            h1 {
-                font-size: 1.75em;
-                margin: 0;
-                margin-top: -20px;
-                margin-bottom: 20px;
-            }
-
-            ul {
-                width: 100% !important;
-                li {
-                    width: 50%;
-                    clear: left;
-                    margin: 10px auto;
-                    font-size: 18px;
-                }
-            }
-
-            p {
-                font-size: .85em;
-            }
-
-            
-        }
-
-        // 
-        #results {
-
-            .results {
-                div {
-                    h1 {
-                        font-size: 1.25em;
-                    }
-
-                    h3 {
-                        font-size: 1em !important;
-                        margin: 0;
-                        margin-bottom: 25px;
-                    }
-
-                    .emailInfo {
-                        width: 80%;
-                        font-size: 1em;
-                    }
-
-                    div.moreDetails {
-                        width: 90%;
-                        padding-top: 30px;
-
-                        h2 {
-                            padding: 5px;
-                            font-size: 1.25em;
-                            margin: 0 auto;
-                        }
-                    }
-
-                    .details {
-                        padding: 0 !important;
-                        padding-bottom: 20px !important;
-            
-                        h3 {
-                            left: 5% !important;
-                            font-size: .9em !important;
-                            span {
-                                font-size: 1.2em !important;
-                            }
-                        }
-            
-                        img {
-                            width: 90% !important;
-                            height: auto;
-                        }
-                    }
-                }
-            }
-
-
-            div {
-                margin: 0;
-                margin-bottom: 25px;
-            }
-
-            .resultMessage {
-                margin: 15px auto;
-                width: 80%;
-                font-size: .65em;
-
-            }
-
-            .profilePicture {
-                width: 75% !important;
-                height: auto;
-                padding-bottom: 30px;
-            }
-    
-            span.fullName {
-                font-size: 1.2em !important;
-            }
-
-    
-            
-    
-            .moreDetails {
-                margin: 0 !important;
-                h2 {
-                    margin: 0 auto !important;
-                    width: 80% !important;
-                }
-            }
-
-            
-    
-            
-
-            .errorMessage {
-                font-size: 20px;
-            }
-    
-            .toTop {
-                font-size: 24px !important;
-                margin: 0;
-                width: 75%;
-                margin: 0 auto;
-            }
-        }
-
-        // FIND A GRAVE FORM
-        form {
-            width: 100%;
-            margin-top: -35px;
-            label {
-                padding: 0;
-                display: block;
-                padding: 10px;
-                font-size: 1em;
-                width: 25%;
-                position: relative;
-                top: 40px;
-            }
-
-            input {
-                display: block;
-                margin: 0 auto;
-                width: 45%;
-                position: relative;
-                left: 10%;
-                padding: 5px 0;
-                margin-bottom: -4%;
-            }
-
-            select {
-                position: relative;
-                width: 55%;
-                left: 10%;
-                font-size: 1.2em;
-            }
-
-            input:last-child {
-                margin-top: 20px;
-            }
-
-            #submit {
-                margin-top: 20px;
-                width: 75%;
-                padding: 0;
-                padding: 10px 0px;
-                margin: 20px 0;
-            }
-        }
-
-        // CONTACTS
-        .contacts {
-
-            .title {
-                font-size: 1.25em;
-            }
-
-            article {
-                margin-bottom: 25px;
-            }
-
-            p {
-                font-size: .85em;
-                padding: 3px 0;
-                left: 5%;
-            }
-
-            ul {
-                padding: 0;
-                padding-bottom: 10px;
-                h2 {
-                    font-size: 1em; 
-                }
-
-                li {
-                    font-size: .8em !important;
-                }
-                
-            }
-
-            h3 {
-                margin: 10px auto;;
-                width: 90%;
-                font-size: .9em;
-            }
-        }
-
-        // LOT INFO
-
-        .rules {
-            font-size: 1.1em !important;
-            position: relative;
-            bottom: 0;
-            margin-top: -20px !important;
-            margin-bottom: 50px !important;
-        }
-
-        .selected {
-            padding-top: 15px !important;
-            font-size: .75em !important;
-        }
-    
-        .availability {
-            padding-top: 5px !important;
-            font-size: .6em !important;
-        }
-
-        .lotStatus {
-            h1 {
-                font-size: 1.65em;
-            }
-
-            .mapIndex {
-                width: 70%;
-
-                h1 {
-                    margin: 20px 0;
-                    font-size: 1.75em;
-                }
-
-                h2 {
-                    font-size: 1em;
-                }
-            }
-        }
-
-
-        // DONTATION PAGE
-        #donationTypes ul{
-            width: 100% !important;
-            padding: 10px 20px;
-            margin: 0 auto;
-
-
-
-
-            li {
-                position: relative;
-                display: inline-block;
-                background-color: purple;
-                color: white;
-                font-family: "Nunito";
-                font-weight: bold;
-                width: 85%;
-                padding: 0;
-                border-radius: 50px;
-                margin: 0 auto;
-                margin-bottom: 20px;
-                clear: left;
-
-                h1 {
-                    font-size: 1.2em;
-                    text-align: center;
-                    margin: 0 auto;
-                    width: auto;
-                    padding: 5px;
-                    border-radius: 5px;
-                    color: white;
-                    font-weight: bold;
-
-                }
-
-                a {
-                    text-decoration: none;
-                    color: white;
-                }
-            }
-    
-        }
-
-        .donationInfo {
-            width: 90%;
-            padding-top: 20px;
-            text-align: center;
-            // line-height: 1.5em;
-            font-size: .8em;
-            font-family: "Red Rose";
-            margin: 0px auto;
-        
-        }
-
-
-
-
-        // FOOTER
-        footer {
-            .copyright {
-                font-size: .85em;
-                padding: 0px;
-                text-align: center;
-                position: relative;
-                width: 100%;
-                margin: 7.5px auto;
-                
-            }
-        }
-
-    }
-
-
-
-    
-    
+	body {
+
+		width: 100%;
+
+		nav {
+
+			width: 100% !important;
+			#logo {
+				font-size: 1.2em;
+				padding: 20px 0px;
+			}
+			ul {
+
+				width: 100%;
+				padding: 0px;
+				display: inline-block;
+				list-style: none;
+				margin: 0 auto;
+
+				li {
+					display: inline-block;
+					width: 25%;
+					margin: 0 auto;
+
+					a {
+						padding: 5px 0;
+						// position: relative;
+						width: 100%;
+						// left: 20%;
+						font-size: .4em;
+					}
+				}
+			}
+		}
+
+		#pageTitle {
+			
+			h1 {
+				padding: 5px;
+				width: 75%;
+				font-size: 1.25em;
+				margin-top: 5%;
+				margin-bottom: 15%;
+			}
+		}
+
+		#results {
+			width: 100%;
+			.resultMessage {
+				font-size: 1em;
+				width: 95%;
+			}
+
+			.results {
+				width: 90%;
+			}
+			
+		}
+
+		// HOME PAGE
+		.homePage {
+			h2 {
+				font-size: 1.25em;
+			}
+			h4 {
+				font-size: 12px;
+				text-align: left;
+				padding: 0 20px;
+			}
+
+			
+		}
+
+		.slideshow > img {
+			width: 75%;
+			height: auto;
+		}
+
+
+		#itemContainer {
+			// overflow: auto;
+			width: 100%;
+			display: block;
+	
+			padding-top: 30px;
+	
+			.itemDetails {
+				
+				width: 100%;
+				height: auto;
+				margin-top: 50px;
+	
+				h3 {
+					background-color: purple;
+					color: white;
+					width: 50%;
+					font-size: 1.2em;
+					margin: 0 auto;
+					padding: 10px;
+					border-radius: 30px;
+				}
+	
+				div.imgContainer {
+					position: relative;
+					display: inline-block;
+					padding: 50px;
+	
+					img {
+						width: 60%;
+						height: 50%;
+						padding: 5px;
+						vertical-align: middle;
+					}
+	
+					.imgBigger {
+						width: 75% !important;
+					}
+	
+					.imgSmaller {
+						width: 50% !important;
+					}
+	
+					
+				}
+	
+	
+				
+	
+			}
+	
+		}
+
+
+
+		// BOARD MEMEBERS PAGE
+		.member {
+			width: 85%;
+			padding: 10px 0px;
+			margin: 30px auto;
+
+			.profilePicture {
+				width: 100%;
+				margin: 0;
+			}
+	
+			.member_info {
+				color: white;
+	
+				.membership_title {
+					font-size: 1.85em !important;
+					margin: 10px;
+				}
+				.name {
+					font-size: 1.75em;
+					color: black
+				}
+	
+				.membership_length {
+					font-size: 1.25em !important;
+				}
+	
+				.contact_info {
+					margin-top: 20px !important;
+				}
+
+				.email {
+					// left: 8% !important;
+					margin-top: 5px !important;
+					font-size: 0.8em !important;
+					// left: 20px;
+				}
+	
+				.phone {
+					margin-top: 5px !important;
+					font-size: 1em !important;
+					color: black;
+				}
+	
+			}
+		}
+		
+		
+		// CEMETERY MAPS
+		
+
+
+		.cemeteryMaps {
+
+			.mapSelection {
+				margin: 0;
+				margin-bottom: 75px;
+
+			}
+
+			h1 {
+				font-size: 1.75em;
+				margin: 0;
+				margin-top: -20px;
+				margin-bottom: 20px;
+			}
+
+			ul {
+				width: 100% !important;
+				li {
+					width: 50%;
+					clear: left;
+					margin: 10px auto;
+					font-size: 18px;
+				}
+			}
+
+			p {
+				font-size: .85em;
+			}
+
+			
+		}
+
+		// 
+		#results {
+
+			.results {
+				div {
+					h1 {
+						font-size: 1.25em;
+					}
+
+					h3 {
+						font-size: 1em !important;
+						margin: 0;
+						margin-bottom: 25px;
+					}
+
+					.emailInfo {
+						width: 80%;
+						font-size: 1em;
+					}
+
+					div.moreDetails {
+						width: 90%;
+						padding-top: 30px;
+
+						h2 {
+							padding: 5px;
+							font-size: 1.25em;
+							margin: 0 auto;
+						}
+					}
+
+					.details {
+						padding: 0 !important;
+						padding-bottom: 20px !important;
+			
+						h3 {
+							left: 5% !important;
+							font-size: .9em !important;
+							span {
+								font-size: 1.2em !important;
+							}
+						}
+			
+						img {
+							width: 90% !important;
+							height: auto;
+						}
+					}
+				}
+			}
+
+
+			div {
+				margin: 0;
+				margin-bottom: 25px;
+			}
+
+			.resultMessage {
+				margin: 15px auto;
+				width: 80%;
+				font-size: .65em;
+
+			}
+
+			.profilePicture {
+				width: 75% !important;
+				height: auto;
+				padding-bottom: 30px;
+			}
+	
+			span.fullName {
+				font-size: 1.2em !important;
+			}
+
+	
+			
+	
+			.moreDetails {
+				margin: 0 !important;
+				h2 {
+					margin: 0 auto !important;
+					width: 80% !important;
+				}
+			}
+
+			
+	
+			
+
+			.errorMessage {
+				font-size: 20px;
+			}
+	
+			.toTop {
+				font-size: 24px !important;
+				margin: 0;
+				width: 75%;
+				margin: 0 auto;
+			}
+		}
+
+		// FIND A GRAVE FORM
+		form {
+			width: 100%;
+			margin-top: -35px;
+			label {
+				padding: 0;
+				display: block;
+				padding: 10px;
+				font-size: 1em;
+				width: 25%;
+				position: relative;
+				top: 40px;
+			}
+
+			input {
+				display: block;
+				margin: 0 auto;
+				width: 45%;
+				position: relative;
+				left: 10%;
+				padding: 5px 0;
+				margin-bottom: -4%;
+			}
+
+			select {
+				position: relative;
+				width: 55%;
+				left: 10%;
+				font-size: 1.2em;
+			}
+
+			input:last-child {
+				margin-top: 20px;
+			}
+
+			#submit {
+				margin-top: 20px;
+				width: 75%;
+				padding: 0;
+				padding: 10px 0px;
+				margin: 20px 0;
+			}
+		}
+
+		// CONTACTS
+		.contacts {
+
+			.title {
+				font-size: 1.25em;
+			}
+
+			article {
+				margin-bottom: 25px;
+			}
+
+			p {
+				font-size: .85em;
+				padding: 3px 0;
+				left: 5%;
+			}
+
+			ul {
+				padding: 0;
+				padding-bottom: 10px;
+				h2 {
+					font-size: 1em; 
+				}
+
+				li {
+					font-size: .8em !important;
+				}
+				
+			}
+
+			h3 {
+				margin: 10px auto;;
+				width: 90%;
+				font-size: .9em;
+			}
+		}
+
+		// LOT INFO
+
+		.rules {
+			font-size: 1.1em !important;
+			position: relative;
+			bottom: 0;
+			margin-top: -20px !important;
+			margin-bottom: 50px !important;
+		}
+
+		.selected {
+			padding-top: 15px !important;
+			font-size: .75em !important;
+		}
+	
+		.availability {
+			padding-top: 5px !important;
+			font-size: .6em !important;
+		}
+
+		.lotStatus {
+			h1 {
+				font-size: 1.65em;
+			}
+
+			.mapIndex {
+				width: 70%;
+
+				h1 {
+					margin: 20px 0;
+					font-size: 1.75em;
+				}
+
+				h2 {
+					font-size: 1em;
+				}
+			}
+		}
+
+
+		// DONTATION PAGE
+		#donationTypes ul{
+			width: 100% !important;
+			padding: 20px 0;
+			margin: 0 auto;
+
+			li{
+				width: 50%;
+				font-size: .5em;
+			}
+
+			// li {
+			// 	position: relative;
+			// 	display: inline-block;
+			// 	background-color: purple;
+			// 	color: white;
+			// 	font-family: "Nunito";
+			// 	font-weight: bold;
+			// 	width: 85%;
+			// 	padding: 0;
+			// 	border-radius: 50px;
+			// 	margin: 0 auto;
+			// 	margin-bottom: 20px;
+			// 	clear: left;
+
+			// 	h1 {
+			// 		font-size: 1.2em;
+			// 		text-align: center;
+			// 		margin: 0 auto;
+			// 		width: auto;
+			// 		padding: 5px;
+			// 		border-radius: 5px;
+			// 		color: white;
+			// 		font-weight: bold;
+
+			// 	}
+
+			// 	a {
+			// 		text-decoration: none;
+			// 		color: white;
+			// 	}
+			// }
+	
+		}
+
+		.donationInfo {
+			width: 90%;
+			padding-top: 20px;
+			text-align: center;
+			// line-height: 1.5em;
+			font-size: .8em;
+			font-family: "Red Rose";
+			margin: 0px auto;
+		
+		}
+
+
+
+
+		// FOOTER
+		footer {
+			.copyright {
+				font-size: .85em;
+				padding: 0px;
+				text-align: center;
+				position: relative;
+				width: 100%;
+				margin: 7.5px auto;
+				
+			}
+		}
+
+	}
+
+
+
+	
+	
 }

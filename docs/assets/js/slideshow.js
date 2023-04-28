@@ -32,7 +32,7 @@ $().ready(function(){
     // });
 
     // Start the slideshow
-    images = ["assets/images/homepage/slideshow/1.jpg", "assets/images/homepage/slideshow/2.jpg", "assets/images/homepage/slideshow/3.jpg", "assets/images/homepage/slideshow/4.jpg"];
+    images = ["assets/images/homepage/slideshow/1.jpg", "assets/images/homepage/slideshow/2.jpg", "assets/images/homepage/slideshow/3.jpg", "assets/images/homepage/slideshow/4.jpg", "assets/images/homepage/slideshow/5.jpg"];
     image_count = images.length;
     // Add each image to the slideshow div
     for (var i = 0; i < image_count; i++) {
