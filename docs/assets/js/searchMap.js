@@ -321,7 +321,7 @@ function displayPeople(d, id = '', hidden = false) {
 
     $(`#results #${id}`).last().append(`
             <div id="${fName_clean}${lName_clean}" class="">
-                <img src="${profileImage}" class="profilePicture imgFade" loading="lazy"></img>
+                <img src="${profileImage}" class="profilePicture imgFade" onclick="window.open(this.src, '_blank');" loading="lazy"></img>
                 <h1><span class='fullName'>${fName} ${lName}</span><br>(${dateOfBirth.year} - ${dateOfDeath.year})</h1>
                 <h3>${cemeteryLocation} Lawn - <span>Block ${blockNum}, Lot ${lotNum} : Grave ${graveNum}${graveSubNum}</span></h3>
                 
@@ -408,10 +408,10 @@ function appendDetail_Images(div, title = "Images: ", imagesArray, addClass = ""
         div.append(`<h3>${title}:</h3>`)
 
         if (typeof imagesArray == "string") {
-            div.append(`<img src="${imagesArray.replace("https", "http")}" class="${addClass}" loading="lazy">`);
+            div.append(`<img src="${imagesArray.replace("https", "http")}" class="${addClass}" onclick="window.open(this.src, '_blank');" loading="lazy">`);
         } else if (Array.isArray(imagesArray) && imagesArray.length != 0) {
             for (const i in imagesArray) {
-                div.append(`<img src="${imagesArray[i].replace("https", "http")}" class="${addClass}" loading="lazy">`);
+                div.append(`<img src="${imagesArray[i].replace("https", "http")}" class="${addClass}" onclick="window.open(this.src, '_blank');" loading="lazy">`);
             }
         }
     }
