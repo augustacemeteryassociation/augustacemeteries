@@ -468,30 +468,6 @@ $().ready(function () {
 		}
 
 
-
-
-		// if (fName != "") {
-
-		// 	displayPerson = true
-
-		// 	if (lName != "") {
-		// 		displayName = `${fName} ${lName}`
-		// 	} else {
-		// 		displayName = fName
-		// 	}
-
-		// } else if (lName != "") {
-		// 	displayPerson = true
-		// 	displayName = lName
-		// } else {
-		// 	displayName = fName
-		// 	displayPerson = true
-		// }
-
-
-
-
-
 		if (displayPerson && displayName != "") {
 
 			if (results.length != 0) {
@@ -500,9 +476,6 @@ $().ready(function () {
 			} else {
 				$results.append(`<h1 class='errorMessage'>Sorry we couldn't find a match for: <span>${displayName}</h1>`);
 			}
-
-
-
 
 			for (var d in results) {
 				displayPeople(results[d], id, hidden);
