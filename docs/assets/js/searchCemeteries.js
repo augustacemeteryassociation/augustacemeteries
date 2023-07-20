@@ -18,10 +18,6 @@ function yearDiff(d1, d2) {
 	let d2YearVal = Number.isInteger(parseInt(d2ArrYear)) ? parseInt(d2ArrYear) : NaN;
 	let d1YearVal = Number.isInteger(parseInt(d1ArrYear)) ? parseInt(d1ArrYear) : NaN;
 
-	//        console.log(d1, d2)
-	//        console.log(d1Arr, d2Arr)
-	//        console.log(d2YearVal, d1YearVal)
-
 	let d2Time = date2.getTime();
 	let d1Time = date1.getTime();
 
@@ -37,7 +33,6 @@ function yearDiff(d1, d2) {
 			yearDiff = "Less than 1 year"
 		}
 
-		//            console.log(`Death Date = ${date2},  Birth Date = ${date1}\nDeath YearTime = ${d2YearVal}, Birth YearTime = ${d1YearVal}\nYear Diff = ${yearDiff}`)
 		return yearDiff
 
 	}
@@ -46,13 +41,7 @@ function yearDiff(d1, d2) {
 		timeYearDiff = "Less than 1 year"
 	}
 
-	//        console.log(`Death Date = ${date2},  Birth Date = ${date1}\nDeath YearTime = ${d2Time}, Birth YearTime = ${d1Time}\nYear Diff = ${timeYearDiff}`)
-
 	return timeYearDiff
-
-}
-
-function dateSanitize (dateStr) {
 
 }
 
@@ -70,11 +59,11 @@ function getDate(dateStr) {
 		}
 	}
 
-	if (dateStr.includes("-")) {
-		dateArray = dateStr.split("-")
-	} else {
-		dateArray[0] = dateStr
+
+	if (typeof(dateStr) == "string") {
+		if (dateStr.includes("-")) {dateArray = dateStr.split("-")} else {dateArray[0] = dateStr}
 	}
+	
 
 	var dateLen = dateArray.length
 
@@ -115,14 +104,6 @@ function getDate(dateStr) {
 	}
 
 	return d
-
-
-
-
-	//            var dateArray = date.split("-")
-	//            console.log(dateArray);
-
-	//            console.log(d);
 
 }
 
@@ -197,6 +178,18 @@ $().ready(function () {
 
 		$results.empty();
 
+		dates = []
+
+		if (dobInput != "") {
+			dates.push(dobInput); 
+			dobInput = getDate(dobInput)
+		}
+
+		if (dodInput != "") {
+			dates.push(dodInput);
+			dodInput = getDate(dodInput)
+		}
+
 		var original_fName = fName_input
 		var original_lName = lName_input
 
@@ -255,8 +248,6 @@ $().ready(function () {
 				let a_age = yearDiff(a.dateOfBirth, a.dateOfDeath)
 				let b_age = yearDiff(b.dateOfBirth, b.dateOfDeath)
 
-				console.log(`${a_age}, ${b_age}`)
-
 				if (a_age < b_age) {return -1}
 				return 1
 			}
@@ -293,20 +284,65 @@ $().ready(function () {
 								// MATCH CASES
 								// 
 
-								// Not Searching for a specific Date
-								// console.log(dobInput)
-								// console.log(dodInput)
-								// console.log("")
-
+								if (dobInput == "" && dodInput == ""){
+									// console.log("Made it !!!")
 									
+									// if (lName.includes(lName_inputLower)) {console.log(true)}
+									if (fName == "" && lName == "") {break;}
+									
+									if (lName == "" && (fName.includes(fName_input) || otherInfo.includes(fName_input))) {fNameMatch.push(d); break;}
+									if (lName.includes(lName_inputLower)) {console.log(true)}
+									if (fName == "" && (lName.includes(lName_inputLower) || (maidenName.includes(lName_inputLower)))) {lNameMatch.push(d); break;}
+									if ((fName.includes(fName_input) || otherInfo.includes(fName_input)) && (lName.includes(lName_inputLower) || (maidenName.includes(lName_inputLower) && maidenName != ""))){
+										exactMatch.push(d);
+									}
 
-								if (fName == "" && lName == "") {break;}
-								if (lName == "" && (fName.includes(fName_input) || otherInfo.includes(fName_input))) {fNameMatch.push(d)}
-								if (fName == "" && (lName.includes(lName_inputLower) || (maidenName.includes(lName_inputLower) && maidenName != ""))) {lNameMatch.push(d)}
-								if ((fName.includes(fName_input) || otherInfo.includes(fName_input)) && (lName.includes(lName_inputLower) || (maidenName.includes(lName_inputLower) && maidenName != ""))){
-									exactMatch.push(d);
+									console.log("fName", fNameMatch)
+									console.log("lName", lNameMatch)
+									console.log("exact", exactMatch)
+								} else {
+
+									function compareDates(r, i) {
+
+										// console.log(r, i)
+
+										if (typeof(r) == 'object') {rLen = Object.keys(r).length;} else {return false}
+										if (typeof(i) == 'object') {iLen = Object.keys(i).length;} else {return false}
+
+										if (rLen >= iLen) { k = Object.keys(i) } else { k = Object.keys(i) }
+
+										for (const d of k) {
+											if (r[d] != i[d]){
+												return false
+											}
+										}
+										// console.log(r, i)
+										return true
+
+									}
+									
+									isDoD = compareDates(dod, dodInput)
+									isDoB = compareDates(dob, dobInput)
+
+									if (compareDates(dod, dodInput)) {
+										if (fName == "" && lName == "") {continue;}
+										if (lName == "" && (fName.includes(fName_input) || otherInfo.includes(fName_input))) {fNameMatch.push(d)}
+										if (fName == "" && (lName.includes(lName_inputLower) || (maidenName.includes(lName_inputLower) && maidenName != ""))) {lNameMatch.push(d)}
+										if ((fName.includes(fName_input) || otherInfo.includes(fName_input)) && (lName.includes(lName_inputLower) || (maidenName.includes(lName_inputLower) && maidenName != ""))){
+											exactMatch.push(d);
+										}
+									
+									} else if (compareDates(dob, dobInput)) {
+										if (fName == "" && lName == "") {continue;}
+										if (lName == "" && (fName.includes(fName_input) || otherInfo.includes(fName_input))) {fNameMatch.push(d)}
+										if (fName == "" && (lName.includes(lName_inputLower) || (maidenName.includes(lName_inputLower) && maidenName != ""))) {lNameMatch.push(d)}
+										if ((fName.includes(fName_input) || otherInfo.includes(fName_input)) && (lName.includes(lName_inputLower) || (maidenName.includes(lName_inputLower) && maidenName != ""))){
+											exactMatch.push(d);
+										}
+
+									}
+
 								}
-
 
 
 								
@@ -412,18 +448,27 @@ $().ready(function () {
 			var isExactMatch = exactMatch.length >= 1
 			var isFNameMatch = fNameMatch.length >= 1
 			var isLNameMatch = lNameMatch.length >= 1
-
-
-
-
+			console.log(lNameMatch)
 
 			//TODO: Print RESULTS
 			if (isExactMatch) {
-				if (exactMatch.length > 1) {
-					printPersonRusult(exactMatch, "There are " + exactMatch.length + " exact matches for", original_fName, original_lName, "exactMatch", false)
-				} else if (exactMatch.length == 1) {
-					printPersonRusult(exactMatch, "There is " + exactMatch.length + " exact match for", original_fName, original_lName, "exactMatch", false)
+
+				if (original_fName == "" && original_lName == "") {
+
+					if (dates.length == 1) {
+						printPersonResult(exactMatch, `There are ${exactMatch.length} exact matches for`, dates[0], "", "exactMatch", false)
+					} else {
+						printPersonResult(exactMatch, `There are ${exactMatch.length} exact matches for`, dates.join(" and "), "", "exactMatch", false)
+					}
+					
+				} else {
+					if (exactMatch.length > 1) {
+						printPersonResult(exactMatch, "There are " + exactMatch.length + " exact matches for", original_fName, original_lName, "exactMatch", false)
+					} else if (exactMatch.length == 1) {
+						printPersonResult(exactMatch, "There is " + exactMatch.length + " exact match for", original_fName, original_lName, "exactMatch", false)
+					}
 				}
+
 			} else if (isFNameMatch == false && isLNameMatch == false) {
 				$results.append(`<h1 class='errorMessage'>Sorry we couldn't find any results for: <span>${original_fName} ${original_lName}</h1>`);
 			} else {
@@ -434,9 +479,9 @@ $().ready(function () {
 			if (isFNameMatch) {
 
 				if (fNameMatch.length > 1) {
-					printPersonRusult(fNameMatch, "Here are " + fNameMatch.length + " matches for the first name", original_fName, "", "firstNameMatch", true)
+					printPersonResult(fNameMatch, "Here are " + fNameMatch.length + " matches for the first name", original_fName, "", "firstNameMatch", true)
 				} else if (fNameMatch.length == 1) {
-					printPersonRusult(fNameMatch, "There is " + fNameMatch.length + " match for the first name", original_fName, "", "firstNameMatch", true)
+					printPersonResult(fNameMatch, "There is " + fNameMatch.length + " match for the first name", original_fName, "", "firstNameMatch", true)
 				}
 
 			}
@@ -444,9 +489,9 @@ $().ready(function () {
 			if (isLNameMatch) {
 
 				if (lNameMatch.length > 1) {
-					printPersonRusult(lNameMatch, "Here are " + lNameMatch.length + " matches for the last name", "", original_lName, "lastNameMatch", true)
+					printPersonResult(lNameMatch, "Here are " + lNameMatch.length + " matches for the last name", "", original_lName, "lastNameMatch", true)
 				} else if (lNameMatch.length == 1) {
-					printPersonRusult(lNameMatch, "There is " + lNameMatch.length + " match for the last name", "", original_lName, "lastNameMatch", true)
+					printPersonResult(lNameMatch, "There is " + lNameMatch.length + " match for the last name", "", original_lName, "lastNameMatch", true)
 				}
 
 			}
@@ -454,7 +499,7 @@ $().ready(function () {
 		});
 	}
 
-	function printPersonRusult(results, messageTitle, fName = fName_input, lName = lName_input, id = 'defautlResult', hidden = false) {
+	function printPersonResult(results, messageTitle, fName = fName_input, lName = lName_input, id = 'defautlResult', hidden = false) {
 
 		//  TODO: Sort results, and display the people
 		var displayPerson = false
@@ -475,7 +520,12 @@ $().ready(function () {
 		} else if (lName != "") {
 			displayPerson = true
 			displayName = lName
+		} else {
+			displayName = fName
+			displayPerson = true
 		}
+
+
 
 
 
@@ -660,11 +710,10 @@ $().ready(function () {
 		var lInput = filterInput(values["lName_input"])
 
 		// Date Info
-		var dobInput = values['dob_input'] == "" ? "" : getDate(values['dob_input'])
-		var dodInput = values['dod_input']
-
-		if (dobInput == "") {console.log(`dob = ${dobInput}`)}
-		
+		var dobInput = values['dob_input'] == "" ? "" : values['dob_input']
+		var dodInput = values['dod_input'] == "" ? "" : values['dod_input']
+		console.log(dodInput)
+		console.log(dobInput)
 
 		if ((fInput == "" && lInput == "") && (dobInput == "" && dodInput == "")) {
 
