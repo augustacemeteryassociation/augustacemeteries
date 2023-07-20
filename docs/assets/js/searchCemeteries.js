@@ -285,26 +285,17 @@ $().ready(function () {
 								// 
 
 								if (dobInput == "" && dodInput == ""){
-									// console.log("Made it !!!")
 									
-									// if (lName.includes(lName_inputLower)) {console.log(true)}
 									if (fName == "" && lName == "") {break;}
-									
 									if (lName == "" && (fName.includes(fName_input) || otherInfo.includes(fName_input))) {fNameMatch.push(d); break;}
-									if (lName.includes(lName_inputLower)) {console.log(true)}
 									if (fName == "" && (lName.includes(lName_inputLower) || (maidenName.includes(lName_inputLower)))) {lNameMatch.push(d); break;}
 									if ((fName.includes(fName_input) || otherInfo.includes(fName_input)) && (lName.includes(lName_inputLower) || (maidenName.includes(lName_inputLower) && maidenName != ""))){
 										exactMatch.push(d);
 									}
 
-									console.log("fName", fNameMatch)
-									console.log("lName", lNameMatch)
-									console.log("exact", exactMatch)
 								} else {
 
 									function compareDates(r, i) {
-
-										// console.log(r, i)
 
 										if (typeof(r) == 'object') {rLen = Object.keys(r).length;} else {return false}
 										if (typeof(i) == 'object') {iLen = Object.keys(i).length;} else {return false}
@@ -316,7 +307,7 @@ $().ready(function () {
 												return false
 											}
 										}
-										// console.log(r, i)
+
 										return true
 
 									}
@@ -448,7 +439,6 @@ $().ready(function () {
 			var isExactMatch = exactMatch.length >= 1
 			var isFNameMatch = fNameMatch.length >= 1
 			var isLNameMatch = lNameMatch.length >= 1
-			console.log(lNameMatch)
 
 			//TODO: Print RESULTS
 			if (isExactMatch) {
@@ -712,8 +702,6 @@ $().ready(function () {
 		// Date Info
 		var dobInput = values['dob_input'] == "" ? "" : values['dob_input']
 		var dodInput = values['dod_input'] == "" ? "" : values['dod_input']
-		console.log(dodInput)
-		console.log(dobInput)
 
 		if ((fInput == "" && lInput == "") && (dobInput == "" && dodInput == "")) {
 
