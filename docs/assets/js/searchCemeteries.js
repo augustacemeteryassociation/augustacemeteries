@@ -437,9 +437,9 @@ $().ready(function () {
 			var isExactMatch = exactMatch.length >= 1
 			var isFNameMatch = fNameMatch.length >= 1
 			var isLNameMatch = lNameMatch.length >= 1
-			console.log("fName", fNameMatch)
-			console.log("lName", lNameMatch)
-			console.log("exact", exactMatch)
+			// console.log("fName", fNameMatch)
+			// console.log("lName", lNameMatch)
+			// console.log("exact", exactMatch)
 
 			//TODO: Print RESULTS
 			if (isExactMatch) {
