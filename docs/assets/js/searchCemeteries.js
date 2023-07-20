@@ -216,21 +216,11 @@ $().ready(function () {
 				var lName_b = b.lName.toLowerCase();
 
 
-				if (fName_a < fName_b) {
-					return -1
-				}
+				if (fName_a < fName_b) { return -1 }
+				if (fName_a > fName_b) { return 1 }
 
-				if (fName_a > fName_b) {
-					return 1
-				}
-
-				if (lName_a < lName_b) {
-					return -1;
-				}
-
-				if (lName_a > lName_b) {
-					return 1
-				}
+				if (lName_a < lName_b) { return -1 }
+				if (lName_a > lName_b) { return 1 }
 
 			}
 
@@ -401,47 +391,16 @@ $().ready(function () {
 					break;
 			}
 
-
-			// if (sortOption == "name") {
-			// 	exactMatch.sort(compareObjects);
-			// 	fNameMatch.sort(compareObjects);
-			// 	lNameMatch.sort(compareObjects);
-			// }
-
-			// if (sortOption == "dod_latest") {
-			// 	exactMatch.sort(compareDeathDates).reverse();
-			// 	fNameMatch.sort(compareDeathDates).reverse();
-			// 	lNameMatch.sort(compareDeathDates).reverse();
-			// }
-
-			// if (sortOption == "dod_oldest") {
-			// 	exactMatch.sort(compareDeathDates);
-			// 	fNameMatch.sort(compareDeathDates);
-			// 	lNameMatch.sort(compareDeathDates);
-			// }
-
-			// if (sortOption == "age_youngest") {
-			// 	exactMatch.sort(compareAge);
-			// 	fNameMatch.sort(compareAge);
-			// 	lNameMatch.sort(compareAge);
-			// }
-
-			// if (sortOption == "age_oldest") {
-			// 	exactMatch.sort(compareAge).reverse();
-			// 	fNameMatch.sort(compareAge).reverse();
-			// 	lNameMatch.sort(compareAge).reverse();
-			// }
-			
-
 			
 			var isExactMatch = exactMatch.length >= 1
 			var isFNameMatch = fNameMatch.length >= 1
 			var isLNameMatch = lNameMatch.length >= 1
-			// console.log("fName", fNameMatch)
-			// console.log("lName", lNameMatch)
-			// console.log("exact", exactMatch)
 
-			//TODO: Print RESULTS
+
+			//
+			// Print RESULTS
+			// 
+
 			if (isExactMatch) {
 
 				if (original_fName == "" && original_lName == "") {
@@ -492,7 +451,6 @@ $().ready(function () {
 
 	function printPersonResult(results, messageTitle, fName = fName_input, lName = lName_input, id = 'defautlResult', hidden = false) {
 
-		//  TODO: Sort results, and display the people
 		var displayPerson = false
 		var displayName = ""
 
