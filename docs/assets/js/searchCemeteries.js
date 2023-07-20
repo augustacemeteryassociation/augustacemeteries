@@ -449,7 +449,7 @@ $().ready(function () {
 					if (dates.length == 1) {
 						printPersonResult(exactMatch, `There are ${exactMatch.length} exact matches for`, dates[0], "", "exactMatch", false)
 					} else {
-						printPersonResult(exactMatch, `There are ${exactMatch.length} exact matches for`, dates.join(" and "), "", "exactMatch", false)
+						printPersonResult(exactMatch, `There are ${exactMatch.length} exact matches for`, dates.join(" or "), "", "exactMatch", false)
 					}
 					
 				} else {
