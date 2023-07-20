@@ -396,7 +396,7 @@ $().ready(function () {
 			var isFNameMatch = fNameMatch.length >= 1
 			var isLNameMatch = lNameMatch.length >= 1
 
-
+			
 			//
 			// Print RESULTS
 			// 
@@ -451,28 +451,42 @@ $().ready(function () {
 
 	function printPersonResult(results, messageTitle, fName = fName_input, lName = lName_input, id = 'defautlResult', hidden = false) {
 
+		//  TODO: Sort results, and display the people
 		var displayPerson = false
 		var displayName = ""
 
 		var divResultID = $(`#results #${id}`)
 
-		if (fName != "") {
-
+		if (fName != "" || lName != "") {
 			displayPerson = true
 
-			if (lName != "") {
+			if (fName != "" && lName != "") {
 				displayName = `${fName} ${lName}`
 			} else {
-				displayName = fName
+				displayName = fName != "" ? fName : lName;
 			}
-
-		} else if (lName != "") {
-			displayPerson = true
-			displayName = lName
-		} else {
-			displayName = fName
-			displayPerson = true
 		}
+
+
+
+
+		// if (fName != "") {
+
+		// 	displayPerson = true
+
+		// 	if (lName != "") {
+		// 		displayName = `${fName} ${lName}`
+		// 	} else {
+		// 		displayName = fName
+		// 	}
+
+		// } else if (lName != "") {
+		// 	displayPerson = true
+		// 	displayName = lName
+		// } else {
+		// 	displayName = fName
+		// 	displayPerson = true
+		// }
 
 
 
