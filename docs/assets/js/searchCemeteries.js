@@ -287,8 +287,8 @@ $().ready(function () {
 								if (dobInput == "" && dodInput == ""){
 									
 									if (fName == "" && lName == "") {break;}
-									if (lName == "" && (fName.includes(fName_input) || otherInfo.includes(fName_input))) {fNameMatch.push(d); break;}
-									if (fName == "" && (lName.includes(lName_inputLower) || (maidenName.includes(lName_inputLower)))) {lNameMatch.push(d); break;}
+									if (fName.includes(fName_input) || otherInfo.includes(fName_input)) {fNameMatch.push(d);}
+									if (lName.includes(lName_inputLower) || (maidenName.includes(lName_inputLower))) {lNameMatch.push(d);}
 									if ((fName.includes(fName_input) || otherInfo.includes(fName_input)) && (lName.includes(lName_inputLower) || (maidenName.includes(lName_inputLower) && maidenName != ""))){
 										exactMatch.push(d);
 									}
@@ -316,23 +316,21 @@ $().ready(function () {
 									isDoB = compareDates(dob, dobInput)
 
 									if (compareDates(dod, dodInput)) {
-										if (fName == "" && lName == "") {continue;}
-										if (lName == "" && (fName.includes(fName_input) || otherInfo.includes(fName_input))) {fNameMatch.push(d)}
-										if (fName == "" && (lName.includes(lName_inputLower) || (maidenName.includes(lName_inputLower) && maidenName != ""))) {lNameMatch.push(d)}
+										if (fName == "" && lName == "") {break;}
+										if (fName.includes(fName_input) || otherInfo.includes(fName_input)) {fNameMatch.push(d);}
+										if (lName.includes(lName_inputLower) || (maidenName.includes(lName_inputLower))) {lNameMatch.push(d);}
 										if ((fName.includes(fName_input) || otherInfo.includes(fName_input)) && (lName.includes(lName_inputLower) || (maidenName.includes(lName_inputLower) && maidenName != ""))){
 											exactMatch.push(d);
 										}
 									
 									} else if (compareDates(dob, dobInput)) {
-										if (fName == "" && lName == "") {continue;}
-										if (lName == "" && (fName.includes(fName_input) || otherInfo.includes(fName_input))) {fNameMatch.push(d)}
-										if (fName == "" && (lName.includes(lName_inputLower) || (maidenName.includes(lName_inputLower) && maidenName != ""))) {lNameMatch.push(d)}
+										if (fName == "" && lName == "") {break;}
+										if (fName.includes(fName_input) || otherInfo.includes(fName_input)) {fNameMatch.push(d);}
+										if (lName.includes(lName_inputLower) || (maidenName.includes(lName_inputLower))) {lNameMatch.push(d);}
 										if ((fName.includes(fName_input) || otherInfo.includes(fName_input)) && (lName.includes(lName_inputLower) || (maidenName.includes(lName_inputLower) && maidenName != ""))){
 											exactMatch.push(d);
 										}
-
 									}
-
 								}
 
 
@@ -439,6 +437,9 @@ $().ready(function () {
 			var isExactMatch = exactMatch.length >= 1
 			var isFNameMatch = fNameMatch.length >= 1
 			var isLNameMatch = lNameMatch.length >= 1
+			console.log("fName", fNameMatch)
+			console.log("lName", lNameMatch)
+			console.log("exact", exactMatch)
 
 			//TODO: Print RESULTS
 			if (isExactMatch) {
