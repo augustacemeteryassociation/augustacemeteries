@@ -328,6 +328,14 @@ body form select {
   text-align-last: center;
   height: 50px;
   margin-right: 10px;
+  clear: right;
+}
+
+body form .note {
+  font-weight: bolder;
+  font-family: "Nunito";
+  color: grayteal;
+  padding-top: 20px;
 }
 
 body .center {
@@ -972,12 +980,18 @@ footer p {
   body form input:last-child {
     margin-top: 20px;
   }
+  body form .note {
+    padding: 0;
+    margin: 0 auto;
+    margin-top: 30px;
+  }
   body form #submit {
     margin-top: 20px;
     width: 75%;
     padding: 0;
     padding: 10px 0px;
     margin: 20px 0;
+    margin-top: 40px;
   }
   body .contacts .title {
     font-size: 1.25em;

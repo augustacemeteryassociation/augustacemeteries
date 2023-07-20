@@ -391,7 +391,14 @@ body {
 			text-align-last: center;
 			height: 50px;
 			margin-right: 10px;
+			clear: right;
+		}
 
+		.note {
+			font-weight: bolder;
+			font-family: "Nunito";
+			color: grayteal;
+			padding-top: 20px;
 		}
 
 	}
@@ -1174,13 +1181,22 @@ footer {
 				margin-top: 20px;
 			}
 
+			.note {
+				padding: 0;
+				margin: 0 auto;
+				margin-top: 30px;
+			}
+
 			#submit {
 				margin-top: 20px;
 				width: 75%;
 				padding: 0;
 				padding: 10px 0px;
 				margin: 20px 0;
+				margin-top: 40px;
 			}
+
+			
 		}
 
 		// CONTACTS
