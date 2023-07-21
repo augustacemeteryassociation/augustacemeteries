@@ -5,12 +5,10 @@
   font-family: "Red Rose";
   src: url("fonts/RedRose-Bold.ttf");
 }
-
 @font-face {
   font-family: "Cursive";
   src: url("fonts/cursive.ttf");
 }
-
 html {
   display: none;
 }
@@ -31,22 +29,11 @@ html {
     opacity: 1;
   }
 }
-
-@-webkit-keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
 body {
   min-height: 100%;
   height: auto;
   padding-bottom: 100px;
 }
-
 body nav {
   width: 100%;
   background-color: purple;
@@ -56,7 +43,6 @@ body nav {
   text-align: center;
   height: auto;
 }
-
 body nav #logo {
   width: 100%;
   font-size: 30px;
@@ -65,7 +51,6 @@ body nav #logo {
   padding: 20px;
   font-family: "Red Rose";
 }
-
 body nav ul {
   width: 100%;
   display: inline-block;
@@ -76,7 +61,6 @@ body nav ul {
   bottom: 20px;
   padding: 0;
 }
-
 body nav ul li {
   font-size: 1.2em;
   list-style: none;
@@ -85,7 +69,6 @@ body nav ul li {
   margin: 5px;
   width: auto;
 }
-
 body nav ul li a {
   text-align: center;
   width: 160px;
@@ -98,11 +81,9 @@ body nav ul li a {
   background-color: white;
   border-radius: 5px;
 }
-
 body nav ul li:hover a {
   color: black;
 }
-
 body #pageTitle {
   width: 100%;
   position: relative;
@@ -110,7 +91,6 @@ body #pageTitle {
   text-align: center;
   height: auto;
 }
-
 body #pageTitle h1 {
   position: relative;
   display: inline-block;
@@ -126,11 +106,9 @@ body #pageTitle h1 {
   clear: right;
   margin-bottom: 75px;
 }
-
 body .homePage h2 {
   color: purple;
 }
-
 body .slideshow > img {
   height: 500px;
   width: auto;
@@ -138,21 +116,16 @@ body .slideshow > img {
   margin: 0 auto;
   padding-top: 20px;
 }
-
 body #itemContainer {
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   padding-top: 30px;
 }
-
 body #itemContainer .itemDetails {
   width: 33%;
   height: auto;
   margin-top: 50px;
 }
-
 body #itemContainer .itemDetails h3 {
   background-color: purple;
   color: white;
@@ -161,44 +134,36 @@ body #itemContainer .itemDetails h3 {
   padding: 10px;
   border-radius: 30px;
 }
-
 body #itemContainer .itemDetails div.imgContainer {
   position: relative;
   display: inline-block;
   padding: 50px;
 }
-
 body #itemContainer .itemDetails div.imgContainer img {
   width: 60%;
   height: 50%;
   padding: 5px;
   vertical-align: middle;
 }
-
 body #itemContainer .itemDetails div.imgContainer .imgBigger {
   width: 75% !important;
 }
-
 body #itemContainer .itemDetails div.imgContainer .imgSmaller {
   width: 40% !important;
 }
-
 body #itemContainer .itemDetails a {
   text-decoration: none;
 }
-
 body article {
   text-align: center;
   margin-bottom: 60px;
 }
-
 body article h1.title {
   font-size: 50px;
   font-family: "Secular One";
   color: purple;
   margin: 0;
 }
-
 body article p {
   font-size: 30px;
   text-align: left;
@@ -209,49 +174,40 @@ body article p {
   font-weight: bold;
   padding: 10px 0;
 }
-
 body article p a {
   text-decoration: none;
-  color: #9603bb;
+  color: rgb(150, 3, 187);
 }
-
 body article p a:hover {
-  color: #109aeb;
+  color: rgb(16, 154, 235);
 }
-
 body article h2 {
   font-family: "Secular One";
   font-size: 2.75em;
   margin: 5px;
 }
-
 body article h3 {
   font-family: "Secular One";
   font-size: 2em;
 }
-
 body article h4 {
   font-family: "Secular One";
   font-size: 1.2em;
 }
-
 body article ul li {
   list-style: none;
   font-family: "Quicksand";
   font-size: 2em;
   padding: 2.5px;
 }
-
 body article ul li span.day {
   font-weight: bolder;
   color: black;
 }
-
 body article ul li span.hours {
   color: purple;
   font-weight: bold;
 }
-
 body .member {
   margin: 0 auto;
   margin-bottom: 50px;
@@ -261,27 +217,22 @@ body .member {
   height: auto;
   padding: 60px;
 }
-
 body .member .profilePicture img {
   padding-top: 50px;
   width: 30%;
   height: auto;
 }
-
 body .member .member_info .membership_title {
   font-size: 3em;
   font-family: "Nunito";
 }
-
 body .member .member_info h2 {
   font-family: "Secular One";
 }
-
 body .member .member_info .membership_length {
   font-size: 2em;
   font-family: "Red Rose";
 }
-
 body .member .member_info .contact_info h3 {
   font-size: 1.75em;
   margin: 0 auto;
@@ -289,21 +240,18 @@ body .member .member_info .contact_info h3 {
   position: relative;
   color: white;
 }
-
 body .member .member_info .contact_info a {
   font-size: 1em;
   font-family: "arial";
   text-decoration: none;
-  color: #2db0fb;
+  color: rgb(45, 176, 251);
 }
-
 body form {
   margin: 0 auto;
   width: 100%;
   text-align: center;
   vertical-align: center;
 }
-
 body form input {
   padding: 10px;
   font-size: 18px;
@@ -311,7 +259,6 @@ body form input {
   font-family: "Red Rose";
   text-align: center;
 }
-
 body form label {
   padding: 10px;
   font-size: 25px;
@@ -321,39 +268,34 @@ body form label {
   font-family: "Red Rose";
   padding-left: 50px;
 }
-
 body form select {
   width: 175px;
   font-size: 18px;
-  text-align-last: center;
+  -moz-text-align-last: center;
+       text-align-last: center;
   height: 50px;
   margin-right: 10px;
   clear: right;
 }
-
 body form .note {
   font-weight: bolder;
   font-family: "Nunito";
   color: grayteal;
   padding-top: 20px;
 }
-
 body .center {
   width: 100%;
   margin: 0 auto;
   text-align: center;
 }
-
 body .center #blockID {
   font-size: 1.5em;
   padding: 10px;
 }
-
 body #results {
   padding-top: 20px;
   font-size: 28px;
 }
-
 body #results .resultMessage {
   width: 50%;
   height: auto;
@@ -367,18 +309,15 @@ body #results .resultMessage {
   border-radius: 30px;
   font-family: "Red Rose";
 }
-
 body #results .resultMessage span {
   font-weight: bolder;
 }
-
 body #results .resultMessage:hover {
   font-weight: bolder;
 }
-
 body #results .errorMessage {
   width: 65%;
-  background-color: #8a0909;
+  background-color: rgb(138, 9, 9);
   color: white;
   margin: 30px auto;
   text-align: center;
@@ -387,11 +326,9 @@ body #results .errorMessage {
   font-size: 1em;
   font-family: "Red Rose";
 }
-
 body #results .errorMessage span {
   font-weight: bolder;
 }
-
 body #results .results {
   height: auto;
   width: 60%;
@@ -407,13 +344,11 @@ body #results .results {
   margin: 0 auto;
   margin-bottom: 20px;
 }
-
 body #results .results img {
   padding-top: 30px;
   width: 90%;
   height: auto;
 }
-
 body #results .results div {
   background-color: purple;
   color: white;
@@ -422,7 +357,6 @@ body #results .results div {
   border-radius: 50px;
   width: auto;
 }
-
 body #results .results div .emailInfo {
   text-decoration: none;
   font-family: "Red Rose";
@@ -432,40 +366,33 @@ body #results .results div .emailInfo {
   padding: 10px 30px;
   border-radius: 10px;
 }
-
 body #results .results div img {
   width: 50%;
   height: auto;
 }
-
 body #results .results div h1 {
   font-family: "Red Rose";
   font-size: 2em;
   text-shadow: -3px 0 black, 0 -2px black;
 }
-
 body #results .results div h3 {
   font-family: "Red Rose";
   font-size: 1.7em;
   color: white;
 }
-
 body #results .results div h3 span {
   text-shadow: -3px 0 black, 0 -2px black;
 }
-
 body #results .results div span.fullName {
   font-family: "Red Rose";
   font-size: 1.5em;
   font-weight: bold;
 }
-
 body #results .results div div.moreDetails {
   width: auto;
   height: auto;
   z-index: 1;
 }
-
 body #results .results div div.moreDetails h2 {
   font-family: "Red Rose";
   font-size: 2em;
@@ -477,7 +404,6 @@ body #results .results div div.moreDetails h2 {
   padding: 10px;
   border-radius: 10px;
 }
-
 body #results .results div .details {
   width: auto;
   display: none;
@@ -485,7 +411,6 @@ body #results .results div .details {
   margin: 0 auto;
   padding-bottom: 50px;
 }
-
 body #results .results div .details img {
   display: block;
   margin-left: auto;
@@ -494,22 +419,18 @@ body #results .results div .details img {
   width: 90%;
   height: auto;
 }
-
 body #results .results div .details .gravestone {
   width: 75%;
 }
-
 body #results .results div .details .obituary {
   width: 80%;
 }
-
 body #results .results div .details h3 {
   position: relative;
   left: 15%;
   margin: 0px;
   padding: 5px;
 }
-
 body #results .results div .details span {
   color: white;
   font-size: 1.25em;
@@ -517,40 +438,33 @@ body #results .results div .details span {
   position: relative;
   left: 15px;
 }
-
 body #results .results div .details span a {
   text-decoration: none;
   position: relative;
   color: white;
 }
-
 body #results .results div .details span a:hover {
-  color: #2ff1f5;
+  color: rgb(47, 241, 245);
 }
-
 body .svg {
   width: 80%;
   height: auto;
   margin: 0 auto;
 }
-
 body .svg svg {
   width: 100%;
   height: auto;
   z-index: -1;
 }
-
 body .svg svg rect {
   background-color: aqua;
 }
-
 body .mapSelection {
   margin: 0 auto;
   height: 200px;
   margin-bottom: 175px;
   width: 100%;
 }
-
 body .mapSelection h1 {
   width: 100%;
   text-align: center;
@@ -561,7 +475,6 @@ body .mapSelection h1 {
   -webkit-text-stroke-width: 2px;
   -webkit-text-stroke-color: purple;
 }
-
 body .mapSelection ul {
   position: relative;
   right: 50px;
@@ -572,7 +485,6 @@ body .mapSelection ul {
   height: auto;
   text-align: center;
 }
-
 body .mapSelection ul li {
   position: relative;
   right: 0;
@@ -588,7 +500,6 @@ body .mapSelection ul li {
   color: white;
   font-family: "Red Rose";
 }
-
 body .mapSelection p {
   position: relative;
   top: 15px;
@@ -599,11 +510,9 @@ body .mapSelection p {
   font-weight: bolder;
   font-family: "Red Rose";
 }
-
 body .lotStatus {
   padding-bottom: 350px;
 }
-
 body .lotStatus .mapIndex {
   margin: 50px auto;
   width: 25%;
@@ -612,18 +521,15 @@ body .lotStatus .mapIndex {
   border: 15px solid purple;
   clear: left;
 }
-
 body .lotStatus .mapIndex h1 {
   font-size: 2.5em;
 }
-
 body .lotStatus .mapIndex h2 {
   position: relative;
   left: 17%;
   font-family: "Secular One";
   font-size: 1.6em;
 }
-
 body .toTop {
   color: white;
   background: purple;
@@ -635,7 +541,6 @@ body .toTop {
   font-size: 1.2em;
   font-family: "Red Rose";
 }
-
 body .rules {
   font-family: "Red Rose";
   text-align: center;
@@ -643,38 +548,32 @@ body .rules {
   bottom: 50px;
   font-size: 1.8em;
 }
-
 body .rules a {
   color: purple;
   text-decoration: none;
 }
-
 body .selected {
   color: black;
   font-size: 2em;
   font-family: "Red Rose";
   text-align: center;
 }
-
 body .availability {
   color: purple;
   font-size: 1.2em;
   font-family: "Red Rose";
   text-align: center;
 }
-
 body #donationTypes {
   width: 100%;
   text-align: center;
 }
-
 body #donationTypes ul {
   width: 100% !important;
   margin: 0 auto;
   padding: 0;
   padding-bottom: 50px;
 }
-
 body #donationTypes ul li {
   display: inline-block;
   background-color: purple;
@@ -685,7 +584,6 @@ body #donationTypes ul li {
   border-radius: 50px;
   margin: 0 auto;
 }
-
 body #donationTypes ul li h1 {
   font-size: 2em;
   text-align: center;
@@ -696,12 +594,10 @@ body #donationTypes ul li h1 {
   color: white;
   font-weight: bold;
 }
-
 body #donationTypes ul li a {
   text-decoration: none;
   color: white;
 }
-
 body .donationInfo {
   padding-top: 5px;
   text-align: center;
@@ -722,7 +618,6 @@ footer {
   float: left;
   z-index: 10;
 }
-
 footer p {
   color: white;
   font-size: 24px;
@@ -756,7 +651,7 @@ footer p {
   body nav ul li a {
     padding: 5px 0;
     width: 100%;
-    font-size: .4em;
+    font-size: 0.4em;
   }
   body #pageTitle h1 {
     padding: 5px;
@@ -878,7 +773,7 @@ footer p {
     font-size: 18px;
   }
   body .cemeteryMaps p {
-    font-size: .85em;
+    font-size: 0.85em;
   }
   body #results .results div h1 {
     font-size: 1.25em;
@@ -907,7 +802,7 @@ footer p {
   }
   body #results .results div .details h3 {
     left: 5% !important;
-    font-size: .9em !important;
+    font-size: 0.9em !important;
   }
   body #results .results div .details h3 span {
     font-size: 1.2em !important;
@@ -923,7 +818,7 @@ footer p {
   body #results .resultMessage {
     margin: 15px auto;
     width: 80%;
-    font-size: .65em;
+    font-size: 0.65em;
   }
   body #results .profilePicture {
     width: 75% !important;
@@ -984,6 +879,7 @@ footer p {
     padding: 0;
     margin: 0 auto;
     margin-top: 30px;
+    font-size: 12px;
   }
   body form #submit {
     margin-top: 20px;
@@ -1000,7 +896,7 @@ footer p {
     margin-bottom: 25px;
   }
   body .contacts p {
-    font-size: .85em;
+    font-size: 0.85em;
     padding: 3px 0;
     left: 5%;
   }
@@ -1012,12 +908,12 @@ footer p {
     font-size: 1em;
   }
   body .contacts ul li {
-    font-size: .8em !important;
+    font-size: 0.8em !important;
   }
   body .contacts h3 {
     margin: 10px auto;
     width: 90%;
-    font-size: .9em;
+    font-size: 0.9em;
   }
   body .rules {
     font-size: 1.1em !important;
@@ -1028,11 +924,11 @@ footer p {
   }
   body .selected {
     padding-top: 15px !important;
-    font-size: .75em !important;
+    font-size: 0.75em !important;
   }
   body .availability {
     padding-top: 5px !important;
-    font-size: .6em !important;
+    font-size: 0.6em !important;
   }
   body .lotStatus h1 {
     font-size: 1.65em;
@@ -1054,23 +950,22 @@ footer p {
   }
   body #donationTypes ul li {
     width: 50%;
-    font-size: .5em;
+    font-size: 0.5em;
   }
   body .donationInfo {
     width: 90%;
     padding-top: 20px;
     text-align: center;
-    font-size: .8em;
+    font-size: 0.8em;
     font-family: "Red Rose";
     margin: 0px auto;
   }
   body footer .copyright {
-    font-size: .85em;
+    font-size: 0.85em;
     padding: 0px;
     text-align: center;
     position: relative;
     width: 100%;
     margin: 7.5px auto;
   }
-}
-/*# sourceMappingURL=styles.css.map */
+}/*# sourceMappingURL=styles.css.map */
