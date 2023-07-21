@@ -645,7 +645,7 @@ body {
 			vertical-align: top;
 			height: auto;
 			text-align: center;
-		   
+			
 			li {
 				position: relative;
 				right: 0;
@@ -1103,8 +1103,10 @@ footer {
 
 			.resultMessage {
 				margin: 15px auto;
+				padding: 0;
+				padding: 5px;
 				width: 80%;
-				font-size: .65em;
+				font-size: .5em;
 
 			}
 
