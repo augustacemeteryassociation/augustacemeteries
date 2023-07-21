@@ -27,19 +27,13 @@ function yearDiff(d1, d2) {
 
 	if (isNaN(timeYearDiff)) {
 
-		if (isNaN(yearDiff)) {
-			yearDiff = "Unknown"
-		} else if (yearDiff == 0) {
-			yearDiff = "Less than 1 year"
-		}
+		if (isNaN(yearDiff)) { yearDiff = "Unknown" } else if (yearDiff == 0) { yearDiff = "Less than 1 year" }
 
 		return yearDiff
 
 	}
 
-	if (timeYearDiff == 0) {
-		timeYearDiff = "Less than 1 year"
-	}
+	if (timeYearDiff == 0) { timeYearDiff = "Less than 1 year" }
 
 	return timeYearDiff
 
@@ -52,11 +46,7 @@ function getDate(dateStr) {
 	dateArray = []
 
 	function nan(a) {
-		if (Number.isNaN(a)) {
-			return "Unknown"
-		} else {
-			return a
-		}
+		if (Number.isNaN(a)) { return "Unknown" } else { return a }
 	}
 
 
@@ -74,28 +64,22 @@ function getDate(dateStr) {
 			d.day = parseInt(dateArray[1]);
 
 			d.year = nan(d.year)
-
 			d.month = nan(d.month)
 			d.day = nan(d.day)
-
-
 			break;
 
 		case 2:
 			d.year = parseInt(dateArray[1]);
 			d.month = parseInt(dateArray[0]);
 
-			d.year = nan(d.year)
-			d.month = nan(d.month)
-
-
+			d.year = nan(d.year);
+			d.month = nan(d.month);
 			break;
 
 		case 1:
 
 			d.year = parseInt(dateArray[0]);
-			d.year = nan(d.year)
-
+			d.year = nan(d.year);
 			break;
 
 		case '':
@@ -243,7 +227,9 @@ $().ready(function () {
 			}
 
 
-
+			//
+			// CEMETERY SEARCH
+			//
 
 			for (cemetery in data) {
 
@@ -322,11 +308,6 @@ $().ready(function () {
 										}
 									}
 								}
-
-
-								
-
-								
 
 								// BACKUP SORTER - ORIGINAL
 								// if (fName != "") {
