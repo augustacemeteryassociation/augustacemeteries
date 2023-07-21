@@ -645,7 +645,7 @@ body {
 			vertical-align: top;
 			height: auto;
 			text-align: center;
-		   
+			
 			li {
 				position: relative;
 				right: 0;
@@ -797,7 +797,6 @@ body {
 		line-height: 1em;
 		font-size: 1.75em;
 		font-family: "Red Rose";
-	   
 	}
 	
 
@@ -863,11 +862,11 @@ footer {
 		}
 
 		#pageTitle {
-			
+
 			h1 {
-				padding: 5px;
+				padding: 5px 10px;
 				width: 75%;
-				font-size: 1.25em;
+				font-size: 1em;
 				margin-top: 5%;
 				margin-bottom: 15%;
 			}
@@ -1104,8 +1103,10 @@ footer {
 
 			.resultMessage {
 				margin: 15px auto;
+				padding: 0;
+				padding: 5px;
 				width: 80%;
-				font-size: .65em;
+				font-size: .5em;
 
 			}
 
@@ -1135,7 +1136,9 @@ footer {
 			
 
 			.errorMessage {
-				font-size: 20px;
+				font-size: .4em;
+				width: 80%;
+				margin: 0 auto;
 			}
 	
 			.toTop {
@@ -1151,13 +1154,14 @@ footer {
 			width: 100%;
 			margin-top: -35px;
 			label {
+				width: 50%;
 				padding: 0;
 				display: block;
 				padding: 10px;
-				font-size: 1em;
+				font-size: .85em;
 				width: 25%;
 				position: relative;
-				top: 40px;
+				top: 35px;
 			}
 
 			input {
@@ -1174,7 +1178,8 @@ footer {
 				position: relative;
 				width: 55%;
 				left: 10%;
-				font-size: 1.2em;
+				height: 30px;
+				font-size: .9em;
 			}
 
 			input:last-child {
@@ -1184,16 +1189,21 @@ footer {
 			.note {
 				padding: 0;
 				margin: 0 auto;
-				margin-top: 30px;
+				margin-top: 10px;
+				font-size: .6em;
+				position: relative;
+				top: 25px
 			}
 
 			#submit {
 				margin-top: 20px;
-				width: 75%;
+				font-size: 1em;
+				width: 50%;
 				padding: 0;
-				padding: 10px 0px;
+				padding: 7px 0px;
 				margin: 20px 0;
 				margin-top: 40px;
+				margin-left: 15%
 			}
 
 			
@@ -1279,45 +1289,14 @@ footer {
 		// DONTATION PAGE
 		#donationTypes ul{
 			width: 100% !important;
-			padding: 20px 0;
+			padding: 0;
 			margin: 0 auto;
 
-			li{
-				width: 50%;
-				font-size: .5em;
+			li {
+				font-size: .45em;
+				width: 60%;
+				
 			}
-
-			// li {
-			// 	position: relative;
-			// 	display: inline-block;
-			// 	background-color: purple;
-			// 	color: white;
-			// 	font-family: "Nunito";
-			// 	font-weight: bold;
-			// 	width: 85%;
-			// 	padding: 0;
-			// 	border-radius: 50px;
-			// 	margin: 0 auto;
-			// 	margin-bottom: 20px;
-			// 	clear: left;
-
-			// 	h1 {
-			// 		font-size: 1.2em;
-			// 		text-align: center;
-			// 		margin: 0 auto;
-			// 		width: auto;
-			// 		padding: 5px;
-			// 		border-radius: 5px;
-			// 		color: white;
-			// 		font-weight: bold;
-
-			// 	}
-
-			// 	a {
-			// 		text-decoration: none;
-			// 		color: white;
-			// 	}
-			// }
 	
 		}
 
