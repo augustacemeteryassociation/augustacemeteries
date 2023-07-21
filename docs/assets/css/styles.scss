@@ -1183,8 +1183,10 @@ footer {
 			.note {
 				padding: 0;
 				margin: 0 auto;
-				margin-top: 30px;
-				font-size: 12px;
+				margin-top: 10px;
+				font-size: .6em;
+				position: relative;
+				top: 30px
 			}
 
 			#submit {
