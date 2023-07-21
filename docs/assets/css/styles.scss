@@ -1154,13 +1154,14 @@ footer {
 			width: 100%;
 			margin-top: -35px;
 			label {
+				width: 50%;
 				padding: 0;
 				display: block;
 				padding: 10px;
-				font-size: 1em;
+				font-size: .85em;
 				width: 25%;
 				position: relative;
-				top: 40px;
+				top: 35px;
 			}
 
 			input {
@@ -1177,7 +1178,8 @@ footer {
 				position: relative;
 				width: 55%;
 				left: 10%;
-				font-size: 1.2em;
+				height: 30px;
+				font-size: .9em;
 			}
 
 			input:last-child {
@@ -1190,16 +1192,18 @@ footer {
 				margin-top: 10px;
 				font-size: .6em;
 				position: relative;
-				top: 30px
+				top: 25px
 			}
 
 			#submit {
 				margin-top: 20px;
-				width: 75%;
+				font-size: 1em;
+				width: 50%;
 				padding: 0;
-				padding: 10px 0px;
+				padding: 7px 0px;
 				margin: 20px 0;
 				margin-top: 40px;
+				margin-left: 15%
 			}
 
 			

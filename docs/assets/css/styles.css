@@ -853,13 +853,14 @@ footer p {
     margin-top: -35px;
   }
   body form label {
+    width: 50%;
     padding: 0;
     display: block;
     padding: 10px;
-    font-size: 1em;
+    font-size: 0.85em;
     width: 25%;
     position: relative;
-    top: 40px;
+    top: 35px;
   }
   body form input {
     display: block;
@@ -874,7 +875,8 @@ footer p {
     position: relative;
     width: 55%;
     left: 10%;
-    font-size: 1.2em;
+    height: 30px;
+    font-size: 0.9em;
   }
   body form input:last-child {
     margin-top: 20px;
@@ -885,15 +887,17 @@ footer p {
     margin-top: 10px;
     font-size: 0.6em;
     position: relative;
-    top: 30px;
+    top: 25px;
   }
   body form #submit {
     margin-top: 20px;
-    width: 75%;
+    font-size: 1em;
+    width: 50%;
     padding: 0;
-    padding: 10px 0px;
+    padding: 7px 0px;
     margin: 20px 0;
     margin-top: 40px;
+    margin-left: 15%;
   }
   body .contacts .title {
     font-size: 1.25em;
