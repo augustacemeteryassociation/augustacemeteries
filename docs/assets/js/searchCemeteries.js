@@ -401,9 +401,9 @@ $().ready(function () {
 				}
 
 			} else if (isFNameMatch == false && isLNameMatch == false) {
-				$results.append(`<h1 class='errorMessage'>Sorry we couldn't find any results for: <span>${original_fName} ${original_lName}</h1>`);
+				$results.append(`<h1 class='errorMessage'>Sorry we couldn't find any results for:<br> <span>${original_fName} ${original_lName}</h1>`);
 			} else {
-				$results.append(`<h1 class='errorMessage'>Sorry we couldn't find a exact match for: <span>${original_fName} ${original_lName}</h1>`);
+				$results.append(`<h1 class='errorMessage'>Sorry we couldn't find a exact match for:<br> <span>${original_fName} ${original_lName}</h1>`);
 			}
 
 
@@ -452,7 +452,7 @@ $().ready(function () {
 		if (displayPerson && displayName != "") {
 
 			if (results.length != 0) {
-				$results.append(`<h1 class='resultMessage'>${messageTitle}: <span>${displayName}</h1>`);
+				$results.append(`<h1 class='resultMessage'>${messageTitle}:<br> <span>${displayName}</h1>`);
 				$results.append(`<div class="results" id="${id}"></div>`)
 			} else {
 				$results.append(`<h1 class='errorMessage'>Sorry we couldn't find a match for: <span>${displayName}</h1>`);
@@ -633,7 +633,7 @@ $().ready(function () {
 		if ((fInput == "" && lInput == "") && (dobInput == "" && dodInput == "")) {
 
 			$(this).closest('form').find("input[type=text], textarea").val("");
-			$results.append("<h1 class='errorMessage'>Invalid Input: Please enter a valid first or last name, or date.</h1>");
+			$results.append("<h1 class='errorMessage'>Invalid Input:<br> Please enter a valid first or last name, or date.</h1>");
 
 		} else {
 			getMatches(fInput, lInput, sortOption, dobInput, dodInput)

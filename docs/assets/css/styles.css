@@ -654,9 +654,9 @@ footer p {
     font-size: 0.4em;
   }
   body #pageTitle h1 {
-    padding: 5px;
+    padding: 5px 10px;
     width: 75%;
-    font-size: 1.25em;
+    font-size: 1em;
     margin-top: 5%;
     margin-bottom: 15%;
   }
@@ -817,8 +817,10 @@ footer p {
   }
   body #results .resultMessage {
     margin: 15px auto;
+    padding: 0;
+    padding: 5px;
     width: 80%;
-    font-size: 0.65em;
+    font-size: 0.5em;
   }
   body #results .profilePicture {
     width: 75% !important;
@@ -836,7 +838,9 @@ footer p {
     width: 80% !important;
   }
   body #results .errorMessage {
-    font-size: 20px;
+    font-size: 0.4em;
+    width: 80%;
+    margin: 0 auto;
   }
   body #results .toTop {
     font-size: 24px !important;
@@ -849,13 +853,14 @@ footer p {
     margin-top: -35px;
   }
   body form label {
+    width: 50%;
     padding: 0;
     display: block;
     padding: 10px;
-    font-size: 1em;
+    font-size: 0.85em;
     width: 25%;
     position: relative;
-    top: 40px;
+    top: 35px;
   }
   body form input {
     display: block;
@@ -870,7 +875,8 @@ footer p {
     position: relative;
     width: 55%;
     left: 10%;
-    font-size: 1.2em;
+    height: 30px;
+    font-size: 0.9em;
   }
   body form input:last-child {
     margin-top: 20px;
@@ -878,16 +884,20 @@ footer p {
   body form .note {
     padding: 0;
     margin: 0 auto;
-    margin-top: 30px;
-    font-size: 12px;
+    margin-top: 10px;
+    font-size: 0.6em;
+    position: relative;
+    top: 25px;
   }
   body form #submit {
     margin-top: 20px;
-    width: 75%;
+    font-size: 1em;
+    width: 50%;
     padding: 0;
-    padding: 10px 0px;
+    padding: 7px 0px;
     margin: 20px 0;
     margin-top: 40px;
+    margin-left: 15%;
   }
   body .contacts .title {
     font-size: 1.25em;
@@ -945,12 +955,12 @@ footer p {
   }
   body #donationTypes ul {
     width: 100% !important;
-    padding: 20px 0;
+    padding: 0;
     margin: 0 auto;
   }
   body #donationTypes ul li {
-    width: 50%;
-    font-size: 0.5em;
+    font-size: 0.45em;
+    width: 60%;
   }
   body .donationInfo {
     width: 90%;
