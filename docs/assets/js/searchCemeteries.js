@@ -633,7 +633,7 @@ $().ready(function () {
 		if ((fInput == "" && lInput == "") && (dobInput == "" && dodInput == "")) {
 
 			$(this).closest('form').find("input[type=text], textarea").val("");
-			$results.append("<h1 class='errorMessage'>Invalid Input: Please enter a valid first or last name, or date.</h1>");
+			$results.append("<h1 class='errorMessage'>Invalid Input:<br> Please enter a valid first or last name, or date.</h1>");
 
 		} else {
 			getMatches(fInput, lInput, sortOption, dobInput, dodInput)
