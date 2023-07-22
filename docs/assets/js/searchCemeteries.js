@@ -341,7 +341,7 @@ $().ready(function () {
 									isDoD = compareDates(dod, dodInput)
 									isDoB = compareDates(dob, dobInput)
 
-									if (isDoB || isDoD) { checkForMatches(d, fName, fName_input, lName, lName_inputLower, maidenName); } 
+									if (isDoB || isDoD) { checkForMatches(d, fName, fName_inputLower, lName, lName_inputLower, maidenName); } 
 
 								}
 
