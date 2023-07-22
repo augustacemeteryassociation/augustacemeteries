@@ -2,6 +2,33 @@ function cleanString(s) {
 	return s.replace(/[^a-zA-Z ]/g, "");
 }
 
+function filterInput(input, filterType) {
+
+	for (const f in filterType) {
+		switch (filterType[f]) {
+			case "alphabet":
+				input = input.replace(/[a-zA-Z]/g, "")
+				break;
+			case "numbers":
+				input = input.replace(/[0-9]/g, "");
+				break;
+			case "scripts": 
+				input = input.replace(/((?=\<)(.*?)(?=\>)|(?=\>)(.*?)(?=\<))|[/</>]/g, "");
+				break;
+			case "special":
+				input = input.replace(/[^a-zA-Z0-9 ]/g, "")
+				break;
+			case "spaces":
+				input = input.replace(/[\s]/g, "");
+				break;
+			case "date":
+				input = input.replace(/([^0-9-])/g, "")
+		}
+	}
+
+	return input
+}
+
 
 function yearDiff(d1, d2) {
 
@@ -182,10 +209,9 @@ $().ready(function () {
 
 		$.getJSON("json/graves.json", function (data) {
 
-			var matches = []
-			var exactMatch = []
-			var fNameMatch = []
-			var lNameMatch = []
+			let exactMatch = []
+			let fNameMatch = []
+			let lNameMatch = []
 
 			var fName_inputLower = fName_input.toLowerCase();
 			var lName_inputLower = lName_input.toLowerCase();
@@ -259,54 +285,41 @@ $().ready(function () {
 								// 
 								// MATCH CASES
 								// 
+								function checkForMatches (data, fName, fNameInput, lName, lNameInput, maidenName) {
 
-								if (dobInput == "" && dodInput == ""){
+									if (fName == "" && lName == "") {return}
+									if (lName == "" || (fName.includes(fNameInput) || otherInfo.includes(fNameInput))) {fNameMatch.push(data)}
+									if (fName == "" || (lName.includes(lNameInput) || (maidenName.includes(lNameInput)))) {lNameMatch.push(data)}
+									if ((fName.includes(fNameInput) || otherInfo.includes(fNameInput)) && (lName.includes(lNameInput) || (maidenName.includes(lNameInput) && maidenName != ""))){ exactMatch.push(data); }
 									
-									if (fName == "" && lName == "") {break;}
-									if (fName.includes(fName_input) || otherInfo.includes(fName_input)) {fNameMatch.push(d);}
-									if (lName.includes(lName_inputLower) || (maidenName.includes(lName_inputLower))) {lNameMatch.push(d);}
-									if ((fName.includes(fName_input) || otherInfo.includes(fName_input)) && (lName.includes(lName_inputLower) || (maidenName.includes(lName_inputLower) && maidenName != ""))){
-										exactMatch.push(d);
-									}
+								}
 
-								} else {
+								function compareDates(r, i) {
 
-									function compareDates(r, i) {
+									if (typeof(r) == 'object') {rLen = Object.keys(r).length;} else {return false}
+									if (typeof(i) == 'object') {iLen = Object.keys(i).length;} else {return false}
 
-										if (typeof(r) == 'object') {rLen = Object.keys(r).length;} else {return false}
-										if (typeof(i) == 'object') {iLen = Object.keys(i).length;} else {return false}
+									if (rLen >= iLen) { k = Object.keys(i) } else { k = Object.keys(i) }
 
-										if (rLen >= iLen) { k = Object.keys(i) } else { k = Object.keys(i) }
-
-										for (const d of k) {
-											if (r[d] != i[d]){
-												return false
-											}
+									for (const d of k) {
+										if (r[d] != i[d]){
+											return false
 										}
 
-										return true
+									return true
 
 									}
-									
+								}
+								
+
+								// Find Match Cases
+								if (dobInput == "" && dodInput == "") { checkForMatches(d, fName, fName_inputLower, lName, lName_inputLower, maidenName); } else {
+
 									isDoD = compareDates(dod, dodInput)
 									isDoB = compareDates(dob, dobInput)
 
-									if (compareDates(dod, dodInput)) {
-										if (fName == "" && lName == "") {break;}
-										if (fName.includes(fName_input) || otherInfo.includes(fName_input)) {fNameMatch.push(d);}
-										if (lName.includes(lName_inputLower) || (maidenName.includes(lName_inputLower))) {lNameMatch.push(d);}
-										if ((fName.includes(fName_input) || otherInfo.includes(fName_input)) && (lName.includes(lName_inputLower) || (maidenName.includes(lName_inputLower) && maidenName != ""))){
-											exactMatch.push(d);
-										}
-									
-									} else if (compareDates(dob, dobInput)) {
-										if (fName == "" && lName == "") {break;}
-										if (fName.includes(fName_input) || otherInfo.includes(fName_input)) {fNameMatch.push(d);}
-										if (lName.includes(lName_inputLower) || (maidenName.includes(lName_inputLower))) {lNameMatch.push(d);}
-										if ((fName.includes(fName_input) || otherInfo.includes(fName_input)) && (lName.includes(lName_inputLower) || (maidenName.includes(lName_inputLower) && maidenName != ""))){
-											exactMatch.push(d);
-										}
-									}
+									if (isDoB || isDoD) { checkForMatches(d, fName, fName_inputLower, lName, lName_inputLower, maidenName); } 
+
 								}
 
 								// BACKUP SORTER - ORIGINAL
@@ -325,14 +338,11 @@ $().ready(function () {
 								// 		}
 								// 	}
 								// }
-
-
 							}
 						}
 					}
 				}
 			}
-
 
 			//
 			// SORTING OPTIONS
@@ -376,28 +386,19 @@ $().ready(function () {
 			var isExactMatch = exactMatch.length >= 1
 			var isFNameMatch = fNameMatch.length >= 1
 			var isLNameMatch = lNameMatch.length >= 1
-
-			
+	
 			//
 			// Print RESULTS
 			// 
 
+			var $results = $("#results")
+
 			if (isExactMatch) {
 
 				if (original_fName == "" && original_lName == "") {
-
-					if (dates.length == 1) {
-						printPersonResult(exactMatch, `There are ${exactMatch.length} exact matches for`, dates[0], "", "exactMatch", false)
-					} else {
-						printPersonResult(exactMatch, `There are ${exactMatch.length} exact matches for`, dates.join(" or "), "", "exactMatch", false)
-					}
-					
+					printPersonResult(exactMatch, `There are ${exactMatch.length} exact ${exactMatch.length == 1 ? 'match' : 'matches'} for`, `${dates.length == 1 ? dates[0] : dates.join(" or ")}`, "", "exactMatch", false)
 				} else {
-					if (exactMatch.length > 1) {
-						printPersonResult(exactMatch, "There are " + exactMatch.length + " exact matches for", original_fName, original_lName, "exactMatch", false)
-					} else if (exactMatch.length == 1) {
-						printPersonResult(exactMatch, "There is " + exactMatch.length + " exact match for", original_fName, original_lName, "exactMatch", false)
-					}
+					printPersonResult(exactMatch, `There are ${exactMatch.length} exact ${exactMatch.length == 1 ? 'match' : 'matches'} for`, original_fName, original_lName, "exactMatch", false)
 				}
 
 			} else if (isFNameMatch == false && isLNameMatch == false) {
@@ -408,27 +409,18 @@ $().ready(function () {
 
 
 			if (isFNameMatch) {
-
-				if (fNameMatch.length > 1) {
-					printPersonResult(fNameMatch, "Here are " + fNameMatch.length + " matches for the first name", original_fName, "", "firstNameMatch", true)
-				} else if (fNameMatch.length == 1) {
-					printPersonResult(fNameMatch, "There is " + fNameMatch.length + " match for the first name", original_fName, "", "firstNameMatch", true)
-				}
-
+				printPersonResult(fNameMatch, `There are ${fNameMatch.length} exact ${fNameMatch.length == 1 ? 'match' : 'matches'} for`, original_fName, "", "firstNameMatch", true)
 			}
 
 			if (isLNameMatch) {
-
-				if (lNameMatch.length > 1) {
-					printPersonResult(lNameMatch, "Here are " + lNameMatch.length + " matches for the last name", "", original_lName, "lastNameMatch", true)
-				} else if (lNameMatch.length == 1) {
-					printPersonResult(lNameMatch, "There is " + lNameMatch.length + " match for the last name", "", original_lName, "lastNameMatch", true)
-				}
-
+				printPersonResult(lNameMatch, `There are ${lNameMatch.length} exact ${lNameMatch.length == 1 ? 'match' : 'matches'} for`, "", original_lName, "lastNameMatch", true)
 			}
-
+		
+		
 		});
 	}
+
+	
 
 	function printPersonResult(results, messageTitle, fName = fName_input, lName = lName_input, id = 'defautlResult', hidden = false) {
 
@@ -605,7 +597,15 @@ $().ready(function () {
 
 	var initOption = $("select").children("option:selected").val();
 
+
+
+	//
+	// FORM SUBMITION
+	//
+
 	$("form").submit(function () {
+
+		var $results = $("#results")
 
 		window.stop();
 		$results.empty()
@@ -613,30 +613,32 @@ $().ready(function () {
 		var values = {};
 		var sortOption = $("#sortSelect").val();
 
-
 		$inputs.each(function () {
 			values[this.name] = $(this).val();
 		});
 
-		function filterInput(name) {
-			if (name != "" && typeof name == "string") {return name.trim()} else {return ""}
-		}
+		// Filter Name Info
+		var fNameInput = filterInput(values['fName_input'], ["numbers", "scripts", "special"])
+		var lNameInput = filterInput(values["lName_input"], ["numbers", "scripts", "special"])
 
-		// Name Info
-		var fInput = filterInput(values['fName_input'])
-		var lInput = filterInput(values["lName_input"])
 
-		// Date Info
-		var dobInput = values['dob_input'] == "" ? "" : values['dob_input']
-		var dodInput = values['dod_input'] == "" ? "" : values['dod_input']
+		// Filter Date Info
+		let dobInput = filterInput(values['dob_input'], ['scripts','date'])
+		let dodInput = filterInput(values['dod_input'], ['scripts','date'])
 
-		if ((fInput == "" && lInput == "") && (dobInput == "" && dodInput == "")) {
 
+		// Display filtered input back into the form
+		$("#fName_input:text").val(fNameInput);
+		$("#lName_input:text").val(lNameInput);
+		$("#dob_input:text").val(dobInput);
+		$("#dod_input:text").val(dodInput);
+
+		// Check if input boxes are empty or not
+		if ((fNameInput == "" && lNameInput == "") && (dobInput == "" && dodInput == "")) {
 			$(this).closest('form').find("input[type=text], textarea").val("");
-			$results.append("<h1 class='errorMessage'>Invalid Input:<br> Please enter a valid first or last name, or date.</h1>");
-
+			$results.append("<h1 class='errorMessage'>Invalid Input: Please enter a valid first or last name, or date.</h1>");
 		} else {
-			getMatches(fInput, lInput, sortOption, dobInput, dodInput)
+			getMatches(fNameInput, lNameInput, sortOption, dobInput, dodInput)
 		}
 	});
 });
@@ -653,7 +655,6 @@ $(document).on('click', '.moreDetails', function () {
 
 	$(this).next().toggle(400, "swing");
 });
-
 
 $(document).on('click', '.resultMessage', function () {
 	$(this).next(".results").toggle(400, "swing")
