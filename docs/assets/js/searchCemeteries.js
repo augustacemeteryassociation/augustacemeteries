@@ -294,8 +294,6 @@ $().ready(function () {
 									
 								}
 
-
-
 								function compareDates(r, i) {
 
 									if (typeof(r) == 'object') {rLen = Object.keys(r).length;} else {return false}
@@ -307,7 +305,10 @@ $().ready(function () {
 										if (r[d] != i[d]){
 											return false
 										}
+
 									return true
+
+									}
 								}
 								
 
@@ -337,8 +338,6 @@ $().ready(function () {
 								// 		}
 								// 	}
 								// }
-
-
 							}
 						}
 					}
@@ -414,9 +413,12 @@ $().ready(function () {
 			if (isLNameMatch) {
 				printPersonResult(lNameMatch, `There are ${lNameMatch.length} exact ${lNameMatch.length == 1 ? 'match' : 'matches'} for`, "", original_lName, "lastNameMatch", true)
 			}
-
+		
+		
 		});
 	}
+});
+	
 
 	function printPersonResult(results, messageTitle, fName = fName_input, lName = lName_input, id = 'defautlResult', hidden = false) {
 
@@ -635,7 +637,6 @@ $().ready(function () {
 			getMatches(fNameInput, lNameInput, sortOption, dobInput, dodInput)
 		}
 	});
-});
 
 $(document).on('click', '.moreDetails', function () {
 
@@ -649,7 +650,6 @@ $(document).on('click', '.moreDetails', function () {
 
 	$(this).next().toggle(400, "swing");
 });
-
 
 $(document).on('click', '.resultMessage', function () {
 	$(this).next(".results").toggle(400, "swing")
