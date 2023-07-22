@@ -312,7 +312,7 @@ $().ready(function () {
 								function checkForMatches (data, fName, fNameInput, lName, lNameInput, maidenName) {
 
 									if (fName == "" && lName == "") {return}
-									if (lName == "" || (fName.includes(fNameInput) || otherInfo.includes(fNameInput))) {console.log('fName Matched'); fNameMatch.push(data)}
+									if (lName == "" || (fName.includes(fNameInput) || otherInfo.includes(fNameInput))) {fNameMatch.push(data)}
 									if (fName == "" || (lName.includes(lNameInput) || (maidenName.includes(lNameInput)))) {lNameMatch.push(data)}
 									if ((fName.includes(fNameInput) || otherInfo.includes(fNameInput)) && (lName.includes(lNameInput) || (maidenName.includes(lNameInput) && maidenName != ""))){ exactMatch.push(data); }
 									
@@ -369,9 +369,6 @@ $().ready(function () {
 				}
 			}
 
-			console.log(fNameMatch)
-			console.log(lNameMatch)
-			console.log(exactMatch)
 			//
 			// SORTING OPTIONS
 			//
@@ -646,20 +643,9 @@ $().ready(function () {
 		var values = {};
 		var sortOption = $("#sortSelect").val();
 
-
 		$inputs.each(function () {
 			values[this.name] = $(this).val();
 		});
-
-		// function filterInput(name) {
-		// 	if (name != "" && typeof name == "string") {return name.trim()} else {return ""}
-		// }
-		// function devConsole(items):
-
-
-		
-
-		filterInput("!@#$%^John Smith&*()-_=+<>()[]{}", ["special", "spaces"])
 
 		// Filter Name Info
 		var fNameInput = filterInput(values['fName_input'], ["numbers", "scripts", "special"])
