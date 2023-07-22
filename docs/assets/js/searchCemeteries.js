@@ -311,22 +311,17 @@ $().ready(function () {
 								// MATCH CASES
 								// 
 
+								
+
 								if (dobInput == "" && dodInput == ""){
-									// console.log("Made it !!!")
 									
-									// if (lName.includes(lName_inputLower)) {console.log(true)}
 									if (fName == "" && lName == "") {break;}
-									
 									if (lName == "" && (fName.includes(fName_input) || otherInfo.includes(fName_input))) {fNameMatch.push(d); break;}
-									if (lName.includes(lName_inputLower)) {console.log(true)}
 									if (fName == "" && (lName.includes(lName_inputLower) || (maidenName.includes(lName_inputLower)))) {lNameMatch.push(d); break;}
 									if ((fName.includes(fName_input) || otherInfo.includes(fName_input)) && (lName.includes(lName_inputLower) || (maidenName.includes(lName_inputLower) && maidenName != ""))){
 										exactMatch.push(d);
 									}
 
-									console.log("fName", fNameMatch)
-									console.log("lName", lNameMatch)
-									console.log("exact", exactMatch)
 								} else {
 
 									function compareDates(r, i) {
