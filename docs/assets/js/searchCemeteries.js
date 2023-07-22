@@ -391,6 +391,8 @@ $().ready(function () {
 			// Print RESULTS
 			// 
 
+			var $results = $("#results")
+
 			if (isExactMatch) {
 
 				if (original_fName == "" && original_lName == "") {
@@ -417,7 +419,7 @@ $().ready(function () {
 		
 		});
 	}
-});
+
 	
 
 	function printPersonResult(results, messageTitle, fName = fName_input, lName = lName_input, id = 'defautlResult', hidden = false) {
@@ -603,6 +605,8 @@ $().ready(function () {
 
 	$("form").submit(function () {
 
+		var $results = $("#results")
+
 		window.stop();
 		$results.empty()
 		var $inputs = $('form :input');
@@ -637,6 +641,7 @@ $().ready(function () {
 			getMatches(fNameInput, lNameInput, sortOption, dobInput, dodInput)
 		}
 	});
+});
 
 $(document).on('click', '.moreDetails', function () {
 
