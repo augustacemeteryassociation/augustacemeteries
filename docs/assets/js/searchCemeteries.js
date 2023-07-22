@@ -54,19 +54,13 @@ function yearDiff(d1, d2) {
 
 	if (isNaN(timeYearDiff)) {
 
-		if (isNaN(yearDiff)) {
-			yearDiff = "Unknown"
-		} else if (yearDiff == 0) {
-			yearDiff = "Less than 1 year"
-		}
+		if (isNaN(yearDiff)) { yearDiff = "Unknown" } else if (yearDiff == 0) { yearDiff = "Less than 1 year" }
 
 		return yearDiff
 
 	}
 
-	if (timeYearDiff == 0) {
-		timeYearDiff = "Less than 1 year"
-	}
+	if (timeYearDiff == 0) { timeYearDiff = "Less than 1 year" }
 
 	return timeYearDiff
 
@@ -79,11 +73,7 @@ function getDate(dateStr) {
 	dateArray = []
 
 	function nan(a) {
-		if (Number.isNaN(a)) {
-			return "Unknown"
-		} else {
-			return a
-		}
+		if (Number.isNaN(a)) { return "Unknown" } else { return a }
 	}
 
 
@@ -101,28 +91,22 @@ function getDate(dateStr) {
 			d.day = parseInt(dateArray[1]);
 
 			d.year = nan(d.year)
-
 			d.month = nan(d.month)
 			d.day = nan(d.day)
-
-
 			break;
 
 		case 2:
 			d.year = parseInt(dateArray[1]);
 			d.month = parseInt(dateArray[0]);
 
-			d.year = nan(d.year)
-			d.month = nan(d.month)
-
-
+			d.year = nan(d.year);
+			d.month = nan(d.month);
 			break;
 
 		case 1:
 
 			d.year = parseInt(dateArray[0]);
-			d.year = nan(d.year)
-
+			d.year = nan(d.year);
 			break;
 
 		case '':
@@ -242,21 +226,11 @@ $().ready(function () {
 				var lName_b = b.lName.toLowerCase();
 
 
-				if (fName_a < fName_b) {
-					return -1
-				}
+				if (fName_a < fName_b) { return -1 }
+				if (fName_a > fName_b) { return 1 }
 
-				if (fName_a > fName_b) {
-					return 1
-				}
-
-				if (lName_a < lName_b) {
-					return -1;
-				}
-
-				if (lName_a > lName_b) {
-					return 1
-				}
+				if (lName_a < lName_b) { return -1 }
+				if (lName_a > lName_b) { return 1 }
 
 			}
 
@@ -279,7 +253,9 @@ $().ready(function () {
 			}
 
 
-
+			//
+			// CEMETERY SEARCH
+			//
 
 			for (cemetery in data) {
 
@@ -319,6 +295,7 @@ $().ready(function () {
 								}
 
 
+
 								function compareDates(r, i) {
 
 									if (typeof(r) == 'object') {rLen = Object.keys(r).length;} else {return false}
@@ -330,7 +307,6 @@ $().ready(function () {
 										if (r[d] != i[d]){
 											return false
 										}
-									}
 									return true
 								}
 								
@@ -411,9 +387,11 @@ $().ready(function () {
 			var isExactMatch = exactMatch.length >= 1
 			var isFNameMatch = fNameMatch.length >= 1
 			var isLNameMatch = lNameMatch.length >= 1
-			
+	
+			//
+			// Print RESULTS
+			// 
 
-			//TODO: Print RESULTS
 			if (isExactMatch) {
 
 				if (original_fName == "" && original_lName == "") {
@@ -423,9 +401,9 @@ $().ready(function () {
 				}
 
 			} else if (isFNameMatch == false && isLNameMatch == false) {
-				$results.append(`<h1 class='errorMessage'>Sorry we couldn't find any results for: <span>${original_fName} ${original_lName}</h1>`);
+				$results.append(`<h1 class='errorMessage'>Sorry we couldn't find any results for:<br> <span>${original_fName} ${original_lName}</h1>`);
 			} else {
-				$results.append(`<h1 class='errorMessage'>Sorry we couldn't find a exact match for: <span>${original_fName} ${original_lName}</h1>`);
+				$results.append(`<h1 class='errorMessage'>Sorry we couldn't find a exact match for:<br> <span>${original_fName} ${original_lName}</h1>`);
 			}
 
 
@@ -448,39 +426,25 @@ $().ready(function () {
 
 		var divResultID = $(`#results #${id}`)
 
-		if (fName != "") {
-
+		if (fName != "" || lName != "") {
 			displayPerson = true
 
-			if (lName != "") {
+			if (fName != "" && lName != "") {
 				displayName = `${fName} ${lName}`
 			} else {
-				displayName = fName
+				displayName = fName != "" ? fName : lName;
 			}
-
-		} else if (lName != "") {
-			displayPerson = true
-			displayName = lName
-		} else {
-			displayName = fName
-			displayPerson = true
 		}
-
-
-
 
 
 		if (displayPerson && displayName != "") {
 
 			if (results.length != 0) {
-				$results.append(`<h1 class='resultMessage'>${messageTitle}: <span>${displayName}</h1>`);
+				$results.append(`<h1 class='resultMessage'>${messageTitle}:<br> <span>${displayName}</h1>`);
 				$results.append(`<div class="results" id="${id}"></div>`)
 			} else {
 				$results.append(`<h1 class='errorMessage'>Sorry we couldn't find a match for: <span>${displayName}</h1>`);
 			}
-
-
-
 
 			for (var d in results) {
 				displayPeople(results[d], id, hidden);
@@ -651,9 +615,11 @@ $().ready(function () {
 		var fNameInput = filterInput(values['fName_input'], ["numbers", "scripts", "special"])
 		var lNameInput = filterInput(values["lName_input"], ["numbers", "scripts", "special"])
 
+
 		// Filter Date Info
 		let dobInput = filterInput(values['dob_input'], ['scripts','date'])
 		let dodInput = filterInput(values['dod_input'], ['scripts','date'])
+
 
 		// Display filtered input back into the form
 		$("#fName_input:text").val(fNameInput);
