@@ -410,38 +410,6 @@ $().ready(function () {
 					break;
 			}
 
-
-			// if (sortOption == "name") {
-			// 	exactMatch.sort(compareObjects);
-			// 	fNameMatch.sort(compareObjects);
-			// 	lNameMatch.sort(compareObjects);
-			// }
-
-			// if (sortOption == "dod_latest") {
-			// 	exactMatch.sort(compareDeathDates).reverse();
-			// 	fNameMatch.sort(compareDeathDates).reverse();
-			// 	lNameMatch.sort(compareDeathDates).reverse();
-			// }
-
-			// if (sortOption == "dod_oldest") {
-			// 	exactMatch.sort(compareDeathDates);
-			// 	fNameMatch.sort(compareDeathDates);
-			// 	lNameMatch.sort(compareDeathDates);
-			// }
-
-			// if (sortOption == "age_youngest") {
-			// 	exactMatch.sort(compareAge);
-			// 	fNameMatch.sort(compareAge);
-			// 	lNameMatch.sort(compareAge);
-			// }
-
-			// if (sortOption == "age_oldest") {
-			// 	exactMatch.sort(compareAge).reverse();
-			// 	fNameMatch.sort(compareAge).reverse();
-			// 	lNameMatch.sort(compareAge).reverse();
-			// }
-			
-
 			
 			var isExactMatch = exactMatch.length >= 1
 			var isFNameMatch = fNameMatch.length >= 1
@@ -452,19 +420,9 @@ $().ready(function () {
 			if (isExactMatch) {
 
 				if (original_fName == "" && original_lName == "") {
-
-					if (dates.length == 1) {
-						printPersonResult(exactMatch, `There are ${exactMatch.length} exact matches for`, dates[0], "", "exactMatch", false)
-					} else {
-						printPersonResult(exactMatch, `There are ${exactMatch.length} exact matches for`, dates.join(" and "), "", "exactMatch", false)
-					}
-					
+					printPersonResult(exactMatch, `There are ${exactMatch.length} exact ${exactMatch.length == 1 ? 'match' : 'matches'} for`, `${dates.length == 1 ? dates[0] : dates.join(" or ")}`, "", "exactMatch", false)
 				} else {
-					if (exactMatch.length > 1) {
-						printPersonResult(exactMatch, "There are " + exactMatch.length + " exact matches for", original_fName, original_lName, "exactMatch", false)
-					} else if (exactMatch.length == 1) {
-						printPersonResult(exactMatch, "There is " + exactMatch.length + " exact match for", original_fName, original_lName, "exactMatch", false)
-					}
+					printPersonResult(exactMatch, `There are ${exactMatch.length} exact ${exactMatch.length == 1 ? 'match' : 'matches'} for`, original_fName, original_lName, "exactMatch", false)
 				}
 
 			} else if (isFNameMatch == false && isLNameMatch == false) {
@@ -475,23 +433,11 @@ $().ready(function () {
 
 
 			if (isFNameMatch) {
-
-				if (fNameMatch.length > 1) {
-					printPersonResult(fNameMatch, "Here are " + fNameMatch.length + " matches for the first name", original_fName, "", "firstNameMatch", true)
-				} else if (fNameMatch.length == 1) {
-					printPersonResult(fNameMatch, "There is " + fNameMatch.length + " match for the first name", original_fName, "", "firstNameMatch", true)
-				}
-
+				printPersonResult(fNameMatch, `There are ${fNameMatch.length} exact ${fNameMatch.length == 1 ? 'match' : 'matches'} for`, original_fName, "", "firstNameMatch", true)
 			}
 
 			if (isLNameMatch) {
-
-				if (lNameMatch.length > 1) {
-					printPersonResult(lNameMatch, "Here are " + lNameMatch.length + " matches for the last name", "", original_lName, "lastNameMatch", true)
-				} else if (lNameMatch.length == 1) {
-					printPersonResult(lNameMatch, "There is " + lNameMatch.length + " match for the last name", "", original_lName, "lastNameMatch", true)
-				}
-
+				printPersonResult(lNameMatch, `There are ${lNameMatch.length} exact ${lNameMatch.length == 1 ? 'match' : 'matches'} for`, "", original_lName, "lastNameMatch", true)
 			}
 
 		});
