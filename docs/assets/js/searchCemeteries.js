@@ -688,6 +688,12 @@ $().ready(function () {
 
 	var initOption = $("select").children("option:selected").val();
 
+
+
+	//
+	// FORM SUBMITION
+	//
+
 	$("form").submit(function () {
 
 		window.stop();
@@ -701,13 +707,39 @@ $().ready(function () {
 			values[this.name] = $(this).val();
 		});
 
-		function filterInput(name) {
-			if (name != "" && typeof name == "string") {return name.trim()} else {return ""}
+		// function filterInput(name) {
+		// 	if (name != "" && typeof name == "string") {return name.trim()} else {return ""}
+		// }
+
+
+		function filterInput(input, filterType) {
+
+			for (const f in filterType) {
+				switch (filterType[f]) {
+					case "alphabet":
+						input = input.replace(/[a-zA-Z]/g, "")
+						break;
+					case "numbers":
+						input = input.replace(/[0-9]/g, "");
+						break;
+					case "scripts": 
+						input = input.replace(/((?=\<)(.*?)(?=\>)|(?=\>)(.*?)(?=\<))|[/</>]/g, "");
+						break;
+					case "special":
+						input = input.replace(/[\+\*\?\^\$\\\.\[\]\{\}\(\)\|\/\<\>\!\@\#\%\&\-\_\=.,]/g, "")
+						break;
+					case "spaces":
+						input = input.replace(/[ ]/g, "");
+						break;
+				}
+			}
 		}
 
+		filterInput("!@#$%^John Smith&*()-_=+<>()[]{}", ["special", "spaces"])
+
 		// Name Info
-		var fInput = filterInput(values['fName_input'])
-		var lInput = filterInput(values["lName_input"])
+		// var fInput = filterInput(values['fName_input'])
+		// var lInput = filterInput(values["lName_input"])
 
 		// Date Info
 		var dobInput = values['dob_input'] == "" ? "" : values['dob_input']
@@ -715,14 +747,14 @@ $().ready(function () {
 		console.log(dodInput)
 		console.log(dobInput)
 
-		if ((fInput == "" && lInput == "") && (dobInput == "" && dodInput == "")) {
+		// if ((fInput == "" && lInput == "") && (dobInput == "" && dodInput == "")) {
 
-			$(this).closest('form').find("input[type=text], textarea").val("");
-			$results.append("<h1 class='errorMessage'>Invalid Input: Please enter a valid first or last name, or date.</h1>");
+		// 	$(this).closest('form').find("input[type=text], textarea").val("");
+		// 	$results.append("<h1 class='errorMessage'>Invalid Input: Please enter a valid first or last name, or date.</h1>");
 
-		} else {
-			getMatches(fInput, lInput, sortOption, dobInput, dodInput)
-		}
+		// } else {
+		// 	// getMatches(fInput, lInput, sortOption, dobInput, dodInput)
+		// }
 	});
 });
 
