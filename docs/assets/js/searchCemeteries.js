@@ -225,10 +225,9 @@ $().ready(function () {
 
 		$.getJSON("json/graves.json", function (data) {
 
-			var matches = []
-			var exactMatch = []
-			var fNameMatch = []
-			var lNameMatch = []
+			let exactMatch = []
+			let fNameMatch = []
+			let lNameMatch = []
 
 			var fName_inputLower = fName_input.toLowerCase();
 			var lName_inputLower = lName_input.toLowerCase();
@@ -310,66 +309,41 @@ $().ready(function () {
 								// 
 								// MATCH CASES
 								// 
+								function checkForMatches (data, fName, fNameInput, lName, lNameInput, maidenName) {
 
-								
-
-								if (dobInput == "" && dodInput == ""){
+									if (fName == "" && lName == "") {return}
+									if (lName == "" || (fName.includes(fNameInput) || otherInfo.includes(fNameInput))) {console.log('fName Matched'); fNameMatch.push(data)}
+									if (fName == "" || (lName.includes(lNameInput) || (maidenName.includes(lNameInput)))) {lNameMatch.push(data)}
+									if ((fName.includes(fNameInput) || otherInfo.includes(fNameInput)) && (lName.includes(lNameInput) || (maidenName.includes(lNameInput) && maidenName != ""))){ exactMatch.push(data); }
 									
-									if (fName == "" && lName == "") {break;}
-									if (lName == "" && (fName.includes(fName_input) || otherInfo.includes(fName_input))) {fNameMatch.push(d); break;}
-									if (fName == "" && (lName.includes(lName_inputLower) || (maidenName.includes(lName_inputLower)))) {lNameMatch.push(d); break;}
-									if ((fName.includes(fName_input) || otherInfo.includes(fName_input)) && (lName.includes(lName_inputLower) || (maidenName.includes(lName_inputLower) && maidenName != ""))){
-										exactMatch.push(d);
-									}
-
-								} else {
-
-									function compareDates(r, i) {
-
-										// console.log(r, i)
-
-										if (typeof(r) == 'object') {rLen = Object.keys(r).length;} else {return false}
-										if (typeof(i) == 'object') {iLen = Object.keys(i).length;} else {return false}
-
-										if (rLen >= iLen) { k = Object.keys(i) } else { k = Object.keys(i) }
-
-										for (const d of k) {
-											if (r[d] != i[d]){
-												return false
-											}
-										}
-										// console.log(r, i)
-										return true
-
-									}
-									
-									isDoD = compareDates(dod, dodInput)
-									isDoB = compareDates(dob, dobInput)
-
-									if (compareDates(dod, dodInput)) {
-										if (fName == "" && lName == "") {continue;}
-										if (lName == "" && (fName.includes(fName_input) || otherInfo.includes(fName_input))) {fNameMatch.push(d)}
-										if (fName == "" && (lName.includes(lName_inputLower) || (maidenName.includes(lName_inputLower) && maidenName != ""))) {lNameMatch.push(d)}
-										if ((fName.includes(fName_input) || otherInfo.includes(fName_input)) && (lName.includes(lName_inputLower) || (maidenName.includes(lName_inputLower) && maidenName != ""))){
-											exactMatch.push(d);
-										}
-									
-									} else if (compareDates(dob, dobInput)) {
-										if (fName == "" && lName == "") {continue;}
-										if (lName == "" && (fName.includes(fName_input) || otherInfo.includes(fName_input))) {fNameMatch.push(d)}
-										if (fName == "" && (lName.includes(lName_inputLower) || (maidenName.includes(lName_inputLower) && maidenName != ""))) {lNameMatch.push(d)}
-										if ((fName.includes(fName_input) || otherInfo.includes(fName_input)) && (lName.includes(lName_inputLower) || (maidenName.includes(lName_inputLower) && maidenName != ""))){
-											exactMatch.push(d);
-										}
-
-									}
-
 								}
 
 
+								function compareDates(r, i) {
+
+									if (typeof(r) == 'object') {rLen = Object.keys(r).length;} else {return false}
+									if (typeof(i) == 'object') {iLen = Object.keys(i).length;} else {return false}
+
+									if (rLen >= iLen) { k = Object.keys(i) } else { k = Object.keys(i) }
+
+									for (const d of k) {
+										if (r[d] != i[d]){
+											return false
+										}
+									}
+									return true
+								}
 								
 
-								
+								// Find Match Cases
+								if (dobInput == "" && dodInput == "") { checkForMatches(d, fName, fName_inputLower, lName, lName_inputLower, maidenName); } else {
+
+									isDoD = compareDates(dod, dodInput)
+									isDoB = compareDates(dob, dobInput)
+
+									if (isDoB || isDoD) { checkForMatches(d, fName, fName_input, lName, lName_inputLower, maidenName); } 
+
+								}
 
 								// BACKUP SORTER - ORIGINAL
 								// if (fName != "") {
@@ -395,7 +369,9 @@ $().ready(function () {
 				}
 			}
 
-
+			console.log(fNameMatch)
+			console.log(lNameMatch)
+			console.log(exactMatch)
 			//
 			// SORTING OPTIONS
 			//
@@ -470,7 +446,7 @@ $().ready(function () {
 			var isExactMatch = exactMatch.length >= 1
 			var isFNameMatch = fNameMatch.length >= 1
 			var isLNameMatch = lNameMatch.length >= 1
-			console.log(lNameMatch)
+			
 
 			//TODO: Print RESULTS
 			if (isExactMatch) {
