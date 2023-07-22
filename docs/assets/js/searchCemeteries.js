@@ -2,6 +2,33 @@ function cleanString(s) {
 	return s.replace(/[^a-zA-Z ]/g, "");
 }
 
+function filterInput(input, filterType) {
+
+	for (const f in filterType) {
+		switch (filterType[f]) {
+			case "alphabet":
+				input = input.replace(/[a-zA-Z]/g, "")
+				break;
+			case "numbers":
+				input = input.replace(/[0-9]/g, "");
+				break;
+			case "scripts": 
+				input = input.replace(/((?=\<)(.*?)(?=\>)|(?=\>)(.*?)(?=\<))|[/</>]/g, "");
+				break;
+			case "special":
+				input = input.replace(/[^a-zA-Z0-9 ]/g, "")
+				break;
+			case "spaces":
+				input = input.replace(/[\s]/g, "");
+				break;
+			case "date":
+				input = input.replace(/([^0-9-])/g, "")
+		}
+	}
+
+	return input
+}
+
 
 function yearDiff(d1, d2) {
 
@@ -710,51 +737,34 @@ $().ready(function () {
 		// function filterInput(name) {
 		// 	if (name != "" && typeof name == "string") {return name.trim()} else {return ""}
 		// }
+		// function devConsole(items):
 
 
-		function filterInput(input, filterType) {
-
-			for (const f in filterType) {
-				switch (filterType[f]) {
-					case "alphabet":
-						input = input.replace(/[a-zA-Z]/g, "")
-						break;
-					case "numbers":
-						input = input.replace(/[0-9]/g, "");
-						break;
-					case "scripts": 
-						input = input.replace(/((?=\<)(.*?)(?=\>)|(?=\>)(.*?)(?=\<))|[/</>]/g, "");
-						break;
-					case "special":
-						input = input.replace(/[\+\*\?\^\$\\\.\[\]\{\}\(\)\|\/\<\>\!\@\#\%\&\-\_\=.,]/g, "")
-						break;
-					case "spaces":
-						input = input.replace(/[ ]/g, "");
-						break;
-				}
-			}
-		}
+		
 
 		filterInput("!@#$%^John Smith&*()-_=+<>()[]{}", ["special", "spaces"])
 
-		// Name Info
-		// var fInput = filterInput(values['fName_input'])
-		// var lInput = filterInput(values["lName_input"])
+		// Filter Name Info
+		var fNameInput = filterInput(values['fName_input'], ["numbers", "scripts", "special"])
+		var lNameInput = filterInput(values["lName_input"], ["numbers", "scripts", "special"])
 
-		// Date Info
-		var dobInput = values['dob_input'] == "" ? "" : values['dob_input']
-		var dodInput = values['dod_input'] == "" ? "" : values['dod_input']
-		console.log(dodInput)
-		console.log(dobInput)
+		// Filter Date Info
+		let dobInput = filterInput(values['dob_input'], ['scripts','date'])
+		let dodInput = filterInput(values['dod_input'], ['scripts','date'])
 
-		// if ((fInput == "" && lInput == "") && (dobInput == "" && dodInput == "")) {
+		// Display filtered input back into the form
+		$("#fName_input:text").val(fNameInput);
+		$("#lName_input:text").val(lNameInput);
+		$("#dob_input:text").val(dobInput);
+		$("#dod_input:text").val(dodInput);
 
-		// 	$(this).closest('form').find("input[type=text], textarea").val("");
-		// 	$results.append("<h1 class='errorMessage'>Invalid Input: Please enter a valid first or last name, or date.</h1>");
-
-		// } else {
-		// 	// getMatches(fInput, lInput, sortOption, dobInput, dodInput)
-		// }
+		// Check if input boxes are empty or not
+		if ((fNameInput == "" && lNameInput == "") && (dobInput == "" && dodInput == "")) {
+			$(this).closest('form').find("input[type=text], textarea").val("");
+			$results.append("<h1 class='errorMessage'>Invalid Input: Please enter a valid first or last name, or date.</h1>");
+		} else {
+			getMatches(fNameInput, lNameInput, sortOption, dobInput, dodInput)
+		}
 	});
 });
 
