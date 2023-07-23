@@ -205,7 +205,8 @@ $().ready(function () {
 		
 		}
 
-		let dobString, dodString = ""
+		let dobString = ""
+		let dodString = ""
 
 		if (dobInput != "") {
 			dates.push(dobInput); 
@@ -309,8 +310,8 @@ $().ready(function () {
 								function checkForMatches (data, fName, fNameInput, lName, lNameInput, maidenName) {
 
 									if (fName == "" && lName == "") {return}
-									if (lName == "" || (fName.includes(fNameInput) || otherInfo.includes(fNameInput))) {fNameMatch.push(data)}
-									if (fName == "" || (lName.includes(lNameInput) || (maidenName.includes(lNameInput)))) {lNameMatch.push(data)}
+									if (fName != "" && (fName.includes(fNameInput) || otherInfo.includes(fNameInput))) {fNameMatch.push(data)}
+									if (lName != "" && (lName.includes(lNameInput) || (maidenName.includes(lNameInput)))) {lNameMatch.push(data)}
 									if ((fName.includes(fNameInput) || otherInfo.includes(fNameInput)) && (lName.includes(lNameInput) || (maidenName.includes(lNameInput) && maidenName != ""))){ exactMatch.push(data); }
 									
 								}
@@ -418,14 +419,13 @@ $().ready(function () {
 	
 
 			// DEBUGGER FOR MATCHES
-			// console.log("fName:", original_fName, fNameMatch, isFNameMatch)
-			// console.log("lName:", original_lName, lNameMatch, isLNameMatch)
-			// console.log("exactMatch:", exactMatch, isExactMatch)
-			// console.log("exactDate:", exactDate, isExactDate)
-			// console.log("dob:", dobString, dobMatch, isDoBMatch)
-			// console.log("dod:", dodString, dodMatch, isDoDMatch)
-			// console.log("\n\n")
-
+			console.log("fName:", original_fName, fNameMatch, isFNameMatch)
+			console.log("lName:", original_lName, lNameMatch, isLNameMatch)
+			console.log("exactMatch:", exactMatch, isExactMatch)
+			console.log("exactDate:", exactDate, isExactDate)
+			console.log("dob:", dobString, dobMatch, isDoBMatch)
+			console.log("dod:", dodString, dodMatch, isDoDMatch)
+			console.log("\n\n")
 			//
 			// Print RESULTS
 			// 
@@ -433,12 +433,21 @@ $().ready(function () {
 			var isHidden = false
 
 			// Print No Matches if there are none
-			if (!(isExactDate || isExactMatch)) {
-
-				if (original_fName != "" && original_lName != "") {
-					$results.append(`<h1 class='errorMessage'>Sorry we couldn't find any results for:<br> <span>${original_fName = "" ? "": original_fName} ${original_lName = "" ? "": original_lName}</h1>`);
-				} else {
-					$results.append(`<h1 class='errorMessage'>Sorry we couldn't find any results for:<br> <span>${dobString = "" ? "": dobString} or ${dodString = "" ? "": dodString}</h1>`);
+			if (!isFNameMatch && !isLNameMatch && !isExactMatch && !isDoBMatch && !isDoDMatch && !isExactMatch) {
+				console.log("Made it here");
+				if (!isExactMatch && (original_fName != "" || original_lName != "")) {
+					console.log("Made it here: 1");
+					$results.append(`<h1 class='errorMessage'>Sorry we couldn't find any results for:<br> <span>${original_fName == "" ? "": original_fName} ${original_lName == "" ? "": original_lName}</h1>`);
+				} else if (!isExactDate &&  (dobString != "" && dodString != "")) {
+					console.log("Made it here: 2");
+					$results.append(`<h1 class='errorMessage'>Sorry we couldn't find any results for:<br> <span>${dobString} or ${dodString}</h1>`);
+				} else if (original_fName == "" && original_lName == "") {
+					console.log("Made it here: 3");
+					if ((!isDoBMatch && dodString == "") || (!isDoDMatch && dobString == "")) {
+						console.log(dobString)
+						console.log(dodString)
+						$results.append(`<h1 class='errorMessage'>Sorry we couldn't find any results for:<br><span>${dobString}${dodString}</h1>`);
+					}
 				}
 			}
 
