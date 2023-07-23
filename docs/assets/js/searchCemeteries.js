@@ -233,6 +233,7 @@ $().ready(function () {
 
 			let exactMatch = []
 			let exactDate = []
+			let potentialMatch = []
 			let fNameMatch = []
 			let lNameMatch = []
 			let dobMatch = []
@@ -290,7 +291,7 @@ $().ready(function () {
 					for (lotNum in data[cemetery][blockNum]) {
 						for (graveNum in data[cemetery][blockNum][lotNum]) {
 							for (g in data[cemetery][blockNum][lotNum][graveNum]) {
-								var d = data[cemetery][blockNum][lotNum][graveNum][g]
+								let d = data[cemetery][blockNum][lotNum][graveNum][g]
 
 								d['cemetery'] = cemetery
 								d['blockNum'] = blockNum
@@ -298,24 +299,36 @@ $().ready(function () {
 								d['graveNum'] = graveNum
 								d['graveSubNum'] = g
 
-								var fName = d["fName"].toLowerCase()
-								var mName = d["mName"].toLowerCase()
-								var lName = d["lName"].toLowerCase()
-								var maidenName = d["maidenName"].toLowerCase()
-								var otherInfo = d["otherInfo"].toLowerCase()
-								var dob = getDate(d["dateOfBirth"])
-								var dod = getDate(d["dateOfDeath"])
+								let fName = d["fName"].toLowerCase()
+								let mName = d["mName"].toLowerCase()
+								let lName = d["lName"].toLowerCase()
+								let maidenName = d["maidenName"].toLowerCase()
+								let otherInfo = d["otherInfo"].toLowerCase()
+								let dob = getDate(d["dateOfBirth"])
+								let dod = getDate(d["dateOfDeath"])
 
 
 								// 
 								// MATCH CASES
 								// 
-								function checkForMatches (data, fName, fNameInput, lName, lNameInput, maidenName) {
+								function checkForMatches (fNameSearch, lNameSearch, bothSearch, isDoB, isDoD) {
 
+									var isMatch = false
+
+									// Name Search
 									if (fName == "" && lName == "") {return}
-									if (fName != "" && (fName.includes(fNameInput) || otherInfo.includes(fNameInput))) {fNameMatch.push(data)}
-									if (lName != "" && (lName.includes(lNameInput) || (maidenName.includes(lNameInput)))) {lNameMatch.push(data)}
-									if ((fName.includes(fNameInput) || otherInfo.includes(fNameInput)) && (lName.includes(lNameInput) || (maidenName.includes(lNameInput) && maidenName != ""))){ exactMatch.push(data); }
+									if (fNameSearch && fName != "" && (fName.includes(fName_inputLower) || otherInfo.includes(fName_inputLower))) {fNameMatch.push(d); isMatch = true}
+									if (lNameSearch && lName != "" && (lName.includes(lName_inputLower) || (maidenName.includes(lName_inputLower)))) {lNameMatch.push(d); isMatch = true}
+									if (bothSearch && (fName.includes(fName_inputLower) || otherInfo.includes(fName_inputLower)) && (lName.includes(lName_inputLower) || (maidenName.includes(lName_inputLower) && maidenName != ""))){ exactMatch.push(d); isMatch = true}
+
+									// Date Search
+									if (isDoB && isDoD) {exactDate.push(d);}
+									if (isDoB) {dobMatch.push(d)}
+									if (isDoD) {dodMatch.push(d)}
+
+									// Potential Search
+									if (isMatch && (isDoB || isDoD)) {potentialMatch.push(d)}
+
 									
 								}
 
@@ -338,17 +351,24 @@ $().ready(function () {
 								
 
 								// Find Match Cases
-								if (original_fName != "" || original_lName != "") {
-									checkForMatches(d, fName, fName_inputLower, lName, lName_inputLower, maidenName)
-								}
 
 								isDoB = compareDates(dob, dobInput)
 								isDoD = compareDates(dod, dodInput)
 
+								if (original_fName != "") {
+									if (original_lName != "") {
+										checkForMatches(true, true, true, isDoB, isDoD)
+									} else {
+										checkForMatches(true, false, false, isDoB, isDoD)
+									}
+								} else if (original_lName != "") {
+									checkForMatches(false, true, false, isDoB, isDoD)
+								}
+
+								
+
 								if (isDoB || isDoD) { 
-									if (isDoB && isDoD) {exactDate.push(d);}
-									if (isDoB) {dobMatch.push(d)}
-									if (isDoD) {dodMatch.push(d)}
+									
 								} 
 
 
@@ -381,30 +401,40 @@ $().ready(function () {
 			switch (sortOption) {
 				case "name":
 					exactMatch.sort(compareObjects);
+					exactDate.sort(compareObjects);
+					potentialMatch.sort(compareObjects);
 					fNameMatch.sort(compareObjects);
 					lNameMatch.sort(compareObjects);
 					break;
 
 				case "dod_latest":
 					exactMatch.sort(compareDeathDates).reverse();
+					exactDate.sort(compareDeathDates).reverse();
+					potentialMatch.sort(compareDeathDates).reverse();
 					fNameMatch.sort(compareDeathDates).reverse();
 					lNameMatch.sort(compareDeathDates).reverse();
 					break;
 
 				case "dod_oldest":
 					exactMatch.sort(compareDeathDates);
+					exactDate.sort(compareDeathDates);
+					potentialMatch.sort(compareDeathDates);
 					fNameMatch.sort(compareDeathDates);
 					lNameMatch.sort(compareDeathDates);
 					break;
 				
 				case "age_youngest":
 					exactMatch.sort(compareAge);
+					exactDate.sort(compareAge);
+					potentialMatch.sort(compareAge);
 					fNameMatch.sort(compareAge);
 					lNameMatch.sort(compareAge);
 					break;
 				
 				case "age_oldest":
 					exactMatch.sort(compareAge).reverse();
+					exactDate.sort(compareAge).reverse();
+					potentialMatch.sort(compareAge).reverse();
 					fNameMatch.sort(compareAge).reverse();
 					lNameMatch.sort(compareAge).reverse();
 
@@ -415,6 +445,7 @@ $().ready(function () {
 			
 			var isExactMatch = exactMatch.length >= 1
 			var isExactDate = exactDate.length >= 1
+			var isPotentialMatch = potentialMatch.length >= 1
 			var isFNameMatch = fNameMatch.length >= 1
 			var isLNameMatch = lNameMatch.length >= 1
 			var isDoBMatch = dobMatch.length >= 1
@@ -428,6 +459,7 @@ $().ready(function () {
 			console.log("exactDate:", exactDate, isExactDate)
 			console.log("dob:", dobString, dobMatch, isDoBMatch)
 			console.log("dod:", dodString, dodMatch, isDoDMatch)
+			console.log("Potential match:", potentialMatch, isPotentialMatch)
 			console.log("\n\n")
 			//
 			// Print RESULTS
@@ -461,6 +493,9 @@ $().ready(function () {
 				if (isExactMatch) { printPersonResult(exactMatch, `There ${exactMatch.length == 1 ? 'is' : 'are'} ${exactMatch.length} exact ${exactMatch.length == 1 ? 'match' : 'matches'} for`, original_fName, original_lName, "exactMatch", isHidden); isHidden = true;} 
 				if (isExactDate) {printPersonResult(exactDate, `There ${exactDate.length == 1 ? 'is' : 'are'} ${exactDate.length} exact ${exactDate.length == 1 ? 'match' : 'matches'} for`, `${dates.length == 1 ? dates[0] : dates.join(" and ")}`, "", "exactDate", isHidden); isHidden = true;}
 			} 
+
+			// Print Potential Match
+			if (isPotentialMatch) {printPersonResult(potentialMatch, `There ${potentialMatch.length == 1 ? 'is' : 'are'} ${potentialMatch.length} potential ${potentialMatch.length == 1 ? 'match' : 'matches'} for`, original_fName, original_lName, "potentialMatch", isHidden); isHidden = true;} 
 
 			// Print fName Matches
 			if (isFNameMatch) {printPersonResult(fNameMatch, `There ${fNameMatch.length == 1 ? 'is' : 'are'} ${fNameMatch.length} ${fNameMatch.length == 1 ? 'match' : 'matches'} for the first name`, original_fName, "", "firstNameMatch", isHidden); isHidden = true;}
@@ -675,8 +710,8 @@ $().ready(function () {
 		});
 
 		// Filter Name Info
-		var fNameInput = filterInput(values['fName_input'], ["numbers", "scripts", "special", "extraSpaces"])
-		var lNameInput = filterInput(values["lName_input"], ["numbers", "scripts", "special", "extraSpaces"])
+		let fNameInput = filterInput(values['fName_input'], ["numbers", "scripts", "special", "extraSpaces"])
+		let lNameInput = filterInput(values["lName_input"], ["numbers", "scripts", "special", "extraSpaces"])
 
 
 		// Filter Date Info
