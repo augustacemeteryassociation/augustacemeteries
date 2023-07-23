@@ -22,7 +22,10 @@ function filterInput(input, filterType) {
 				input = input.replace(/[\s]/g, "");
 				break;
 			case "date":
-				input = input.replace(/([^0-9-])/g, "")
+				input = input.replace(/([^0-9-])/g, "");
+				break;
+			case "extraSpaces":
+				input = input.replace(/[ ]{2,}/g, "");
 		}
 	}
 
@@ -672,8 +675,8 @@ $().ready(function () {
 		});
 
 		// Filter Name Info
-		var fNameInput = filterInput(values['fName_input'], ["numbers", "scripts", "special"])
-		var lNameInput = filterInput(values["lName_input"], ["numbers", "scripts", "special"])
+		var fNameInput = filterInput(values['fName_input'], ["numbers", "scripts", "special", "extraSpaces"])
+		var lNameInput = filterInput(values["lName_input"], ["numbers", "scripts", "special", "extraSpaces"])
 
 
 		// Filter Date Info
