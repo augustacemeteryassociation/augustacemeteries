@@ -191,14 +191,32 @@ $().ready(function () {
 
 		dates = []
 
+		function concatDate (date) {
+			dateLength = Object.keys(date).length;
+
+			switch (dateLength) {
+				case 1:
+					return `${date.year}`
+				case 2:
+					return `${date.month}-${date.year}`
+				case 3:
+					return `${date.month}-${date.day}-${date.year}`
+			}	
+		
+		}
+
+		let dobString, dodString = ""
+
 		if (dobInput != "") {
 			dates.push(dobInput); 
-			dobInput = getDate(dobInput)
+			dobInput = getDate(dobInput);
+			dobString = typeof(dobInput) == "object" ? concatDate(dobInput) : "";
 		}
 
 		if (dodInput != "") {
 			dates.push(dodInput);
-			dodInput = getDate(dodInput)
+			dodInput = getDate(dodInput);
+			dodString = typeof(dodInput) == "object" ? concatDate(dodInput) : "";
 		}
 
 		var original_fName = fName_input
@@ -210,8 +228,11 @@ $().ready(function () {
 		$.getJSON("json/graves.json", function (data) {
 
 			let exactMatch = []
+			let exactDate = []
 			let fNameMatch = []
 			let lNameMatch = []
+			let dobMatch = []
+			let dodMatch = []
 
 			var fName_inputLower = fName_input.toLowerCase();
 			var lName_inputLower = lName_input.toLowerCase();
@@ -313,14 +334,17 @@ $().ready(function () {
 								
 
 								// Find Match Cases
-								if (dobInput == "" && dodInput == "") { checkForMatches(d, fName, fName_inputLower, lName, lName_inputLower, maidenName); } else {
+								checkForMatches(d, fName, fName_inputLower, lName, lName_inputLower, maidenName)
 
-									isDoD = compareDates(dod, dodInput)
-									isDoB = compareDates(dob, dobInput)
+								isDoD = compareDates(dod, dodInput)
+								isDoB = compareDates(dob, dobInput)
 
-									if (isDoB || isDoD) { checkForMatches(d, fName, fName_inputLower, lName, lName_inputLower, maidenName); } 
+								if (isDoB || isDoD) { 
+									if (isDoB && isDoD) {exactDate.push(d);}
+									if (isDoB) {dobMatch.push(d)}
+									if (isDoD) {dodMatch.push(d)}
+								} 
 
-								}
 
 								// BACKUP SORTER - ORIGINAL
 								// if (fName != "") {
@@ -384,39 +408,60 @@ $().ready(function () {
 
 			
 			var isExactMatch = exactMatch.length >= 1
+			var isExactDate = exactDate.length >= 1
 			var isFNameMatch = fNameMatch.length >= 1
 			var isLNameMatch = lNameMatch.length >= 1
+			var isDoBMatch = dobMatch.length >= 1
+			var isDoDMatch = dodMatch.length >= 1
 	
+
+			// DEBUGGER FOR MATCHES
+			console.log("fName:", original_fName, fNameMatch, isFNameMatch)
+			console.log("lName:", original_lName, lNameMatch, isLNameMatch)
+			console.log("exactMatch:", exactMatch, isExactMatch)
+			console.log("exactDate:", exactDate, isExactDate)
+			console.log("dob:", dobString, dobMatch, isDoBMatch)
+			console.log("dod:", dodString, dodMatch, isDoDMatch)
+			console.log("\n\n")
+
 			//
 			// Print RESULTS
 			// 
 
-			var $results = $("#results")
+			var isHidden = false
 
-			if (isExactMatch) {
+			// Print No Matches if there are none
+			if (!(isExactDate || (isExactMatch))) {
 
-				if (original_fName == "" && original_lName == "") {
-					printPersonResult(exactMatch, `There are ${exactMatch.length} exact ${exactMatch.length == 1 ? 'match' : 'matches'} for`, `${dates.length == 1 ? dates[0] : dates.join(" or ")}`, "", "exactMatch", false)
+				if (original_fName != "" && original_lName != "") {
+					$results.append(`<h1 class='errorMessage'>Sorry we couldn't find any results for:<br> <span>${original_fName = "" ? "": original_fName} ${original_lName = "" ? "": original_lName}</h1>`);
+				} else if (dobString != "" && dodString != "") {
+					$results.append(`<h1 class='errorMessage'>Sorry we couldn't find any results for:<br> <span>${dobString = "" ? "": dobString} or ${dodString = "" ? "": dodString}</h1>`);
 				} else {
-					printPersonResult(exactMatch, `There are ${exactMatch.length} exact ${exactMatch.length == 1 ? 'match' : 'matches'} for`, original_fName, original_lName, "exactMatch", false)
+					$results.append(`<h1 class='errorMessage'>Sorry we couldn't find any results for:<br> <span>${dobString = "" ? "": dobString}${dodString = "" ? "": dodString}</h1>`);
 				}
-
-			} else if (isFNameMatch == false && isLNameMatch == false) {
-				$results.append(`<h1 class='errorMessage'>Sorry we couldn't find any results for:<br> <span>${original_fName} ${original_lName}</h1>`);
-			} else {
-				$results.append(`<h1 class='errorMessage'>Sorry we couldn't find a exact match for:<br> <span>${original_fName} ${original_lName}</h1>`);
 			}
 
 
-			if (isFNameMatch) {
-				printPersonResult(fNameMatch, `There are ${fNameMatch.length} exact ${fNameMatch.length == 1 ? 'match' : 'matches'} for`, original_fName, "", "firstNameMatch", true)
-			}
 
-			if (isLNameMatch) {
-				printPersonResult(lNameMatch, `There are ${lNameMatch.length} exact ${lNameMatch.length == 1 ? 'match' : 'matches'} for`, "", original_lName, "lastNameMatch", true)
-			}
-		
-		
+			// Print Exact Matches
+			if (isExactMatch || isExactDate) {
+				if (isExactMatch) { printPersonResult(exactMatch, `There ${exactMatch.length == 1 ? 'is' : 'are'} ${exactMatch.length} exact ${exactMatch.length == 1 ? 'match' : 'matches'} for`, original_fName, original_lName, "exactMatch", isHidden); isHidden = true;} 
+				if (isExactDate) {printPersonResult(exactDate, `There ${exactDate.length == 1 ? 'is' : 'are'} ${exactDate.length} exact ${exactDate.length == 1 ? 'match' : 'matches'} for`, `${dates.length == 1 ? dates[0] : dates.join(" and ")}`, "", "exactDate", isHidden); isHidden = true;}
+			} 
+
+			// Print fName Matches
+			if (isFNameMatch) {printPersonResult(fNameMatch, `There ${fNameMatch.length == 1 ? 'is' : 'are'} ${fNameMatch.length} ${fNameMatch.length == 1 ? 'match' : 'matches'} for the first name`, original_fName, "", "firstNameMatch", isHidden); isHidden = true;}
+
+			// Print lName Matches
+			if (isLNameMatch) {printPersonResult(lNameMatch, `There ${lNameMatch.length == 1 ? 'is' : 'are'} ${lNameMatch.length} ${lNameMatch.length == 1 ? 'match' : 'matches'} for the last name`, "", original_lName, "lastNameMatch", isHidden); isHidden = true;}
+
+			// Print Date of Birth Matches
+			if (isDoBMatch) { printPersonResult(dobMatch, `There ${dobMatch.length == 1 ? 'is' : 'are'} ${dobMatch.length} ${dobMatch.length == 1 ? 'match' : 'matches'} for the birth date of`, dobString, "", "dobMatch", isHidden); isHidden = true;}
+
+			// Print Date of Death Matches
+			if (isDoDMatch) {printPersonResult(dodMatch, `There ${dodMatch.length == 1 ? 'is' : 'are'} ${dodMatch.length} ${dodMatch.length == 1 ? 'match' : 'matches'} for the death date of`, dodString, "", "dodMatch", isHidden); isHidden = true;}
+
 		});
 	}
 
@@ -441,7 +486,7 @@ $().ready(function () {
 		}
 
 
-		if (displayPerson && displayName != "") {
+		if (displayPerson != "" && displayName != "") {
 
 			if (results.length != 0) {
 				$results.append(`<h1 class='resultMessage'>${messageTitle}:<br> <span>${displayName}</h1>`);
