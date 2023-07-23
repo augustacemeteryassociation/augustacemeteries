@@ -363,13 +363,11 @@ $().ready(function () {
 									}
 								} else if (original_lName != "") {
 									checkForMatches(false, true, false, isDoB, isDoD)
+								} else {
+									checkForMatches(false, false, false, isDoB, isDoD)
 								}
 
 								
-
-								if (isDoB || isDoD) { 
-									
-								} 
 
 
 								// BACKUP SORTER - ORIGINAL
