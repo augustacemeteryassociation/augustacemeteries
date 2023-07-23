@@ -314,6 +314,8 @@ body #results .resultMessage span {
 }
 body #results .resultMessage:hover {
   font-weight: bolder;
+  background-color: #b806b8;
+  border: 3px solid black;
 }
 body #results .errorMessage {
   width: 65%;
