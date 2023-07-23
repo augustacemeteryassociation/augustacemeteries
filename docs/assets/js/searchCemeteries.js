@@ -334,10 +334,12 @@ $().ready(function () {
 								
 
 								// Find Match Cases
-								checkForMatches(d, fName, fName_inputLower, lName, lName_inputLower, maidenName)
+								if (original_fName != "" || original_lName != "") {
+									checkForMatches(d, fName, fName_inputLower, lName, lName_inputLower, maidenName)
+								}
 
-								isDoD = compareDates(dod, dodInput)
 								isDoB = compareDates(dob, dobInput)
+								isDoD = compareDates(dod, dodInput)
 
 								if (isDoB || isDoD) { 
 									if (isDoB && isDoD) {exactDate.push(d);}
@@ -431,14 +433,12 @@ $().ready(function () {
 			var isHidden = false
 
 			// Print No Matches if there are none
-			if (!(isExactDate || (isExactMatch))) {
+			if (!(isExactDate || isExactMatch)) {
 
 				if (original_fName != "" && original_lName != "") {
 					$results.append(`<h1 class='errorMessage'>Sorry we couldn't find any results for:<br> <span>${original_fName = "" ? "": original_fName} ${original_lName = "" ? "": original_lName}</h1>`);
-				} else if (dobString != "" && dodString != "") {
-					$results.append(`<h1 class='errorMessage'>Sorry we couldn't find any results for:<br> <span>${dobString = "" ? "": dobString} or ${dodString = "" ? "": dodString}</h1>`);
 				} else {
-					$results.append(`<h1 class='errorMessage'>Sorry we couldn't find any results for:<br> <span>${dobString = "" ? "": dobString}${dodString = "" ? "": dodString}</h1>`);
+					$results.append(`<h1 class='errorMessage'>Sorry we couldn't find any results for:<br> <span>${dobString = "" ? "": dobString} or ${dodString = "" ? "": dodString}</h1>`);
 				}
 			}
 
