@@ -418,13 +418,13 @@ $().ready(function () {
 	
 
 			// DEBUGGER FOR MATCHES
-			console.log("fName:", original_fName, fNameMatch, isFNameMatch)
-			console.log("lName:", original_lName, lNameMatch, isLNameMatch)
-			console.log("exactMatch:", exactMatch, isExactMatch)
-			console.log("exactDate:", exactDate, isExactDate)
-			console.log("dob:", dobString, dobMatch, isDoBMatch)
-			console.log("dod:", dodString, dodMatch, isDoDMatch)
-			console.log("\n\n")
+			// console.log("fName:", original_fName, fNameMatch, isFNameMatch)
+			// console.log("lName:", original_lName, lNameMatch, isLNameMatch)
+			// console.log("exactMatch:", exactMatch, isExactMatch)
+			// console.log("exactDate:", exactDate, isExactDate)
+			// console.log("dob:", dobString, dobMatch, isDoBMatch)
+			// console.log("dod:", dodString, dodMatch, isDoDMatch)
+			// console.log("\n\n")
 
 			//
 			// Print RESULTS
