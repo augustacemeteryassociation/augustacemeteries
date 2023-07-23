@@ -823,6 +823,9 @@ footer p {
     width: 80%;
     font-size: 0.5em;
   }
+  body #results .resultMessage:hover {
+    background-color: purple;
+  }
   body #results .profilePicture {
     width: 75% !important;
     height: auto;
