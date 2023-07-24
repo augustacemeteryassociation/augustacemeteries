@@ -145,10 +145,10 @@
     vertical-align: middle;
   }
   body #itemContainer .itemDetails div.imgContainer .imgBigger {
-    width: 75% !important;
+    width: 75%;
   }
   body #itemContainer .itemDetails div.imgContainer .imgSmaller {
-    width: 40% !important;
+    width: 40%;
   }
   body #itemContainer .itemDetails a {
     text-decoration: none;
@@ -211,7 +211,7 @@
     margin: 0 auto;
     margin-bottom: 50px;
     background-color: #881e88;
-    width: 50%;
+    width: 650px;
     border-radius: 30px;
     height: auto;
     padding: 60px;
@@ -331,7 +331,7 @@
   }
   body #results .results {
     height: auto;
-    width: 60%;
+    width: 650px;
     font-size: 16px;
     background-color: white;
     color: #881e88;
@@ -377,25 +377,29 @@
   }
   body #results .results div h3 {
     font-family: "Red Rose";
-    font-size: 1.7em;
     color: white;
   }
   body #results .results div h3 span {
     text-shadow: -3px 0 black, 0 -2px black;
+    font-size: 20px;
   }
   body #results .results div span.fullName {
     font-family: "Red Rose";
-    font-size: 1.5em;
+    font-size: 40px;
     font-weight: bold;
+  }
+  body #results .results div .location {
+    font-size: 24px;
   }
   body #results .results div div.moreDetails {
     width: auto;
     height: auto;
     z-index: 1;
+    padding-bottom: 0;
   }
   body #results .results div div.moreDetails h2 {
     font-family: "Red Rose";
-    font-size: 2em;
+    font-size: 30px;
     background-color: white;
     color: #881e88;
     font-weight: bolder;
@@ -410,6 +414,9 @@
     text-align: left;
     margin: 0 auto;
     padding-bottom: 50px;
+    font-size: 20px;
+    position: relative;
+    right: 20px;
   }
   body #results .results div .details img {
     display: block;
@@ -427,13 +434,12 @@
   }
   body #results .results div .details h3 {
     position: relative;
-    left: 15%;
+    left: 50px;
     margin: 0px;
     padding: 5px;
   }
   body #results .results div .details span {
     color: white;
-    font-size: 1.25em;
     font-weight: bolder;
     position: relative;
     left: 15px;
@@ -454,6 +460,7 @@
   body .svg svg {
     width: 100%;
     height: auto;
+    margin-top: 20px;
     z-index: -1;
   }
   body .svg svg rect {
@@ -462,13 +469,13 @@
   body .mapSelection {
     margin: 0 auto;
     height: 200px;
-    margin-bottom: 175px;
+    margin-bottom: 50px;
     width: 100%;
   }
   body .mapSelection h1 {
     width: 100%;
     text-align: center;
-    font-size: 4em;
+    font-size: 3em;
     margin-bottom: 20px;
     font-family: "Red Rose";
     color: #881e88;
@@ -491,7 +498,7 @@
     display: inline-block;
     list-style: none;
     width: 25%;
-    font-size: 2.75em;
+    font-size: 2em;
     padding-bottom: 30px;
     padding: 10px;
     background-color: #881e88;
@@ -504,7 +511,7 @@
     position: relative;
     top: 15px;
     margin-bottom: 20px;
-    font-size: 35px;
+    font-size: 1.6em;
     text-align: center;
     width: 100%;
     font-weight: bolder;
@@ -520,6 +527,8 @@
     border-radius: 20px;
     border: 15px solid #881e88;
     clear: left;
+    margin-bottom: 500px;
+    padding-bottom: 25px;
   }
   body .lotStatus .mapIndex h1 {
     font-size: 2.5em;
@@ -528,7 +537,12 @@
     position: relative;
     left: 17%;
     font-family: "Secular One";
-    font-size: 1.6em;
+    font-size: 1.4em;
+    margin: 0;
+    margin-bottom: 6px;
+  }
+  body .lotStatus .mapIndex h2:last-child {
+    margin-bottom: 100px;
   }
   body .toTop {
     color: white;
@@ -569,7 +583,7 @@
     text-align: center;
   }
   body #donationTypes ul {
-    width: 100% !important;
+    width: 100%;
     margin: 0 auto;
     padding: 0;
     padding-bottom: 50px;
@@ -629,7 +643,7 @@
     width: 100%;
   }
   body nav {
-    width: 100% !important;
+    width: 100%;
   }
   body nav #logo {
     font-size: 1.2em;
@@ -703,19 +717,19 @@
   body #itemContainer .itemDetails div.imgContainer {
     position: relative;
     display: inline-block;
-    padding: 50px;
+    padding: 20px;
   }
   body #itemContainer .itemDetails div.imgContainer img {
-    width: 60%;
-    height: 50%;
-    padding: 5px;
+    height: auto;
+    width: 35%;
+    padding: 0;
     vertical-align: middle;
   }
   body #itemContainer .itemDetails div.imgContainer .imgBigger {
-    width: 75% !important;
+    width: 75%;
   }
   body #itemContainer .itemDetails div.imgContainer .imgSmaller {
-    width: 50% !important;
+    width: 50%;
   }
   body .member {
     width: 85%;
@@ -730,7 +744,7 @@
     color: white;
   }
   body .member .member_info .membership_title {
-    font-size: 1.85em !important;
+    font-size: 1.85em;
     margin: 10px;
   }
   body .member .member_info .name {
@@ -738,32 +752,26 @@
     color: black;
   }
   body .member .member_info .membership_length {
-    font-size: 1.25em !important;
+    font-size: 1.25em;
   }
   body .member .member_info .contact_info {
-    margin-top: 20px !important;
+    margin-top: 20px;
   }
   body .member .member_info .email {
-    margin-top: 5px !important;
-    font-size: 0.8em !important;
+    margin-top: 5px;
+    font-size: 0.8em;
   }
   body .member .member_info .phone {
-    margin-top: 5px !important;
-    font-size: 1em !important;
+    margin-top: 5px;
+    font-size: 1em;
     color: black;
   }
   body .cemeteryMaps .mapSelection {
     margin: 0;
-    margin-bottom: 75px;
-  }
-  body .cemeteryMaps h1 {
-    font-size: 1.75em;
-    margin: 0;
-    margin-top: -20px;
     margin-bottom: 20px;
   }
   body .cemeteryMaps ul {
-    width: 100% !important;
+    width: 100%;
   }
   body .cemeteryMaps ul li {
     width: 50%;
@@ -778,7 +786,7 @@
     font-size: 1.25em;
   }
   body #results .results div h3 {
-    font-size: 1em !important;
+    font-size: 1em;
     margin: 0;
     margin-bottom: 25px;
   }
@@ -796,18 +804,18 @@
     margin: 0 auto;
   }
   body #results .results div .details {
-    padding: 0 !important;
-    padding-bottom: 20px !important;
+    padding: 0;
+    padding-bottom: 20px;
   }
   body #results .results div .details h3 {
-    left: 5% !important;
-    font-size: 0.9em !important;
+    left: 5%;
+    font-size: 0.9em;
   }
   body #results .results div .details h3 span {
-    font-size: 1.2em !important;
+    font-size: 1.2em;
   }
   body #results .results div .details img {
-    width: 90% !important;
+    width: 90%;
     height: auto;
   }
   body #results div {
@@ -825,19 +833,19 @@
     background-color: #881e88;
   }
   body #results .profilePicture {
-    width: 75% !important;
+    width: 75%;
     height: auto;
     padding-bottom: 30px;
   }
   body #results span.fullName {
-    font-size: 1.2em !important;
+    font-size: 1.2em;
   }
   body #results .moreDetails {
-    margin: 0 !important;
+    margin: 0;
   }
   body #results .moreDetails h2 {
-    margin: 0 auto !important;
-    width: 80% !important;
+    margin: 0 auto;
+    width: 80%;
   }
   body #results .errorMessage {
     font-size: 0.4em;
@@ -845,7 +853,7 @@
     margin: 0 auto;
   }
   body #results .toTop {
-    font-size: 24px !important;
+    font-size: 24px;
     margin: 0;
     width: 75%;
     margin: 0 auto;
@@ -920,7 +928,7 @@
     font-size: 1em;
   }
   body .contacts ul li {
-    font-size: 0.8em !important;
+    font-size: 0.8em;
   }
   body .contacts h3 {
     margin: 10px auto;
@@ -928,19 +936,19 @@
     font-size: 0.9em;
   }
   body .rules {
-    font-size: 1.1em !important;
+    font-size: 1em;
     position: relative;
     bottom: 0;
-    margin-top: -20px !important;
-    margin-bottom: 50px !important;
+    margin-top: -20px;
+    margin-bottom: 50px;
   }
   body .selected {
-    padding-top: 15px !important;
-    font-size: 0.75em !important;
+    padding-top: 15px;
+    font-size: 0.75em;
   }
   body .availability {
-    padding-top: 5px !important;
-    font-size: 0.6em !important;
+    padding-top: 5px;
+    font-size: 0.6em;
   }
   body .lotStatus h1 {
     font-size: 1.65em;
@@ -956,7 +964,7 @@
     font-size: 1em;
   }
   body #donationTypes ul {
-    width: 100% !important;
+    width: 100%;
     padding: 0;
     margin: 0 auto;
   }
@@ -979,5 +987,10 @@
     position: relative;
     width: 100%;
     margin: 7.5px auto;
+  }
+}
+@media screen and (max-width: 1600px) and (min-width: 800px) {
+  .homePage h2 {
+    font-size: 30px;
   }
 }/*# sourceMappingURL=styles.css.map */

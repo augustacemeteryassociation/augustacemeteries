@@ -216,11 +216,11 @@ $lightPurple: #b806b8;
 					}
 
 					.imgBigger {
-						width: 75% !important;
+						width: 75%;
 					}
 
 					.imgSmaller {
-						width: 40% !important;
+						width: 40%;
 					}
 
 					
@@ -315,7 +315,7 @@ $lightPurple: #b806b8;
 			margin: 0 auto;
 			margin-bottom: 50px;
 			background-color: $purple;
-			width: 50%;
+			width: 650px;
 			border-radius: 30px;
 			height: auto;
 			padding: 60px;
@@ -469,7 +469,7 @@ $lightPurple: #b806b8;
 
 			.results {
 				height: auto;
-				width: 60%;
+				width: 650px;
 				font-size: 16px;
 				background-color: $white;
 				color: $purple;
@@ -519,18 +519,23 @@ $lightPurple: #b806b8;
 
 					h3 {
 						font-family: "Red Rose";
-						font-size: 1.7em;
+						// font-size: 1.7em;
 						color: $white;
 						
 						span {
 							text-shadow: -3px 0 $black, 0 -2px $black;
+							font-size: 20px
 						}
 					}
 
 					span.fullName {
 						font-family: "Red Rose";
-						font-size: 1.5em;
+						font-size: 40px;
 						font-weight: bold;
+					}
+
+					.location {
+						font-size: 24px;
 					}
 
 					div.moreDetails {
@@ -538,10 +543,11 @@ $lightPurple: #b806b8;
 						width: auto;
 						height: auto;
 						z-index: 1;
+						padding-bottom: 0;
 
 						h2 {
 							font-family: "Red Rose";
-							font-size: 2em;
+							font-size: 30px;
 							background-color: $white;
 							color: $purple;
 							font-weight: bolder;
@@ -558,7 +564,9 @@ $lightPurple: #b806b8;
 						text-align: left;
 						margin: 0 auto;
 						padding-bottom: 50px;
-						
+						font-size: 20px;
+						position: relative;
+						right: 20px;
 					
 						img {
 							display: block;
@@ -579,14 +587,14 @@ $lightPurple: #b806b8;
 			
 						h3 {
 							position: relative;
-							left: 15%;
+							left: 50px;
 							margin: 0px;
 							padding: 5px;
 						}
 			
 						span {
 							color: $white;
-							font-size: 1.25em;
+							// font-size: 1.25em;
 							font-weight: bolder;
 							position: relative; 
 							left: 15px;
@@ -614,10 +622,12 @@ $lightPurple: #b806b8;
 			width: 80%;
 			height: auto;
 			margin: 0 auto;
+			
 		
 			svg {
 				width: 100%;
 				height: auto;
+				margin-top: 20px;
 				z-index: -1;
 		
 				rect {
@@ -631,13 +641,13 @@ $lightPurple: #b806b8;
 		.mapSelection {
 			margin: 0 auto;
 			height: 200px;
-			margin-bottom: 175px;
+			margin-bottom: 50px;
 			width: 100%;
 
 			h1 {
 				width: 100%;
 				text-align: center;
-				font-size: 4em;
+				font-size: 3em;
 				margin-bottom: 20px;
 				font-family: "Red Rose";
 				color: $purple;
@@ -661,7 +671,7 @@ $lightPurple: #b806b8;
 					display: inline-block;
 					list-style: none;
 					width: 25%;
-					font-size: 2.75em;
+					font-size: 2em;
 					padding-bottom: 30px;
 					padding: 10px;
 					background-color: $purple;
@@ -678,7 +688,7 @@ $lightPurple: #b806b8;
 				position: relative;
 				top: 15px;
 				margin-bottom: 20px;
-				font-size: 35px;
+				font-size: 1.6em;
 				text-align: center;
 				width: 100%;
 				font-weight: bolder;
@@ -696,6 +706,8 @@ $lightPurple: #b806b8;
 				border-radius: 20px;
 				border: 15px solid $purple;
 				clear: left;
+				margin-bottom: 500px;
+				padding-bottom: 25px;
 				
 				h1 {
 					font-size: 2.5em;
@@ -705,7 +717,13 @@ $lightPurple: #b806b8;
 					position: relative;
 					left: 17%;
 					font-family: "Secular One";
-					font-size: 1.6em;
+					font-size: 1.4em;
+					margin: 0;
+					margin-bottom: 6px;
+				}
+
+				h2:last-child {
+					margin-bottom: 100px;
 				}
 			}
 		}
@@ -760,7 +778,7 @@ $lightPurple: #b806b8;
 			text-align: center;
 			ul {
 			
-				width: 100% !important;
+				width: 100%;
 				margin: 0 auto;
 				padding: 0;
 				padding-bottom: 50px;
@@ -842,7 +860,7 @@ $lightPurple: #b806b8;
 
 		nav {
 
-			width: 100% !important;
+			width: 100%;
 			#logo {
 				font-size: 1.2em;
 				padding: 20px 0px;
@@ -941,21 +959,22 @@ $lightPurple: #b806b8;
 				div.imgContainer {
 					position: relative;
 					display: inline-block;
-					padding: 50px;
+					padding: 20px;
 	
 					img {
-						width: 60%;
-						height: 50%;
-						padding: 5px;
+						height: auto;
+						width: 35%;
+
+						padding: 0;
 						vertical-align: middle;
 					}
 	
 					.imgBigger {
-						width: 75% !important;
+						width: 75%;
 					}
 	
 					.imgSmaller {
-						width: 50% !important;
+						width: 50%;
 					}
 	
 					
@@ -985,7 +1004,7 @@ $lightPurple: #b806b8;
 				color: $white;
 	
 				.membership_title {
-					font-size: 1.85em !important;
+					font-size: 1.85em;
 					margin: 10px;
 				}
 				.name {
@@ -994,23 +1013,23 @@ $lightPurple: #b806b8;
 				}
 	
 				.membership_length {
-					font-size: 1.25em !important;
+					font-size: 1.25em;
 				}
 	
 				.contact_info {
-					margin-top: 20px !important;
+					margin-top: 20px;
 				}
 
 				.email {
-					// left: 8% !important;
-					margin-top: 5px !important;
-					font-size: 0.8em !important;
+					// left: 8%;
+					margin-top: 5px;
+					font-size: 0.8em;
 					// left: 20px;
 				}
 	
 				.phone {
-					margin-top: 5px !important;
-					font-size: 1em !important;
+					margin-top: 5px;
+					font-size: 1em;
 					color: $black;
 				}
 	
@@ -1019,26 +1038,25 @@ $lightPurple: #b806b8;
 		
 		
 		// CEMETERY MAPS
-		
 
 
 		.cemeteryMaps {
 
 			.mapSelection {
 				margin: 0;
-				margin-bottom: 75px;
-
-			}
-
-			h1 {
-				font-size: 1.75em;
-				margin: 0;
-				margin-top: -20px;
 				margin-bottom: 20px;
+
 			}
+
+			// h1 {
+			// 	font-size: 1.75em;
+			// 	margin: 0;
+			// 	margin-top: -20px;
+			// 	margin-bottom: 20px;
+			// }
 
 			ul {
-				width: 100% !important;
+				width: 100%;
 				li {
 					width: 50%;
 					clear: left;
@@ -1054,7 +1072,7 @@ $lightPurple: #b806b8;
 			
 		}
 
-		// 
+		// Results
 		#results {
 
 			.results {
@@ -1064,7 +1082,7 @@ $lightPurple: #b806b8;
 					}
 
 					h3 {
-						font-size: 1em !important;
+						font-size: 1em;
 						margin: 0;
 						margin-bottom: 25px;
 					}
@@ -1086,19 +1104,19 @@ $lightPurple: #b806b8;
 					}
 
 					.details {
-						padding: 0 !important;
-						padding-bottom: 20px !important;
+						padding: 0;
+						padding-bottom: 20px;
 			
 						h3 {
-							left: 5% !important;
-							font-size: .9em !important;
+							left: 5%;
+							font-size: .9em;
 							span {
-								font-size: 1.2em !important;
+								font-size: 1.2em;
 							}
 						}
 			
 						img {
-							width: 90% !important;
+							width: 90%;
 							height: auto;
 						}
 					}
@@ -1124,23 +1142,23 @@ $lightPurple: #b806b8;
 			}
 
 			.profilePicture {
-				width: 75% !important;
+				width: 75%;
 				height: auto;
 				padding-bottom: 30px;
 			}
 	
 			span.fullName {
-				font-size: 1.2em !important;
+				font-size: 1.2em;
 			}
 
 	
 			
 	
 			.moreDetails {
-				margin: 0 !important;
+				margin: 0;
 				h2 {
-					margin: 0 auto !important;
-					width: 80% !important;
+					margin: 0 auto;
+					width: 80%;
 				}
 			}
 
@@ -1155,7 +1173,7 @@ $lightPurple: #b806b8;
 			}
 	
 			.toTop {
-				font-size: 24px !important;
+				font-size: 24px;
 				margin: 0;
 				width: 75%;
 				margin: 0 auto;
@@ -1247,7 +1265,7 @@ $lightPurple: #b806b8;
 				}
 
 				li {
-					font-size: .8em !important;
+					font-size: .8em;
 				}
 				
 			}
@@ -1262,21 +1280,21 @@ $lightPurple: #b806b8;
 		// LOT INFO
 
 		.rules {
-			font-size: 1.1em !important;
+			font-size: 1em;
 			position: relative;
 			bottom: 0;
-			margin-top: -20px !important;
-			margin-bottom: 50px !important;
+			margin-top: -20px;
+			margin-bottom: 50px;
 		}
 
 		.selected {
-			padding-top: 15px !important;
-			font-size: .75em !important;
+			padding-top: 15px;
+			font-size: .75em;
 		}
 	
 		.availability {
-			padding-top: 5px !important;
-			font-size: .6em !important;
+			padding-top: 5px;
+			font-size: .6em;
 		}
 
 		.lotStatus {
@@ -1300,7 +1318,7 @@ $lightPurple: #b806b8;
 
 		// DONTATION PAGE
 		#donationTypes ul{
-			width: 100% !important;
+			width: 100%;
 			padding: 0;
 			margin: 0 auto;
 
@@ -1342,4 +1360,13 @@ $lightPurple: #b806b8;
 
 	
 	
+}
+
+// Tablet / small device sizes
+@media screen and (max-width: 1600px) and (min-width: 800px) {
+	.homePage {
+		h2 {
+			font-size: 30px;
+		}
+	}
 }
