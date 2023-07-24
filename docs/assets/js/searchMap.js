@@ -322,7 +322,7 @@ function displayPeople(d, id = '', hidden = false) {
     $(`#results #${id}`).last().append(`
             <div id="${fName_clean}${lName_clean}" class="result">
                 <img src="${profileImage}" class="profilePicture imgFade" onclick="window.open(this.src, '_blank');" loading="lazy"></img>
-                <h1><span class='fullName'>${fName} ${lName}</span><br>(${dateOfBirth.year} - ${dateOfDeath.year})</h1>
+                <h1><span class='fullName'>${fName} ${lName}</span><br><span class="years">(${dateOfBirth.year} - ${dateOfDeath.year})</span></h1>
                 <h3 class="location">${cemeteryLocation} Lawn - <span>Block ${blockNum}, Lot ${lotNum} : Grave ${graveNum}${graveSubNum}</span></h3>
                 
                 <a href='mailto:
