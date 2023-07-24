@@ -242,15 +242,15 @@ function searchMap(cemetery, blockID, lotID) {
         if (isExactMatch) {
 
             if (isExactMatch_length == 1) {
-                printPersonRusult(exactMatch, `There is ${exactMatch.length} grave located in:<br> <span>${cemetery.substr(0, 4) + " " + cemetery.substr(4, cemetery.length)}</span>, Block ${blockID} - Lot ${lotID}`, "exactMatch", false);
+                printPersonRusult(exactMatch, `There is ${exactMatch.length} grave located in:<br> <span>${cemetery.substr(0, 4) + " " + cemetery.substr(4, cemetery.length)}, Block ${blockID} - Lot ${lotID}</span>`, "exactMatch", false);
             } else {
-                printPersonRusult(exactMatch, `There are ${exactMatch.length} graves located in:<br> <span>${cemetery.substr(0, 4) + " " + cemetery.substr(4, cemetery.length)}</span>, Block ${blockID} - Lot ${lotID}`, "exactMatch", false);
+                printPersonRusult(exactMatch, `There are ${exactMatch.length} graves located in:<br> <span>${cemetery.substr(0, 4) + " " + cemetery.substr(4, cemetery.length)}, Block ${blockID} - Lot ${lotID}</span>`, "exactMatch", false);
             }
 
         } else if (lotID == "Blank") {
             $results.append(`<h1 class='resultMessage'>Sorry, the lot that you selected is either empty or not available.`);
         } else {
-            $results.append(`<h1 class='resultMessage'>Sorry, we couldn't find any graves at <span>${cemetery.substr(0, 4) + " " + cemetery.substr(4, cemetery.length)}<span>, Block ${blockID} - Lot ${lotID}</h1>`);
+            $results.append(`<h1 class='resultMessage'>Sorry, we couldn't find any graves at <span>${cemetery.substr(0, 4) + " " + cemetery.substr(4, cemetery.length)}, Block ${blockID} - Lot ${lotID}</span></h1>`);
         }
 
         $results.append(`<h1 class='toTop'>Go Back to Top of Page</h1>`);
