@@ -787,8 +787,27 @@
   body .cemeteryMaps p {
     font-size: 0.85em;
   }
-  body #results .results div h1 {
-    font-size: 1.25em;
+  body #results .results div .profilePicture {
+    width: 80%;
+    padding-bottom: 0;
+  }
+  body #results .results div span.fullName {
+    font-size: 28px;
+    padding: 0;
+    margin: 0 auto;
+  }
+  body #results .results div span.years {
+    position: relative;
+    bottom: 10px;
+    font-size: 20px;
+  }
+  body #results .results div .location {
+    position: relative;
+    bottom: 20px;
+    font-size: 16px !important;
+  }
+  body #results .results div .location span {
+    font-size: 16px;
   }
   body #results .results div h3 {
     font-size: 1em;
@@ -801,7 +820,8 @@
   }
   body #results .results div div.moreDetails {
     width: 90%;
-    padding-top: 30px;
+    margin: 10px auto;
+    margin-bottom: 20px;
   }
   body #results .results div div.moreDetails h2 {
     padding: 5px;
@@ -814,10 +834,10 @@
   }
   body #results .results div .details h3 {
     left: 5%;
-    font-size: 0.9em;
+    font-size: 0.75em;
   }
   body #results .results div .details h3 span {
-    font-size: 1.2em;
+    font-size: 1em;
   }
   body #results .results div .details img {
     width: 90%;
