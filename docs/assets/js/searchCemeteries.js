@@ -470,12 +470,12 @@ $().ready(function () {
 			// Print No Matches if there are none
 			if (!isFNameMatch && !isLNameMatch && !isExactMatch && !isDoBMatch && !isDoDMatch && !isExactMatch) {
 				if (!isExactMatch && (original_fName != "" || original_lName != "")) {
-					$results.append(`<h1 class='errorMessage'>Sorry we couldn't find any results for:<br> <span>${original_fName == "" ? "": original_fName} ${original_lName == "" ? "": original_lName}</h1>`);
+					$results.append(`<h1 class='errorMessage'>Sorry we couldn't find any results for:<br> <span>${original_fName == "" ? "": original_fName} ${original_lName == "" ? "": original_lName}</span></h1>`);
 				} else if (!isExactDate &&  (dobString != "" && dodString != "")) {
-					$results.append(`<h1 class='errorMessage'>Sorry we couldn't find any results for:<br> <span>${dobString} or ${dodString}</h1>`);
+					$results.append(`<h1 class='errorMessage'>Sorry we couldn't find any results for:<br> <span>${dobString} or ${dodString}</span></h1>`);
 				} else if (original_fName == "" && original_lName == "") {
 					if ((!isDoBMatch && dodString == "") || (!isDoDMatch && dobString == "")) {
-						$results.append(`<h1 class='errorMessage'>Sorry we couldn't find any results for:<br><span>${dobString}${dodString}</h1>`);
+						$results.append(`<h1 class='errorMessage'>Sorry we couldn't find any results for:<br><span>${dobString}${dodString}</span></h1>`);
 					}
 				}
 			}
@@ -533,7 +533,7 @@ $().ready(function () {
 				$results.append(`<h1 class='resultMessage'>${messageTitle}:<br> <span>${displayName}</h1>`);
 				$results.append(`<div class="results" id="${id}"></div>`)
 			} else {
-				$results.append(`<h1 class='errorMessage'>Sorry we couldn't find a match for: <span>${displayName}</h1>`);
+				$results.append(`<h1 class='errorMessage'>Sorry we couldn't find a match for: <span>${displayName}</span></h1>`);
 			}
 
 			for (var d in results) {
