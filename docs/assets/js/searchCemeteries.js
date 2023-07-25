@@ -33,39 +33,87 @@ function filterInput(input, filterType) {
 }
 
 
-function yearDiff(d1, d2) {
+function yearDiff(dob, dod) {
 
+	var dobDate = getDate(dob)
+	var dodDate = getDate(dod)
 
-	let date1 = new Date(d1);
-	let date2 = new Date(d2);
+	var dobYear = dobDate['year'];
+	var dobMonth = dobDate['month'];
+	var dobDay = dobDate['day'];
 
-	let d1Arr = d1.split("-")
-	let d2Arr = d2.split("-")
+	var dodYear = dodDate['year'];
+	var dodMonth = dodDate['month'];
+	var dodDay = dodDate['day'];
 
-	let d1ArrYear = d1Arr[d1Arr.length - 1]
-	let d2ArrYear = d2Arr[d2Arr.length - 1]
+	if (dobYear == "Unknown" || dodYear == "Unknown") { return "Unknown"; }
 
-	let d2YearVal = Number.isInteger(parseInt(d2ArrYear)) ? parseInt(d2ArrYear) : NaN;
-	let d1YearVal = Number.isInteger(parseInt(d1ArrYear)) ? parseInt(d1ArrYear) : NaN;
+	var yearDiff = dodYear - dobYear;
 
-	let d2Time = date2.getTime();
-	let d1Time = date1.getTime();
-
-	let timeYearDiff = Math.floor((d2Time - d1Time) / 31536000000);
-	let yearDiff = Math.floor(d2YearVal - d1YearVal)
-
-
-	if (isNaN(timeYearDiff)) {
-
-		if (isNaN(yearDiff)) { yearDiff = "Unknown" } else if (yearDiff == 0) { yearDiff = "Less than 1 year" }
-
-		return yearDiff
-
+	if (dobMonth == undefined || dodMonth == undefined) { return yearDiff; }
+	if (yearDiff == 0) { return "Less than a year"}
+	if (dodMonth < dobMonth) { return yearDiff-1; }
+	if (dodMonth > dobMonth) { return yearDiff; } else {
+		if (dobDay == undefined || dodDay == undefined) { return yearDiff; } 
+		if (dobDay >= dodDay) { return yearDiff; } else { return yearDiff-1; }
 	}
+		
+		
+		
+	
 
-	if (timeYearDiff == 0) { timeYearDiff = "Less than 1 year" }
+	console.log(dodDate)
 
-	return timeYearDiff
+
+	// var dobDate = new Date(dob);
+	// var dodDate = new Date(dod);
+
+	// var dobArr = dob.split("-")
+	// var dodArr = dod.split("-")
+
+	// var dobArrYear = dobArr[-1]
+	// var dodArrYear = dodArr[-1]
+
+	// // let d1ArrYear = d1Arr[d1Arr.length - 1]
+	// // let d2ArrYear = d2Arr[d2Arr.length - 1]
+
+	// var dobYear = dobDate.getFullYear()
+	// var dodYear = dodDate.getFullYear()
+
+	// if (dobYear == NaN || dodYear == NaN) { return "Unknown"}
+
+	// var dobMonth = dobDate.getMonth()
+	// var dodMonth = dodDate.getMonth()
+
+	// var dodYearNum = Number.isInteger(parseInt(dodYear)) ? parseInt(dodYear) : NaN;
+	// var dobYearNum = Number.isInteger(parseInt(dobYear)) ? parseInt(dobYear) : NaN;
+
+	// var dodTime = dodDate.getTime();
+	// var dobTime = dobDate.getTime();
+
+	// var yearDiffCalc = Math.floor((dodTime - dobTime) / 31536000000);
+	// var yearDiff = dodYearNum - dobYearNum
+
+	// if (isNaN(yearDiff) && isNaN(yearDiffCalc)) {return "Unknown"}
+	// if (isNaN(yearDiff) || isNaN(yearDiffCalc)) {
+	// 	if (isNaN(yearDiff)) { return yearDiff}
+	// }
+
+
+
+
+
+	// if (isNaN(timeYearDiff)) {
+
+	// 	if (isNaN(yearDiff)) { yearDiff = "Unknown" } else if (yearDiff == 0) { yearDiff = "Less than 1 year" }
+
+	// 	return yearDiff
+
+	// }
+
+	// if (timeYearDiff == 0) { timeYearDiff = "Less than 1 year" }
+
+	// return timeYearDiff
 
 }
 
