@@ -231,13 +231,24 @@ $().ready(function () {
 
 		$.getJSON("json/graves.json", function (data) {
 
-			let exactMatch = []
-			let exactDate = []
-			let potentialMatch = []
-			let fNameMatch = []
-			let lNameMatch = []
-			let dobMatch = []
-			let dodMatch = []
+
+			let matches = {
+				exactMatch: [],
+				fNameMatch: [],
+				lNameMatch: [],
+				potentialMatch: [],
+				exactDate: [],
+				dobMatch: [],
+				dodMatch: []
+			}
+
+			let exactMatch = matches['exactMatch']
+			let exactDate = matches['exactDate']
+			let potentialMatch = matches['potentialMatch']
+			let fNameMatch = matches['fNameMatch']
+			let lNameMatch = matches['lNameMatch']
+			let dobMatch = matches['dobMatch']
+			let dodMatch = matches['dodMatch']
 
 			var fName_inputLower = fName_input.toLowerCase();
 			var lName_inputLower = lName_input.toLowerCase();
@@ -396,49 +407,33 @@ $().ready(function () {
 			// SORTING OPTIONS
 			//
 
+			
 			switch (sortOption) {
 				case "name":
-					exactMatch.sort(compareObjects);
-					exactDate.sort(compareObjects);
-					potentialMatch.sort(compareObjects);
-					fNameMatch.sort(compareObjects);
-					lNameMatch.sort(compareObjects);
+					for (const matchType in matches) { matches[matchType].sort(compareObjects); }
 					break;
 
 				case "dod_latest":
-					exactMatch.sort(compareDeathDates).reverse();
-					exactDate.sort(compareDeathDates).reverse();
-					potentialMatch.sort(compareDeathDates).reverse();
-					fNameMatch.sort(compareDeathDates).reverse();
-					lNameMatch.sort(compareDeathDates).reverse();
+					for (const matchType in matches) { matches[matchType].sort(compareDeathDates).reverse(); }
 					break;
 
 				case "dod_oldest":
-					exactMatch.sort(compareDeathDates);
-					exactDate.sort(compareDeathDates);
-					potentialMatch.sort(compareDeathDates);
-					fNameMatch.sort(compareDeathDates);
-					lNameMatch.sort(compareDeathDates);
+					for (const matchType in matches) { matches[matchType].sort(compareDeathDates); }
 					break;
 				
 				case "age_youngest":
-					exactMatch.sort(compareAge);
-					exactDate.sort(compareAge);
-					potentialMatch.sort(compareAge);
-					fNameMatch.sort(compareAge);
-					lNameMatch.sort(compareAge);
+					for (const matchType in matches) { matches[matchType].sort(compareAge); }
 					break;
 				
 				case "age_oldest":
-					exactMatch.sort(compareAge).reverse();
-					exactDate.sort(compareAge).reverse();
-					potentialMatch.sort(compareAge).reverse();
-					fNameMatch.sort(compareAge).reverse();
-					lNameMatch.sort(compareAge).reverse();
+					for (const matchType in matches) { matches[matchType].sort(compareAge).reverse(); }
+					break;
 
 				case "default":
 					break;
 			}
+
+			
 
 			
 			var isExactMatch = exactMatch.length >= 1
