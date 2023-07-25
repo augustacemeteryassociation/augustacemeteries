@@ -3,111 +3,84 @@ function cleanString(s) {
 }
 
 
-function yearDiff(d1, d2) {
 
-
-    let date1 = new Date(d1);
-    let date2 = new Date(d2);
-
-    let d1Arr = d1.split("-")
-    let d2Arr = d2.split("-")
-
-    let d1ArrYear = d1Arr[d1Arr.length - 1]
-    let d2ArrYear = d2Arr[d2Arr.length - 1]
-
-    let d2YearVal = Number.isInteger(parseInt(d2ArrYear)) ? parseInt(d2ArrYear) : NaN;
-    let d1YearVal = Number.isInteger(parseInt(d1ArrYear)) ? parseInt(d1ArrYear) : NaN;
-
-    //        console.log(d1, d2)
-    //        console.log(d1Arr, d2Arr)
-    //        console.log(d2YearVal, d1YearVal)
-
-    let d2Time = date2.getTime();
-    let d1Time = date1.getTime();
-
-    let timeYearDiff = Math.floor((d2Time - d1Time) / 31536000000);
-    let yearDiff = Math.floor(d2YearVal - d1YearVal)
-
-
-    if (isNaN(timeYearDiff)) {
-
-        if (isNaN(yearDiff)) {
-            yearDiff = "Unknown"
-        } else if (yearDiff == 0) {
-            yearDiff = "Less than 1 year"
-        }
-
-        //            console.log(`Death Date = ${date2},  Birth Date = ${date1}\nDeath YearTime = ${d2YearVal}, Birth YearTime = ${d1YearVal}\nYear Diff = ${yearDiff}`)
-        return yearDiff
-
-    }
-
-    if (timeYearDiff == 0) {
-        timeYearDiff = "Less than 1 year"
-    }
-
-    //        console.log(`Death Date = ${date2},  Birth Date = ${date1}\nDeath YearTime = ${d2Time}, Birth YearTime = ${d1Time}\nYear Diff = ${timeYearDiff}`)
-
-    return timeYearDiff
-
-}
 
 function getDate(dateStr) {
 
-    var d = {}
-    dateArray = []
+	var d = {}
+	dateArray = []
 
-    function nan(a) {
-        if (Number.isNaN(a)) {
-            return "Unknown"
-        } else {
-            return a
-        }
-    }
+	function nan(a) {
+		if (Number.isNaN(a)) { return "Unknown" } else { return a }
+	}
 
-    if (dateStr.includes("-")) {
-        dateArray = dateStr.split("-")
-    } else {
-        dateArray[0] = dateStr
-    }
 
-    var dateLen = dateArray.length
+	if (typeof(dateStr) == "string") {
+		if (dateStr.includes("-")) {dateArray = dateStr.split("-")} else {dateArray[0] = dateStr}
+	}
+	
 
-    switch (dateLen) {
-        case 3:
+	var dateLen = dateArray.length
 
-            d.year = parseInt(dateArray[2]);
-            d.month = parseInt(dateArray[0]);
-            d.day = parseInt(dateArray[1]);
+	switch (dateLen) {
+		case 3:
+			d.year = parseInt(dateArray[2]);
+			d.month = parseInt(dateArray[0]);
+			d.day = parseInt(dateArray[1]);
 
-            d.year = nan(d.year)
-            d.month = nan(d.month)
-            d.day = nan(d.day)
+			d.year = nan(d.year)
+			d.month = nan(d.month)
+			d.day = nan(d.day)
+			break;
 
-            break;
+		case 2:
+			d.year = parseInt(dateArray[1]);
+			d.month = parseInt(dateArray[0]);
 
-        case 2:
+			d.year = nan(d.year);
+			d.month = nan(d.month);
+			break;
 
-            d.year = parseInt(dateArray[1]);
-            d.month = parseInt(dateArray[0]);
+		case 1:
 
-            d.year = nan(d.year)
-            d.month = nan(d.month)
+			d.year = parseInt(dateArray[0]);
+			d.year = nan(d.year);
+			break;
 
-            break;
+		case '':
+			d.year = "Unknown";
+			break;
+	}
 
-        case 1:
-            d.year = parseInt(dateArray[0]);
-            d.year = nan(d.year);
+	return d
 
-            break;
+}
 
-        case '':
-            d.year = "Unknown";
-            break;
-    }
+function yearDiff(dob, dod) {
 
-    return d
+	var dobDate = getDate(dob)
+	var dodDate = getDate(dod)
+
+	var dobYear = dobDate['year'];
+	var dobMonth = dobDate['month'];
+	var dobDay = dobDate['day'];
+
+	var dodYear = dodDate['year'];
+	var dodMonth = dodDate['month'];
+	var dodDay = dodDate['day'];
+
+	if (dobYear == "Unknown" || dodYear == "Unknown") { return "Unknown"; }
+
+	var yearDiff = dodYear - dobYear;
+	
+	if (yearDiff == 0) { return "Less than a year"; }
+	if (dobMonth == undefined || dodMonth == undefined) { return yearDiff; }
+	
+	if (dodMonth < dobMonth) { return yearDiff-1; }
+	if (dodMonth >= dobMonth) { 
+		if (dobDay == undefined || dodDay == undefined) { return yearDiff; } 
+		if (dobMonth == dodMonth && dodDay < dobDay) { return yearDiff-1; } else { return yearDiff; } 
+	}
 
 }
 
@@ -212,14 +185,6 @@ function searchMap(cemetery, blockID, lotID) {
                                         if (d['fName'] != "" && d['lName'] != "") {
                                             exactMatch.push(d)
                                         }
-                                        
-                                        // DEBUGGER FOR INVALID AGE (NEGATIVE AGE NUMBER)
-                                        
-                                        // var estimatedAge = yearDiff(d['dateOfBirth'], d['dateOfDeath'])
-                                        // if (estimatedAge < 0) {
-                                        //    console.log(`Age Error @ ${cemetery} - Block ${blockNum}, Lot ${lotNum} - ${graveNum+g}`, d)
-                                        // }
-
                                     }
                                 }
                             }
@@ -235,9 +200,6 @@ function searchMap(cemetery, blockID, lotID) {
 
         var isExactMatch_length = exactMatch.length
         var isExactMatch = isExactMatch_length >= 1
-
-
-
 
         if (isExactMatch) {
 
@@ -291,30 +253,31 @@ function displayPeople(d, id = '', hidden = false) {
     var graveSubNum = d['graveSubNum']
 
 
-    var fName = d["fName"]
-    var mName = d["mName"]
-    var lName = d["lName"]
-    var maidenName = d["maidenName"]
-    var otherInfo = d["otherInfo"]
+    var fName = d["fName"];
+    var mName = d["mName"];
+    var lName = d["lName"];
+    var maidenName = d["maidenName"];
+    var otherInfo = d["otherInfo"];
 
-    var findAGraveLink = d["graveLink"]
+    var findAGraveLink = d["graveLink"];
 
-    var dateOfBirth = getDate(d["dateOfBirth"])
-    var dateOfDeath = getDate(d["dateOfDeath"])
-    var burialDate = getDate(d["burialDate"])
+    var dateOfBirth = getDate(d["dateOfBirth"]);
+    var dateOfDeath = getDate(d["dateOfDeath"]);
+    var burialDate = getDate(d["burialDate"]);
+	let estimatedAge = yearDiff(d['dateOfBirth'], d['dateOfDeath']);
 
-    var cemeteryLocation = cemetery.substr(0, 4)
+    var cemeteryLocation = cemetery.substr(0, 4);
 
-    var fName_clean = cleanString(fName)
-    var lName_clean = cleanString(lName)
+    var fName_clean = cleanString(fName);
+    var lName_clean = cleanString(lName);
 
-    var profileImage = d["profilePicture"]
-    var obituaryImages = d["obituary"]
-    var gravestoneImages = d["gravePictures"]
-    var warsArray = d["wars"]
+    var profileImage = d["profilePicture"];
+    var obituaryImages = d["obituary"];
+    var gravestoneImages = d["gravePictures"];
+    var warsArray = d["wars"];
 
     if (profileImage == "") {
-        profileImage = "images/unknown.png"
+        profileImage = "images/unknown.png";
     }
 
 
@@ -335,7 +298,7 @@ function displayPeople(d, id = '', hidden = false) {
                     %0d%0aMaiden Name: ${maidenName} 
                     %0d%0aDate of Birth: ${getDate_string(dateOfBirth)}
                     %0d%0aDate of Death: ${getDate_string(dateOfDeath)}
-                    %0d%0aEstimated Age: ${yearDiff(d['dateOfBirth'], d['dateOfDeath'])}
+                    %0d%0aEstimated Age: ${estimatedAge}
                     %0d%0aFindAGrave Link: ${findAGraveLink}
                     %0d%0aWars / Service: ${warsArray}
                     %0d%0a%0d%0a
@@ -365,7 +328,7 @@ function displayPeople(d, id = '', hidden = false) {
     appendDetail_Link(latestPerson, "Find A Grave Link", `${fName} ${lName}`, findAGraveLink);
     appendDetail_Text(latestPerson, "Date of Birth", getDate_string(dateOfBirth));
     appendDetail_Text(latestPerson, "Date of Death", getDate_string(dateOfDeath));
-    appendDetail_Text(latestPerson, "Estimated Age", yearDiff(d['dateOfBirth'], d['dateOfDeath']));
+    appendDetail_Text(latestPerson, "Estimated Age", estimatedAge);
     appendDetail_TextArray(latestPerson, "Wars / Service", warsArray);
     appendDetail_Images(latestPerson, "Gravestone Photos", gravestoneImages, "gravestone");
     appendDetail_Images(latestPerson, "Obituary", obituaryImages, "obituary");
