@@ -59,57 +59,6 @@ function yearDiff(dob, dod) {
 		if (dobMonth == dodMonth && dodDay < dobDay) { return yearDiff-1; } else { return yearDiff; } 
 	}
 
-
-	// var dobDate = new Date(dob);
-	// var dodDate = new Date(dod);
-
-	// var dobArr = dob.split("-")
-	// var dodArr = dod.split("-")
-
-	// var dobArrYear = dobArr[-1]
-	// var dodArrYear = dodArr[-1]
-
-	// // let d1ArrYear = d1Arr[d1Arr.length - 1]
-	// // let d2ArrYear = d2Arr[d2Arr.length - 1]
-
-	// var dobYear = dobDate.getFullYear()
-	// var dodYear = dodDate.getFullYear()
-
-	// if (dobYear == NaN || dodYear == NaN) { return "Unknown"}
-
-	// var dobMonth = dobDate.getMonth()
-	// var dodMonth = dodDate.getMonth()
-
-	// var dodYearNum = Number.isInteger(parseInt(dodYear)) ? parseInt(dodYear) : NaN;
-	// var dobYearNum = Number.isInteger(parseInt(dobYear)) ? parseInt(dobYear) : NaN;
-
-	// var dodTime = dodDate.getTime();
-	// var dobTime = dobDate.getTime();
-
-	// var yearDiffCalc = Math.floor((dodTime - dobTime) / 31536000000);
-	// var yearDiff = dodYearNum - dobYearNum
-
-	// if (isNaN(yearDiff) && isNaN(yearDiffCalc)) {return "Unknown"}
-	// if (isNaN(yearDiff) || isNaN(yearDiffCalc)) {
-	// 	if (isNaN(yearDiff)) { return yearDiff}
-	// }
-
-
-
-
-
-	// if (isNaN(timeYearDiff)) {
-
-	// 	if (isNaN(yearDiff)) { yearDiff = "Unknown" } else if (yearDiff == 0) { yearDiff = "Less than 1 year" }
-
-	// 	return yearDiff
-
-	// }
-
-	// if (timeYearDiff == 0) { timeYearDiff = "Less than 1 year" }
-
-	// return timeYearDiff
-
 }
 
 
