@@ -114,6 +114,22 @@
     display: block;
     margin: 0 auto;
     padding-top: 20px;
+    padding-bottom: 40px;
+  }
+  body .statement {
+    margin-bottom: 30px;
+  }
+  body .statement h1 {
+    color: #881e88;
+    font-size: 40px;
+    font-family: "Secular One";
+    margin: 0 auto;
+  }
+  body .statement p {
+    font-size: 24px;
+    width: 50%;
+    margin: 0;
+    left: 25%;
   }
   body #itemContainer {
     width: 100%;
@@ -704,10 +720,18 @@
     width: 75%;
     height: auto;
   }
+  body .statement h1 {
+    font-size: 30px;
+  }
+  body .statement p {
+    font-size: 14px;
+    width: 80%;
+    left: 10%;
+  }
   body #itemContainer {
     width: 100%;
     display: block;
-    padding-top: 30px;
+    padding-top: 15px;
   }
   body #itemContainer .itemDetails {
     width: 100%;

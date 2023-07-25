@@ -178,6 +178,27 @@ $lightPurple: #b806b8;
 			display: block;
 			margin: 0 auto;
 			padding-top: 20px;
+			padding-bottom: 40px;
+		}
+
+		.statement {
+
+			margin-bottom: 30px;
+
+			h1 {
+				color: $purple;
+				font-size: 40px;
+				font-family: "Secular One";
+				margin: 0 auto;
+			}
+
+			p {
+				font-size: 24px;
+				width: 50%;
+				margin: 0;
+				left: 25%;
+			}
+
 		}
 
 
@@ -943,13 +964,25 @@ $lightPurple: #b806b8;
 			height: auto;
 		}
 
+		.statement {
+			h1 {
+				font-size: 30px;
+			}
+
+			p {
+				font-size: 14px;
+				width: 80%;
+				left: 10%;
+			}
+		}
+
 
 		#itemContainer {
 			// overflow: auto;
 			width: 100%;
 			display: block;
 	
-			padding-top: 30px;
+			padding-top: 15px;
 	
 			.itemDetails {
 				
