@@ -49,20 +49,15 @@ function yearDiff(dob, dod) {
 	if (dobYear == "Unknown" || dodYear == "Unknown") { return "Unknown"; }
 
 	var yearDiff = dodYear - dobYear;
-
-	if (dobMonth == undefined || dodMonth == undefined) { return yearDiff; }
-	if (yearDiff == 0) { return "Less than a year"}
-	if (dodMonth < dobMonth) { return yearDiff-1; }
-	if (dodMonth > dobMonth) { return yearDiff; } else {
-		if (dobDay == undefined || dodDay == undefined) { return yearDiff; } 
-		if (dobDay >= dodDay) { return yearDiff; } else { return yearDiff-1; }
-	}
-		
-		
-		
 	
-
-	console.log(dodDate)
+	if (yearDiff == 0) { return "Less than a year"; }
+	if (dobMonth == undefined || dodMonth == undefined) { return yearDiff; }
+	
+	if (dodMonth < dobMonth) { return yearDiff-1; }
+	if (dodMonth >= dobMonth) { 
+		if (dobDay == undefined || dodDay == undefined) { return yearDiff; } 
+		if (dobMonth == dodMonth && dodDay < dobDay) { return yearDiff-1; } else { return yearDiff; } 
+	}
 
 
 	// var dobDate = new Date(dob);
