@@ -248,9 +248,9 @@ function searchMap(cemetery, blockID, lotID) {
             }
 
         } else if (lotID == "Blank") {
-            $results.append(`<h1 class='resultMessage'>Sorry, the lot that you selected is either empty or not available.`);
+            $results.append(`<h1 class='resultMessage'><span>Sorry, the lot that you selected is either empty or not available.</span></h1>`);
         } else {
-            $results.append(`<h1 class='resultMessage'>Sorry, we couldn't find any graves at <span>${cemetery.substr(0, 4) + " " + cemetery.substr(4, cemetery.length)}, Block ${blockID} - Lot ${lotID}</span></h1>`);
+            $results.append(`<h1 class='resultMessage'>Sorry, we couldn't find any graves at:<br> <span>${cemetery.substr(0, 4) + " " + cemetery.substr(4, cemetery.length)}, Block ${blockID} - Lot ${lotID}</span></h1>`);
         }
 
         $results.append(`<h1 class='toTop'>Go Back to Top of Page</h1>`);
