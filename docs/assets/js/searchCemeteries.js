@@ -717,7 +717,7 @@ $().ready(function () {
 		// Check if input boxes are empty or not
 		if ((fNameInput == "" && lNameInput == "") && (dobInput == "" && dodInput == "")) {
 			$(this).closest('form').find("input[type=text], textarea").val("");
-			$results.append("<h1 class='errorMessage'>Invalid Input: Please enter a valid first or last name, or date.</h1>");
+			$results.append("<h1 class='errorMessage'>Invalid Input:<br> Please enter a valid first or last name, or date.</h1>");
 		} else {
 			getMatches(fNameInput, lNameInput, sortOption, dobInput, dodInput)
 		}
