@@ -569,8 +569,6 @@ $lightPurple: #b806b8;
 						margin: 0 auto;
 						padding-bottom: 50px;
 						font-size: 20px;
-						position: relative;
-						right: 20px;
 					
 						img {
 							display: block;
@@ -583,6 +581,7 @@ $lightPurple: #b806b8;
 			
 						.gravestone {
 							width: 75%;
+							margin: 0 auto;
 						}
 					
 						.obituary {
@@ -591,7 +590,7 @@ $lightPurple: #b806b8;
 			
 						h3 {
 							position: relative;
-							left: 50px;
+							left: 30px;
 							margin: 0px;
 							padding: 5px;
 						}
@@ -907,9 +906,16 @@ $lightPurple: #b806b8;
 
 		#results {
 			width: 100%;
+
+			.resultMessage:first-child {
+				margin-top: 0px !important;
+			}
 			.resultMessage {
-				font-size: 24px;;
+				font-size: 24px;
 				width: 95%;
+				span {
+					font-size: 18px;
+				}
 			}
 
 			.results {
@@ -1082,6 +1088,9 @@ $lightPurple: #b806b8;
 		#results {
 
 			.results {
+
+				padding-top: 0px;
+
 				div {
 					// h1 {
 					// 	font-size: 1.25em;
@@ -1139,12 +1148,13 @@ $lightPurple: #b806b8;
 					}
 
 					.details {
-						padding: 0;
-						padding-bottom: 20px;
+						padding: 20px 0;
 			
 						h3 {
-							left: 5%;
-							font-size: .75em;
+							position: relative;
+							left: 2%;
+							font-size: .65em;
+							padding: 2px 0;
 							span {
 								font-size: 1em;
 							}
@@ -1169,7 +1179,7 @@ $lightPurple: #b806b8;
 				margin: 15px auto;
 				padding: 0;
 				padding: 5px;
-				width: 80%;
+				width: 90%;
 				font-size: .5em;
 
 			}
@@ -1192,6 +1202,7 @@ $lightPurple: #b806b8;
 	
 			.moreDetails {
 				margin: 0;
+				margin-bottom: 5px !important;
 				h2 {
 					margin: 0 auto;
 					width: 80%;

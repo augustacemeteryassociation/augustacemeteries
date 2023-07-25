@@ -419,8 +419,6 @@
     margin: 0 auto;
     padding-bottom: 50px;
     font-size: 20px;
-    position: relative;
-    right: 20px;
   }
   body #results .results div .details img {
     display: block;
@@ -432,13 +430,14 @@
   }
   body #results .results div .details .gravestone {
     width: 75%;
+    margin: 0 auto;
   }
   body #results .results div .details .obituary {
     width: 80%;
   }
   body #results .results div .details h3 {
     position: relative;
-    left: 50px;
+    left: 30px;
     margin: 0px;
     padding: 5px;
   }
@@ -680,9 +679,15 @@
   body #results {
     width: 100%;
   }
+  body #results .resultMessage:first-child {
+    margin-top: 0px !important;
+  }
   body #results .resultMessage {
     font-size: 24px;
     width: 95%;
+  }
+  body #results .resultMessage span {
+    font-size: 18px;
   }
   body #results .results {
     width: 90%;
@@ -787,6 +792,9 @@
   body .cemeteryMaps p {
     font-size: 0.85em;
   }
+  body #results .results {
+    padding-top: 0px;
+  }
   body #results .results div .profilePicture {
     width: 80%;
     padding-bottom: 0;
@@ -829,12 +837,13 @@
     margin: 0 auto;
   }
   body #results .results div .details {
-    padding: 0;
-    padding-bottom: 20px;
+    padding: 20px 0;
   }
   body #results .results div .details h3 {
-    left: 5%;
-    font-size: 0.75em;
+    position: relative;
+    left: 2%;
+    font-size: 0.65em;
+    padding: 2px 0;
   }
   body #results .results div .details h3 span {
     font-size: 1em;
@@ -851,7 +860,7 @@
     margin: 15px auto;
     padding: 0;
     padding: 5px;
-    width: 80%;
+    width: 90%;
     font-size: 0.5em;
   }
   body #results .resultMessage:hover {
@@ -867,6 +876,7 @@
   }
   body #results .moreDetails {
     margin: 0;
+    margin-bottom: 5px !important;
   }
   body #results .moreDetails h2 {
     margin: 0 auto;
