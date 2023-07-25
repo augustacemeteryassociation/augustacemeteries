@@ -310,7 +310,7 @@ $().ready(function () {
 
 								let dob = getDate(d["dateOfBirth"])
 								let dod = getDate(d["dateOfDeath"])
-								let estimatedAge = yearDiff(d['dateOfBirth'], d['dateOfDeath']);
+								
 
 
 								// 
@@ -542,34 +542,35 @@ $().ready(function () {
 		var graveSubNum = d['graveSubNum']
 
 
-		var fName = d["fName"]
-		var mName = d["mName"]
-		var lName = d["lName"]
-		var maidenName = d["maidenName"]
-		var otherInfo = d["otherInfo"]
+		var fName = d["fName"];
+		var mName = d["mName"];
+		var lName = d["lName"];
+		var maidenName = d["maidenName"];
+		var otherInfo = d["otherInfo"];
 
-		var findAGraveLink = d["graveLink"]
+		var findAGraveLink = d["graveLink"];
 
-		var dateOfBirth = getDate(d["dateOfBirth"])
-		var dateOfDeath = getDate(d["dateOfDeath"])
-		var burialDate = getDate(d["burialDate"])
+		var dateOfBirth = getDate(d["dateOfBirth"]);
+		var dateOfDeath = getDate(d["dateOfDeath"]);
+		var estimatedAge = yearDiff(d['dateOfBirth'], d['dateOfDeath']);
 
-		var cemeteryLocation = cemetery.substring(0, 4)
+		var cemeteryLocation = cemetery.substring(0, 4);
 
-		var fName_clean = cleanString(fName)
-		var lName_clean = cleanString(lName)
+		var fName_clean = cleanString(fName);
+		var lName_clean = cleanString(lName);
 
-		var profileImage = d["profilePicture"]
-		var obituaryImages = d["obituary"]
-		var gravestoneImages = d["gravePictures"]
-		var warsArray = d["wars"]
+		var profileImage = d["profilePicture"];
+		var obituaryImages = d["obituary"];
+		var gravestoneImages = d["gravePictures"];
+		var warsArray = d["wars"];
 
-		if (profileImage == "") {
-			profileImage = "images/unknown.png"
-		}
+		if (profileImage == "") { profileImage = "images/unknown.png" }
 
-		
 
+
+		// 
+		// APPEND MATCHES TO RESULTS
+		// 
 
 		$(`#results #${id}`).last().append(`
 			<div id="${fName_clean}${lName_clean}" class="result">
