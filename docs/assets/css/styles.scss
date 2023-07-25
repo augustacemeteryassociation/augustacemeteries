@@ -824,7 +824,7 @@ $lightPurple: #b806b8;
 		.donationInfo {
 			padding-top: 5px;
 			text-align: center;
-			line-height: 1em;
+			padding-bottom: 20px;
 			font-size: 1.75em;
 			font-family: "Red Rose";
 		}
@@ -914,7 +914,7 @@ $lightPurple: #b806b8;
 				font-size: 24px;
 				width: 95%;
 				span {
-					font-size: 18px;
+					font-size: 18px !important;
 				}
 			}
 
@@ -1003,8 +1003,8 @@ $lightPurple: #b806b8;
 
 		// BOARD MEMEBERS PAGE
 		.member {
-			width: 50%;
-			padding: 10px 0px;
+			width: 75%;
+			padding: 20px 0px;
 			margin: 30px auto;
 
 			.profilePicture {
@@ -1060,6 +1060,10 @@ $lightPurple: #b806b8;
 
 			}
 
+			.svg {
+				padding-top: 30px;
+			}
+
 			// h1 {
 			// 	font-size: 1.75em;
 			// 	margin: 0;
@@ -1079,10 +1083,15 @@ $lightPurple: #b806b8;
 
 			p {
 				font-size: .85em;
+				margin: 0 auto;
+				padding-bottom: 50px;
 			}
 
 			
 		}
+
+
+		
 
 		// Results
 		#results {
@@ -1117,7 +1126,7 @@ $lightPurple: #b806b8;
 					.location {
 						position: relative;
 						bottom: 20px;
-						font-size: 16px !important;
+						font-size: 14px !important;
 						span {
 							font-size: 16px;
 						}
@@ -1227,6 +1236,10 @@ $lightPurple: #b806b8;
 			}
 		}
 
+
+		
+
+
 		// FIND A GRAVE FORM
 		form {
 			width: 100%;
@@ -1298,9 +1311,14 @@ $lightPurple: #b806b8;
 				margin-bottom: 25px;
 			}
 
+			.title {
+				font-size: .8em;
+			}
+
 			p {
-				font-size: .85em;
+				font-size: .7em;
 				padding: 3px 0;
+				left: 15%;
 			}
 
 			ul {
@@ -1319,12 +1337,16 @@ $lightPurple: #b806b8;
 			h3 {
 				margin: 10px auto;;
 				width: 90%;
-				font-size: .9em;
+				font-size: .7em;
 			}
 
 			.donationInfo {
 				padding: 2px;
+				padding-bottom: 15px;
+				font-size: 14px;
+				line-height: 14px;
 			}
+
 		}
 
 		// LOT INFO
@@ -1333,8 +1355,8 @@ $lightPurple: #b806b8;
 			font-size: 1em;
 			position: relative;
 			bottom: 0;
-			margin-top: -20px;
-			margin-bottom: 50px;
+			margin-top: 0px;
+			margin-bottom: 25px;
 		}
 
 		.selected {
