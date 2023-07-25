@@ -307,8 +307,10 @@ $().ready(function () {
 								let lName = d["lName"].toLowerCase()
 								let maidenName = d["maidenName"].toLowerCase()
 								let otherInfo = d["otherInfo"].toLowerCase()
+
 								let dob = getDate(d["dateOfBirth"])
 								let dod = getDate(d["dateOfDeath"])
+								let estimatedAge = yearDiff(d['dateOfBirth'], d['dateOfDeath']);
 
 
 								// 
@@ -585,7 +587,7 @@ $().ready(function () {
 					%0d%0aMaiden Name: ${maidenName} 
 					%0d%0aDate of Birth: ${getDate_string(dateOfBirth)}
 					%0d%0aDate of Death: ${getDate_string(dateOfDeath)}
-					%0d%0aEstimated Age: ${yearDiff(d['dateOfBirth'], d['dateOfDeath'])}
+					%0d%0aEstimated Age: ${estimatedAge}
 					%0d%0aFindAGrave Link: ${findAGraveLink}
 					%0d%0aWars / Service: ${warsArray}
 					%0d%0a%0d%0a
@@ -613,7 +615,7 @@ $().ready(function () {
 		appendDetail_Link(latestPerson, "Find A Grave Link", `${fName} ${lName}`, findAGraveLink);
 		appendDetail_Text(latestPerson, "Date of Birth", getDate_string(dateOfBirth));
 		appendDetail_Text(latestPerson, "Date of Death", getDate_string(dateOfDeath));
-		appendDetail_Text(latestPerson, "Estimated Age", yearDiff(d['dateOfBirth'], d['dateOfDeath']));
+		appendDetail_Text(latestPerson, "Estimated Age", estimatedAge);
 		appendDetail_TextArray(latestPerson, "Wars / Service", warsArray);
 		appendDetail_Images(latestPerson, "Gravestone Photos", gravestoneImages, "gravestone");
 		appendDetail_Images(latestPerson, "Obituary", obituaryImages, "obituary");
