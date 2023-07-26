@@ -318,12 +318,28 @@ $().ready(function () {
 				} else if (dodAYear == undefined) { return 1 } else { return -1 }
 			}
 
-			var compareAge = function (a,b) {
-				let a_age = yearDiff(a.dateOfBirth, a.dateOfDeath)
-				let b_age = yearDiff(b.dateOfBirth, b.dateOfDeath)
+			var compareAgeACC = function (a,b) {
+				var a_age = yearDiff(a.dateOfBirth, a.dateOfDeath)
+				var b_age = yearDiff(b.dateOfBirth, b.dateOfDeath)
 
-				if (a_age < b_age) {return -1}
-				return 1
+				a_age = a_age == "Less than a year" ? 0 : a_age
+				b_age = b_age == "Less than a year" ? 0 : b_age
+
+				if (a_age == "Unknown") {return 1} else if (b_age == "Unknown") {return -1}
+				if (a_age < b_age) {return -1} else if (a_age > b_age) {return 1} else if (a_age == b_age) { return 0 }
+
+			}
+
+			var compareAgeDES = function (a,b) {
+				var a_age = yearDiff(a.dateOfBirth, a.dateOfDeath)
+				var b_age = yearDiff(b.dateOfBirth, b.dateOfDeath)
+
+				a_age = a_age == "Less than a year" ? 0 : a_age
+				b_age = b_age == "Less than a year" ? 0 : b_age
+
+				if (a_age == "Unknown") {return 1} else if (b_age == "Unknown") {return -1}
+				if (a_age < b_age) {return 1} else if (a_age >= b_age) {return -1} else if (a_age == b_age) { return 0 }
+
 			}
 
 
@@ -461,11 +477,11 @@ $().ready(function () {
 					break;
 				
 				case "age_youngest":
-					for (const matchType in matches) { matches[matchType].sort(compareAge); }
+					for (const matchType in matches) { matches[matchType].sort(compareAgeACC); }
 					break;
 				
 				case "age_oldest":
-					for (const matchType in matches) { matches[matchType].sort(compareAge).reverse(); }
+					for (const matchType in matches) { matches[matchType].sort(compareAgeDES); }
 					break;
 
 				case "default":
