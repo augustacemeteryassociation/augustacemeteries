@@ -263,14 +263,59 @@ $().ready(function () {
 
 			}
 
-			var compareDeathDates = function (a, b) {
+			var oldestDeaths = function (a, b) {
 
-				let a_dod = new Date(a.dateOfDeath).getTime();
-				let b_dod = new Date(b.dateOfDeath).getTime();
+				var dodA = getDate(a.dateOfDeath)
+				var dodAYear = dodA.year
+				var dodAMonth = dodA.month
+				var dodADay = dodA.day
 
-				if (a_dod < b_dod) { return -1 }
-				return 1
-				
+				var dodB = getDate(b.dateOfDeath)
+				var dodBYear = dodB.year
+				var dodBMonth = dodB.month
+				var dodBDay = dodB.day
+
+				if (dodAYear != undefined && dodBYear != undefined) {
+
+					if (dodAYear > dodBYear) { return 1 } else if (dodAYear < dodBYear) { return -1 }
+					if (dodAMonth != undefined && dodBMonth != undefined) {
+
+						if (dodAMonth > dodBMonth) { return 1 } else if (dodAMonth < dodBMonth) { return -1 }
+						if(dodADay != undefined && dodBDay != undefined) {
+
+							if (dodADay > dodBDay) { return 1 } else if (dodADay < dodBDay) { return -1 } else { return 1 }
+
+						} else if (dodADay == undefined) { return -1 } else { return 1 }
+					} else if (dodAMonth == undefined) { return -1 } else { return 1 }
+				} else if (dodAYear == undefined) { return -1 } else { return 1 }
+			}
+
+
+			var latestDeaths = function (a, b) {
+
+				var dodA = getDate(a.dateOfDeath)
+				var dodAYear = dodA.year
+				var dodAMonth = dodA.month
+				var dodADay = dodA.day
+
+				var dodB = getDate(b.dateOfDeath)
+				var dodBYear = dodB.year
+				var dodBMonth = dodB.month
+				var dodBDay = dodB.day
+
+				if (dodAYear != undefined && dodBYear != undefined) {
+
+					if (dodAYear > dodBYear) { return -1 } else if (dodAYear < dodBYear) { return 1 }
+					if (dodAMonth != undefined && dodBMonth != undefined) {
+
+						if (dodAMonth > dodBMonth) { return -1 } else if (dodAMonth < dodBMonth) { return 1 }
+						if(dodADay != undefined && dodBDay != undefined) {
+
+							if (dodADay > dodBDay) { return -1 } else if (dodADay < dodBDay) { return 1 } else { return -1 }
+
+						} else if (dodADay == undefined) { return 1 } else { return -1 }
+					} else if (dodAMonth == undefined) { return 1 } else { return -1 }
+				} else if (dodAYear == undefined) { return 1 } else { return -1 }
 			}
 
 			var compareAge = function (a,b) {
@@ -408,11 +453,11 @@ $().ready(function () {
 					break;
 
 				case "dod_latest":
-					for (const matchType in matches) { matches[matchType].sort(compareDeathDates).reverse(); }
+					for (const matchType in matches) { matches[matchType].sort(latestDeaths); }
 					break;
 
 				case "dod_oldest":
-					for (const matchType in matches) { matches[matchType].sort(compareDeathDates); }
+					for (const matchType in matches) { matches[matchType].sort(oldestDeaths); }
 					break;
 				
 				case "age_youngest":
