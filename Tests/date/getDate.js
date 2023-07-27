@@ -1,7 +1,7 @@
-export function getDate(dateStr) {
+function getDate(dateStr) {
 
 	var d = {}
-	dateArray = []
+	var dateArray = []
 
 	function nan(a) {
 		if (Number.isNaN(a)) { return "Unknown" } else { return a }
@@ -48,3 +48,5 @@ export function getDate(dateStr) {
 	return d
 
 }
+
+module.exports = getDate;
