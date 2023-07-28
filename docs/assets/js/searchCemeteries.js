@@ -53,7 +53,7 @@ function yearDiff(dob, dod) {
 	if (yearDiff == 0) { return "Less than a year"; }
 	if (dobMonth == undefined || dodMonth == undefined) { return yearDiff; }
 	
-	if (dodMonth < dobMonth) { return yearDiff-1; }
+	if (dodMonth < dobMonth) { if (yearDiff == 1) { return "Less than a year" } else { return yearDiff-1; }}
 	if (dodMonth >= dobMonth) { 
 		if (dobDay == undefined || dodDay == undefined) { return yearDiff; } 
 		if (dobMonth == dodMonth && dodDay < dobDay) { return yearDiff-1; } else { return yearDiff; } 
