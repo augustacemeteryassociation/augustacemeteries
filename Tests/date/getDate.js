@@ -3,6 +3,7 @@ function getDate(dateStr) {
 	var d = {}
 	var dateArray = []
 
+
 	function nan(a) {
 		if (Number.isNaN(a)) { return "Unknown" } else { return a }
 	}
