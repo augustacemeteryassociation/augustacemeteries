@@ -275,6 +275,7 @@ function displayPeople(d, id = '', hidden = false) {
     var obituaryImages = d["obituary"];
     var gravestoneImages = d["gravePictures"];
     var warsArray = d["wars"];
+    var branch = d["branch"];
 
     if (profileImage == "") {
         profileImage = "images/unknown.png";
@@ -301,6 +302,7 @@ function displayPeople(d, id = '', hidden = false) {
                     %0d%0aEstimated Age: ${estimatedAge}
                     %0d%0aFindAGrave Link: ${findAGraveLink}
                     %0d%0aWars / Service: ${warsArray}
+                    %0d%0aMilitary Branch: ${branch}
                     %0d%0a%0d%0a
                     For more information, please visit the Augusta Cemetery Website located at https://www.augustawicemeteries.com%0d%0a
                     Or to view the Augusta Cemetery Maps, please visit https://www.augustawicemeteries.com/cemeteryMaps.html
@@ -329,7 +331,13 @@ function displayPeople(d, id = '', hidden = false) {
     appendDetail_Text(latestPerson, "Date of Birth", getDate_string(dateOfBirth));
     appendDetail_Text(latestPerson, "Date of Death", getDate_string(dateOfDeath));
     appendDetail_Text(latestPerson, "Estimated Age", estimatedAge);
-    appendDetail_TextArray(latestPerson, "Wars / Service", warsArray);
+    
+    if (warsArray.length > 0) {
+		appendDetail_TextArray(latestPerson, "Wars / Service", warsArray);
+		if (branch != "" && branch != undefined) { appendDetail_Text(latestPerson, "Branch", "U.S. " + branch); }
+	}
+		
+
     appendDetail_Images(latestPerson, "Gravestone Photos", gravestoneImages, "gravestone");
     appendDetail_Images(latestPerson, "Obituary", obituaryImages, "obituary");
 
