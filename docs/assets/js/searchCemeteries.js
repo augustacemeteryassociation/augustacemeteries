@@ -347,6 +347,8 @@ $().ready(function () {
 			// CEMETERY SEARCH
 			//
 
+			// veterans = []
+
 			for (cemetery in data) {
 
 				$("results").append(cemetery);
@@ -372,7 +374,9 @@ $().ready(function () {
 								let dob = getDate(d["dateOfBirth"])
 								let dod = getDate(d["dateOfDeath"])
 								
-
+								// if (d.wars.length >= 1) { 
+								// 	if ([undefined, ''].includes(d.branch)) { veterans.push(d) }
+								// }
 
 								// 
 								// MATCH CASES
@@ -488,7 +492,7 @@ $().ready(function () {
 					break;
 			}
 
-			
+			// console.log(veterans)	
 
 			
 			var isExactMatch = exactMatch.length >= 1
