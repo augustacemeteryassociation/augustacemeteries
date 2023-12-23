@@ -1,26 +1,12 @@
-$purple: #881e88;
-$black: black;
-$white: white;
-$lightPurple: #b806b8;
+@import 'variables';
+@import 'fonts';
 
-@font-face {
-	font-family: "Red Rose";
-	src: url("fonts/RedRose-Bold.ttf");
-}
+@import 'breakpoints';
 
-@font-face {
-	font-family: "Cursive";
-	src: url("fonts/cursive.ttf")
-}
 
-// Article Title - Secular One
-@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
+// COMPONENTS
+@import 'components/members';
 
-// Article Text - Nunito
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
-
-// Article Hours - Quicksand
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
 
 
 // Desktop Version
@@ -335,73 +321,73 @@ $lightPurple: #b806b8;
 
 		// BOARD MEMBER CSS
 		
-		#boardMemebers {
+		// #boardMemebers {
 
-			display: flex;
-			flex-wrap: wrap;
-
-
-			.member {
-				margin: 0 auto;
-				margin-bottom: 50px;
-				background-color: $purple;
-				width: 45%;
-				border-radius: 30px;
-				height: auto;
-				padding: 60px 0;
-				display: flex;
-				justify-content: space-evenly;
-
-				.profilePicture {
-					img {
-						padding-top: 50px;
-						width: 200px;
-						height: auto;
-					}
-				}
-
-				.member_info {
-					.membership_title {
-						font-size: 3em;
-						font-family: "Nunito";
-					}
-
-					h2 {
-						font-family: "Secular One";
-					}
-
-					.membership_length {
-						font-size: 2em;
-						font-family: "Red Rose";
-					}
-
-					.contact_info {
-						h3 {
-							font-size: 1.6em;
-							// text-align: left;
-							margin: 0 auto;
-							margin-top: 20px;
-							position: relative;
-							color: $white;
-							// left: 15%
-						}
-
-						a {
-							font-size: 1em;
-							font-family: "arial";
-							text-decoration: none;
-							color: rgb(45, 176, 251)
-						}
+		// 	display: flex;
+		// 	flex-wrap: wrap;
 
 
-						.email, .phone {
-							font-size: 1.5em;
-						}
-					}
+		// 	.member {
+		// 		margin: 0 auto;
+		// 		margin-bottom: 50px;
+		// 		background-color: $purple;
+		// 		width: 45%;
+		// 		border-radius: 30px;
+		// 		height: auto;
+		// 		padding: 60px 0;
+		// 		display: flex;
+		// 		justify-content: space-evenly;
 
-				}
-			}
-		}
+		// 		.profilePicture {
+		// 			img {
+		// 				padding-top: 50px;
+		// 				width: 200px;
+		// 				height: auto;
+		// 			}
+		// 		}
+
+		// 		.member_info {
+		// 			.membership_title {
+		// 				font-size: 3em;
+		// 				font-family: "Nunito";
+		// 			}
+
+		// 			h2 {
+		// 				font-family: "Secular One";
+		// 			}
+
+		// 			.membership_length {
+		// 				font-size: 2em;
+		// 				font-family: "Red Rose";
+		// 			}
+
+		// 			.contact_info {
+		// 				h3 {
+		// 					font-size: 1.6em;
+		// 					// text-align: left;
+		// 					margin: 0 auto;
+		// 					margin-top: 20px;
+		// 					position: relative;
+		// 					color: $white;
+		// 					// left: 15%
+		// 				}
+
+		// 				a {
+		// 					font-size: 1em;
+		// 					font-family: "arial";
+		// 					text-decoration: none;
+		// 					color: rgb(45, 176, 251)
+		// 				}
+
+
+		// 				.email, .phone {
+		// 					font-size: 1.5em;
+		// 				}
+		// 			}
+
+		// 		}
+		// 	}
+		// }
 
 
 		// FORM AND RESULT CSS
@@ -1053,53 +1039,53 @@ $lightPurple: #b806b8;
 
 
 		// BOARD MEMEBERS PAGE
-		.member {
-			width: 80% !important;
-			height: auto;
-			padding: 20px 0 !important;
-			margin: 30px auto;
-			flex-direction: column;
+		// .member {
+		// 	width: 80% !important;
+		// 	height: auto;
+		// 	padding: 20px 0 !important;
+		// 	margin: 30px auto;
+		// 	flex-direction: column;
 
-			img {
-				width: 50% !important;
-				padding-top: 0 !important;
-			}
+		// 	img {
+		// 		width: 50% !important;
+		// 		padding-top: 0 !important;
+		// 	}
 	
-			.member_info {
-				color: $white;
+		// 	.member_info {
+		// 		color: $white;
 	
-				.membership_title {
-					font-size: 1.85em !important;
-					margin: 10px!important;
-				}
-				.name {
-					font-size: 1.75em!important;
-					color: $black;
-				}
+		// 		.membership_title {
+		// 			font-size: 1.85em !important;
+		// 			margin: 10px!important;
+		// 		}
+		// 		.name {
+		// 			font-size: 1.75em!important;
+		// 			color: $black;
+		// 		}
 	
-				.membership_length {
-					font-size: 1.25em !important;
-				}
+		// 		.membership_length {
+		// 			font-size: 1.25em !important;
+		// 		}
 	
-				.contact_info {
-					margin-top: 20px;
-				}
+		// 		.contact_info {
+		// 			margin-top: 20px;
+		// 		}
 
-				h3.email {
-					// left: 8%;
-					// margin-top: 5px !important;
-					font-size: 0.8em !important;
-					// left: 20px;
-				}
+		// 		h3.email {
+		// 			// left: 8%;
+		// 			// margin-top: 5px !important;
+		// 			font-size: 0.8em !important;
+		// 			// left: 20px;
+		// 		}
 	
-				h3.phone {
-					margin-top: 0 !important;
-					font-size: 1em !important;
-					color: $white;
-				}
+		// 		h3.phone {
+		// 			margin-top: 0 !important;
+		// 			font-size: 1em !important;
+		// 			color: $white;
+		// 		}
 	
-			}
-		}
+		// 	}
+		// }
 		
 		
 		// CEMETERY MAPS
@@ -1561,13 +1547,13 @@ $lightPurple: #b806b8;
 
 
 	// BOARD MEMBERS
-	#boardMemebers {
-		.member {
-			width: 90% !important;
-		}
+	// #boardMemebers {
+	// 	.member {
+	// 		width: 90% !important;
+	// 	}
 
-		img {
-			width: 200 !important;
-		}
-	}
+	// 	img {
+	// 		width: 200 !important;
+	// 	}
+	// }
 }

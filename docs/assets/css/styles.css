@@ -9,6 +9,202 @@
   font-family: "Cursive";
   src: url("fonts/cursive.ttf");
 }
+#boardMemebers {
+  display: flex;
+  flex-wrap: wrap;
+  overflow-x: clip;
+}
+#boardMemebers .member {
+  margin: 0 auto;
+  margin-bottom: 50px;
+  background-color: #881e88;
+  border-radius: 30px;
+  height: auto;
+  display: flex;
+  justify-content: space-evenly;
+}
+@media (min-width: 0px) {
+  #boardMemebers .member {
+    padding: 30px 0;
+    width: 85%;
+    flex-direction: column;
+  }
+}
+@media (min-width: 480px) {
+  #boardMemebers .member {
+    flex-direction: column;
+    width: 40vw;
+    padding: 30px 0;
+  }
+}
+@media (min-width: 720px) {
+  #boardMemebers .member {
+    padding: 30px 0;
+  }
+}
+@media (min-width: 1200px) {
+  #boardMemebers .member {
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 30px 0;
+    width: 45%;
+  }
+}
+#boardMemebers .member .profilePicture img {
+  height: auto;
+}
+@media (min-width: 0px) {
+  #boardMemebers .member .profilePicture img {
+    width: 50vw;
+  }
+}
+@media (min-width: 480px) {
+  #boardMemebers .member .profilePicture img {
+    width: 20vw;
+  }
+}
+@media (min-width: 720px) {
+  #boardMemebers .member .profilePicture img {
+    width: 15vw;
+  }
+}
+@media (min-width: 1200px) {
+  #boardMemebers .member .profilePicture img {
+    width: 10vw;
+  }
+}
+#boardMemebers .member .member_info h2 {
+  font-family: "Secular One";
+}
+#boardMemebers .member .member_info .membership_title {
+  font-family: "Nunito";
+  margin: 20px 0;
+}
+@media (min-width: 0px) {
+  #boardMemebers .member .member_info .membership_title {
+    font-size: 1.65em;
+  }
+}
+@media (min-width: 480px) {
+  #boardMemebers .member .member_info .membership_title {
+    font-size: 1.5em;
+  }
+}
+@media (min-width: 720px) {
+  #boardMemebers .member .member_info .membership_title {
+    font-size: 2em;
+  }
+}
+@media (min-width: 1200px) {
+  #boardMemebers .member .member_info .membership_title {
+    font-size: 2em;
+  }
+}
+@media (min-width: 0px) {
+  #boardMemebers .member .member_info .name {
+    font-size: 1.5em;
+  }
+}
+@media (min-width: 480px) {
+  #boardMemebers .member .member_info .name {
+    font-size: 1.2em;
+  }
+}
+@media (min-width: 720px) {
+  #boardMemebers .member .member_info .name {
+    font-size: 1.5em;
+  }
+}
+@media (min-width: 1200px) {
+  #boardMemebers .member .member_info .name {
+    font-size: 2em;
+  }
+}
+#boardMemebers .member .member_info .membership_length {
+  font-family: "Red Rose";
+}
+@media (min-width: 0px) {
+  #boardMemebers .member .member_info .membership_length {
+    font-size: 1.25em;
+  }
+}
+@media (min-width: 480px) {
+  #boardMemebers .member .member_info .membership_length {
+    font-size: 1em;
+  }
+}
+@media (min-width: 720px) {
+  #boardMemebers .member .member_info .membership_length {
+    font-size: 1.5em;
+  }
+}
+@media (min-width: 1200px) {
+  #boardMemebers .member .member_info .membership_length {
+    font-size: 1.5em;
+  }
+}
+#boardMemebers .member .member_info .contact_info h3 {
+  font-size: 1.6em;
+  margin: 0 auto;
+  margin-top: 20px;
+  position: relative;
+  color: white;
+}
+#boardMemebers .member .member_info .contact_info a {
+  font-family: "calibri";
+  text-decoration: none;
+  color: rgb(45, 176, 251);
+}
+#boardMemebers .member .member_info .contact_info .phone {
+  font-family: "Cascadia Code";
+  font-weight: bolder;
+  letter-spacing: 1px;
+}
+@media (min-width: 0px) {
+  #boardMemebers .member .member_info .contact_info .phone {
+    font-size: 1em;
+  }
+}
+@media (min-width: 480px) {
+  #boardMemebers .member .member_info .contact_info .phone {
+    font-size: 0.85em;
+  }
+}
+@media (min-width: 720px) {
+  #boardMemebers .member .member_info .contact_info .phone {
+    font-size: 1.2em;
+  }
+}
+@media (min-width: 1200px) {
+  #boardMemebers .member .member_info .contact_info .phone {
+    font-size: 1.3em;
+  }
+}
+#boardMemebers .member .member_info .contact_info .email {
+  font-family: "calibri";
+}
+@media (min-width: 0px) {
+  #boardMemebers .member .member_info .contact_info .email {
+    font-size: 0.9em;
+  }
+}
+@media (min-width: 480px) {
+  #boardMemebers .member .member_info .contact_info .email {
+    font-size: 0.75em;
+  }
+}
+@media (min-width: 720px) {
+  #boardMemebers .member .member_info .contact_info .email {
+    font-size: 1.2em;
+  }
+}
+@media (min-width: 1200px) {
+  #boardMemebers .member .member_info .contact_info .email {
+    font-size: 1.25em;
+  }
+}
+
 @media screen {
   html {
     display: none;
@@ -225,53 +421,6 @@
   body article ul li span.hours {
     color: #881e88;
     font-weight: bold;
-  }
-  body #boardMemebers {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  body #boardMemebers .member {
-    margin: 0 auto;
-    margin-bottom: 50px;
-    background-color: #881e88;
-    width: 45%;
-    border-radius: 30px;
-    height: auto;
-    padding: 60px 0;
-    display: flex;
-    justify-content: space-evenly;
-  }
-  body #boardMemebers .member .profilePicture img {
-    padding-top: 50px;
-    width: 200px;
-    height: auto;
-  }
-  body #boardMemebers .member .member_info .membership_title {
-    font-size: 3em;
-    font-family: "Nunito";
-  }
-  body #boardMemebers .member .member_info h2 {
-    font-family: "Secular One";
-  }
-  body #boardMemebers .member .member_info .membership_length {
-    font-size: 2em;
-    font-family: "Red Rose";
-  }
-  body #boardMemebers .member .member_info .contact_info h3 {
-    font-size: 1.6em;
-    margin: 0 auto;
-    margin-top: 20px;
-    position: relative;
-    color: white;
-  }
-  body #boardMemebers .member .member_info .contact_info a {
-    font-size: 1em;
-    font-family: "arial";
-    text-decoration: none;
-    color: rgb(45, 176, 251);
-  }
-  body #boardMemebers .member .member_info .contact_info .email, body #boardMemebers .member .member_info .contact_info .phone {
-    font-size: 1.5em;
   }
   body form {
     margin: 0 auto;
@@ -779,42 +928,6 @@
   body #itemContainer .itemDetails div.imgContainer .imgSmaller {
     width: 50%;
   }
-  body .member {
-    width: 80% !important;
-    height: auto;
-    padding: 20px 0 !important;
-    margin: 30px auto;
-    flex-direction: column;
-  }
-  body .member img {
-    width: 50% !important;
-    padding-top: 0 !important;
-  }
-  body .member .member_info {
-    color: white;
-  }
-  body .member .member_info .membership_title {
-    font-size: 1.85em !important;
-    margin: 10px !important;
-  }
-  body .member .member_info .name {
-    font-size: 1.75em !important;
-    color: black;
-  }
-  body .member .member_info .membership_length {
-    font-size: 1.25em !important;
-  }
-  body .member .member_info .contact_info {
-    margin-top: 20px;
-  }
-  body .member .member_info h3.email {
-    font-size: 0.8em !important;
-  }
-  body .member .member_info h3.phone {
-    margin-top: 0 !important;
-    font-size: 1em !important;
-    color: white;
-  }
   body .cemeteryMaps .mapSelection {
     margin: 0;
     margin-bottom: 20px;
@@ -1119,11 +1232,5 @@
   }
   .mapSelection {
     margin-bottom: 0 !important;
-  }
-  #boardMemebers .member {
-    width: 90% !important;
-  }
-  #boardMemebers img {
-    width: 200 !important;
   }
 }/*# sourceMappingURL=styles.css.map */
