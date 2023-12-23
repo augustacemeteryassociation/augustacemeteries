@@ -1558,4 +1558,16 @@ $lightPurple: #b806b8;
 	.mapSelection {
 		margin-bottom: 0 !important;
 	}
+
+
+	// BOARD MEMBERS
+	#boardMemebers {
+		.member {
+			width: 90% !important;
+		}
+
+		img {
+			width: 200 !important;
+		}
+	}
 }

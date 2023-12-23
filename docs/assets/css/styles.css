@@ -1120,4 +1120,10 @@
   .mapSelection {
     margin-bottom: 0 !important;
   }
+  #boardMemebers .member {
+    width: 90% !important;
+  }
+  #boardMemebers img {
+    width: 200 !important;
+  }
 }/*# sourceMappingURL=styles.css.map */
