@@ -226,43 +226,52 @@
     color: #881e88;
     font-weight: bold;
   }
-  body .member {
+  body #boardMemebers {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  body #boardMemebers .member {
     margin: 0 auto;
     margin-bottom: 50px;
     background-color: #881e88;
-    width: 650px;
+    width: 45%;
     border-radius: 30px;
     height: auto;
-    padding: 60px;
+    padding: 60px 0;
+    display: flex;
+    justify-content: space-evenly;
   }
-  body .member .profilePicture img {
+  body #boardMemebers .member .profilePicture img {
     padding-top: 50px;
-    width: 30%;
+    width: 200px;
     height: auto;
   }
-  body .member .member_info .membership_title {
+  body #boardMemebers .member .member_info .membership_title {
     font-size: 3em;
     font-family: "Nunito";
   }
-  body .member .member_info h2 {
+  body #boardMemebers .member .member_info h2 {
     font-family: "Secular One";
   }
-  body .member .member_info .membership_length {
+  body #boardMemebers .member .member_info .membership_length {
     font-size: 2em;
     font-family: "Red Rose";
   }
-  body .member .member_info .contact_info h3 {
-    font-size: 1.75em;
+  body #boardMemebers .member .member_info .contact_info h3 {
+    font-size: 1.6em;
     margin: 0 auto;
     margin-top: 20px;
     position: relative;
     color: white;
   }
-  body .member .member_info .contact_info a {
+  body #boardMemebers .member .member_info .contact_info a {
     font-size: 1em;
     font-family: "arial";
     text-decoration: none;
     color: rgb(45, 176, 251);
+  }
+  body #boardMemebers .member .member_info .contact_info .email, body #boardMemebers .member .member_info .contact_info .phone {
+    font-size: 1.5em;
   }
   body form {
     margin: 0 auto;
@@ -771,38 +780,39 @@
     width: 50%;
   }
   body .member {
-    width: 75%;
-    padding: 20px 0px;
+    width: 80% !important;
+    height: auto;
+    padding: 20px 0 !important;
     margin: 30px auto;
+    flex-direction: column;
   }
-  body .member .profilePicture {
-    width: 100%;
-    margin: 0;
+  body .member img {
+    width: 50% !important;
+    padding-top: 0 !important;
   }
   body .member .member_info {
     color: white;
   }
   body .member .member_info .membership_title {
-    font-size: 1.85em;
-    margin: 10px;
+    font-size: 1.85em !important;
+    margin: 10px !important;
   }
   body .member .member_info .name {
-    font-size: 1.75em;
+    font-size: 1.75em !important;
     color: black;
   }
   body .member .member_info .membership_length {
-    font-size: 1.25em;
+    font-size: 1.25em !important;
   }
   body .member .member_info .contact_info {
     margin-top: 20px;
   }
   body .member .member_info h3.email {
-    margin-top: 5px;
-    font-size: 0.8em;
+    font-size: 0.8em !important;
   }
   body .member .member_info h3.phone {
-    margin-top: 5px;
-    font-size: 1em;
+    margin-top: 0 !important;
+    font-size: 1em !important;
     color: white;
   }
   body .cemeteryMaps .mapSelection {
