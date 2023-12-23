@@ -62,6 +62,7 @@ $lightPurple: #b806b8;
 		min-height: 100%;
 		height: auto;
 		padding-bottom: 100px;
+		overflow-x: clip;
 
 		nav {
 
@@ -75,12 +76,13 @@ $lightPurple: #b806b8;
 
 
 			#logo {
-				width: 100%;
+				width: auto;
 				font-size: 30px;
 				color: $white;
 				height: auto;
 				padding: 20px;
 				font-family: "Red Rose";
+				overflow-x: clip;
 			}
 
 
@@ -206,7 +208,7 @@ $lightPurple: #b806b8;
 			// overflow: auto;
 			width: 100%;
 			display: flex;
-
+			justify-content: center;
 			padding-top: 30px;
 
 			.itemDetails {
@@ -864,6 +866,7 @@ $lightPurple: #b806b8;
 		display: block;
 		float: left;
 		z-index: 10;
+		overflow-x: clip;
 
 		// margin-top: 100px;
 		p {
@@ -981,7 +984,7 @@ $lightPurple: #b806b8;
 			// overflow: auto;
 			width: 100%;
 			display: block;
-	
+			justify-content: center;
 			padding-top: 15px;
 	
 			.itemDetails {
