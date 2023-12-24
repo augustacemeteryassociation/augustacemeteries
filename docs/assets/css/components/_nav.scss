@@ -1,68 +1,91 @@
 nav {
 
-    width: 100%;
-    background-color: $purple;
-    display: block;
-    border-radius: 10px;
-    font-family: "Red Rose";
-    text-align: center;
-    height: auto;
-
-
     #logo {
-        width: auto;
-        font-size: 30px;
+        width: 100%;
+        font-size: 2.5em;
         color: $white;
-        height: auto;
+        margin: 0 auto;
         padding: 20px;
         font-family: "Red Rose";
-        overflow-x: clip;
+        // overflow-x: clip;
+        display: block;
+
+        @include phone {font-size: 1.2em;}
+        @include tablet {font-size: 1.6em;}
+        @include laptop {font-size: 2em;}
+        @include desktop {font-size: 2.5em;}
+
+        // @include phone {color: hotpink}
+        // @include tablet {color: lime}
+        // @include laptop {color: blue}
+        // @include desktop {color: red}
+        
     }
 
+    #nav {
 
-    ul {
         width: 100%;
-        display: inline-block;
-        position: relative;
-        width: auto;
-        list-style: none;
-        margin: 0 auto;
-        bottom: 20px;
-        padding: 0;
+        background-color: $purple;
+        border-radius: 10px;
+        font-family: "Red Rose";
+        text-align: center;
+        height: auto;
+        // float: right;
+        // z-index: 10;
 
 
-        li {
-            font-size: 1.2em;
-            list-style: none;
-            position: relative;
+        
 
-            // right: 4%;
-            display: inline-block;
-            // float: left;
-            // padding: 5px;
-            margin: 5px;
+
+        ul {
+            width: 100%;
+            // display: flex;
+            // position: relative;
             width: auto;
+            // list-style: none;
+            margin: 0 auto;
+            padding: 0;
+            
+            @include phone {padding-bottom: 2vh;}
+            @include tablet {padding-bottom: 3vh;}
+            @include laptop {padding-bottom: 3vh;}
+            @include desktop {padding-bottom: 2vh;}
+            
 
 
-            a {
-                text-align: center;
-                width: 160px;
-                display: block;
-                clear: left;
-                text-decoration: none;
-                color: $purple;
-                font-weight: bolder;
-                padding: 10px;
-                background-color: $white;
-                border-radius: 5px;
+            li {
+                
+                list-style: none;
+                position: relative;
+                display: inline-block;
+                
+
+                @include phone {width: 24vw; font-size: .7em; padding: 0 5px;margin: 4px;}
+                @include tablet {width: 22vw; font-size: .85em; padding: 0 7px; margin: 5px;}
+                @include laptop {width: 24vw; font-size: 1.2em; padding: 0 7px; margin: 5px;}
+                @include desktop {width: 12.5vw; font-size: 1.2em; padding: 0 10px; margin: 5px;}
+
+
+                a {
+                    text-align: center;
+                    width: 100%;
+                    display: block;
+                    clear: left;
+                    text-decoration: none;
+                    color: $purple;
+                    font-weight: bolder;
+                    padding: 10px;
+                    background-color: $white;
+                    border-radius: 5px;
+                }
             }
-        }
 
-        li:hover {
-            a {
-                color: $black;
+            li:hover {
+                a {
+                    color: $black;
+                }
             }
-        }
 
+        }
     }
 }
