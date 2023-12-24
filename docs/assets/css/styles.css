@@ -9,6 +9,10 @@
   font-family: "Cursive";
   src: url("fonts/cursive.ttf");
 }
+@font-face {
+  font-family: "Cascadia Code";
+  src: url("fonts/CASCADIACODE.TTF");
+}
 #boardMemebers {
   display: flex;
   flex-wrap: wrap;
