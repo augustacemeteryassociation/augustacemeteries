@@ -5,6 +5,7 @@
 
 
 // COMPONENTS
+@import 'components/_nav';
 @import 'components/members';
 
 
@@ -50,74 +51,74 @@
 		padding-bottom: 100px;
 		overflow-x: clip;
 
-		nav {
+		// nav {
 
-			width: 100%;
-			background-color: $purple;
-			display: block;
-			border-radius: 10px;
-			font-family: "Red Rose";
-			text-align: center;
-			height: auto;
-
-
-			#logo {
-				width: auto;
-				font-size: 30px;
-				color: $white;
-				height: auto;
-				padding: 20px;
-				font-family: "Red Rose";
-				overflow-x: clip;
-			}
+		// 	width: 100%;
+		// 	background-color: $purple;
+		// 	display: block;
+		// 	border-radius: 10px;
+		// 	font-family: "Red Rose";
+		// 	text-align: center;
+		// 	height: auto;
 
 
-			ul {
-				width: 100%;
-				display: inline-block;
-				position: relative;
-				width: auto;
-				list-style: none;
-				margin: 0 auto;
-				bottom: 20px;
-				padding: 0;
+		// 	#logo {
+		// 		width: auto;
+		// 		font-size: 30px;
+		// 		color: $white;
+		// 		height: auto;
+		// 		padding: 20px;
+		// 		font-family: "Red Rose";
+		// 		overflow-x: clip;
+		// 	}
 
 
-				li {
-					font-size: 1.2em;
-					list-style: none;
-					position: relative;
-
-					// right: 4%;
-					display: inline-block;
-					// float: left;
-					// padding: 5px;
-					margin: 5px;
-					width: auto;
+		// 	ul {
+		// 		width: 100%;
+		// 		display: inline-block;
+		// 		position: relative;
+		// 		width: auto;
+		// 		list-style: none;
+		// 		margin: 0 auto;
+		// 		bottom: 20px;
+		// 		padding: 0;
 
 
-					a {
-						text-align: center;
-						width: 160px;
-						display: block;
-						clear: left;
-						text-decoration: none;
-						color: $purple;
-						font-weight: bolder;
-						padding: 10px;
-						background-color: $white;
-						border-radius: 5px;
-					}
-				}
+		// 		li {
+		// 			font-size: 1.2em;
+		// 			list-style: none;
+		// 			position: relative;
 
-				li:hover {
-					a {
-						color: $black;
-					}
-				}
+		// 			// right: 4%;
+		// 			display: inline-block;
+		// 			// float: left;
+		// 			// padding: 5px;
+		// 			margin: 5px;
+		// 			width: auto;
 
-			}
-		}
+
+		// 			a {
+		// 				text-align: center;
+		// 				width: 160px;
+		// 				display: block;
+		// 				clear: left;
+		// 				text-decoration: none;
+		// 				color: $purple;
+		// 				font-weight: bolder;
+		// 				padding: 10px;
+		// 				background-color: $white;
+		// 				border-radius: 5px;
+		// 			}
+		// 		}
+
+		// 		li:hover {
+		// 			a {
+		// 				color: $black;
+		// 			}
+		// 		}
+
+		// 	}
+		// }
 
 		
 
@@ -886,36 +887,36 @@
 
 		width: 100%;
 
-		nav {
+		// nav {
 
-			width: 100%;
-			#logo {
-				font-size: 1.2em;
-				padding: 20px 0px;
-			}
-			ul {
+		// 	width: 100%;
+		// 	#logo {
+		// 		font-size: 1.2em;
+		// 		padding: 20px 0px;
+		// 	}
+		// 	ul {
 
-				width: 100%;
-				padding: 0px;
-				display: inline-block;
-				list-style: none;
-				margin: 0 auto;
+		// 		width: 100%;
+		// 		padding: 0px;
+		// 		display: inline-block;
+		// 		list-style: none;
+		// 		margin: 0 auto;
 
-				li {
-					display: inline-block;
-					width: 25%;
-					margin: 0 auto;
+		// 		li {
+		// 			display: inline-block;
+		// 			width: 25%;
+		// 			margin: 0 auto;
 
-					a {
-						padding: 5px 0;
-						// position: relative;
-						width: 100%;
-						// left: 20%;
-						font-size: .4em;
-					}
-				}
-			}
-		}
+		// 			a {
+		// 				padding: 5px 0;
+		// 				// position: relative;
+		// 				width: 100%;
+		// 				// left: 20%;
+		// 				font-size: .4em;
+		// 			}
+		// 		}
+		// 	}
+		// }
 
 		#pageTitle {
 
