@@ -1,0 +1,47 @@
+footer {
+    position: fixed;
+    bottom: 0;
+    // right: 0;
+    // left: 0;
+    width: 100%;
+    background: $purple;
+    height: auto;
+    display: block;
+    float: left;
+    z-index: 10;
+    // overflow-x: clip;
+    margin: 0;
+    padding: 0;
+
+
+    // .copyright {
+    //     font-size: .85em;
+    //     padding: 0px;
+    //     text-align: center;
+    //     position: relative;
+    //     width: 100%;
+    //     margin: 7.5px auto;
+        
+    // }
+
+    p {
+
+        
+        text-align: center;
+        padding: 0;
+        
+        color: $white;
+        font-family: "Red Rose";
+
+        @include phone {font-size: .7em};
+        @include tablet {font-size: .8em;}
+        @include laptop {font-size: 1.2em;}
+        @include desktop {font-size: 1.2em;}
+        
+        margin: 1vh 0;
+        
+        
+        
+    }
+
+}
