@@ -5,7 +5,7 @@ nav {
         font-size: 2.5em;
         color: $white;
         margin: 0 auto;
-        padding: 20px;
+        padding: 20px 0;
         font-family: "Red Rose";
         // overflow-x: clip;
         display: block;
@@ -15,10 +15,10 @@ nav {
         @include laptop {font-size: 2em;}
         @include desktop {font-size: 2.5em;}
 
-        // @include phone {color: hotpink}
-        // @include tablet {color: lime}
-        // @include laptop {color: blue}
-        // @include desktop {color: red}
+        @include phone {color: hotpink}
+        @include tablet {color: lime}
+        @include laptop {color: blue}
+        @include desktop {color: red}
         
     }
 
@@ -39,7 +39,10 @@ nav {
 
         ul {
             width: 100%;
-            // display: flex;
+            display: flex;
+            flex-wrap: wrap;
+            align-content: space-between;
+            justify-content: center;
             // position: relative;
             width: auto;
             // list-style: none;
@@ -57,13 +60,16 @@ nav {
                 
                 list-style: none;
                 position: relative;
-                display: inline-block;
+                // padding-right: 10px;
+                // display: inline-block;
+                // display: flex;
+                
                 
 
-                @include phone {width: 24vw; font-size: .7em; padding: 0 5px;margin: 4px;}
+                @include phone {width: 24vw; font-size: .7em; padding: 0 2vw;margin: 4px;}
                 @include tablet {width: 22vw; font-size: .85em; padding: 0 7px; margin: 5px;}
-                @include laptop {width: 24vw; font-size: 1.2em; padding: 0 7px; margin: 5px;}
-                @include desktop {width: 12.5vw; font-size: 1.2em; padding: 0 10px; margin: 5px;}
+                @include laptop {width: 22vw; font-size: 1.2em; padding: 0 2vw; margin: 5px;}
+                @include desktop {width: 12.5vw; font-size: 1.2em; padding: 0 .75vw; margin: 5px;}
 
 
                 a {
