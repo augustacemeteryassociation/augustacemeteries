@@ -15,10 +15,10 @@ nav {
         @include laptop {font-size: 2em;}
         @include desktop {font-size: 2.5em;}
 
-        @include phone {color: hotpink}
-        @include tablet {color: lime}
-        @include laptop {color: blue}
-        @include desktop {color: red}
+        // @include phone {color: hotpink}
+        // @include tablet {color: lime}
+        // @include laptop {color: blue}
+        // @include desktop {color: red}
         
     }
 
