@@ -740,7 +740,12 @@ form .note {
 @media (min-width: 0px) {
   form .note {
     width: 100%;
-    font-size: 0.7em;
+    font-size: 0.6em;
+  }
+}
+@media (min-width: 480px) {
+  form .note {
+    font-size: 0.85em;
   }
 }
 @media (min-width: 720px) {

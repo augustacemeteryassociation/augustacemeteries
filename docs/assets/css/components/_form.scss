@@ -67,8 +67,8 @@ form {
 
         flex-basis: 100%;
 
-        @include phone {width: 100%; font-size: .70em}
-        @include tablet {}
+        @include phone {width: 100%; font-size: .6em}
+        @include tablet {font-size: .85em}
         @include laptop {font-size: 1em; padding-top: 2vh;}
         @include desktop {font-size: 1.1em}
     }
