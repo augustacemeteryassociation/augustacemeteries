@@ -14,6 +14,9 @@
 @import 'components/home';
 @import 'components/members';
 
+// WIDGET COMPONENTS
+@import "components/form";
+
 
 
 // Desktop Version
@@ -398,49 +401,49 @@
 
 
 		// FORM AND RESULT CSS
-		form {
-			margin: 0 auto;
-			width: 100%;
-			text-align: center;
-			vertical-align: center;
+		// form {
+		// 	margin: 0 auto;
+		// 	width: 100%;
+		// 	text-align: center;
+		// 	vertical-align: center;
 
-			input {
-				padding: 10px;
-				font-size: 18px;
-				width: 175px;
-				font-family: "Red Rose";
-				text-align: center;
-			}
+		// 	input {
+		// 		padding: 10px;
+		// 		font-size: 18px;
+		// 		width: 175px;
+		// 		font-family: "Red Rose";
+		// 		text-align: center;
+		// 	}
 
-			label {
-				padding: 10px;
-				font-size: 25px;
-				position: relative;
-				bottom: -4px;
-				font-weight: bold;
-				font-family: "Red Rose";
+		// 	label {
+		// 		padding: 10px;
+		// 		font-size: 25px;
+		// 		position: relative;
+		// 		bottom: -4px;
+		// 		font-weight: bold;
+		// 		font-family: "Red Rose";
 
-				padding-left: 50px;
-			}
+		// 		padding-left: 50px;
+		// 	}
 
-			select {
+		// 	select {
 
-				width: 175px;
-				font-size: 18px;
-				text-align-last: center;
-				height: 50px;
-				margin-right: 10px;
-				clear: right;
-			}
+		// 		width: 175px;
+		// 		font-size: 18px;
+		// 		text-align-last: center;
+		// 		height: 50px;
+		// 		margin-right: 10px;
+		// 		clear: right;
+		// 	}
 
-			.note {
-				font-weight: bolder;
-				font-family: "Nunito";
-				color: grayteal;
-				padding-top: 20px;
-			}
+		// 	.note {
+		// 		font-weight: bolder;
+		// 		font-family: "Nunito";
+		// 		color: grayteal;
+		// 		padding-top: 20px;
+		// 	}
 
-		}
+		// }
 
 		.center {
 			width: 100%;
@@ -1287,64 +1290,64 @@
 
 
 		// FIND A GRAVE FORM
-		form {
-			width: 100%;
-			margin-top: -35px;
-			label {
-				width: 50%;
-				padding: 0;
-				display: block;
-				padding: 10px;
-				font-size: .85em;
-				width: 25%;
-				position: relative;
-				top: 35px;
-			}
+		// form {
+		// 	width: 100%;
+		// 	margin-top: -35px;
+		// 	label {
+		// 		width: 50%;
+		// 		padding: 0;
+		// 		display: block;
+		// 		padding: 10px;
+		// 		font-size: .85em;
+		// 		width: 25%;
+		// 		position: relative;
+		// 		top: 35px;
+		// 	}
 
-			input {
-				display: block;
-				margin: 0 auto;
-				width: 45%;
-				position: relative;
-				left: 10%;
-				padding: 5px 0;
-				margin-bottom: -4%;
-			}
+		// 	input {
+		// 		display: block;
+		// 		margin: 0 auto;
+		// 		width: 45%;
+		// 		position: relative;
+		// 		left: 10%;
+		// 		padding: 5px 0;
+		// 		margin-bottom: -4%;
+		// 	}
 
-			select {
-				position: relative;
-				width: 55%;
-				left: 10%;
-				height: 30px;
-				font-size: .9em;
-			}
+		// 	select {
+		// 		position: relative;
+		// 		width: 55%;
+		// 		left: 10%;
+		// 		height: 30px;
+		// 		font-size: .9em;
+		// 	}
 
-			input:last-child {
-				margin-top: 20px;
-			}
+		// 	input:last-child {
+		// 		margin-top: 20px;
+		// 	}
 
-			.note {
-				padding: 0;
-				margin: 0 auto;
-				margin-top: 10px;
-				font-size: .6em;
-				position: relative;
-				top: 25px
-			}
+		// 	.note {
+		// 		padding: 0;
+		// 		margin: 0 auto;
+		// 		margin-top: 10px;
+		// 		font-size: .6em;
+		// 		position: relative;
+		// 		top: 25px
+		// 	}
 
-			#submit {
-				margin-top: 20px;
-				font-size: 1em;
-				width: 50%;
-				padding: 0;
-				padding: 7px 0px;
-				margin: 20px 0;
-				margin-top: 40px;
-				margin-left: 15%
-			}
+		// 	#submit {
+		// 		margin-top: 20px;
+		// 		font-size: 1em;
+		// 		width: 50%;
+		// 		padding: 0;
+		// 		padding: 7px 0px;
+		// 		margin: 20px 0;
+		// 		margin-top: 40px;
+		// 		margin-left: 15%
+		// 	}
 
 			
-		}
+		// }
 
 		// CONTACTS
 		.contacts {
@@ -1498,17 +1501,17 @@
 		font-size: .75em;
 	}
 
-	form {
-		label, input {
-			font-size: 16px !important;
-		}
+	// form {
+	// 	label, input {
+	// 		font-size: 16px !important;
+	// 	}
 
-		.input {
-			height: 15px;
-			width: 100px;
-			font-size: 14px;
-		}
-	}
+	// 	.input {
+	// 		height: 15px;
+	// 		width: 100px;
+	// 		font-size: 14px;
+	// 	}
+	// }
 
 
 	.contacts {
