@@ -79,7 +79,7 @@ form {
     
     #dates {
         input {
-            @include phone {width: 60vw}
+            @include phone {width: 45vw}
             @include tablet {width: 50vw}
             @include laptop {width: 15vw}
             @include desktop {width: 12vw}
