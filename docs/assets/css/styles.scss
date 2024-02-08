@@ -15,6 +15,7 @@
 @import 'components/members';
 
 // WIDGET COMPONENTS
+@import "components/maps";
 @import "components/form";
 
 
@@ -312,157 +313,157 @@
 
 		
 		// MAP PAGE CSS
-		.svg {
-			width: 80%;
-			height: auto;
-			margin: 0 auto;
+		// .svg {
+		// 	width: 80%;
+		// 	height: auto;
+		// 	margin: 0 auto;
 			
 		
-			svg {
-				width: 100%;
-				height: auto;
-				margin-top: 20px;
-				z-index: -1;
+		// 	svg {
+		// 		width: 100%;
+		// 		height: auto;
+		// 		margin-top: 20px;
+		// 		z-index: -1;
 		
-				rect {
-					background-color: aqua;
-				}
+		// 		rect {
+		// 			background-color: aqua;
+		// 		}
 		
-			}
+		// 	}
 		
-		}
+		// }
 
-		.mapSelection {
-			margin: 0 auto;
-			height: 200px;
-			margin-bottom: 50px;
-			width: 100%;
+		// .mapSelection {
+		// 	margin: 0 auto;
+		// 	height: 200px;
+		// 	margin-bottom: 50px;
+		// 	width: 100%;
 
-			h1 {
-				width: 100%;
-				text-align: center;
-				font-size: 3em;
-				margin-bottom: 20px;
-				font-family: "Red Rose";
-				color: $purple;
-				-webkit-text-stroke-width: 2px;
-				-webkit-text-stroke-color: $purple;
-			}
+		// 	h1 {
+		// 		width: 100%;
+		// 		text-align: center;
+		// 		font-size: 3em;
+		// 		margin-bottom: 20px;
+		// 		font-family: "Red Rose";
+		// 		color: $purple;
+		// 		-webkit-text-stroke-width: 2px;
+		// 		-webkit-text-stroke-color: $purple;
+		// 	}
 		
-			ul {
-				position: relative;
-				right: 50px;
-				margin: 0 auto;
-				width: 100%;
-				display: inline-block;
-				vertical-align: top;
-				height: auto;
-				text-align: center;
+		// 	ul {
+		// 		position: relative;
+		// 		right: 50px;
+		// 		margin: 0 auto;
+		// 		width: 100%;
+		// 		display: inline-block;
+		// 		vertical-align: top;
+		// 		height: auto;
+		// 		text-align: center;
 				
-				li {
-					position: relative;
-					right: 0;
-					display: inline-block;
-					list-style: none;
-					width: 25%;
-					font-size: 2em;
-					padding-bottom: 30px;
-					padding: 10px;
-					background-color: $purple;
-					border-radius: 40px;
-					margin: 0 30px;
-					color: $white;
-					font-family: "Red Rose";
-				}
+		// 		li {
+		// 			position: relative;
+		// 			right: 0;
+		// 			display: inline-block;
+		// 			list-style: none;
+		// 			width: 25%;
+		// 			font-size: 2em;
+		// 			padding-bottom: 30px;
+		// 			padding: 10px;
+		// 			background-color: $purple;
+		// 			border-radius: 40px;
+		// 			margin: 0 30px;
+		// 			color: $white;
+		// 			font-family: "Red Rose";
+		// 		}
 
 				
-			}
+		// 	}
 
-			p {
-				position: relative;
-				top: 15px;
-				margin-bottom: 20px;
-				font-size: 1.6em;
-				text-align: center;
-				width: 100%;
-				font-weight: bolder;
-				font-family: "Red Rose";
-			}
-		}
+		// 	p {
+		// 		position: relative;
+		// 		top: 15px;
+		// 		margin-bottom: 20px;
+		// 		font-size: 1.6em;
+		// 		text-align: center;
+		// 		width: 100%;
+		// 		font-weight: bolder;
+		// 		font-family: "Red Rose";
+		// 	}
+		// }
 		
-		.lotStatus {
-			padding-bottom: 350px;
+		// .lotStatus {
+		// 	padding-bottom: 350px;
 
-			.mapIndex {
-				margin: 50px auto;
-				width: 25%;
-				background-color:white;
-				border-radius: 20px;
-				border: 15px solid $purple;
-				clear: left;
-				margin-bottom: 500px;
-				padding-bottom: 25px;
+		// 	.mapIndex {
+		// 		margin: 50px auto;
+		// 		width: 25%;
+		// 		background-color:white;
+		// 		border-radius: 20px;
+		// 		border: 15px solid $purple;
+		// 		clear: left;
+		// 		margin-bottom: 500px;
+		// 		padding-bottom: 25px;
 				
-				h1 {
-					font-size: 2.5em;
-				}
+		// 		h1 {
+		// 			font-size: 2.5em;
+		// 		}
 
-				h2 {
-					position: relative;
-					left: 17%;
-					font-family: "Secular One";
-					font-size: 1.4em;
-					margin: 0;
-					margin-bottom: 6px;
-				}
+		// 		h2 {
+		// 			position: relative;
+		// 			left: 17%;
+		// 			font-family: "Secular One";
+		// 			font-size: 1.4em;
+		// 			margin: 0;
+		// 			margin-bottom: 6px;
+		// 		}
 
-				h2:last-child {
-					margin-bottom: 100px;
-				}
-			}
-		}
+		// 		h2:last-child {
+		// 			margin-bottom: 100px;
+		// 		}
+		// 	}
+		// }
 
-		.toTop {
-			color: $white;
-			background: $purple;
-			width: 45%;
-			text-align: center;
-			padding: 10px;
-			margin: 100px auto;
-			border-radius: 20px;
-			font-size: 1.2em;
-			font-family: "Red Rose"
-		}
+		// .toTop {
+		// 	color: $white;
+		// 	background: $purple;
+		// 	width: 45%;
+		// 	text-align: center;
+		// 	padding: 10px;
+		// 	margin: 100px auto;
+		// 	border-radius: 20px;
+		// 	font-size: 1.2em;
+		// 	font-family: "Red Rose"
+		// }
 
 		// LOT / RULES PAGE
 
-		.rules {
-			font-family: "Red Rose";
-			text-align: center;
-			position: relative;
-			bottom: 50px;
-			font-size: 1.8em;
+		// .rules {
+		// 	font-family: "Red Rose";
+		// 	text-align: center;
+		// 	position: relative;
+		// 	// bottom: 50px;
+		// 	font-size: 1.8em;
 
-			a {
-				color: $purple;
-				text-decoration: none;
-			}
+		// 	a {
+		// 		color: $purple;
+		// 		text-decoration: none;
+		// 	}
 
-		}
+		// }
 
-		.selected {
-			color: $black;
-			font-size: 2em;
-			font-family: "Red Rose";
-			text-align: center;
-		}
+		// .selected {
+		// color: $black;
+		// 	font-size: 2em;
+		// 	font-family: "Red Rose";
+		// 	text-align: center;	
+		// }
 
-		.availability {
-			color: $purple;
-			font-size: 1.2em;
-			font-family: "Red Rose";
-			text-align: center;
-		}
+		// .availability {
+		// 	color: $purple;
+		// 	font-size: 1.2em;
+		// 	font-family: "Red Rose";
+		// 	text-align: center;
+		// }
 
 
 		// DONTATION PAGE
@@ -531,17 +532,17 @@
 
 		width: 100%;
 
-		#pageTitle {
+		// #pageTitle {
 
 
-			h1 {
-				padding: 5px 20px;
-				width: auto;
-				font-size: 1em;
-				margin-top: 3%;
-				margin-bottom: 10%;
-			}
-		}
+		// 	h1 {
+		// 		padding: 5px 20px;
+		// 		width: auto;
+		// 		font-size: 1em;
+		// 		margin-top: 3%;
+		// 		margin-bottom: 10%;
+		// 	}
+		// }
 
 		#results {
 			width: 100%;
@@ -567,36 +568,36 @@
 		// CEMETERY MAPS
 
 
-		.cemeteryMaps {
+		// .cemeteryMaps {
 
-			.mapSelection {
-				margin: 0;
-				margin-bottom: 20px;
+		// 	.mapSelection {
+		// 		margin: 0;
+		// 		margin-bottom: 20px;
 
-			}
+		// 	}
 
-			.svg {
-				padding-top: 30px;
-			}
+		// 	.svg {
+		// 		padding-top: 30px;
+		// 	}
 
-			ul {
-				width: 100%;
-				li {
-					width: 50%;
-					clear: left;
-					margin: 10px auto;
-					font-size: 18px;
-				}
-			}
+		// 	ul {
+		// 		width: 100%;
+		// 		li {
+		// 			width: 50%;
+		// 			clear: left;
+		// 			margin: 10px auto;
+		// 			font-size: 18px;
+		// 		}
+		// 	}
 
-			p {
-				font-size: .85em;
-				margin: 0 auto;
-				padding-bottom: 50px;
-			}
+		// 	p {
+		// 		font-size: .85em;
+		// 		margin: 0 auto;
+		// 		padding-bottom: 50px;
+		// 	}
 
 			
-		}
+		// }
 
 
 		
@@ -797,42 +798,42 @@
 
 		// LOT INFO
 
-		.rules {
-			font-size: 1em;
-			position: relative;
-			bottom: 0;
-			margin-top: 0px;
-			margin-bottom: 25px;
-		}
+		// .rules {
+		// 	font-size: 1em;
+		// 	position: relative;
+		// 	bottom: 0;
+		// 	margin-top: 0px;
+		// 	margin-bottom: 25px;
+		// }
 
-		.selected {
-			padding-top: 15px;
-			font-size: .75em;
-		}
+		// .selected {
+		// 	padding-top: 15px;
+		// 	font-size: .75em;
+		// }
 	
-		.availability {
-			padding-top: 5px;
-			font-size: .6em;
-		}
+		// .availability {
+		// 	padding-top: 5px;
+		// 	font-size: .6em;
+		// }
 
-		.lotStatus {
-			h1 {
-				font-size: 1.65em;
-			}
+		// .lotStatus {
+		// 	h1 {
+		// 		font-size: 1.65em;
+		// 	}
 
-			.mapIndex {
-				width: 70%;
+		// 	.mapIndex {
+		// 		width: 70%;
 
-				h1 {
-					margin: 20px 0;
-					font-size: 1.75em;
-				}
+		// 		h1 {
+		// 			margin: 20px 0;
+		// 			font-size: 1.75em;
+		// 		}
 
-				h2 {
-					font-size: 1em;
-				}
-			}
-		}
+		// 		h2 {
+		// 			font-size: 1em;
+		// 		}
+		// 	}
+		// }
 
 		// DONTATION PAGE
 		#donationTypes ul{
@@ -876,9 +877,9 @@
 		}
 	}
 
-	#pageTitle {
-		font-size: .75em;
-	}
+	// #pageTitle {
+	// 	font-size: .75em;
+	// }
 
 
 	.contacts {
@@ -903,10 +904,10 @@
 	}
 
 
-	.rules {
-		padding-top: 10px;
-		font-size: 24px !important;
-	}
+	// .rules {
+	// 	padding-top: 10px;
+	// 	font-size: 24px !important;
+	// }
 
 	div.mapIndex {
 		h1 {
@@ -918,8 +919,8 @@
 		}
 	}
 
-	.mapSelection {
-		margin-bottom: 0 !important;
-	}
-	
+	// .mapSelection {
+	// 	margin-bottom: 0 !important;
+	// }
+
 }
