@@ -48,8 +48,20 @@ body #pageTitle {
   height: auto;
 }
 body #pageTitle h1 {
+  position: relative;
+  display: inline-block;
   border-radius: 100px;
   width: auto;
+  top: 25px;
+  color: white;
+  font-family: "Red Rose";
+  text-align: center;
+  margin: 10px;
+  background-color: #881e88;
+  text-align: center;
+  padding: 10px 20px;
+  clear: right;
+  margin-bottom: 75px;
 }
 @media (min-width: 1200px) {
   body #pageTitle h1 {
@@ -803,27 +815,6 @@ form #names {
 @media screen {
   html {
     display: none;
-  }
-  body #pageTitle {
-    width: 100%;
-    position: relative;
-    margin: 0 auto;
-    text-align: center;
-    height: auto;
-  }
-  body #pageTitle h1 {
-    position: relative;
-    display: inline-block;
-    top: 25px;
-    color: white;
-    font-family: "Red Rose";
-    text-align: center;
-    margin: 10px;
-    background-color: #881e88;
-    text-align: center;
-    padding: 10px 40px;
-    clear: right;
-    margin-bottom: 75px;
   }
   body article {
     text-align: center;
