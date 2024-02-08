@@ -13,7 +13,7 @@
         @include phone {padding-top: 0vh;}
         @include tablet {}
         @include laptop {}
-        @include desktop {}
+        @include desktop {padding-top: 10vh;}
 
         rect {
             background-color: aqua;
@@ -113,8 +113,8 @@
 
         @include phone {width: 75vw;}
         @include tablet {width: 60vw;}
-        @include laptop {width: 25vw;}
-        @include desktop {}
+        @include laptop {width: 45vw;}
+        @include desktop {width: 25vw; padding-bottom: 5vh;}
 
         
         h1 {
@@ -197,7 +197,7 @@
     @include phone {font-size: .6em;}
     @include tablet {font-size: .75em;}
     @include laptop {font-size: .95em;}
-    @include desktop {font-size: 1.5em;}
+    @include desktop {font-size: 1em;}
 }
 
 // .lotStatus {
