@@ -46,6 +46,7 @@ body #pageTitle {
   margin: 0 auto;
   text-align: center;
   height: auto;
+  margin-bottom: 5vh;
 }
 body #pageTitle h1 {
   position: relative;
@@ -61,7 +62,21 @@ body #pageTitle h1 {
   text-align: center;
   padding: 10px 20px;
   clear: right;
-  margin-bottom: 75px;
+}
+@media (min-width: 0px) {
+  body #pageTitle h1 {
+    font-size: 1em;
+  }
+}
+@media (min-width: 480px) {
+  body #pageTitle h1 {
+    font-size: 1.2em;
+  }
+}
+@media (min-width: 720px) {
+  body #pageTitle h1 {
+    font-size: 2em;
+  }
 }
 @media (min-width: 1200px) {
   body #pageTitle h1 {
@@ -96,6 +111,26 @@ nav #logo {
 @media (min-width: 1200px) {
   nav #logo {
     font-size: 2.5em;
+  }
+}
+@media (min-width: 0px) {
+  nav #logo {
+    color: hotpink;
+  }
+}
+@media (min-width: 480px) {
+  nav #logo {
+    color: lime;
+  }
+}
+@media (min-width: 720px) {
+  nav #logo {
+    color: blue;
+  }
+}
+@media (min-width: 1200px) {
+  nav #logo {
+    color: red;
   }
 }
 nav #nav {
@@ -623,6 +658,278 @@ footer p {
   }
 }
 
+.svg {
+  width: 80%;
+  height: auto;
+  margin: 0 auto;
+}
+.svg svg {
+  width: 100%;
+  height: auto;
+  z-index: -1;
+}
+@media (min-width: 0px) {
+  .svg svg {
+    padding-top: 0vh;
+  }
+}
+@media (min-width: 1200px) {
+  .svg svg {
+    padding-top: 10vh;
+  }
+}
+.svg svg rect {
+  background-color: aqua;
+}
+
+.mapSelection {
+  margin: 0 auto;
+  height: 200px;
+  margin-bottom: 50px;
+  width: 100%;
+}
+.mapSelection h1 {
+  width: 100%;
+  text-align: center;
+  font-size: 3em;
+  margin-bottom: 20px;
+  font-family: "Red Rose";
+  color: #881e88;
+  padding-top: 2vh;
+}
+@media (min-width: 0px) {
+  .mapSelection h1 {
+    font-size: 1.2em;
+  }
+}
+@media (min-width: 480px) {
+  .mapSelection h1 {
+    font-size: 1.5em;
+  }
+}
+@media (min-width: 720px) {
+  .mapSelection h1 {
+    font-size: 2em;
+  }
+}
+@media (min-width: 1200px) {
+  .mapSelection h1 {
+    font-size: 3em;
+  }
+}
+.mapSelection ul {
+  position: relative;
+  right: 50px;
+  margin: 0 auto;
+  width: 100%;
+  display: inline-block;
+  vertical-align: top;
+  height: auto;
+  text-align: center;
+}
+.mapSelection ul li {
+  position: relative;
+  right: 0;
+  display: inline-block;
+  list-style: none;
+  width: 25%;
+  font-size: 2em;
+  padding-bottom: 30px;
+  padding: 10px;
+  background-color: #881e88;
+  border-radius: 40px;
+  margin: 0 1vw;
+  color: white;
+  font-family: "Red Rose";
+}
+@media (min-width: 0px) {
+  .mapSelection ul li {
+    font-size: 1em;
+    width: 33vw;
+  }
+}
+@media (min-width: 480px) {
+  .mapSelection ul li {
+    font-size: 1.5em;
+    width: 35vw;
+  }
+}
+@media (min-width: 720px) {
+  .mapSelection ul li {
+    width: 25vw;
+  }
+}
+@media (min-width: 1200px) {
+  .mapSelection ul li {
+    font-size: 2.5em;
+  }
+}
+.mapSelection p {
+  position: relative;
+  top: 15px;
+  margin-bottom: 20px;
+  font-size: 1.6em;
+  text-align: center;
+  width: 100%;
+  font-weight: bolder;
+  font-family: "Red Rose";
+}
+
+.lotStatus {
+  margin-bottom: 30vh;
+}
+.lotStatus .mapIndex {
+  margin: 3vh auto;
+  background-color: white;
+  border-radius: 20px;
+  border: 10px solid #881e88;
+  clear: left;
+}
+@media (min-width: 0px) {
+  .lotStatus .mapIndex {
+    width: 75vw;
+  }
+}
+@media (min-width: 480px) {
+  .lotStatus .mapIndex {
+    width: 60vw;
+  }
+}
+@media (min-width: 720px) {
+  .lotStatus .mapIndex {
+    width: 45vw;
+  }
+}
+@media (min-width: 1200px) {
+  .lotStatus .mapIndex {
+    width: 25vw;
+    padding-bottom: 5vh;
+  }
+}
+@media (min-width: 0px) {
+  .lotStatus .mapIndex h1 {
+    font-size: 1.7em;
+  }
+}
+.lotStatus .mapIndex h2 {
+  position: relative;
+  left: 17%;
+  font-family: "Secular One";
+  font-size: 1.4em;
+  margin: 0;
+  margin-bottom: 6px;
+}
+@media (min-width: 0px) {
+  .lotStatus .mapIndex h2 {
+    font-size: 1em;
+  }
+}
+@media (min-width: 720px) {
+  .lotStatus .mapIndex h2 {
+    font-size: 1.25em;
+  }
+}
+.lotStatus .mapIndex h2:last-child {
+  margin-bottom: 100px;
+}
+
+.toTop {
+  color: white;
+  background: #881e88;
+  width: 45%;
+  text-align: center;
+  padding: 10px;
+  margin: 100px auto;
+  border-radius: 20px;
+  font-size: 1.2em;
+  font-family: "Red Rose";
+}
+
+.rules {
+  font-family: "Red Rose";
+  text-align: center;
+  position: relative;
+  text-wrap: balance;
+  margin: 2vh 0;
+}
+@media (min-width: 0px) {
+  .rules {
+    font-size: 0.85em;
+  }
+}
+@media (min-width: 480px) {
+  .rules {
+    font-size: 1em;
+  }
+}
+@media (min-width: 720px) {
+  .rules {
+    font-size: 1.25em;
+  }
+}
+@media (min-width: 1200px) {
+  .rules {
+    font-size: 1.5em;
+  }
+}
+.rules a {
+  color: #881e88;
+  text-decoration: none;
+}
+
+.selected {
+  color: black;
+  font-family: "Red Rose";
+  text-align: center;
+}
+@media (min-width: 0px) {
+  .selected {
+    font-size: 0.75em;
+  }
+}
+@media (min-width: 480px) {
+  .selected {
+    font-size: 0.85em;
+  }
+}
+@media (min-width: 720px) {
+  .selected {
+    font-size: 1.25em;
+  }
+}
+@media (min-width: 1200px) {
+  .selected {
+    font-size: 1.5em;
+  }
+}
+
+.availability {
+  color: #881e88;
+  font-family: "Red Rose";
+  text-align: center;
+  margin-bottom: 5vh;
+}
+@media (min-width: 0px) {
+  .availability {
+    font-size: 0.6em;
+  }
+}
+@media (min-width: 480px) {
+  .availability {
+    font-size: 0.75em;
+  }
+}
+@media (min-width: 720px) {
+  .availability {
+    font-size: 0.95em;
+  }
+}
+@media (min-width: 1200px) {
+  .availability {
+    font-size: 1em;
+  }
+}
+
 form {
   display: flex;
   flex-direction: row;
@@ -776,7 +1083,7 @@ form #names {
 }
 @media (min-width: 0px) {
   form #dates input {
-    width: 60vw;
+    width: 45vw;
   }
 }
 @media (min-width: 480px) {
@@ -1043,132 +1350,6 @@ form #names {
   body #results .results div .details span a:hover {
     color: rgb(47, 241, 245);
   }
-  body .svg {
-    width: 80%;
-    height: auto;
-    margin: 0 auto;
-  }
-  body .svg svg {
-    width: 100%;
-    height: auto;
-    margin-top: 20px;
-    z-index: -1;
-  }
-  body .svg svg rect {
-    background-color: aqua;
-  }
-  body .mapSelection {
-    margin: 0 auto;
-    height: 200px;
-    margin-bottom: 50px;
-    width: 100%;
-  }
-  body .mapSelection h1 {
-    width: 100%;
-    text-align: center;
-    font-size: 3em;
-    margin-bottom: 20px;
-    font-family: "Red Rose";
-    color: #881e88;
-    -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: #881e88;
-  }
-  body .mapSelection ul {
-    position: relative;
-    right: 50px;
-    margin: 0 auto;
-    width: 100%;
-    display: inline-block;
-    vertical-align: top;
-    height: auto;
-    text-align: center;
-  }
-  body .mapSelection ul li {
-    position: relative;
-    right: 0;
-    display: inline-block;
-    list-style: none;
-    width: 25%;
-    font-size: 2em;
-    padding-bottom: 30px;
-    padding: 10px;
-    background-color: #881e88;
-    border-radius: 40px;
-    margin: 0 30px;
-    color: white;
-    font-family: "Red Rose";
-  }
-  body .mapSelection p {
-    position: relative;
-    top: 15px;
-    margin-bottom: 20px;
-    font-size: 1.6em;
-    text-align: center;
-    width: 100%;
-    font-weight: bolder;
-    font-family: "Red Rose";
-  }
-  body .lotStatus {
-    padding-bottom: 350px;
-  }
-  body .lotStatus .mapIndex {
-    margin: 50px auto;
-    width: 25%;
-    background-color: white;
-    border-radius: 20px;
-    border: 15px solid #881e88;
-    clear: left;
-    margin-bottom: 500px;
-    padding-bottom: 25px;
-  }
-  body .lotStatus .mapIndex h1 {
-    font-size: 2.5em;
-  }
-  body .lotStatus .mapIndex h2 {
-    position: relative;
-    left: 17%;
-    font-family: "Secular One";
-    font-size: 1.4em;
-    margin: 0;
-    margin-bottom: 6px;
-  }
-  body .lotStatus .mapIndex h2:last-child {
-    margin-bottom: 100px;
-  }
-  body .toTop {
-    color: white;
-    background: #881e88;
-    width: 45%;
-    text-align: center;
-    padding: 10px;
-    margin: 100px auto;
-    border-radius: 20px;
-    font-size: 1.2em;
-    font-family: "Red Rose";
-  }
-  body .rules {
-    font-family: "Red Rose";
-    text-align: center;
-    position: relative;
-    bottom: 50px;
-    font-size: 1.8em;
-  }
-  body .rules a {
-    color: #881e88;
-    text-decoration: none;
-  }
-  body .selected {
-    color: black;
-    font-size: 2em;
-    font-family: "Red Rose";
-    text-align: center;
-  }
-  body .availability {
-    color: #881e88;
-    font-size: 1.2em;
-    font-family: "Red Rose";
-    text-align: center;
-  }
   body #donationTypes {
     width: 100%;
     text-align: center;
@@ -1215,13 +1396,6 @@ form #names {
   body {
     width: 100%;
   }
-  body #pageTitle h1 {
-    padding: 5px 20px;
-    width: auto;
-    font-size: 1em;
-    margin-top: 3%;
-    margin-bottom: 10%;
-  }
   body #results {
     width: 100%;
   }
@@ -1237,27 +1411,6 @@ form #names {
   }
   body #results .results {
     width: 90%;
-  }
-  body .cemeteryMaps .mapSelection {
-    margin: 0;
-    margin-bottom: 20px;
-  }
-  body .cemeteryMaps .svg {
-    padding-top: 30px;
-  }
-  body .cemeteryMaps ul {
-    width: 100%;
-  }
-  body .cemeteryMaps ul li {
-    width: 50%;
-    clear: left;
-    margin: 10px auto;
-    font-size: 18px;
-  }
-  body .cemeteryMaps p {
-    font-size: 0.85em;
-    margin: 0 auto;
-    padding-bottom: 50px;
   }
   body #results .results {
     padding-top: 0px;
@@ -1395,34 +1548,6 @@ form #names {
     font-size: 14px;
     line-height: 14px;
   }
-  body .rules {
-    font-size: 1em;
-    position: relative;
-    bottom: 0;
-    margin-top: 0px;
-    margin-bottom: 25px;
-  }
-  body .selected {
-    padding-top: 15px;
-    font-size: 0.75em;
-  }
-  body .availability {
-    padding-top: 5px;
-    font-size: 0.6em;
-  }
-  body .lotStatus h1 {
-    font-size: 1.65em;
-  }
-  body .lotStatus .mapIndex {
-    width: 70%;
-  }
-  body .lotStatus .mapIndex h1 {
-    margin: 20px 0;
-    font-size: 1.75em;
-  }
-  body .lotStatus .mapIndex h2 {
-    font-size: 1em;
-  }
   body #donationTypes ul {
     width: 100%;
     padding: 0;
@@ -1445,9 +1570,6 @@ form #names {
   .resultMessage span {
     font-size: 24px;
   }
-  #pageTitle {
-    font-size: 0.75em;
-  }
   .contacts .title {
     font-size: 40px;
   }
@@ -1459,18 +1581,5 @@ form #names {
   }
   .itemDetails h3 {
     font-size: 24px;
-  }
-  .rules {
-    padding-top: 10px;
-    font-size: 24px !important;
-  }
-  div.mapIndex h1 {
-    font-size: 36px !important;
-  }
-  div.mapIndex h2 {
-    font-size: 16px !important;
-  }
-  .mapSelection {
-    margin-bottom: 0 !important;
   }
 }/*# sourceMappingURL=styles.css.map */
