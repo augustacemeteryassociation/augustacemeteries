@@ -28,6 +28,7 @@ body {
         margin: 0 auto;
         text-align: center;
         height: auto;
+        margin-bottom: 5vh;
 
         h1 {
             position: relative;
@@ -44,12 +45,12 @@ body {
             text-align: center;
 			padding: 10px 20px;
 			clear: right;
-			margin-bottom: 75px;
+			// margin-bottom: 7vh;
 
 
-            @include phone {}
-            @include tablet {}
-            @include laptop {}
+            @include phone {font-size: 1em;}
+            @include tablet {font-size: 1.2em;}
+            @include laptop {font-size: 2em;}
             @include desktop {font-size: 2em;}
         }
 
