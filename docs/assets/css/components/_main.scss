@@ -30,8 +30,23 @@ body {
         height: auto;
 
         h1 {
+            position: relative;
+            display: inline-block;
             border-radius: 100px;
             width: auto;
+
+            top: 25px;
+            color: $white;
+            font-family: "Red Rose";
+            text-align: center;
+            margin: 10px;
+            background-color: $purple;
+            text-align: center;
+			padding: 10px 20px;
+			clear: right;
+			margin-bottom: 75px;
+
+
             @include phone {}
             @include tablet {}
             @include laptop {}
