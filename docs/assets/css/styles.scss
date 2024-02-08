@@ -25,236 +25,7 @@
 		display: none;
 	}
 
-
-	// // Fade image in
-	// #imageFade {
-	// 	animation: fadeIn 3s;
-	// 	-webkit-animation: fadeIn 3s;
-	// 	-moz-animation: fadeIn 3s;
-	// 	-o-animation: fadeIn 3s;
-	// 	-ms-animation: fadeIn 3s;
-	// }
-	// @keyframes fadeIn {
-	// 	0% {opacity:0;}
-	// 	100% {opacity:1;}
-	// }
-	
-	// @-moz-keyframes fadeIn {
-	// 	0% {opacity:0;}
-	// 	100% {opacity:1;}
-	// }
-	
-	// @-webkit-keyframes fadeIn {
-	// 	0% {opacity:0;}
-	// 	100% {opacity:1;}
-	// }
-	
-	// @-o-keyframes fadeIn {
-	// 	0% {opacity:0;}
-	// 	100% {opacity:1;}
-	// }
-
 	body {
-		// min-height: 100%;
-		// height: auto;
-		// padding-bottom: 100px;
-		// overflow-x: clip;
-
-		// nav {
-
-		// 	width: 100%;
-		// 	background-color: $purple;
-		// 	display: block;
-		// 	border-radius: 10px;
-		// 	font-family: "Red Rose";
-		// 	text-align: center;
-		// 	height: auto;
-
-
-		// 	#logo {
-		// 		width: auto;
-		// 		font-size: 30px;
-		// 		color: $white;
-		// 		height: auto;
-		// 		padding: 20px;
-		// 		font-family: "Red Rose";
-		// 		overflow-x: clip;
-		// 	}
-
-
-		// 	ul {
-		// 		width: 100%;
-		// 		display: inline-block;
-		// 		position: relative;
-		// 		width: auto;
-		// 		list-style: none;
-		// 		margin: 0 auto;
-		// 		bottom: 20px;
-		// 		padding: 0;
-
-
-		// 		li {
-		// 			font-size: 1.2em;
-		// 			list-style: none;
-		// 			position: relative;
-
-		// 			// right: 4%;
-		// 			display: inline-block;
-		// 			// float: left;
-		// 			// padding: 5px;
-		// 			margin: 5px;
-		// 			width: auto;
-
-
-		// 			a {
-		// 				text-align: center;
-		// 				width: 160px;
-		// 				display: block;
-		// 				clear: left;
-		// 				text-decoration: none;
-		// 				color: $purple;
-		// 				font-weight: bolder;
-		// 				padding: 10px;
-		// 				background-color: $white;
-		// 				border-radius: 5px;
-		// 			}
-		// 		}
-
-		// 		li:hover {
-		// 			a {
-		// 				color: $black;
-		// 			}
-		// 		}
-
-		// 	}
-		// }
-
-		
-
-		// #pageTitle {
-		// 	width: 100%;
-		// 	position: relative;
-		// 	margin: 0 auto;
-		// 	// margin-left: 50%;
-		// 	text-align: center;
-		// 	height: auto;
-
-		// 	h1 {
-		// 		position: relative;
-		// 		display: inline-block;
-		// 		// left: 33%;
-		// 		top: 25px;
-		// 		color: $white;
-		// 		font-family: "Red Rose";
-		// 		text-align: center;
-		// 		margin: 10px;
-		// 		background-color: $purple;
-		// 		// width: 300px;
-		// 		// margin-bottom: 100px;
-		// 		// height: auto;
-		// 		// border-radius: 10px;
-		// 		// align-self: center;
-		// 		text-align: center;
-		// 		// padding: 15px;
-				
-		// 		clear: right;
-		// 		margin-bottom: 75px;
-		// 	}
-
-
-		// }
-
-		// .homePage {
-		// 	h2 {
-		// 		color: $purple;
-		// 	}
-		// }
-
-		// .slideshow > img {
-		// 	height: 500px;
-		// 	width: auto;
-		// 	display: block;
-		// 	margin: 0 auto;
-		// 	padding-top: 20px;
-		// 	padding-bottom: 40px;
-		// }
-
-		// .statement {
-
-		// 	margin-bottom: 30px;
-
-		// 	h1 {
-		// 		color: $purple;
-		// 		font-size: 40px;
-		// 		font-family: "Secular One";
-		// 		margin: 0 auto;
-		// 	}
-
-		// 	p {
-		// 		font-size: 24px;
-		// 		width: 50%;
-		// 		margin: 0;
-		// 		left: 25%;
-		// 	}
-
-		// }
-
-
-		// #itemContainer {
-		// 	// overflow: auto;
-		// 	width: 100%;
-		// 	display: flex;
-		// 	justify-content: center;
-		// 	padding-top: 30px;
-
-		// 	.itemDetails {
-				
-		// 		width: 33%;
-		// 		height: auto;
-		// 		margin-top: 50px;
-
-		// 		h3 {
-		// 			background-color: $purple;
-		// 			color: $white;
-		// 			width: 75%;
-		// 			margin: 0 auto;
-		// 			padding: 10px;
-		// 			border-radius: 30px;
-		// 		}
-
-		// 		div.imgContainer {
-		// 			position: relative;
-		// 			display: inline-block;
-		// 			padding: 50px;
-
-		// 			img {
-		// 				width: 60%;
-		// 				height: 50%;
-		// 				padding: 5px;
-		// 				vertical-align: middle;
-		// 			}
-
-		// 			.imgBigger {
-		// 				width: 75%;
-		// 			}
-
-		// 			.imgSmaller {
-		// 				width: 40%;
-		// 			}
-
-					
-		// 		}
-
-		// 		a {
-		// 			text-decoration: none;
-		// 		}
-				
-
-		// 	}
-
-		// }
-		
-
 
 		// DEFAULT ARTICLE
 		article {
@@ -329,121 +100,7 @@
 		}
 
 
-		// BOARD MEMBER CSS
-		
-		// #boardMemebers {
-
-		// 	display: flex;
-		// 	flex-wrap: wrap;
-
-
-		// 	.member {
-		// 		margin: 0 auto;
-		// 		margin-bottom: 50px;
-		// 		background-color: $purple;
-		// 		width: 45%;
-		// 		border-radius: 30px;
-		// 		height: auto;
-		// 		padding: 60px 0;
-		// 		display: flex;
-		// 		justify-content: space-evenly;
-
-		// 		.profilePicture {
-		// 			img {
-		// 				padding-top: 50px;
-		// 				width: 200px;
-		// 				height: auto;
-		// 			}
-		// 		}
-
-		// 		.member_info {
-		// 			.membership_title {
-		// 				font-size: 3em;
-		// 				font-family: "Nunito";
-		// 			}
-
-		// 			h2 {
-		// 				font-family: "Secular One";
-		// 			}
-
-		// 			.membership_length {
-		// 				font-size: 2em;
-		// 				font-family: "Red Rose";
-		// 			}
-
-		// 			.contact_info {
-		// 				h3 {
-		// 					font-size: 1.6em;
-		// 					// text-align: left;
-		// 					margin: 0 auto;
-		// 					margin-top: 20px;
-		// 					position: relative;
-		// 					color: $white;
-		// 					// left: 15%
-		// 				}
-
-		// 				a {
-		// 					font-size: 1em;
-		// 					font-family: "arial";
-		// 					text-decoration: none;
-		// 					color: rgb(45, 176, 251)
-		// 				}
-
-
-		// 				.email, .phone {
-		// 					font-size: 1.5em;
-		// 				}
-		// 			}
-
-		// 		}
-		// 	}
-		// }
-
-
 		// FORM AND RESULT CSS
-		// form {
-		// 	margin: 0 auto;
-		// 	width: 100%;
-		// 	text-align: center;
-		// 	vertical-align: center;
-
-		// 	input {
-		// 		padding: 10px;
-		// 		font-size: 18px;
-		// 		width: 175px;
-		// 		font-family: "Red Rose";
-		// 		text-align: center;
-		// 	}
-
-		// 	label {
-		// 		padding: 10px;
-		// 		font-size: 25px;
-		// 		position: relative;
-		// 		bottom: -4px;
-		// 		font-weight: bold;
-		// 		font-family: "Red Rose";
-
-		// 		padding-left: 50px;
-		// 	}
-
-		// 	select {
-
-		// 		width: 175px;
-		// 		font-size: 18px;
-		// 		text-align-last: center;
-		// 		height: 50px;
-		// 		margin-right: 10px;
-		// 		clear: right;
-		// 	}
-
-		// 	.note {
-		// 		font-weight: bolder;
-		// 		font-family: "Nunito";
-		// 		color: grayteal;
-		// 		padding-top: 20px;
-		// 	}
-
-		// }
 
 		.center {
 			width: 100%;
@@ -866,28 +523,6 @@
 
 	}
 
-	// footer {
-	// 	background: $purple;
-	// 	height: auto;
-	// 	position: fixed;
-	// 	bottom: 0;
-	// 	right: 0;
-	// 	left: 0;
-	// 	width: 100%;
-	// 	display: block;
-	// 	float: left;
-	// 	z-index: 10;
-	// 	overflow-x: clip;
-
-	// 	// margin-top: 100px;
-	// 	p {
-	// 		color: $white;
-	// 		font-size: 24px;
-	// 		font-family: "Red Rose";
-	// 		text-align: center;
-	// 	}
-
-	// }
 }
 
 // MOBILE VERSION
@@ -895,37 +530,6 @@
 	body {
 
 		width: 100%;
-
-		// nav {
-
-		// 	width: 100%;
-		// 	#logo {
-		// 		font-size: 1.2em;
-		// 		padding: 20px 0px;
-		// 	}
-		// 	ul {
-
-		// 		width: 100%;
-		// 		padding: 0px;
-		// 		display: inline-block;
-		// 		list-style: none;
-		// 		margin: 0 auto;
-
-		// 		li {
-		// 			display: inline-block;
-		// 			width: 25%;
-		// 			margin: 0 auto;
-
-		// 			a {
-		// 				padding: 5px 0;
-		// 				// position: relative;
-		// 				width: 100%;
-		// 				// left: 20%;
-		// 				font-size: .4em;
-		// 			}
-		// 		}
-		// 	}
-		// }
 
 		#pageTitle {
 
@@ -959,144 +563,6 @@
 			
 		}
 
-		// HOME PAGE
-		// .homePage {
-		// 	h2 {
-		// 		font-size: 1.25em;
-		// 	}
-		// 	h4 {
-		// 		font-size: 12px;
-		// 		text-align: left;
-		// 		padding: 0 20px;
-		// 	}
-
-			
-		// }
-
-		// .slideshow > img {
-		// 	width: 75%;
-		// 	height: auto;
-		// }
-
-		// .statement {
-		// 	h1 {
-		// 		font-size: 30px;
-		// 	}
-
-		// 	p {
-		// 		font-size: 14px;
-		// 		width: 80%;
-		// 		left: 10%;
-		// 	}
-		// }
-
-
-		// #itemContainer {
-		// 	// overflow: auto;
-		// 	width: 100%;
-		// 	display: block;
-		// 	justify-content: center;
-		// 	padding-top: 15px;
-	
-		// 	.itemDetails {
-				
-		// 		width: 100%;
-		// 		height: auto;
-		// 		margin-top: 50px;
-		// 		padding-bottom: 25px;
-	
-		// 		h3 {
-		// 			background-color: $purple;
-		// 			color: $white;
-		// 			width: 50%;
-		// 			font-size: 1.2em;
-		// 			margin: 0 auto;
-		// 			padding: 10px;
-		// 			border-radius: 30px;
-		// 		}
-	
-		// 		div.imgContainer {
-		// 			position: relative;
-		// 			display: inline-block;
-		// 			padding: 20px;
-	
-		// 			img {
-		// 				height: auto;
-		// 				width: 35%;
-
-		// 				padding: 0;
-		// 				vertical-align: middle;
-		// 			}
-	
-		// 			.imgBigger {
-		// 				width: 75%;
-		// 			}
-	
-		// 			.imgSmaller {
-		// 				width: 50%;
-		// 			}
-	
-					
-		// 		}
-	
-	
-				
-	
-		// 	}
-	
-		// }
-
-
-
-		// BOARD MEMEBERS PAGE
-		// .member {
-		// 	width: 80% !important;
-		// 	height: auto;
-		// 	padding: 20px 0 !important;
-		// 	margin: 30px auto;
-		// 	flex-direction: column;
-
-		// 	img {
-		// 		width: 50% !important;
-		// 		padding-top: 0 !important;
-		// 	}
-	
-		// 	.member_info {
-		// 		color: $white;
-	
-		// 		.membership_title {
-		// 			font-size: 1.85em !important;
-		// 			margin: 10px!important;
-		// 		}
-		// 		.name {
-		// 			font-size: 1.75em!important;
-		// 			color: $black;
-		// 		}
-	
-		// 		.membership_length {
-		// 			font-size: 1.25em !important;
-		// 		}
-	
-		// 		.contact_info {
-		// 			margin-top: 20px;
-		// 		}
-
-		// 		h3.email {
-		// 			// left: 8%;
-		// 			// margin-top: 5px !important;
-		// 			font-size: 0.8em !important;
-		// 			// left: 20px;
-		// 		}
-	
-		// 		h3.phone {
-		// 			margin-top: 0 !important;
-		// 			font-size: 1em !important;
-		// 			color: $white;
-		// 		}
-	
-		// 	}
-		// }
-		
 		
 		// CEMETERY MAPS
 
@@ -1112,13 +578,6 @@
 			.svg {
 				padding-top: 30px;
 			}
-
-			// h1 {
-			// 	font-size: 1.75em;
-			// 	margin: 0;
-			// 	margin-top: -20px;
-			// 	margin-bottom: 20px;
-			// }
 
 			ul {
 				width: 100%;
@@ -1286,68 +745,6 @@
 		}
 
 
-		
-
-
-		// FIND A GRAVE FORM
-		// form {
-		// 	width: 100%;
-		// 	margin-top: -35px;
-		// 	label {
-		// 		width: 50%;
-		// 		padding: 0;
-		// 		display: block;
-		// 		padding: 10px;
-		// 		font-size: .85em;
-		// 		width: 25%;
-		// 		position: relative;
-		// 		top: 35px;
-		// 	}
-
-		// 	input {
-		// 		display: block;
-		// 		margin: 0 auto;
-		// 		width: 45%;
-		// 		position: relative;
-		// 		left: 10%;
-		// 		padding: 5px 0;
-		// 		margin-bottom: -4%;
-		// 	}
-
-		// 	select {
-		// 		position: relative;
-		// 		width: 55%;
-		// 		left: 10%;
-		// 		height: 30px;
-		// 		font-size: .9em;
-		// 	}
-
-		// 	input:last-child {
-		// 		margin-top: 20px;
-		// 	}
-
-		// 	.note {
-		// 		padding: 0;
-		// 		margin: 0 auto;
-		// 		margin-top: 10px;
-		// 		font-size: .6em;
-		// 		position: relative;
-		// 		top: 25px
-		// 	}
-
-		// 	#submit {
-		// 		margin-top: 20px;
-		// 		font-size: 1em;
-		// 		width: 50%;
-		// 		padding: 0;
-		// 		padding: 7px 0px;
-		// 		margin: 20px 0;
-		// 		margin-top: 40px;
-		// 		margin-left: 15%
-		// 	}
-
-			
-		// }
 
 		// CONTACTS
 		.contacts {
@@ -1462,19 +859,6 @@
 		
 		}
 
-		// FOOTER
-		// footer {
-		// 	.copyright {
-		// 		font-size: .85em;
-		// 		padding: 0px;
-		// 		text-align: center;
-		// 		position: relative;
-		// 		width: 100%;
-		// 		margin: 7.5px auto;
-				
-		// 	}
-		// }
-
 	}
 
 
@@ -1485,11 +869,6 @@
 
 // Tablet / small device sizes
 @media screen and (max-width: 1600px) and (min-width: 800px) {
-	// .homePage {
-	// 	h2 {
-	// 		font-size: 30px;
-	// 	}
-	// }
 
 	.resultMessage {
 		span {
@@ -1500,18 +879,6 @@
 	#pageTitle {
 		font-size: .75em;
 	}
-
-	// form {
-	// 	label, input {
-	// 		font-size: 16px !important;
-	// 	}
-
-	// 	.input {
-	// 		height: 15px;
-	// 		width: 100px;
-	// 		font-size: 14px;
-	// 	}
-	// }
 
 
 	.contacts {
@@ -1554,16 +921,5 @@
 	.mapSelection {
 		margin-bottom: 0 !important;
 	}
-
-
-	// BOARD MEMBERS
-	// #boardMemebers {
-	// 	.member {
-	// 		width: 90% !important;
-	// 	}
-
-	// 	img {
-	// 		width: 200 !important;
-	// 	}
-	// }
+	
 }
