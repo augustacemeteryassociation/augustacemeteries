@@ -1,0 +1,558 @@
+.center {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+
+    #blockID {
+        font-size: 1.5em;
+        padding: 10px
+    }
+
+}
+
+#results {
+    padding-top: 20px;
+    font-size: 28px;
+
+
+    .resultMessage {
+
+        @include phone {
+            width: 85vw;
+            font-size: .50em;
+            margin: 1.5vh 0;
+            span {
+                font-size: 1em;
+            }
+        }
+        
+        @include tablet {
+        
+        }
+        
+        @include laptop {
+        
+        }
+        
+        @include desktop {
+            font-size: .85em;
+            width: 50%;
+            margin: 30px auto;
+        }
+
+
+        
+        height: auto;
+        overflow: auto;
+        font-size: 1em;
+        background-color: $purple;
+        color: $white;
+        
+        text-align: center;
+        padding: 20px;
+        border-radius: 30px;
+        font-family: "Red Rose";
+
+        span {
+            text-shadow: -3px 0 $black, 0 -2px $black;
+            font-weight: bolder;
+        }
+    }
+
+    // .resultMessage:first-child {
+    //     margin-top: 0;
+    //     padding-top:
+    // }
+
+    .resultMessage:last-child {
+        margin-bottom: 0;
+    }
+
+    .resultMessage:hover {
+        font-weight: bolder;
+        background-color: #b806b8;
+    }
+
+    .errorMessage{
+
+        @include phone {
+            width: 80%;
+            font-size: .425em;
+        }
+        
+        @include tablet {
+            width: 85%;
+            font-size: .65em;
+        }
+
+        @include laptop {
+            width: 65%;
+            font-size: .75em;
+        }
+
+        @include desktop {
+            width: 33%;
+            font-size: .7em;
+        }
+
+
+
+        
+        background-color: rgb(138, 9, 9);
+        color: $white;
+        margin: 30px auto;
+        text-align: center;
+        padding: 7.5px;
+        border-radius: 25px;
+        // font-size: 1em;
+        font-family: "Red Rose";
+
+        span {
+            text-shadow: -3px 0 $black, 0 -2px $black;
+            font-weight: bolder;
+            @include phone {
+
+            }
+            
+            @include tablet {
+            
+            }
+            
+            @include laptop {
+            
+            }
+            
+            @include desktop {
+                font-size: 1.2em;
+            }
+        }
+    }
+
+    
+
+    .results {
+
+        :first-child {
+            margin: 0;
+        }
+        
+        @include phone {
+            width: 90vw;
+            margin: 0;
+        }
+        
+        @include tablet {
+        
+        }
+        
+        @include laptop {
+        
+        }
+        
+        @include desktop {
+            width: 650px;
+        }
+
+
+
+        height: auto;
+        
+        font-size: 16px;
+        background-color: $white;
+        color: $purple;
+        outline-color: $black;
+        border-radius: 6px;
+        padding: 20px;
+        border-radius: 15px;
+        text-align: center;
+        padding-top: 20px;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        padding-left: 10px;
+
+        img {
+            padding-top: 30px;
+            width: 90%;
+            height: auto;
+        }
+
+        div {
+
+            @include phone {
+                margin: 3vh 0;
+                padding: 10px;
+            }
+            
+            @include tablet {
+            
+            }
+            
+            @include laptop {
+            
+            }
+            
+            @include desktop {
+                margin: 30px auto;
+                padding: 20px;
+            }
+
+            background-color: $purple;
+            color: $white;
+            
+            border-radius: 50px;
+            width: auto;
+
+            .emailInfo {
+
+                @include phone {
+                    // margin-top: 50px;
+                    font-size: 1em;
+                }
+                
+                @include tablet {
+                
+                }
+                
+                @include laptop {
+                    font-size: 25px;
+                    
+                }
+                
+                @include desktop {
+                    
+                }
+                padding: 10px 30px;
+                text-decoration: none;
+                font-family: "Red Rose";
+                
+                color: $purple;
+                background-color: $white;
+                
+                border-radius: 10px;
+            }
+
+            img.profilePicture {
+
+
+                @include phone {
+                    width: 50vw;
+                }
+                
+                @include tablet {
+                
+                }
+                
+                @include laptop {
+                
+                }
+                
+                @include desktop {
+                    width: 50%;
+                }
+                
+                height: auto;
+            }
+
+            h1 {
+
+                @include phone {
+                    margin: 0;
+                    padding: 0;
+                }
+                
+                @include tablet {
+                
+                }
+                
+                @include laptop {
+                
+                }
+                
+                @include desktop {
+                
+                }
+
+                font-family: "Red Rose";
+                font-size: 2em;
+                text-shadow: -3px 0 $black, 0 -2px $black;
+            }
+
+            h3 {
+                font-family: "Red Rose";
+                // font-size: 1.7em;
+                color: $white;
+                
+                span {
+                    text-shadow: -3px 0 $black, 0 -2px $black;
+                    font-size: 20px
+                }
+            }
+
+            span.fullName {
+                @include phone {
+                    font-size: .9em;
+                }
+                
+                @include tablet {
+                
+                }
+                
+                @include laptop {
+                
+                }
+                
+                @include desktop {
+                    font-size: 40px;
+                }
+
+                font-family: "Red Rose";
+                font-weight: bold;
+            }
+
+            .years {
+                @include phone {
+                    font-size: .7em;
+                }
+                
+                @include tablet {
+                
+                }
+                
+                @include laptop {
+                
+                }
+                
+                @include desktop {
+                    font-size: .85em;
+                }
+
+                // position: relative;
+            }
+
+            .location {
+                @include phone {
+                    font-size: .85em;
+                    margin: 0;
+                    margin-bottom: 25px;
+
+                    span {
+                        font-size: 1em;
+                    }
+
+                }
+                
+                @include tablet {
+                
+                }
+                
+                @include laptop {
+                
+                }
+                
+                @include desktop {
+                    font-size: 24px;
+                }
+            }
+
+            div.moreDetails {
+
+                @include phone {
+                    margin-top: 2vh;
+                }
+
+                @include tablet {
+
+                }
+
+                @include laptop {
+
+                }
+
+                @include desktop {
+
+                }
+
+                width: auto;
+                height: auto;
+                z-index: 1;
+                padding-bottom: 0;
+
+                h2 {
+
+                    @include phone {
+                        font-size: 1.2em;
+                        padding: 7.5px;
+                        width: 62.5vw;
+                    }
+                    
+                    @include tablet {
+                    
+                    }
+                    
+                    @include laptop {
+                    
+                    }
+                    
+                    @include desktop {
+                        font-size: 30px;
+                        width: 50%;
+                    }
+
+                    font-family: "Red Rose";
+                    
+                    background-color: $white;
+                    color: $purple;
+                    font-weight: bolder;
+                    
+                    margin: 0 auto;
+                    padding: 10px;
+                    border-radius: 10px;
+                }
+            }
+
+            .details {
+                width: auto;
+                display: none;
+                text-align: left;
+                margin: 0 auto;
+                padding-bottom: 50px;
+                font-size: 20px;
+            
+                img {
+                    display: block;
+                    margin-left: auto;
+                    margin-right: auto;
+                    text-align: center;
+                    width: 90%;
+                    height: auto;
+                }
+    
+                .gravestone {
+
+
+                    @include phone {
+                        width: 62.5vw;
+                    }
+                    
+                    @include tablet {
+                    
+                    }
+                    
+                    @include laptop {
+                    
+                    }
+                    
+                    @include desktop {
+                        width: 75%;
+                    }
+                    
+                    margin: 0 auto;
+                }
+            
+                .obituary {
+                    @include phone {
+                        width: 70vw;
+                    }
+                    
+                    @include tablet {
+                    
+                    }
+                    
+                    @include laptop {
+                    
+                    }
+                    
+                    @include desktop {
+                        width: 80%;
+                    }
+                }
+    
+                h3 {
+
+                    // text-wrap: balance;
+
+                    @include phone {
+                        font-size: .7em;
+                        
+                    }
+                    
+                    @include tablet {
+                    
+                    }
+                    
+                    @include laptop {
+                    
+                    }
+                    
+                    @include desktop {
+                        font-size: 1em;
+                        left: 30px;
+                    }
+
+                    position: relative;
+                    
+                    margin: 0px;
+                    padding: 5px;
+                }
+    
+                span {
+
+                    @include phone {
+                        font-size: 1.1em;
+                    }
+                    
+                    @include tablet {
+                    
+                    }
+                    
+                    @include laptop {
+                    
+                    }
+                    
+                    @include desktop {
+                    
+                    }
+
+
+                    color: $white;
+                    // font-size: 1.25em;
+                    font-weight: bolder;
+                    position: relative; 
+                    left: 15px;
+
+                    a {
+                        text-decoration: none;
+                        position: relative;
+                        color: $white;
+                    }
+
+                    a:hover {
+                        color: rgb(47, 241, 245);
+                    }
+                }
+            }
+        }
+    }
+
+
+    
+    .toTop {
+        @include phone {
+            width: 85%;
+            font-size: .65em;
+        }
+        
+        @include tablet {
+        
+        }
+        
+        @include laptop {
+        
+        }
+        
+        @include desktop {
+            width: 33%;
+            font-size: 1em;
+        }
+    }
+}

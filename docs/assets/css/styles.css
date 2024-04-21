@@ -113,6 +113,26 @@ nav #logo {
     font-size: 2.5em;
   }
 }
+@media (min-width: 0px) {
+  nav #logo {
+    color: hotpink;
+  }
+}
+@media (min-width: 480px) {
+  nav #logo {
+    color: lime;
+  }
+}
+@media (min-width: 720px) {
+  nav #logo {
+    color: blue;
+  }
+}
+@media (min-width: 1200px) {
+  nav #logo {
+    color: red;
+  }
+}
 nav #nav {
   width: 100%;
   background-color: #881e88;
@@ -852,6 +872,362 @@ article p a:hover {
   line-height: 14px;
 }
 
+.center {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+.center #blockID {
+  font-size: 1.5em;
+  padding: 10px;
+}
+
+#results {
+  padding-top: 20px;
+  font-size: 28px;
+}
+#results .resultMessage {
+  height: auto;
+  overflow: auto;
+  font-size: 1em;
+  background-color: #881e88;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  border-radius: 30px;
+  font-family: "Red Rose";
+}
+@media (min-width: 0px) {
+  #results .resultMessage {
+    width: 85vw;
+    font-size: 0.5em;
+    margin: 1.5vh 0;
+  }
+  #results .resultMessage span {
+    font-size: 1em;
+  }
+}
+@media (min-width: 1200px) {
+  #results .resultMessage {
+    font-size: 0.85em;
+    width: 50%;
+    margin: 30px auto;
+  }
+}
+#results .resultMessage span {
+  text-shadow: -3px 0 black, 0 -2px black;
+  font-weight: bolder;
+}
+#results .resultMessage:last-child {
+  margin-bottom: 0;
+}
+#results .resultMessage:hover {
+  font-weight: bolder;
+  background-color: #b806b8;
+}
+#results .errorMessage {
+  background-color: rgb(138, 9, 9);
+  color: white;
+  margin: 30px auto;
+  text-align: center;
+  padding: 7.5px;
+  border-radius: 25px;
+  font-family: "Red Rose";
+}
+@media (min-width: 0px) {
+  #results .errorMessage {
+    width: 80%;
+    font-size: 0.425em;
+  }
+}
+@media (min-width: 480px) {
+  #results .errorMessage {
+    width: 85%;
+    font-size: 0.65em;
+  }
+}
+@media (min-width: 720px) {
+  #results .errorMessage {
+    width: 65%;
+    font-size: 0.75em;
+  }
+}
+@media (min-width: 1200px) {
+  #results .errorMessage {
+    width: 33%;
+    font-size: 0.7em;
+  }
+}
+#results .errorMessage span {
+  text-shadow: -3px 0 black, 0 -2px black;
+  font-weight: bolder;
+}
+@media (min-width: 1200px) {
+  #results .errorMessage span {
+    font-size: 1.2em;
+  }
+}
+#results .results {
+  height: auto;
+  font-size: 16px;
+  background-color: white;
+  color: #881e88;
+  outline-color: black;
+  border-radius: 6px;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  padding-top: 20px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  padding-left: 10px;
+}
+#results .results :first-child {
+  margin: 0;
+}
+@media (min-width: 0px) {
+  #results .results {
+    width: 90vw;
+    margin: 0;
+  }
+}
+@media (min-width: 1200px) {
+  #results .results {
+    width: 650px;
+  }
+}
+#results .results img {
+  padding-top: 30px;
+  width: 90%;
+  height: auto;
+}
+#results .results div {
+  background-color: #881e88;
+  color: white;
+  border-radius: 50px;
+  width: auto;
+}
+@media (min-width: 0px) {
+  #results .results div {
+    margin: 3vh 0;
+    padding: 10px;
+  }
+}
+@media (min-width: 1200px) {
+  #results .results div {
+    margin: 30px auto;
+    padding: 20px;
+  }
+}
+#results .results div .emailInfo {
+  padding: 10px 30px;
+  text-decoration: none;
+  font-family: "Red Rose";
+  color: #881e88;
+  background-color: white;
+  border-radius: 10px;
+}
+@media (min-width: 0px) {
+  #results .results div .emailInfo {
+    font-size: 1em;
+  }
+}
+@media (min-width: 720px) {
+  #results .results div .emailInfo {
+    font-size: 25px;
+  }
+}
+#results .results div img.profilePicture {
+  height: auto;
+}
+@media (min-width: 0px) {
+  #results .results div img.profilePicture {
+    width: 50vw;
+  }
+}
+@media (min-width: 1200px) {
+  #results .results div img.profilePicture {
+    width: 50%;
+  }
+}
+#results .results div h1 {
+  font-family: "Red Rose";
+  font-size: 2em;
+  text-shadow: -3px 0 black, 0 -2px black;
+}
+@media (min-width: 0px) {
+  #results .results div h1 {
+    margin: 0;
+    padding: 0;
+  }
+}
+#results .results div h3 {
+  font-family: "Red Rose";
+  color: white;
+}
+#results .results div h3 span {
+  text-shadow: -3px 0 black, 0 -2px black;
+  font-size: 20px;
+}
+#results .results div span.fullName {
+  font-family: "Red Rose";
+  font-weight: bold;
+}
+@media (min-width: 0px) {
+  #results .results div span.fullName {
+    font-size: 0.9em;
+  }
+}
+@media (min-width: 1200px) {
+  #results .results div span.fullName {
+    font-size: 40px;
+  }
+}
+@media (min-width: 0px) {
+  #results .results div .years {
+    font-size: 0.7em;
+  }
+}
+@media (min-width: 1200px) {
+  #results .results div .years {
+    font-size: 0.85em;
+  }
+}
+@media (min-width: 0px) {
+  #results .results div .location {
+    font-size: 0.85em;
+    margin: 0;
+    margin-bottom: 25px;
+  }
+  #results .results div .location span {
+    font-size: 1em;
+  }
+}
+@media (min-width: 1200px) {
+  #results .results div .location {
+    font-size: 24px;
+  }
+}
+#results .results div div.moreDetails {
+  width: auto;
+  height: auto;
+  z-index: 1;
+  padding-bottom: 0;
+}
+@media (min-width: 0px) {
+  #results .results div div.moreDetails {
+    margin-top: 2vh;
+  }
+}
+#results .results div div.moreDetails h2 {
+  font-family: "Red Rose";
+  background-color: white;
+  color: #881e88;
+  font-weight: bolder;
+  margin: 0 auto;
+  padding: 10px;
+  border-radius: 10px;
+}
+@media (min-width: 0px) {
+  #results .results div div.moreDetails h2 {
+    font-size: 1.2em;
+    padding: 7.5px;
+    width: 62.5vw;
+  }
+}
+@media (min-width: 1200px) {
+  #results .results div div.moreDetails h2 {
+    font-size: 30px;
+    width: 50%;
+  }
+}
+#results .results div .details {
+  width: auto;
+  display: none;
+  text-align: left;
+  margin: 0 auto;
+  padding-bottom: 50px;
+  font-size: 20px;
+}
+#results .results div .details img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 90%;
+  height: auto;
+}
+#results .results div .details .gravestone {
+  margin: 0 auto;
+}
+@media (min-width: 0px) {
+  #results .results div .details .gravestone {
+    width: 62.5vw;
+  }
+}
+@media (min-width: 1200px) {
+  #results .results div .details .gravestone {
+    width: 75%;
+  }
+}
+@media (min-width: 0px) {
+  #results .results div .details .obituary {
+    width: 70vw;
+  }
+}
+@media (min-width: 1200px) {
+  #results .results div .details .obituary {
+    width: 80%;
+  }
+}
+#results .results div .details h3 {
+  position: relative;
+  margin: 0px;
+  padding: 5px;
+}
+@media (min-width: 0px) {
+  #results .results div .details h3 {
+    font-size: 0.7em;
+  }
+}
+@media (min-width: 1200px) {
+  #results .results div .details h3 {
+    font-size: 1em;
+    left: 30px;
+  }
+}
+#results .results div .details span {
+  color: white;
+  font-weight: bolder;
+  position: relative;
+  left: 15px;
+}
+@media (min-width: 0px) {
+  #results .results div .details span {
+    font-size: 1.1em;
+  }
+}
+#results .results div .details span a {
+  text-decoration: none;
+  position: relative;
+  color: white;
+}
+#results .results div .details span a:hover {
+  color: rgb(47, 241, 245);
+}
+@media (min-width: 0px) {
+  #results .toTop {
+    width: 85%;
+    font-size: 0.65em;
+  }
+}
+@media (min-width: 1200px) {
+  #results .toTop {
+    width: 33%;
+    font-size: 1em;
+  }
+}
+
 .svg {
   width: 80%;
   height: auto;
@@ -1316,305 +1692,5 @@ form #names {
 @media screen {
   html {
     display: none;
-  }
-  body .center {
-    width: 100%;
-    margin: 0 auto;
-    text-align: center;
-  }
-  body .center #blockID {
-    font-size: 1.5em;
-    padding: 10px;
-  }
-  body #results {
-    padding-top: 20px;
-    font-size: 28px;
-  }
-  body #results .resultMessage {
-    width: 50%;
-    height: auto;
-    overflow: auto;
-    font-size: 1em;
-    background-color: #881e88;
-    color: white;
-    margin: 30px auto;
-    text-align: center;
-    padding: 20px;
-    border-radius: 30px;
-    font-family: "Red Rose";
-  }
-  body #results .resultMessage span {
-    text-shadow: -3px 0 black, 0 -2px black;
-    font-weight: bolder;
-    font-size: 24px;
-  }
-  body #results .resultMessage:hover {
-    font-weight: bolder;
-    background-color: #b806b8;
-  }
-  body #results .errorMessage {
-    width: 65%;
-    background-color: rgb(138, 9, 9);
-    color: white;
-    margin: 30px auto;
-    text-align: center;
-    padding: 7.5px;
-    border-radius: 25px;
-    font-size: 1em;
-    font-family: "Red Rose";
-  }
-  body #results .errorMessage span {
-    text-shadow: -3px 0 black, 0 -2px black;
-    font-weight: bolder;
-    font-size: 24px;
-  }
-  body #results .results {
-    height: auto;
-    width: 650px;
-    font-size: 16px;
-    background-color: white;
-    color: #881e88;
-    outline-color: black;
-    border-radius: 6px;
-    padding: 20px;
-    border-radius: 15px;
-    text-align: center;
-    padding-top: 20px;
-    margin: 0 auto;
-    margin-bottom: 20px;
-  }
-  body #results .results img {
-    padding-top: 30px;
-    width: 90%;
-    height: auto;
-  }
-  body #results .results div {
-    background-color: #881e88;
-    color: white;
-    margin: 30px auto;
-    padding: 20px;
-    border-radius: 50px;
-    width: auto;
-  }
-  body #results .results div .emailInfo {
-    text-decoration: none;
-    font-family: "Red Rose";
-    font-size: 25px;
-    color: #881e88;
-    background-color: white;
-    padding: 10px 30px;
-    border-radius: 10px;
-  }
-  body #results .results div img {
-    width: 50%;
-    height: auto;
-  }
-  body #results .results div h1 {
-    font-family: "Red Rose";
-    font-size: 2em;
-    text-shadow: -3px 0 black, 0 -2px black;
-  }
-  body #results .results div h3 {
-    font-family: "Red Rose";
-    color: white;
-  }
-  body #results .results div h3 span {
-    text-shadow: -3px 0 black, 0 -2px black;
-    font-size: 20px;
-  }
-  body #results .results div span.fullName {
-    font-family: "Red Rose";
-    font-size: 40px;
-    font-weight: bold;
-  }
-  body #results .results div .location {
-    font-size: 24px;
-  }
-  body #results .results div div.moreDetails {
-    width: auto;
-    height: auto;
-    z-index: 1;
-    padding-bottom: 0;
-  }
-  body #results .results div div.moreDetails h2 {
-    font-family: "Red Rose";
-    font-size: 30px;
-    background-color: white;
-    color: #881e88;
-    font-weight: bolder;
-    width: 50%;
-    margin: 0 auto;
-    padding: 10px;
-    border-radius: 10px;
-  }
-  body #results .results div .details {
-    width: auto;
-    display: none;
-    text-align: left;
-    margin: 0 auto;
-    padding-bottom: 50px;
-    font-size: 20px;
-  }
-  body #results .results div .details img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    width: 90%;
-    height: auto;
-  }
-  body #results .results div .details .gravestone {
-    width: 75%;
-    margin: 0 auto;
-  }
-  body #results .results div .details .obituary {
-    width: 80%;
-  }
-  body #results .results div .details h3 {
-    position: relative;
-    left: 30px;
-    margin: 0px;
-    padding: 5px;
-  }
-  body #results .results div .details span {
-    color: white;
-    font-weight: bolder;
-    position: relative;
-    left: 15px;
-  }
-  body #results .results div .details span a {
-    text-decoration: none;
-    position: relative;
-    color: white;
-  }
-  body #results .results div .details span a:hover {
-    color: rgb(47, 241, 245);
-  }
-}
-@media screen and (max-width: 800px) {
-  body {
-    width: 100%;
-  }
-  body #results {
-    width: 100%;
-  }
-  body #results .resultMessage:first-child {
-    margin-top: 0px !important;
-  }
-  body #results .resultMessage {
-    font-size: 24px;
-    width: 95%;
-  }
-  body #results .resultMessage span {
-    font-size: 18px !important;
-  }
-  body #results .results {
-    width: 90%;
-  }
-  body #results .results {
-    padding-top: 0px;
-  }
-  body #results .results div .profilePicture {
-    width: 80%;
-    padding-bottom: 0;
-  }
-  body #results .results div span.fullName {
-    font-size: 28px;
-    padding: 0;
-    margin: 0 auto;
-  }
-  body #results .results div span.years {
-    position: relative;
-    bottom: 10px;
-    font-size: 20px;
-  }
-  body #results .results div .location {
-    position: relative;
-    bottom: 20px;
-    font-size: 14px !important;
-  }
-  body #results .results div .location span {
-    font-size: 16px;
-  }
-  body #results .results div h3 {
-    font-size: 1em;
-    margin: 0;
-    margin-bottom: 25px;
-  }
-  body #results .results div .emailInfo {
-    width: 80%;
-    font-size: 1em;
-  }
-  body #results .results div div.moreDetails {
-    width: 90%;
-    margin: 10px auto;
-    margin-bottom: 20px;
-  }
-  body #results .results div div.moreDetails h2 {
-    padding: 5px;
-    font-size: 1.25em;
-    margin: 0 auto;
-  }
-  body #results .results div .details {
-    padding: 20px 0;
-  }
-  body #results .results div .details h3 {
-    position: relative;
-    left: 2%;
-    font-size: 0.65em;
-    padding: 2px 0;
-  }
-  body #results .results div .details h3 span {
-    font-size: 1em;
-  }
-  body #results .results div .details img {
-    width: 90%;
-    height: auto;
-  }
-  body #results div {
-    margin: 0;
-    margin-bottom: 25px;
-  }
-  body #results .resultMessage {
-    margin: 15px auto;
-    padding: 0;
-    padding: 5px;
-    width: 90%;
-    font-size: 0.5em;
-  }
-  body #results .resultMessage:hover {
-    background-color: #881e88;
-  }
-  body #results .profilePicture {
-    width: 75%;
-    height: auto;
-    padding-bottom: 30px;
-  }
-  body #results span.fullName {
-    font-size: 1.2em;
-  }
-  body #results .moreDetails {
-    margin: 0;
-    margin-bottom: 5px !important;
-  }
-  body #results .moreDetails h2 {
-    margin: 0 auto;
-    width: 80%;
-  }
-  body #results .errorMessage {
-    font-size: 0.4em;
-    width: 80%;
-    margin: 0 auto;
-  }
-  body #results .toTop {
-    font-size: 24px;
-    margin: 0;
-    width: 75%;
-    margin: 0 auto;
-  }
-}
-@media screen and (max-width: 1600px) and (min-width: 800px) {
-  .resultMessage span {
-    font-size: 24px;
   }
 }/*# sourceMappingURL=styles.css.map */
