@@ -17,10 +17,10 @@ nav {
 
 
         // Size Debugger
-        // @include phone {color: hotpink}
-        // @include tablet {color: lime}
-        // @include laptop {color: blue}
-        // @include desktop {color: red} 
+        @include phone {color: hotpink}
+        @include tablet {color: lime}
+        @include laptop {color: blue}
+        @include desktop {color: red} 
         
     }
 
@@ -51,10 +51,10 @@ nav {
             margin: 0 auto;
             padding: 0;
             
-            @include phone {padding-bottom: 2vh;}
-            @include tablet {padding-bottom: 3vh;}
-            @include laptop {padding-bottom: 3vh;}
-            @include desktop {padding-bottom: 2vh;}
+            // @include phone {padding-bottom: 2vh;}
+            // @include tablet {padding-bottom: 3vh;}
+            // @include laptop {padding-bottom: 3vh;}
+            // @include desktop {padding-bottom: 2vh;}
             
 
 
