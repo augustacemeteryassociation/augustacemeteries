@@ -51,10 +51,10 @@ nav {
             margin: 0 auto;
             padding: 0;
             
-            // @include phone {padding-bottom: 2vh;}
-            // @include tablet {padding-bottom: 3vh;}
-            // @include laptop {padding-bottom: 3vh;}
-            // @include desktop {padding-bottom: 2vh;}
+            @include phone {padding-bottom: 2vh; padding-right: 4vw;}
+            @include tablet {padding-bottom: 3vh; padding-right: 0vw;}
+            @include laptop {padding-bottom: 3vh;}
+            @include desktop {padding-bottom: 2vh;}
             
 
 
