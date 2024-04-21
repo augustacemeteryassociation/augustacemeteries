@@ -2,7 +2,7 @@
     h2 {
         text-wrap: balance;
         color: $purple;
-
+        font-family: "Secular One";
         @include phone {font-size: 1.4em;}
         @include tablet {font-size: 1.5em;}
         @include laptop {font-size: 1.75em; margin: 0 2.25vw;}

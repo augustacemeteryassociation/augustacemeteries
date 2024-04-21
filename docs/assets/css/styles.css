@@ -246,6 +246,7 @@ footer p {
 .homePage h2 {
   text-wrap: balance;
   color: #881e88;
+  font-family: "Secular One";
 }
 @media (min-width: 0px) {
   .homePage h2 {
