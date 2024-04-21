@@ -36,7 +36,7 @@
     p {
 
         @include phone {}
-        @include tablet { font-size: clamp(1.175em, 4vw, 1.5em); }
+        @include tablet { font-size: 1.1em; }
         @include laptop { font-size: clamp(1em, 2vw, 1.6em); }
         @include desktop { font-size: clamp(1em, 1.5vw, 1.6em); }
 

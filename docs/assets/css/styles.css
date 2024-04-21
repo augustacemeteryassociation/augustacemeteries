@@ -679,7 +679,7 @@ footer p {
 }
 @media (min-width: 480px) {
   #cityContacts p {
-    font-size: clamp(1.175em, 4vw, 1.5em);
+    font-size: 1.1em;
   }
 }
 @media (min-width: 720px) {
