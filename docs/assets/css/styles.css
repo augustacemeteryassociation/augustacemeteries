@@ -113,26 +113,6 @@ nav #logo {
     font-size: 2.5em;
   }
 }
-@media (min-width: 0px) {
-  nav #logo {
-    color: hotpink;
-  }
-}
-@media (min-width: 480px) {
-  nav #logo {
-    color: lime;
-  }
-}
-@media (min-width: 720px) {
-  nav #logo {
-    color: blue;
-  }
-}
-@media (min-width: 1200px) {
-  nav #logo {
-    color: red;
-  }
-}
 nav #nav {
   width: 100%;
   background-color: #881e88;
