@@ -409,6 +409,7 @@ footer p {
   margin: 0 auto;
   padding: 10px;
   border-radius: 30px;
+  font-family: "Nunito";
 }
 @media (min-width: 720px) {
   #itemContainer .itemDetails h3 {
