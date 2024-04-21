@@ -132,9 +132,10 @@
             font-size: 1.4em;
             margin: 0;
             margin-bottom: 6px;
+            
 
-            @include phone {font-size: 1em;}
-            @include tablet {}
+            @include phone {font-size: 1em; width: 60%;}
+            @include tablet {width: auto;}
             @include laptop {font-size: 1.25em;}
             @include desktop {}
         }
