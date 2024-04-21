@@ -677,9 +677,14 @@ footer p {
     width: 33vw;
   }
 }
+@media (min-width: 0px) {
+  #cityContacts p {
+    font-size: 0.85em;
+  }
+}
 @media (min-width: 480px) {
   #cityContacts p {
-    font-size: 1.1em;
+    font-size: clamp(1em, 3vw, 1.35em);
   }
 }
 @media (min-width: 720px) {
@@ -731,7 +736,7 @@ footer p {
 }
 @media (min-width: 0px) {
   #cemeteryContacts article p {
-    font-size: 1.15em;
+    font-size: 1em;
   }
 }
 @media (min-width: 480px) {
@@ -757,7 +762,7 @@ footer p {
 }
 @media (min-width: 0px) {
   #cemeteryContacts article h2 {
-    font-size: 1.15em;
+    font-size: 1.05em;
   }
 }
 @media (min-width: 480px) {
@@ -778,6 +783,11 @@ footer p {
 #cemeteryContacts article h3 {
   font-family: "Secular One";
   text-wrap: balance;
+}
+@media (min-width: 0px) {
+  #cemeteryContacts article h3 {
+    font-size: 0.95em;
+  }
 }
 @media (min-width: 720px) {
   #cemeteryContacts article h3 {
@@ -800,7 +810,7 @@ article h1.title {
 }
 @media (min-width: 0px) {
   article h1.title {
-    font-size: 1.6em;
+    font-size: 1.2em;
   }
 }
 @media (min-width: 480px) {
