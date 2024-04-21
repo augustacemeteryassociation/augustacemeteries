@@ -638,6 +638,209 @@ footer p {
   }
 }
 
+#cityContacts {
+  display: flex;
+}
+@media (min-width: 0px) {
+  #cityContacts {
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+  }
+}
+@media (min-width: 720px) {
+  #cityContacts {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+}
+@media (min-width: 1200px) {
+  #cityContacts {
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+}
+@media (min-width: 0px) {
+  #cityContacts article {
+    width: 100vw;
+    padding-bottom: 3vh;
+  }
+}
+@media (min-width: 720px) {
+  #cityContacts article {
+    width: 45vw;
+  }
+}
+@media (min-width: 1200px) {
+  #cityContacts article {
+    width: 33vw;
+  }
+}
+@media (min-width: 480px) {
+  #cityContacts p {
+    font-size: clamp(1.175em, 4vw, 1.5em);
+  }
+}
+@media (min-width: 720px) {
+  #cityContacts p {
+    font-size: clamp(1em, 2vw, 1.6em);
+  }
+}
+@media (min-width: 1200px) {
+  #cityContacts p {
+    font-size: clamp(1em, 1.5vw, 1.6em);
+  }
+}
+
+#cemeteryContacts {
+  padding-top: 5vh;
+  display: flex;
+  padding-bottom: 5vh;
+}
+@media (min-width: 0px) {
+  #cemeteryContacts {
+    flex-direction: column;
+  }
+}
+@media (min-width: 720px) {
+  #cemeteryContacts {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+}
+@media (min-width: 0px) {
+  #cemeteryContacts article {
+    padding-top: 1.5vh;
+  }
+}
+@media (min-width: 480px) {
+  #cemeteryContacts article {
+    padding-top: 1.5vh;
+  }
+}
+@media (min-width: 0px) {
+  #cemeteryContacts article {
+    width: 100vw;
+  }
+}
+@media (min-width: 720px) {
+  #cemeteryContacts article {
+    width: 45vw;
+  }
+}
+@media (min-width: 0px) {
+  #cemeteryContacts article p {
+    font-size: 1.15em;
+  }
+}
+@media (min-width: 480px) {
+  #cemeteryContacts article p {
+    font-size: clamp(0.65em, 4vw, 1.25em);
+  }
+}
+@media (min-width: 720px) {
+  #cemeteryContacts article p {
+    font-size: clamp(0.75em, 2vw, 1.25em);
+  }
+}
+@media (min-width: 1200px) {
+  #cemeteryContacts article p {
+    font-size: 1.35em;
+  }
+}
+#cemeteryContacts article h2 {
+  font-family: "Nunito";
+  line-height: 3vh;
+  margin: 5px;
+  text-wrap: balance;
+}
+@media (min-width: 0px) {
+  #cemeteryContacts article h2 {
+    font-size: 1.15em;
+  }
+}
+@media (min-width: 480px) {
+  #cemeteryContacts article h2 {
+    font-size: clamp(1.2em, 3vw, 1.25em);
+  }
+}
+@media (min-width: 720px) {
+  #cemeteryContacts article h2 {
+    font-size: clamp(1.25em, 2vw, 1.65em);
+  }
+}
+@media (min-width: 1200px) {
+  #cemeteryContacts article h2 {
+    font-size: 1.35em;
+  }
+}
+#cemeteryContacts article h3 {
+  font-family: "Secular One";
+  text-wrap: balance;
+}
+@media (min-width: 720px) {
+  #cemeteryContacts article h3 {
+    font-size: clamp(0.75em, 2vw, 1.25em);
+  }
+}
+@media (min-width: 1200px) {
+  #cemeteryContacts article h3 {
+    font-size: 1.25em;
+  }
+}
+
+article {
+  text-align: center;
+}
+article h1.title {
+  font-family: "Secular One";
+  color: #881e88;
+  margin: 0;
+}
+@media (min-width: 0px) {
+  article h1.title {
+    font-size: 1.6em;
+  }
+}
+@media (min-width: 480px) {
+  article h1.title {
+    font-size: 1.35em;
+  }
+}
+@media (min-width: 1200px) {
+  article h1.title {
+    font-size: clamp(1.25em, 2vw, 2.5em);
+  }
+}
+article p {
+  text-align: center;
+  text-wrap: balance;
+  position: relative;
+  margin: 0 auto;
+  font-family: "Nunito";
+  font-weight: bold;
+  padding: 5px 0;
+}
+article p a {
+  text-decoration: none;
+  color: rgb(150, 3, 187);
+}
+article p a:hover {
+  color: rgb(16, 154, 235);
+}
+
+.contacts h3 {
+  margin: 10px auto;
+  width: 90%;
+}
+.contacts .donationInfo {
+  padding: 2px;
+  padding-bottom: 15px;
+  font-size: 14px;
+  line-height: 14px;
+}
+
 .svg {
   width: 80%;
   height: auto;
@@ -1103,60 +1306,6 @@ form #names {
   html {
     display: none;
   }
-  body article {
-    text-align: center;
-    margin-bottom: 60px;
-  }
-  body article h1.title {
-    font-size: 50px;
-    font-family: "Secular One";
-    color: #881e88;
-    margin: 0;
-  }
-  body article p {
-    font-size: 30px;
-    text-align: left;
-    position: relative;
-    left: 33%;
-    margin: 0 auto;
-    font-family: "Nunito";
-    font-weight: bold;
-    padding: 10px 0;
-  }
-  body article p a {
-    text-decoration: none;
-    color: rgb(150, 3, 187);
-  }
-  body article p a:hover {
-    color: rgb(16, 154, 235);
-  }
-  body article h2 {
-    font-family: "Secular One";
-    font-size: 2.75em;
-    margin: 5px;
-  }
-  body article h3 {
-    font-family: "Secular One";
-    font-size: 2em;
-  }
-  body article h4 {
-    font-family: "Secular One";
-    font-size: 1.2em;
-  }
-  body article ul li {
-    list-style: none;
-    font-family: "Quicksand";
-    font-size: 2em;
-    padding: 2.5px;
-  }
-  body article ul li span.day {
-    font-weight: bolder;
-    color: black;
-  }
-  body article ul li span.hours {
-    color: #881e88;
-    font-weight: bold;
-  }
   body .center {
     width: 100%;
     margin: 0 auto;
@@ -1330,47 +1479,6 @@ form #names {
   body #results .results div .details span a:hover {
     color: rgb(47, 241, 245);
   }
-  body #donationTypes {
-    width: 100%;
-    text-align: center;
-  }
-  body #donationTypes ul {
-    width: 100%;
-    margin: 0 auto;
-    padding: 0;
-    padding-bottom: 50px;
-  }
-  body #donationTypes ul li {
-    display: inline-block;
-    background-color: #881e88;
-    color: white;
-    font-family: "Nunito";
-    font-weight: bold;
-    width: 30%;
-    border-radius: 50px;
-    margin: 0 auto;
-  }
-  body #donationTypes ul li h1 {
-    font-size: 2em;
-    text-align: center;
-    margin: 0 auto;
-    width: auto;
-    padding: 10px;
-    border-radius: 5px;
-    color: white;
-    font-weight: bold;
-  }
-  body #donationTypes ul li a {
-    text-decoration: none;
-    color: white;
-  }
-  body .donationInfo {
-    padding-top: 5px;
-    text-align: center;
-    padding-bottom: 20px;
-    font-size: 1.75em;
-    font-family: "Red Rose";
-  }
 }
 @media screen and (max-width: 800px) {
   body {
@@ -1493,73 +1601,9 @@ form #names {
     width: 75%;
     margin: 0 auto;
   }
-  body .contacts .title {
-    font-size: 1.25em;
-  }
-  body .contacts article {
-    margin-bottom: 25px;
-  }
-  body .contacts .title {
-    font-size: 0.8em;
-  }
-  body .contacts p {
-    font-size: 0.7em;
-    padding: 3px 0;
-    left: 15%;
-  }
-  body .contacts ul {
-    padding: 0;
-    padding-bottom: 10px;
-  }
-  body .contacts ul h2 {
-    font-size: 1em;
-  }
-  body .contacts ul li {
-    font-size: 0.8em;
-  }
-  body .contacts h3 {
-    margin: 10px auto;
-    width: 90%;
-    font-size: 0.7em;
-  }
-  body .contacts .donationInfo {
-    padding: 2px;
-    padding-bottom: 15px;
-    font-size: 14px;
-    line-height: 14px;
-  }
-  body #donationTypes ul {
-    width: 100%;
-    padding: 0;
-    margin: 0 auto;
-  }
-  body #donationTypes ul li {
-    font-size: 0.45em;
-    width: 60%;
-  }
-  body .donationInfo {
-    width: 90%;
-    padding-top: 20px;
-    text-align: center;
-    font-size: 0.8em;
-    font-family: "Red Rose";
-    margin: 0px auto;
-  }
 }
 @media screen and (max-width: 1600px) and (min-width: 800px) {
   .resultMessage span {
-    font-size: 24px;
-  }
-  .contacts .title {
-    font-size: 40px;
-  }
-  .contacts p {
-    font-size: 20px;
-  }
-  .contacts h3 {
-    font-size: 24px;
-  }
-  .itemDetails h3 {
     font-size: 24px;
   }
 }/*# sourceMappingURL=styles.css.map */
