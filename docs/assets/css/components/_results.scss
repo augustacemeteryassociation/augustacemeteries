@@ -138,8 +138,8 @@
 
         @include phone {
             
-            width: 80%;
-            margin: 0;
+            width: 90vw;
+            margin: 0 auto;
         }
         
         @include tablet {
@@ -546,16 +546,19 @@
     
     .toTop {
         @include phone {
-            width: 85%;
+            width: 75%;
             font-size: .65em;
+            margin-top: 0;
+            margin-bottom: 50px;
         }
         
         @include tablet {
-        
+            font-size: .85em;
         }
         
         @include laptop {
-        
+            width: 50%;
+            font-size: 1em;
         }
         
         @include desktop {
