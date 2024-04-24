@@ -57,6 +57,58 @@
 }
 
 
+
+#veteranList {
+    h1 {
+        color: $purple;
+        font-family: "Secular One";
+        margin: 0 auto;
+        @include phone {font-size: 2em;}
+        @include tablet {font-size: 1.5em;}
+        @include laptop {font-size: 2.5em;}
+        @include desktop {font-size: 2.5em;}
+    }
+
+    ul {
+
+        li {
+
+            color: white;
+            font-family: "Secular One";
+
+            display: inline-block;
+            background-color: $purple;
+            width: 10vw;
+            list-style-type: none;
+            padding: 10px;
+            border-radius: 10px;
+
+            @include phone { width: 50vw;}
+            @include tablet { width: 45vw;}
+            @include laptop { width: 20vw;}
+            @include desktop { width: 15vw;}
+
+        }
+        
+        
+        a {
+            
+            text-decoration: none;
+            @include phone {font-size: 1em;}
+            @include tablet {font-size: 1em;}
+            @include laptop {font-size: 1.2em;}
+            @include desktop {font-size: 1.2em;}
+
+
+            
+        }
+
+        
+
+    }
+}
+
+
 #itemContainer {
     // overflow: auto;
     width: 100%;
