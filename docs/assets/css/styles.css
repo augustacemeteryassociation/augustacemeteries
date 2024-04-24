@@ -361,6 +361,85 @@ footer p {
   }
 }
 
+#veteranList h1 {
+  color: #881e88;
+  font-family: "Secular One";
+  margin: 0 auto;
+}
+@media (min-width: 0px) {
+  #veteranList h1 {
+    font-size: 2em;
+  }
+}
+@media (min-width: 480px) {
+  #veteranList h1 {
+    font-size: 1.5em;
+  }
+}
+@media (min-width: 720px) {
+  #veteranList h1 {
+    font-size: 2.5em;
+  }
+}
+@media (min-width: 1200px) {
+  #veteranList h1 {
+    font-size: 2.5em;
+  }
+}
+#veteranList ul li {
+  color: white;
+  font-family: "Secular One";
+  display: inline-block;
+  background-color: #881e88;
+  width: 10vw;
+  list-style-type: none;
+  padding: 10px;
+  border-radius: 10px;
+}
+@media (min-width: 0px) {
+  #veteranList ul li {
+    width: 50vw;
+  }
+}
+@media (min-width: 480px) {
+  #veteranList ul li {
+    width: 45vw;
+  }
+}
+@media (min-width: 720px) {
+  #veteranList ul li {
+    width: 20vw;
+  }
+}
+@media (min-width: 1200px) {
+  #veteranList ul li {
+    width: 15vw;
+  }
+}
+#veteranList ul a {
+  text-decoration: none;
+}
+@media (min-width: 0px) {
+  #veteranList ul a {
+    font-size: 1em;
+  }
+}
+@media (min-width: 480px) {
+  #veteranList ul a {
+    font-size: 1em;
+  }
+}
+@media (min-width: 720px) {
+  #veteranList ul a {
+    font-size: 1.2em;
+  }
+}
+@media (min-width: 1200px) {
+  #veteranList ul a {
+    font-size: 1.2em;
+  }
+}
+
 #itemContainer {
   width: 100%;
   display: flex;
