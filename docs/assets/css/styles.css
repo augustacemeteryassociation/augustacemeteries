@@ -386,6 +386,21 @@ footer p {
     font-size: 2.5em;
   }
 }
+#veteranList ul {
+  display: flex;
+}
+@media (min-width: 0px) {
+  #veteranList ul {
+    flex-direction: column;
+  }
+}
+@media (min-width: 480px) {
+  #veteranList ul {
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+}
 #veteranList ul li {
   color: white;
   font-family: "Secular One";
@@ -399,21 +414,23 @@ footer p {
 @media (min-width: 0px) {
   #veteranList ul li {
     width: 50vw;
+    margin: 10px 0;
   }
 }
 @media (min-width: 480px) {
   #veteranList ul li {
-    width: 45vw;
+    width: 37vw;
   }
 }
 @media (min-width: 720px) {
   #veteranList ul li {
-    width: 20vw;
+    width: 30vw;
+    margin: 20px 0;
   }
 }
 @media (min-width: 1200px) {
   #veteranList ul li {
-    width: 15vw;
+    width: 20vw;
   }
 }
 #veteranList ul a {

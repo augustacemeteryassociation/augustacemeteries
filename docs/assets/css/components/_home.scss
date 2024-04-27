@@ -71,6 +71,20 @@
 
     ul {
 
+        display: flex;
+
+        @include phone {
+            flex-direction: column;
+        }
+
+        @include tablet {
+            flex-direction: row;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+        }
+
+        
+
         li {
 
             color: white;
@@ -83,10 +97,19 @@
             padding: 10px;
             border-radius: 10px;
 
-            @include phone { width: 50vw;}
-            @include tablet { width: 45vw;}
-            @include laptop { width: 20vw;}
-            @include desktop { width: 15vw;}
+            @include phone { 
+                width: 50vw;
+                margin: 10px 0;
+            }
+
+            @include tablet { width: 37vw;}
+
+            @include laptop { 
+                width: 30vw;
+                margin: 20px 0;
+            }
+
+            @include desktop { width: 20vw;}
 
         }
         
