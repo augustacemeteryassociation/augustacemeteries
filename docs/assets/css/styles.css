@@ -313,7 +313,7 @@ footer p {
 }
 @media (min-width: 0px) {
   .statement h1 {
-    font-size: 2em;
+    font-size: 1.5em;
   }
 }
 @media (min-width: 480px) {
@@ -368,7 +368,7 @@ footer p {
 }
 @media (min-width: 0px) {
   #veteranList h1 {
-    font-size: 2em;
+    font-size: 1.65em;
   }
 }
 @media (min-width: 480px) {
@@ -388,10 +388,13 @@ footer p {
 }
 #veteranList ul {
   display: flex;
+  padding: 0px;
 }
 @media (min-width: 0px) {
   #veteranList ul {
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
   }
 }
 @media (min-width: 480px) {
@@ -413,7 +416,7 @@ footer p {
 }
 @media (min-width: 0px) {
   #veteranList ul li {
-    width: 50vw;
+    width: 37.5vw;
     margin: 10px 0;
   }
 }
@@ -438,7 +441,7 @@ footer p {
 }
 @media (min-width: 0px) {
   #veteranList ul a {
-    font-size: 1em;
+    font-size: 0.75em;
   }
 }
 @media (min-width: 480px) {
