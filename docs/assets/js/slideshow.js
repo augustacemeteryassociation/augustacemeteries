@@ -38,10 +38,10 @@ $().ready(function(){
     for (var i = 0; i < image_count; i++) {
 
         if (i == 0) {
-            $('.slideshow').append(`<img src="${images[i]}"">`);
+            $('#mainSlideshow').append(`<img src="${images[i]}"">`);
         } else {
 
-            $('.slideshow').append('<img class="slideshow" src="' + images[i] + '" style="display: none;">');
+            $('#mainSlideshow').append('<img class="slideshow" src="' + images[i] + '" style="display: none;">');
 
         }   
     }
@@ -49,8 +49,8 @@ $().ready(function(){
     // Set the timer to change the image
     setTimeout(function(){
 
-        var current = $('.slideshow img:visible');
-        var next = current.next().length ? current.next() : $('.slideshow img').first();
+        var current = $('#mainSlideshow img:visible');
+        var next = current.next().length ? current.next() : $('#mainSlideshow img').first();
 
         current.fadeOut(1000, function(){
             next.fadeIn(1000);
@@ -64,3 +64,5 @@ $().ready(function(){
 }
 
 );
+
+
