@@ -801,104 +801,113 @@ footer p {
   }
 }
 
-#cemeteryContacts {
-  padding-top: 5vh;
+#cemeteryContacts, #cityContacts {
   display: flex;
   padding-bottom: 5vh;
 }
 @media (min-width: 0px) {
-  #cemeteryContacts {
+  #cemeteryContacts, #cityContacts {
     flex-direction: column;
   }
 }
 @media (min-width: 720px) {
-  #cemeteryContacts {
+  #cemeteryContacts, #cityContacts {
     flex-direction: row;
     justify-content: space-evenly;
   }
 }
+#cemeteryContacts article, #cityContacts article {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 @media (min-width: 0px) {
-  #cemeteryContacts article {
+  #cemeteryContacts article, #cityContacts article {
     padding-top: 1.5vh;
   }
 }
 @media (min-width: 480px) {
-  #cemeteryContacts article {
+  #cemeteryContacts article, #cityContacts article {
     padding-top: 1.5vh;
   }
 }
+@media (min-width: 1200px) {
+  #cemeteryContacts article, #cityContacts article {
+    width: 100%;
+  }
+}
 @media (min-width: 0px) {
-  #cemeteryContacts article {
+  #cemeteryContacts article, #cityContacts article {
     width: 100vw;
   }
 }
 @media (min-width: 720px) {
-  #cemeteryContacts article {
+  #cemeteryContacts article, #cityContacts article {
     width: 45vw;
   }
 }
 @media (min-width: 0px) {
-  #cemeteryContacts article p {
+  #cemeteryContacts article p, #cityContacts article p {
     font-size: 1em;
   }
 }
 @media (min-width: 480px) {
-  #cemeteryContacts article p {
+  #cemeteryContacts article p, #cityContacts article p {
     font-size: clamp(0.65em, 4vw, 1.25em);
   }
 }
 @media (min-width: 720px) {
-  #cemeteryContacts article p {
+  #cemeteryContacts article p, #cityContacts article p {
     font-size: clamp(0.75em, 2vw, 1.25em);
   }
 }
 @media (min-width: 1200px) {
-  #cemeteryContacts article p {
+  #cemeteryContacts article p, #cityContacts article p {
     font-size: 1.35em;
   }
 }
-#cemeteryContacts article h2 {
+#cemeteryContacts article h2, #cityContacts article h2 {
   font-family: "Nunito";
   line-height: 3vh;
   margin: 5px;
   text-wrap: balance;
 }
 @media (min-width: 0px) {
-  #cemeteryContacts article h2 {
+  #cemeteryContacts article h2, #cityContacts article h2 {
     font-size: 1.05em;
   }
 }
 @media (min-width: 480px) {
-  #cemeteryContacts article h2 {
+  #cemeteryContacts article h2, #cityContacts article h2 {
     font-size: clamp(1.2em, 3vw, 1.25em);
   }
 }
 @media (min-width: 720px) {
-  #cemeteryContacts article h2 {
+  #cemeteryContacts article h2, #cityContacts article h2 {
     font-size: clamp(1.25em, 2vw, 1.65em);
   }
 }
 @media (min-width: 1200px) {
-  #cemeteryContacts article h2 {
+  #cemeteryContacts article h2, #cityContacts article h2 {
     font-size: 1.35em;
   }
 }
-#cemeteryContacts article h3 {
+#cemeteryContacts article h3, #cityContacts article h3 {
   font-family: "Secular One";
   text-wrap: balance;
 }
 @media (min-width: 0px) {
-  #cemeteryContacts article h3 {
+  #cemeteryContacts article h3, #cityContacts article h3 {
     font-size: 0.95em;
   }
 }
 @media (min-width: 720px) {
-  #cemeteryContacts article h3 {
+  #cemeteryContacts article h3, #cityContacts article h3 {
     font-size: clamp(0.75em, 2vw, 1.25em);
   }
 }
 @media (min-width: 1200px) {
-  #cemeteryContacts article h3 {
+  #cemeteryContacts article h3, #cityContacts article h3 {
     font-size: 1.25em;
   }
 }
@@ -907,6 +916,7 @@ article {
   text-align: center;
 }
 article h1.title {
+  text-wrap: balance;
   font-family: "Secular One";
   color: #881e88;
   margin: 0;
@@ -923,7 +933,7 @@ article h1.title {
 }
 @media (min-width: 1200px) {
   article h1.title {
-    font-size: clamp(1.25em, 2vw, 2.5em);
+    font-size: clamp(1.25em, 2vw, 2.25em);
   }
 }
 article p {
@@ -952,6 +962,32 @@ article p a:hover {
   padding-bottom: 15px;
   font-size: 14px;
   line-height: 14px;
+}
+.contacts .disclaimer {
+  font-family: "Nunito";
+  font-weight: bold;
+  text-wrap: balance;
+  text-align: center;
+}
+@media (min-width: 0px) {
+  .contacts .disclaimer {
+    font-size: 0.85em;
+  }
+}
+@media (min-width: 480px) {
+  .contacts .disclaimer {
+    font-size: 1.15em;
+  }
+}
+@media (min-width: 720px) {
+  .contacts .disclaimer {
+    font-size: 1.1em;
+  }
+}
+@media (min-width: 1200px) {
+  .contacts .disclaimer {
+    font-size: 1.25em;
+  }
 }
 
 .center {
