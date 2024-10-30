@@ -202,7 +202,7 @@ $().ready(function () {
 
 	function getMatches(locationInput, blockInput, lotInput, nameInput) {
 
-		console.log(locationInput, blockInput, lotInput, nameInput)
+		// console.log(locationInput, blockInput, lotInput, nameInput)
 
 		$results.empty();
 
@@ -222,7 +222,7 @@ $().ready(function () {
 					if (blockInput != "" && blockInput != blockNum) { continue; }
 					for (lotNum in cemeteryData[cemetery][blockNum]) {
 
-						console.log(cemeteryData[cemetery][blockNum][lotNum])
+						// console.log(cemeteryData[cemetery][blockNum][lotNum])
 
 						// Check if lot # is valid, else go to next lot
 						if (lotInput != "" && lotInput != lotNum) { continue; }
@@ -271,7 +271,7 @@ $().ready(function () {
 								// let dod = getDate(d["dateOfDeath"])																			
 
 								let fullName = maidenName != "" ? `${fName} ${mName} <i>${maidenName}</i> ${lName}` : `${fName} ${mName} ${lName}`
-								console.log()
+								// console.log()
 								$tbody.append(`
 									<tr>
 										<td>${graveNum}${g}</td>
@@ -321,14 +321,14 @@ $().ready(function () {
 			values[this.name] = $(this).val();
 		});
 
-		console.log(values)
+		// console.log(values)
 
 		let locationInput = values['locationSelection'];
 		let blockInput = filterInput(values['block_input'].charAt(0).toUpperCase(), ["scripts", "special", "extraSpaces"]);
 		let lotInput = filterInput(values['lot_input'], ["alphabet", "scripts", "special", "extraSpaces"]);
 		let nameInput =  filterInput(values['name_input'], ["scripts", "special"]);
 
-		console.log(locationInput, blockInput, lotInput, nameInput)
+		// console.log(locationInput, blockInput, lotInput, nameInput)
 
 
 
