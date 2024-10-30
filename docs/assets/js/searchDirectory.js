@@ -187,7 +187,7 @@ $().ready(function () {
 		url: 'https://directory-data.augustacemeteryassociation.workers.dev/',
 		async: false,
 		success: function (data) { 
-			console.log(data)
+			// console.log(data)
 			cemeteryData = data; 
 		}
 	})
@@ -221,6 +221,8 @@ $().ready(function () {
 					// Check if block # is valid, else go to next block
 					if (blockInput != "" && blockInput != blockNum) { continue; }
 					for (lotNum in cemeteryData[cemetery][blockNum]) {
+
+						console.log(cemeteryData[cemetery][blockNum][lotNum])
 
 						// Check if lot # is valid, else go to next lot
 						if (lotInput != "" && lotInput != lotNum) { continue; }
