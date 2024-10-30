@@ -180,23 +180,23 @@ $().ready(function () {
 
 	var cemeteryData = null;
 
-	// $.ajax({
-	// 	type: 'GET',
-	// 	dataType: 'json',
-	// 	// url: 'json/graves.json',
-	// 	url: 'https://directory-data.augustacemeteryassociation.workers.dev/',
-	// 	async: false,
-	// 	success: function (data) { 
-	// 		console.log(data)
-	// 		cemeteryData = data; 
-	// 	}
-	// })
+	$.ajax({
+		type: 'GET',
+		dataType: 'json',
+		// url: 'json/graves.json',
+		url: 'https://directory-data.augustacemeteryassociation.workers.dev/',
+		async: false,
+		success: function (data) { 
+			console.log(data)
+			cemeteryData = data; 
+		}
+	})
 
-	$.getJSON('https://directory-data.augustacemeteryassociation.workers.dev/', function(data) {
-		console.log(data);
-	}).fail(function(xhr, status, error) {
-		console.log(error);
-	});
+	// $.getJSON('https://directory-data.augustacemeteryassociation.workers.dev/', function(data) {
+	// 	console.log(data);
+	// }).fail(function(xhr, status, error) {
+	// 	console.log(error);
+	// });
 
 	var $results = $("#results")
 
