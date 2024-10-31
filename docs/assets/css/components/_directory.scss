@@ -58,8 +58,8 @@
                 text-align: center;
 
                 @include phone {font-size: .85em !important;}
-                @include tablet {font-size: .85em !important; color: pink}
-                @include laptop {font-size: 1em !important; color: red; }
+                @include tablet {font-size: .85em !important;}
+                @include laptop {font-size: 1.1em !important;}
                 @include desktop {font-size: 1.2em;}
 
                 a {
