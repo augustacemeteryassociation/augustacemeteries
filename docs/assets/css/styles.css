@@ -1094,7 +1094,7 @@ article p a:hover {
   text-underline-offset: 4px;
 }
 #directoryResults .record table td a:hover {
-  color: #032d53;
+  color: #000000;
 }
 #directoryResults .record table tr:nth-child(even) {
   background-color: #63097e;
@@ -1163,7 +1163,7 @@ article p a:hover {
     text-underline-offset: 4px;
   }
   #directoryResults .record table td a:hover {
-    color: #032d53;
+    color: black;
   }
   #directoryResults .record table tr:nth-child(even) {
     background-color: #63097e;
