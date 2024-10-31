@@ -192,12 +192,6 @@ $().ready(function () {
 		}
 	})
 
-	// $.getJSON('https://directory-data.augustacemeteryassociation.workers.dev/', function(data) {
-	// 	console.log(data);
-	// }).fail(function(xhr, status, error) {
-	// 	console.log(error);
-	// });
-
 	var $results = $("#directoryResults")
 
 	function getMatches(locationInput, blockInput, lotInput, nameInput) {
@@ -231,6 +225,8 @@ $().ready(function () {
 								<h3>${locName} Lawn - Block ${blockNum}, Lot ${lotNum}</h3>
 							</div>
 						`)
+
+						let hasName = nameInput != "" ? false : true
 
 						let $record = $(`div #${locName}-${blockNum}-${lotNum}`)
 
@@ -283,10 +279,17 @@ $().ready(function () {
 									</tr>
 								`);
 								
-								
+								if ((fullName.toLowerCase().includes(nameInput.toLowerCase()) ||  plotOwner.toLowerCase().includes(nameInput.toLowerCase())) && hasName == false) {
+									hasName = true
+								}
 									
 							}
+
+							
 						}
+
+						// Remove record, if nameInput is empty, or name is not found in reocrd
+						if (!hasName) { $record.remove() }
 
 					}
 				}
