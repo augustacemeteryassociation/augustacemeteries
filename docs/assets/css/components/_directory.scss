@@ -7,15 +7,23 @@
     justify-content: space-around;
     padding-top: 50px;
 
+    
+
     .record {
 
-        width: 45vw;
+        
         margin-bottom: 50px;
         background-color: $purple;
         border-radius: 30px;
         height: auto;
         padding: 20px;
         padding-top: 5px;
+
+
+        @include phone {width: 95vw;}
+        @include tablet {width: 90vw;}
+        @include laptop {width: 90vw;}
+        @include desktop {width: 45vw;}
 
         h3 {
             color: $white;
@@ -33,16 +41,26 @@
                 color: $white;
                 font-family: "Nunito";
                 text-align: center;
-                font-size: 1.2em;
+                
                 text-underline-offset: 3px;
                 background-color: #5f065f;
+
+
+                @include phone {font-size: .9em !important;}
+                @include tablet {font-size: .9em;}
+                @include laptop {font-size: 1em !important;}
+                @include desktop {font-size: 1.2em;}
             }
 
             td {
                 color: $white;
                 font-family: "Nunito";
                 text-align: center;
-                font-size: 1.2em;
+
+                @include phone {font-size: .85em !important;}
+                @include tablet {font-size: .85em !important; color: pink}
+                @include laptop {font-size: 1em !important; color: red; }
+                @include desktop {font-size: 1.2em;}
 
                 a {
                     color: $white;
@@ -73,6 +91,8 @@
         display: none;
         width: 0;
         height: 0;
+        margin: 0;
+        padding: 0;
         visibility: hidden;
     }
 
@@ -83,7 +103,7 @@
         flex-wrap: wrap;
         align-content: flex-end;
         justify-content: space-around;
-        padding-top: 25px;
+        padding-top: 0px;
     
         .record {
 

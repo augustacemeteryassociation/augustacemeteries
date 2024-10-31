@@ -999,13 +999,32 @@ article p a:hover {
   padding-top: 50px;
 }
 #directoryResults .record {
-  width: 45vw;
   margin-bottom: 50px;
   background-color: #881e88;
   border-radius: 30px;
   height: auto;
   padding: 20px;
   padding-top: 5px;
+}
+@media (min-width: 0px) {
+  #directoryResults .record {
+    width: 95vw;
+  }
+}
+@media (min-width: 480px) {
+  #directoryResults .record {
+    width: 90vw;
+  }
+}
+@media (min-width: 720px) {
+  #directoryResults .record {
+    width: 90vw;
+  }
+}
+@media (min-width: 1200px) {
+  #directoryResults .record {
+    width: 45vw;
+  }
 }
 #directoryResults .record h3 {
   color: white;
@@ -1022,15 +1041,55 @@ article p a:hover {
   color: white;
   font-family: "Nunito";
   text-align: center;
-  font-size: 1.2em;
   text-underline-offset: 3px;
   background-color: #5f065f;
+}
+@media (min-width: 0px) {
+  #directoryResults .record table th {
+    font-size: 0.9em !important;
+  }
+}
+@media (min-width: 480px) {
+  #directoryResults .record table th {
+    font-size: 0.9em;
+  }
+}
+@media (min-width: 720px) {
+  #directoryResults .record table th {
+    font-size: 1em !important;
+  }
+}
+@media (min-width: 1200px) {
+  #directoryResults .record table th {
+    font-size: 1.2em;
+  }
 }
 #directoryResults .record table td {
   color: white;
   font-family: "Nunito";
   text-align: center;
-  font-size: 1.2em;
+}
+@media (min-width: 0px) {
+  #directoryResults .record table td {
+    font-size: 0.85em !important;
+  }
+}
+@media (min-width: 480px) {
+  #directoryResults .record table td {
+    font-size: 0.85em !important;
+    color: pink;
+  }
+}
+@media (min-width: 720px) {
+  #directoryResults .record table td {
+    font-size: 1em !important;
+    color: red;
+  }
+}
+@media (min-width: 1200px) {
+  #directoryResults .record table td {
+    font-size: 1.2em;
+  }
 }
 #directoryResults .record table td a {
   color: white;
@@ -1051,6 +1110,8 @@ article p a:hover {
     display: none;
     width: 0;
     height: 0;
+    margin: 0;
+    padding: 0;
     visibility: hidden;
   }
   #directoryResults {
@@ -1059,7 +1120,7 @@ article p a:hover {
     flex-wrap: wrap;
     align-content: flex-end;
     justify-content: space-around;
-    padding-top: 25px;
+    padding-top: 0px;
   }
   #directoryResults .record {
     break-inside: avoid-page;
