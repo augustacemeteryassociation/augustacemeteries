@@ -198,7 +198,7 @@ $().ready(function () {
 	// 	console.log(error);
 	// });
 
-	var $results = $("#results")
+	var $results = $("#directoryResults")
 
 	function getMatches(locationInput, blockInput, lotInput, nameInput) {
 
@@ -214,7 +214,7 @@ $().ready(function () {
 			for (cemetery in cemeteryData) {
 
 				// Check if cemetery location is valid, else continue to next cemetery
-				if (locationInput != "any" && !cemetery.includes(locationInput)) { continue; }
+				if (locationInput != "any" && !cemetery.toLowerCase().includes(locationInput)) { continue; }
 				let locName = cemetery.replace("Lawn", "")
 				for (blockNum in cemeteryData[cemetery]) {
 
@@ -226,7 +226,6 @@ $().ready(function () {
 
 						// Check if lot # is valid, else go to next lot
 						if (lotInput != "" && lotInput != lotNum) { continue; }
-
 						$results.append(`
 							<div class="record" id="${locName}-${blockNum}-${lotNum}">
 								<h3>${locName} Lawn - Block ${blockNum}, Lot ${lotNum}</h3>
@@ -235,7 +234,7 @@ $().ready(function () {
 
 						let $record = $(`div #${locName}-${blockNum}-${lotNum}`)
 
-						$record.append(`<table id="${locName}-${blockNum}-${lotNum}"></table><br>`)
+						$record.append(`<table id="${locName}-${blockNum}-${lotNum}"></table>`)
 						let $table = $(`table#${locName}-${blockNum}-${lotNum}`)
 						
 						$table.append(`
@@ -245,6 +244,7 @@ $().ready(function () {
 								<th>Grave #</th>
 								<th>Name</th>
 								<th>Plot Owner</th>
+								<th>Burial Date</th>
 							</tr>
 						</thead>
 						<tbody></tbody>
@@ -253,7 +253,7 @@ $().ready(function () {
 
 
 						let $tbody = $(`table#${locName}-${blockNum}-${lotNum} > tbody`)
-
+						
 						for (graveNum in cemeteryData[cemetery][blockNum][lotNum]) {
 							for (g in cemeteryData[cemetery][blockNum][lotNum][graveNum]) {
 
@@ -263,6 +263,7 @@ $().ready(function () {
 								let fName = d["fName"]
 								let mName = d["mName"]
 								let lName = d["lName"]
+								let burialDate = d["burialDate"]
 								let maidenName = d["maidenName"]
 								let otherInfo = d["otherInfo"]
 								let plotOwner = d["plotOwner"]
@@ -271,12 +272,14 @@ $().ready(function () {
 								// let dod = getDate(d["dateOfDeath"])																			
 
 								let fullName = maidenName != "" ? `${fName} ${mName} <i>${maidenName}</i> ${lName}` : `${fName} ${mName} ${lName}`
-								// console.log()
+								fullName = d["graveLink"] != "" ? `<a href="${d["graveLink"]}" target="_blank">${fullName}</a>` : fullName
+
 								$tbody.append(`
 									<tr>
-										<td>${graveNum}${g}</td>
-										<td>${fullName}</td>
-										<td>${maidenName}</td>
+										<td class="graveNum">${graveNum}${g}</td>
+										<td class="fullName">${fullName}</td>
+										<td class="plotOwner">${plotOwner}</td>
+										<td class="burialDate">${burialDate}</td>
 									</tr>
 								`);
 								
@@ -295,7 +298,7 @@ $().ready(function () {
 
 	$("select").change(function () {
 		window.stop();
-		$("#results").empty();
+		$("#directoryResults").empty();
 		var blockID = $(this).children("option:selected").val();
 	});
 
@@ -309,7 +312,7 @@ $().ready(function () {
 
 	$("form").submit(function () {
 
-		var $results = $("#results")
+		var $results = $("#directoryResults")
 
 		window.stop();
 		$results.empty()
