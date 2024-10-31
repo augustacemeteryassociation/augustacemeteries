@@ -990,6 +990,138 @@ article p a:hover {
   }
 }
 
+#directoryResults {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-end;
+  justify-content: space-around;
+  padding-top: 50px;
+}
+#directoryResults .record {
+  width: 45vw;
+  margin-bottom: 50px;
+  background-color: #881e88;
+  border-radius: 30px;
+  height: auto;
+  padding: 20px;
+  padding-top: 5px;
+}
+#directoryResults .record h3 {
+  color: white;
+  font-family: "Nunito";
+  text-align: center;
+  font-size: 1.5em;
+  margin-top: 7.5px;
+}
+#directoryResults .record table {
+  width: 100%;
+  border-radius: 5px;
+}
+#directoryResults .record table th {
+  color: white;
+  font-family: "Nunito";
+  text-align: center;
+  font-size: 1.2em;
+  text-underline-offset: 3px;
+  background-color: #5f065f;
+}
+#directoryResults .record table td {
+  color: white;
+  font-family: "Nunito";
+  text-align: center;
+  font-size: 1.2em;
+}
+#directoryResults .record table td a {
+  color: white;
+  text-underline-offset: 4px;
+}
+#directoryResults .record table td a:hover {
+  color: #032d53;
+}
+#directoryResults .record table tr:nth-child(even) {
+  background-color: #63097e;
+}
+#directoryResults .record table tr:nth-child(odd) {
+  background-color: #870dac;
+}
+
+@media print {
+  #nav, form, #pageTitle, footer {
+    display: none;
+    width: 0;
+    height: 0;
+    visibility: hidden;
+  }
+  #directoryResults {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-end;
+    justify-content: space-around;
+    padding-top: 25px;
+  }
+  #directoryResults .record {
+    break-inside: avoid-page;
+    counter-increment: record-count;
+    width: 49%;
+    background-color: #881e88;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 5px;
+  }
+  #directoryResults .record h3 {
+    color: black;
+    font-family: "Nunito";
+    text-align: center;
+    font-size: 14pt;
+    margin-top: 7.5px;
+  }
+  #directoryResults .record table {
+    width: 100%;
+    border-radius: 5px;
+  }
+  #directoryResults .record table th, #directoryResults .record table td {
+    outline: 1px solid #ccc;
+  }
+  #directoryResults .record table th {
+    color: black;
+    font-family: "Nunito";
+    text-align: center;
+    font-size: 8pt;
+    text-underline-offset: 3px;
+    background-color: #5f065f;
+  }
+  #directoryResults .record table td {
+    color: black;
+    font-family: "Nunito";
+    text-align: center;
+    font-size: 9pt;
+  }
+  #directoryResults .record table td a {
+    color: black;
+    text-underline-offset: 4px;
+  }
+  #directoryResults .record table td a:hover {
+    color: #032d53;
+  }
+  #directoryResults .record table tr:nth-child(even) {
+    background-color: #63097e;
+  }
+  #directoryResults .record table tr:nth-child(odd) {
+    background-color: #870dac;
+  }
+  #directoryResults .record table .fullName {
+    font-size: 8pt;
+  }
+  #directoryResults .record table .plotOwner {
+    font-size: 7pt;
+  }
+  #directoryResults .record table .burialDate {
+    font-size: 7pt;
+  }
+}
 .center {
   width: 100%;
   margin: 0 auto;
