@@ -1,0 +1,170 @@
+#directoryResults {
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-end;
+    justify-content: space-around;
+    padding-top: 50px;
+
+    .record {
+
+        width: 45vw;
+        margin-bottom: 50px;
+        background-color: $purple;
+        border-radius: 30px;
+        height: auto;
+        padding: 20px;
+        padding-top: 5px;
+
+        h3 {
+            color: $white;
+            font-family: "Nunito";
+            text-align: center;
+            font-size: 1.5em;  
+            margin-top: 7.5px;
+        }
+
+        table {
+            width: 100%;
+            border-radius: 5px;
+
+            th {
+                color: $white;
+                font-family: "Nunito";
+                text-align: center;
+                font-size: 1.2em;
+                text-underline-offset: 3px;
+                background-color: #5f065f;
+            }
+
+            td {
+                color: $white;
+                font-family: "Nunito";
+                text-align: center;
+                font-size: 1.2em;
+
+                a {
+                    color: $white;
+                    text-underline-offset: 4px;
+                }
+
+                a:hover {
+                    color: #032d53;
+                }
+            }
+
+            tr:nth-child(even) {
+                background-color: #63097e;
+            }
+            
+
+            tr:nth-child(odd) {
+                background-color: #870dac;
+            }
+        }
+    }
+
+}
+
+@media print {
+
+    #nav, form, #pageTitle, footer {
+        display: none;
+        width: 0;
+        height: 0;
+        visibility: hidden;
+    }
+
+    #directoryResults {
+
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-content: flex-end;
+        justify-content: space-around;
+        padding-top: 25px;
+    
+        .record {
+
+            break-inside: avoid-page;
+    
+            counter-increment: record-count;
+
+            width: 49%;
+            // margin-bottom: 50px;
+            background-color: $purple;
+            // border-radius: 30px;
+            height: auto;
+            padding: 0;
+            margin: 0;
+            margin-bottom: 5px;
+    
+            h3 {
+                color: black;
+                font-family: "Nunito";
+                text-align: center;
+                font-size: 14pt;  
+                margin-top: 7.5px;
+            }
+    
+            table {
+                width: 100%;
+                border-radius: 5px;
+
+                th, td {
+                    outline: 1px solid #ccc;
+                }
+    
+                th {
+                    color: black;
+                    font-family: "Nunito";
+                    text-align: center;
+                    font-size: 8pt;
+                    text-underline-offset: 3px;
+                    background-color: #5f065f;
+                }
+    
+                td {
+                    color: black;
+                    font-family: "Nunito";
+                    text-align: center;
+                    font-size: 9pt;
+    
+                    a {
+                        color: black;
+                        text-underline-offset: 4px;
+                    }
+    
+                    a:hover {
+                        color: #032d53;
+                    }
+                }
+    
+                tr:nth-child(even) {
+                    background-color: #63097e;
+                }
+                
+    
+                tr:nth-child(odd) {
+                    background-color: #870dac;
+                }
+
+                .fullName {
+                    font-size: 8pt;
+                }
+
+                .plotOwner {
+                    font-size: 7pt;
+                }
+
+                .burialDate {
+                    font-size: 7pt;
+                }
+            }
+        }
+
+        
+    
+    }
+}
