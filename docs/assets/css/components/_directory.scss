@@ -104,6 +104,7 @@
         align-content: flex-end;
         justify-content: space-around;
         padding-top: 0px;
+        margin: 0px;
     
         .record {
 
@@ -118,14 +119,16 @@
             height: auto;
             padding: 0;
             margin: 0;
-            margin-bottom: 5px;
+            margin-top: 0;
+            // margin-bottom: 5px;
     
             h3 {
                 color: black;
                 font-family: "Nunito";
                 text-align: center;
-                font-size: 14pt !important;  
+                font-size: 12pt !important;  
                 margin-top: 7.5px;
+                margin-bottom: 3.5px;
             }
     
             table {
