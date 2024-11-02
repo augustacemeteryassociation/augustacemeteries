@@ -362,7 +362,7 @@ $().ready(function () {
 
 		let locationInput = values['locationSelection'];
 		let blockInput = filterInput(values['block_input'].charAt(0).toUpperCase(), ["scripts", "special", "extraSpaces"]);
-		let lotInput = filterInput(values['lot_input'], ["alphabet", "scripts", "special", "extraSpaces"]);
+		let lotInput = filterInput(values['lot_input'].toUpperCase(), ["scripts", "special", "extraSpaces"]);
 		let nameInput =  filterInput(values['name_input'], ["scripts", "special"]);
 
 		// console.log(locationInput, blockInput, lotInput, nameInput)
