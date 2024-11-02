@@ -197,6 +197,24 @@ $().ready(function () {
 	function getMatches(locationInput, blockInput, lotInput, nameInput) {
 
 		// console.log(locationInput, blockInput, lotInput, nameInput)
+		let titleText = "Cemetery Directory";
+		if (locationInput != "any") {
+			titleText += ` - ${locationInput.charAt(0).toUpperCase() + locationInput.slice(1)} Lawn`
+		}
+
+		if (blockInput != "") {
+			titleText += ` - Block ${blockInput}`
+		}
+
+		if (lotInput != "") {
+			titleText += ` - Lot ${lotInput}`
+		}
+
+		if (nameInput != "") {	
+			titleText += ` : ${nameInput}`
+		}
+
+		$("title").html(titleText);
 
 		$results.empty();
 
@@ -270,17 +288,30 @@ $().ready(function () {
 								let fullName = maidenName != "" ? `${fName} ${mName} <i>${maidenName}</i> ${lName}` : `${fName} ${mName} ${lName}`
 								fullName = d["graveLink"] != "" ? `<a href="${d["graveLink"]}" target="_blank">${fullName}</a>` : fullName
 
-								$tbody.append(`
-									<tr>
-										<td class="graveNum">${graveNum}${g}</td>
-										<td class="fullName">${fullName}</td>
-										<td class="plotOwner">${plotOwner}</td>
-										<td class="burialDate">${burialDate}</td>
-									</tr>
-								`);
+
 								
-								if ((fullName.toLowerCase().includes(nameInput.toLowerCase()) ||  plotOwner.toLowerCase().includes(nameInput.toLowerCase())) && hasName == false) {
+								
+								if ((fullName.toLowerCase().includes(nameInput.toLowerCase()) ||  plotOwner.toLowerCase().includes(nameInput.toLowerCase())) && (nameInput != "")) {
 									hasName = true
+
+									$tbody.append(`
+										<tr class="highlight">
+											<td class="graveNum">${graveNum}${g}</td>
+											<td class="fullName">${fullName}</td>
+											<td class="plotOwner">${plotOwner}</td>
+											<td class="burialDate">${burialDate}</td>
+										</tr>
+									`);
+
+								} else {
+									$tbody.append(`
+										<tr>
+											<td class="graveNum">${graveNum}${g}</td>
+											<td class="fullName">${fullName}</td>
+											<td class="plotOwner">${plotOwner}</td>
+											<td class="burialDate">${burialDate}</td>
+										</tr>
+									`);
 								}
 									
 							}
