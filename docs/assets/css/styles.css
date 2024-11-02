@@ -1102,8 +1102,17 @@ article p a:hover {
 #directoryResults .record table tr:nth-child(odd) {
   background-color: #870dac;
 }
+#directoryResults .record table tr.highlight:nth-child(even) {
+  background-color: #7e7c09;
+}
+#directoryResults .record table tr.highlight:nth-child(odd) {
+  background-color: #aca90d;
+}
 
 @media print {
+  .highlight {
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+  }
   #nav, form, #pageTitle, footer {
     display: none;
     width: 0;
