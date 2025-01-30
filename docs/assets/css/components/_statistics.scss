@@ -1,0 +1,61 @@
+.stats {
+    table {
+        margin: 0 auto;
+        width: 35vw;
+        padding-bottom: 5vh;
+        // border: solid 5px black;
+
+        thead {
+            color: white;
+            font-family: "Red Rose";
+            background-color: $purple;
+            
+            tr > th {
+                padding: 0;
+                position: sticky;
+                top: 0;
+                background-color: $purple;
+                height: 25px;
+            }
+        }
+
+        tbody {
+            tr {
+                height: auto;
+                border: 10px solid red;
+                td {
+                    background-color: #dacfdad8;
+                    font-family: 'Red Rose';
+                    text-align: center;
+                    // border: 1px solid black;
+                    padding: 0;
+                    height: 30px;
+                }
+            }
+        }
+
+        
+    }
+
+}
+
+#statForm {
+    width: 75vw;
+
+    display: flex;
+    justify-content: space-evenly;
+    padding-bottom: 5vh;
+
+
+    h1 {
+        font-family: "Red Rose";
+        color: $purple;
+        text-align: center;
+        // padding-bottom: 5vh;
+    }
+
+    input {
+        width: 7.5vw;
+    }
+    
+}

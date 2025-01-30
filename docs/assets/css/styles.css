@@ -1192,6 +1192,50 @@ article p a:hover {
     font-size: 7pt !important;
   }
 }
+.stats table {
+  margin: 0 auto;
+  width: 35vw;
+  padding-bottom: 5vh;
+}
+.stats table thead {
+  color: white;
+  font-family: "Red Rose";
+  background-color: #881e88;
+}
+.stats table thead tr > th {
+  padding: 0;
+  position: sticky;
+  top: 0;
+  background-color: #881e88;
+  height: 25px;
+}
+.stats table tbody tr {
+  height: auto;
+  border: 10px solid red;
+}
+.stats table tbody tr td {
+  background-color: rgba(218, 207, 218, 0.8470588235);
+  font-family: "Red Rose";
+  text-align: center;
+  padding: 0;
+  height: 30px;
+}
+
+#statForm {
+  width: 75vw;
+  display: flex;
+  justify-content: space-evenly;
+  padding-bottom: 5vh;
+}
+#statForm h1 {
+  font-family: "Red Rose";
+  color: #881e88;
+  text-align: center;
+}
+#statForm input {
+  width: 7.5vw;
+}
+
 .center {
   width: 100%;
   margin: 0 auto;

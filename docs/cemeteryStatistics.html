@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Cemetery Statistics</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS IMPORTS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+    <!-- JS IMPORTS -->
+    <script type="text/javascript" src="assets/js/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="assets/js/load.js"></script>
+    <script type="text/javascript" src="assets/js/statistics.js"></script>
+
+    <div class="fonts"></div>
+
+</head>
+
+<body>
+
+    <nav></nav>
+
+    
+
+    <div id="pageTitle">
+        <h1>Augusta WI Cemetery Statistics</h1>
+    </div>
+
+    <form action="" id="statForm">
+
+        <div id="yearSearchType">
+            <h1>Year Search Type</h1>
+            <select name="yearSearchType" id="yearSearchType">
+                <option value="interval">Interval</option>
+                <option value="custom">Custom</option>
+            </select>
+        </div>
+
+        <div id="yearOption">
+            <h1>Year Interval</h1>
+            <input type="input" id="yearInterval" class="intervalInput">
+        </div>
+
+
+        <!-- <div id="yearRange">
+            <h1>Year Range</h1>
+            <input type="input" id="yearInterval" class="intervalInput">
+        </div>
+
+        <div id="yearInterval_input">
+            <h1>Year Interval</h1>
+            <input type="input" id="yearInterval" class="intervalInput">
+        </div> -->
+
+        <div id="cemetery_input">
+            <h1>Cemetery</h1>
+            <select name="cemeteryType" id="cemeteryType">
+                <option value="All">All Cemeteries</option>
+                <option value="East">East Lawn</option>
+                <option value="West">West Lawn</option>
+            </select>
+        </div>
+
+        <div id="yearType_input">
+            <h1>Stat Year Type</h1>
+            <select name="yearType" id="yearType">
+                <option value="deathYears">Date of Death</option>
+                <option value="birthYears">Date of Birth</option>
+            </select>
+        </div>
+
+    </form>
+
+    <div class="stats">
+        <table>
+            <thead>
+                <tr>
+                    <th>Death Year Range</th>
+                    <th># of Deaths</th>
+                    <th>Min Age</th>
+                    <th>Average Age</th>
+                    <th>Median Age</th>
+                    <th>Max Age</th>
+                </tr>
+            </thead>
+            <tbody id="tableRecords">
+
+            </tbody>
+        </table>
+    </div>
+
+    
+</body>
+
+<footer></footer>
+
+</html>
