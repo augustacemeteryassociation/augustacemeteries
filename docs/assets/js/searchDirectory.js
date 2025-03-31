@@ -1,3 +1,30 @@
+
+
+function serialize() {
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    const key = Array(10).fill('').map(() => characters.charAt(Math.floor(Math.random() * characters.length))).join('');
+    return key
+}
+
+function arrWordFilter(words, filterWords) {
+
+	var filteredArr = []
+
+	words.forEach(word => {
+		if (!filterWords.includes(word) && word.length > 1) {
+			filteredArr.push(word)
+		}
+	})
+
+	if (filteredArr.length == 0) {
+		filteredArr = [""]
+	}
+
+	return filteredArr
+	
+}
+
+
 function cleanString(s) {
 	return s.replace(/[^a-zA-Z ]/g, "");
 }
@@ -30,35 +57,6 @@ function filterInput(input, filterType) {
 	}
 
 	return input
-}
-
-
-function yearDiff(dob, dod) {
-
-	var dobDate = getDate(dob)
-	var dodDate = getDate(dod)
-
-	var dobYear = dobDate['year'];
-	var dobMonth = dobDate['month'];
-	var dobDay = dobDate['day'];
-
-	var dodYear = dodDate['year'];
-	var dodMonth = dodDate['month'];
-	var dodDay = dodDate['day'];
-
-	if (dobYear == "Unknown" || dodYear == "Unknown") { return "Unknown"; }
-
-	var yearDiff = dodYear - dobYear;
-	
-	if (yearDiff == 0) { return "Less than a year"; }
-	if (dobMonth == undefined || dodMonth == undefined) { return yearDiff; }
-	
-	if (dodMonth < dobMonth) { if (yearDiff == 1) { return "Less than a year" } else { return yearDiff-1; }}
-	if (dodMonth >= dobMonth) { 
-		if (dobDay == undefined || dodDay == undefined) { return yearDiff; } 
-		if (dobMonth == dodMonth && dodDay < dobDay) { return yearDiff-1; } else { return yearDiff; } 
-	}
-
 }
 
 
@@ -113,83 +111,250 @@ function getDate(dateStr) {
 
 }
 
-function getDate_string(dateObject, dashFormat = false) {
 
-	var year = dateObject.year
-	var month = dateObject.month
-	var day = dateObject.day
+function yearDiff(dob, dod) {
 
-	if (dashFormat) {
+	var dobDate = getDate(dob)
+	var dodDate = getDate(dod)
 
-		if (year == undefined) {return "Unknown"}
-		if (month == undefined){return `${year}`}
-		if (day == undefined) {return `${month}-${year}`}
+	var dobYear = dobDate['year'];
+	var dobMonth = dobDate['month'];
+	var dobDay = dobDate['day'];
 
-		return `${month}-${day}-${year}`
-	}
+	var dodYear = dodDate['year'];
+	var dodMonth = dodDate['month'];
+	var dodDay = dodDate['day'];
 
-	if (year == undefined) { return "Unknown" }
-	if (month == undefined) { return `${year}`}
+	if (dobYear == "Unknown" || dodYear == "Unknown") { return "Unknown"; }
+
+	var yearDiff = dodYear - dobYear;
 	
-	switch (month) {
-		case 1:
-			var monthStr = "January";
-			break;
-		case 2:
-			var monthStr = "February";
-			break;
-		case 3:
-			var monthStr = "March";
-			break;
-		case 4:
-			var monthStr = "April";
-			break;
-		case 5:
-			var monthStr = "May";
-			break;
-		case 6:
-			var monthStr = "June";
-			break;
-		case 7:
-			var monthStr = "July";
-			break;
-		case 8:
-			var monthStr = "August";
-			break;
-		case 9:
-			var monthStr = "September";
-			break;
-		case 10:
-			var monthStr = "October";
-			break;
-		case 11:
-			var monthStr = "November";
-			break;
-		case 12:
-			var monthStr = "December";
-			break;
+	if (yearDiff == 0) { return 0; }
+	if (dobMonth == undefined || dodMonth == undefined) { return yearDiff; }
+	
+	if (dodMonth < dobMonth) { if (yearDiff == 1) { return 0 } else { return yearDiff-1; }}
+	if (dodMonth >= dobMonth) { 
+		if (dobDay == undefined || dodDay == undefined) { return yearDiff; } 
+		if (dobMonth == dodMonth && dodDay < dobDay) { return yearDiff-1; } else { return yearDiff; } 
 	}
 
-	if (day == undefined) {return `${monthStr} ${year}`}
-
-	return `${monthStr} ${day}, ${year}`;
 }
 
+
+function getYear(dateStr) {
+	var dateObj = getDate(dateStr)
+	return dateObj['year']
+}
+
+
+
+
+
+
+
+
+
+
+
+// INIT
+
+const records = new Map()
+const allNamesMap = new Map()
+
+const lotIDs = new Map()
+
+const firstNames = new Map()
+const middleNames = new Map()
+const lastNames = new Map()
+const maidenNames = new Map()
+const otherInfoNames = new Map()
+const plotOwnerNames = new Map()
 
 $().ready(function () {
 
 	var cemeteryData = null;
 
-	$.ajax({
-		type: 'GET',
-		dataType: 'json',
-		// url: 'json/graves.json',
-		url: 'https://directory-data.augustacemeteryassociation.workers.dev/',
-		async: false,
-		success: function (data) { 
-			// console.log(data)
-			cemeteryData = data; 
+	$.getJSON("json/graves.json", function (data) {
+		cemeteryData = data
+
+		for (cemetery in data) {
+
+            for (blockNum in data[cemetery]) {
+                for (lotNum in data[cemetery][blockNum]) {
+                    for (graveNum in data[cemetery][blockNum][lotNum]) {
+
+
+
+
+                        for (g in data[cemetery][blockNum][lotNum][graveNum]) {
+
+                            let d = data[cemetery][blockNum][lotNum][graveNum][g]
+
+							// Get new unique record ID
+                            do {
+                                recordID = serialize();
+                            } while (records.has(recordID))
+
+                            // If record is blank or invalid, skip
+                            // if (d['fName'] == "" && d['lName'] == "") { continue }
+
+							let isInfant = false
+							let infantFilterWords = ["infant", "baby"]
+
+							if (infantFilterWords.some(word => d['otherInfo'].toLowerCase().includes(word))) { isInfant = true }
+
+                            record = {
+                                "firstName": d["fName"],
+                                "middleName": d["mName"],
+                                "lastName": d["lName"],
+                                "maidenName": d["maidenName"],
+								"nickname": d["otherInfo"],
+                                "dateOfBirth": d["dateOfBirth"],
+                                "birthYear": getYear(d["dateOfBirth"]),
+                                "deathYear": getYear(d["dateOfDeath"]),
+                                "dateOfDeath": d["dateOfDeath"],
+                                "estimatedAge": yearDiff(d['dateOfBirth'], d['dateOfDeath']),
+								"plotOwner": d["plotOwner"],
+                                "cemetery": cemetery.replace("Lawn", ""),
+                                "blockNum": blockNum,
+                                "lotNum": lotNum,
+                                "graveNum": `${graveNum}${g}`,
+								"isInfant": isInfant
+                            }
+
+							// if (isInfant) {
+							// 	console.log(record)
+							// }
+
+							// console.log(record.firstName.toLowerCase())
+
+							let otherInfoArr = filterInput(record.nickname.toLowerCase(), ["special"]).split(" ")
+							let otherInfoFilterWords = ["", "infant", "infants", "child", "baby", "son", "sons", "daughter", "daughters", "of", "not", "available", "twin", "twins", "and", "mr", "mrs", "jr", "rev"]
+
+
+							nickNameWordsRemove = ["us", "army", "veteran", "infantry", "available", "buried", "tree", "killed"]
+							nickNameWordsRemove.forEach(word => {
+								if (otherInfoArr.includes(word)) {
+									otherInfoArr = [""]
+								}
+							})
+
+							if (otherInfoArr.length > 1 && otherInfoArr[0] != "") {
+								otherInfoArr =  arrWordFilter(otherInfoArr, otherInfoFilterWords)
+								// console.log(otherInfoArr)
+								
+								
+								if (otherInfoArr.length >= 1) {
+									otherInfoArr.forEach(name => {
+
+										if (name == "") { return; }
+										if (!otherInfoNames.has(name.toLowerCase())) {
+											otherInfoNames.set(name.toLowerCase(), []);
+										}
+
+										otherInfoNames.get(name.toLowerCase()).push(record)
+									})
+								}
+							}
+
+
+							let plotOwners = record.plotOwner.split(" ")
+							let filteredPlotOwners = []
+							
+							plotOwners.forEach(name => {
+								name = filterInput(name.toLowerCase(), ["special", "numbers"])
+								let filteredWords = ["and", "tree", "road", "mr", "mrs", "sr", "jr", "rev", "dr", "of", "not", "available", "for"]
+								if (name != "" && name.length > 1 && !filteredWords.includes(name)) {
+									filteredPlotOwners.push(name)
+
+									if (!plotOwnerNames.has(name.toLowerCase())) {
+										plotOwnerNames.set(name.toLowerCase(), []);
+									}
+
+									plotOwnerNames.get(name.toLowerCase()).push(recordID)
+								}
+							})
+
+							// if (filteredPlotOwners.length >= 1) {
+							// 	console.log(filteredPlotOwners)
+							// }
+
+							if (!firstNames.has(record.firstName.toLowerCase())) {
+								firstNames.set(record.firstName.toLowerCase(), []);
+							}
+
+							if (!middleNames.has(record.middleName.toLowerCase())) {
+								middleNames.set(record.middleName.toLowerCase(), []);
+							}
+
+							if (!lastNames.has(record.lastName.toLowerCase())) {
+								lastNames.set(record.lastName.toLowerCase(), []);
+							}
+
+							if (!maidenNames.has(record.maidenName.toLowerCase()) && record.maidenName != "") {
+								maidenNames.set(record.maidenName.toLowerCase(), []);
+							}
+
+							
+
+							
+                            
+
+                            
+
+                            // Set record key
+                            records.set(recordID, record)
+
+
+							firstNames.get(record.firstName.toLowerCase()).push(recordID);
+							middleNames.get(record.middleName.toLowerCase()).push(recordID);
+							lastNames.get(record.lastName.toLowerCase()).push(recordID);
+							if (record.maidenName != "") {
+								maidenNames.get(record.maidenName.toLowerCase()).push(recordID);
+							}
+
+							// if (record.nickname != "") {
+							// 	nicknames.get(record.nickname.toLowerCase()).push(record);
+							// }
+
+                        }
+                    }
+                }
+            }
+        }
+    }).then(function() {
+
+		// Combine all the names into one map
+
+		let nameMaps = [firstNames, middleNames, lastNames, maidenNames, otherInfoNames, plotOwnerNames]
+
+		for (mapID in nameMaps) {
+
+			let map = nameMaps[mapID]
+
+			map.forEach((ids, name, map) => {
+
+				// If name doesn't exist, create it
+				if (!allNamesMap.has(name)) { allNamesMap.set(name, []); }
+
+				ids.forEach(id => {
+
+					let mapKeys = allNamesMap.get(name)
+
+					// If the id isn't in the specified name in the map, add it
+					if (!mapKeys.includes(id)) { mapKeys.push(id); }
+				})
+			})
 		}
+
+		// console.log(allNamesMap)
+		// TODO: Implement this filter into the getMatches function
+		// Example of how to filter names
+		allNamesMap.forEach((ids, name, map) => {
+			if (name.includes("john")) {
+				console.log(name, ids)
+			}
+		})
 	})
 
 	var $results = $("#directoryResults")
@@ -265,7 +430,7 @@ $().ready(function () {
 
 						`)
 
-
+						// TODO: Update how this works, in terms of the matching the names to the maps
 						let $tbody = $(`table#${locName}-${blockNum}-${lotNum} > tbody`)
 						
 						for (graveNum in cemeteryData[cemetery][blockNum][lotNum]) {
@@ -374,6 +539,8 @@ $().ready(function () {
 		$("#lot_input:text").val(lotInput);
 		$("#name_input:text").val(nameInput);
 
+
+		//TODO: Update how name inputs are matched with the records map
 		getMatches(locationInput, blockInput, lotInput, nameInput)
 
 	});
