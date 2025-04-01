@@ -206,3 +206,58 @@
     
     }
 }
+
+.errorMessage{
+
+    @include phone {
+        width: 80%;
+        font-size: .7em;
+    }
+    
+    @include tablet {
+        width: 85%;
+        font-size: clamp(.55em, 3vw, 1.25em)
+    }
+
+    @include laptop {
+        width: 65%;
+        font-size: 1.2em;
+    }
+
+    @include desktop {
+        width: 33%;
+        font-size: 1.25em;
+    }
+
+
+
+    
+    background-color: rgb(138, 9, 9);
+    color: $white;
+    margin: 30px auto;
+    text-align: center;
+    padding: 7.5px;
+    border-radius: 25px;
+    // font-size: 1em;
+    font-family: "Red Rose";
+
+    span {
+        text-shadow: -3px 0 $black, 0 -2px $black;
+        font-weight: bolder;
+        @include phone {
+
+        }
+        
+        @include tablet {
+        
+        }
+        
+        @include laptop {
+        
+        }
+        
+        @include desktop {
+            font-size: 1.2em;
+        }
+    }
+}

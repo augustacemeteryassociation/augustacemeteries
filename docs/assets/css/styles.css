@@ -1192,6 +1192,49 @@ article p a:hover {
     font-size: 7pt !important;
   }
 }
+.errorMessage {
+  background-color: rgb(138, 9, 9);
+  color: white;
+  margin: 30px auto;
+  text-align: center;
+  padding: 7.5px;
+  border-radius: 25px;
+  font-family: "Red Rose";
+}
+@media (min-width: 0px) {
+  .errorMessage {
+    width: 80%;
+    font-size: 0.7em;
+  }
+}
+@media (min-width: 480px) {
+  .errorMessage {
+    width: 85%;
+    font-size: clamp(0.55em, 3vw, 1.25em);
+  }
+}
+@media (min-width: 720px) {
+  .errorMessage {
+    width: 65%;
+    font-size: 1.2em;
+  }
+}
+@media (min-width: 1200px) {
+  .errorMessage {
+    width: 33%;
+    font-size: 1.25em;
+  }
+}
+.errorMessage span {
+  text-shadow: -3px 0 black, 0 -2px black;
+  font-weight: bolder;
+}
+@media (min-width: 1200px) {
+  .errorMessage span {
+    font-size: 1.2em;
+  }
+}
+
 .stats table {
   margin: 0 auto;
   width: 35vw;
