@@ -1,5 +1,3 @@
-
-
 function serialize() {
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     const key = Array(10).fill('').map(() => characters.charAt(Math.floor(Math.random() * characters.length))).join('');
@@ -174,158 +172,162 @@ $().ready(function () {
 
 	var cemeteryData = null;
 
-	$.getJSON("json/graves.json", function (data) {
-		cemeteryData = data
+	$.ajax({
+		type: 'GET',
+		dataType: 'json',
+		// url: 'json/graves.json',
+		url: 'https://directory-data.augustacemeteryassociation.workers.dev/',
+		async: false,
+		success: function (data) { 
 
-		for (cemetery in data) {
+			cemeteryData = data; 
 
-            for (blockNum in data[cemetery]) {
-                for (lotNum in data[cemetery][blockNum]) {
-                    for (graveNum in data[cemetery][blockNum][lotNum]) {
+			for (cemetery in data) {
+				for (blockNum in data[cemetery]) {
+					for (lotNum in data[cemetery][blockNum]) {
 
+						do {
+							lotID = serialize();
+						} while (lotIDs.has(lotID))
 
+						let lotRecordIDs = []
 
+						for (graveNum in data[cemetery][blockNum][lotNum]) {
+							for (g in data[cemetery][blockNum][lotNum][graveNum]) {
 
-                        for (g in data[cemetery][blockNum][lotNum][graveNum]) {
+								let d = data[cemetery][blockNum][lotNum][graveNum][g]
 
-                            let d = data[cemetery][blockNum][lotNum][graveNum][g]
+								// Get new unique record ID
+								do {
+									recordID = serialize();
+								} while (records.has(recordID))
 
-							// Get new unique record ID
-                            do {
-                                recordID = serialize();
-                            } while (records.has(recordID))
+								lotRecordIDs.push(recordID)
 
-                            // If record is blank or invalid, skip
-                            // if (d['fName'] == "" && d['lName'] == "") { continue }
+								// If record is blank or invalid, skip
+								// if (d['fName'] == "" && d['lName'] == "") { continue }
 
-							let isInfant = false
-							let infantFilterWords = ["infant", "baby"]
+								let isInfant = false
+								let infantFilterWords = ["infant", "baby"]
 
-							if (infantFilterWords.some(word => d['otherInfo'].toLowerCase().includes(word))) { isInfant = true }
+								if (infantFilterWords.some(word => d['otherInfo'].toLowerCase().includes(word))) { isInfant = true }
 
-                            record = {
-                                "firstName": d["fName"],
-                                "middleName": d["mName"],
-                                "lastName": d["lName"],
-                                "maidenName": d["maidenName"],
-								"nickname": d["otherInfo"],
-                                "dateOfBirth": d["dateOfBirth"],
-                                "birthYear": getYear(d["dateOfBirth"]),
-                                "deathYear": getYear(d["dateOfDeath"]),
-                                "dateOfDeath": d["dateOfDeath"],
-                                "estimatedAge": yearDiff(d['dateOfBirth'], d['dateOfDeath']),
-								"plotOwner": d["plotOwner"],
-                                "cemetery": cemetery.replace("Lawn", ""),
-                                "blockNum": blockNum,
-                                "lotNum": lotNum,
-                                "graveNum": `${graveNum}${g}`,
-								"isInfant": isInfant
-                            }
+								let fullName = d["maidenName"] != "" ? `${d["fName"]} ${d["mName"]} <i>${d["maidenName"]}</i> ${d["lName"]}` : `${d["fName"]} ${d["mName"]} ${d["lName"]}`
 
-							// if (isInfant) {
-							// 	console.log(record)
-							// }
-
-							// console.log(record.firstName.toLowerCase())
-
-							let otherInfoArr = filterInput(record.nickname.toLowerCase(), ["special"]).split(" ")
-							let otherInfoFilterWords = ["", "infant", "infants", "child", "baby", "son", "sons", "daughter", "daughters", "of", "not", "available", "twin", "twins", "and", "mr", "mrs", "jr", "rev"]
-
-
-							nickNameWordsRemove = ["us", "army", "veteran", "infantry", "available", "buried", "tree", "killed"]
-							nickNameWordsRemove.forEach(word => {
-								if (otherInfoArr.includes(word)) {
-									otherInfoArr = [""]
+								record = {
+									"firstName": d["fName"],
+									"middleName": d["mName"],
+									"lastName": d["lName"],
+									"maidenName": d["maidenName"],
+									"fullName": fullName,
+									"nickname": d["otherInfo"],
+									"dateOfBirth": d["dateOfBirth"],
+									"birthYear": getYear(d["dateOfBirth"]),
+									"deathYear": getYear(d["dateOfDeath"]),
+									"dateOfDeath": d["dateOfDeath"],
+									"burialDate": d["burialDate"],
+									"estimatedAge": yearDiff(d['dateOfBirth'], d['dateOfDeath']),
+									"plotOwner": d["plotOwner"],
+									"cemetery": cemetery.replace("Lawn", ""),
+									"blockNum": blockNum,
+									"lotNum": lotNum,
+									"lotID": lotID,
+									"graveNum": `${graveNum}${g}`,
+									"isInfant": isInfant,
+									"recordID": recordID
 								}
-							})
 
-							if (otherInfoArr.length > 1 && otherInfoArr[0] != "") {
-								otherInfoArr =  arrWordFilter(otherInfoArr, otherInfoFilterWords)
-								// console.log(otherInfoArr)
-								
-								
-								if (otherInfoArr.length >= 1) {
-									otherInfoArr.forEach(name => {
+								let otherInfoArr = filterInput(record.nickname.toLowerCase(), ["special"]).split(" ")
+								let otherInfoFilterWords = ["", "infant", "infants", "child", "baby", "son", "sons", "daughter", "daughters", "of", "not", "available", "twin", "twins", "and", "mr", "mrs", "jr", "rev"]
 
-										if (name == "") { return; }
-										if (!otherInfoNames.has(name.toLowerCase())) {
-											otherInfoNames.set(name.toLowerCase(), []);
+								nickNameWordsRemove = ["us", "army", "veteran", "infantry", "available", "buried", "tree", "killed"]
+								nickNameWordsRemove.forEach(word => {
+									if (otherInfoArr.includes(word)) {
+										otherInfoArr = [""]
+									}
+								})
+
+								if (otherInfoArr.length > 1 && otherInfoArr[0] != "") {
+									otherInfoArr =  arrWordFilter(otherInfoArr, otherInfoFilterWords)
+									
+									if (otherInfoArr.length >= 1) {
+										otherInfoArr.forEach(name => {
+
+											if (name == "") { return; }
+											if (!otherInfoNames.has(name.toLowerCase())) {
+												otherInfoNames.set(name.toLowerCase(), []);
+											}
+
+											otherInfoNames.get(name.toLowerCase()).push(recordID)
+										})
+									}
+								}
+
+
+								let plotOwners = record.plotOwner.split(" ")
+								let filteredPlotOwners = []
+								
+								plotOwners.forEach(name => {
+									name = filterInput(name.toLowerCase(), ["special", "numbers"])
+									let filteredWords = ["and", "tree", "road", "mr", "mrs", "sr", "jr", "rev", "dr", "of", "not", "available", "for"]
+									if (name != "" && name.length > 1 && !filteredWords.includes(name)) {
+										filteredPlotOwners.push(name)
+
+										if (!plotOwnerNames.has(name.toLowerCase())) {
+											plotOwnerNames.set(name.toLowerCase(), []);
 										}
 
-										otherInfoNames.get(name.toLowerCase()).push(record)
-									})
-								}
-							}
-
-
-							let plotOwners = record.plotOwner.split(" ")
-							let filteredPlotOwners = []
-							
-							plotOwners.forEach(name => {
-								name = filterInput(name.toLowerCase(), ["special", "numbers"])
-								let filteredWords = ["and", "tree", "road", "mr", "mrs", "sr", "jr", "rev", "dr", "of", "not", "available", "for"]
-								if (name != "" && name.length > 1 && !filteredWords.includes(name)) {
-									filteredPlotOwners.push(name)
-
-									if (!plotOwnerNames.has(name.toLowerCase())) {
-										plotOwnerNames.set(name.toLowerCase(), []);
+										plotOwnerNames.get(name.toLowerCase()).push(recordID)
 									}
+								})
 
-									plotOwnerNames.get(name.toLowerCase()).push(recordID)
+
+								if (!firstNames.has(record.firstName.toLowerCase())) {
+									firstNames.set(record.firstName.toLowerCase(), []);
 								}
-							})
 
-							// if (filteredPlotOwners.length >= 1) {
-							// 	console.log(filteredPlotOwners)
-							// }
+								if (!middleNames.has(record.middleName.toLowerCase())) {
+									middleNames.set(record.middleName.toLowerCase(), []);
+								}
 
-							if (!firstNames.has(record.firstName.toLowerCase())) {
-								firstNames.set(record.firstName.toLowerCase(), []);
+								if (!lastNames.has(record.lastName.toLowerCase())) {
+									lastNames.set(record.lastName.toLowerCase(), []);
+								}
+
+								if (!maidenNames.has(record.maidenName.toLowerCase()) && record.maidenName != "") {
+									maidenNames.set(record.maidenName.toLowerCase(), []);
+								}
+
+								
+
+								// Set record key
+								records.set(recordID, record)
+
+
+								firstNames.get(record.firstName.toLowerCase()).push(recordID);
+								middleNames.get(record.middleName.toLowerCase()).push(recordID);
+								lastNames.get(record.lastName.toLowerCase()).push(recordID);
+								if (record.maidenName != "") {
+									maidenNames.get(record.maidenName.toLowerCase()).push(recordID);
+								}
 							}
-
-							if (!middleNames.has(record.middleName.toLowerCase())) {
-								middleNames.set(record.middleName.toLowerCase(), []);
-							}
-
-							if (!lastNames.has(record.lastName.toLowerCase())) {
-								lastNames.set(record.lastName.toLowerCase(), []);
-							}
-
-							if (!maidenNames.has(record.maidenName.toLowerCase()) && record.maidenName != "") {
-								maidenNames.set(record.maidenName.toLowerCase(), []);
-							}
-
-							
-
-							
-                            
-
-                            
-
-                            // Set record key
-                            records.set(recordID, record)
+						}
 
 
-							firstNames.get(record.firstName.toLowerCase()).push(recordID);
-							middleNames.get(record.middleName.toLowerCase()).push(recordID);
-							lastNames.get(record.lastName.toLowerCase()).push(recordID);
-							if (record.maidenName != "") {
-								maidenNames.get(record.maidenName.toLowerCase()).push(recordID);
-							}
+						// Set Lot ID and matching record IDs
+						lotIDs.set(lotID, {
+							"recordIDs": lotRecordIDs,
+							"Block": blockNum,
+							"Lot": lotNum,
+							"Cemetery": cemetery.replace("Lawn", ""),
+						});
 
-							// if (record.nickname != "") {
-							// 	nicknames.get(record.nickname.toLowerCase()).push(record);
-							// }
-
-                        }
-                    }
-                }
-            }
-        }
-    }).then(function() {
+					}
+				}
+			}
+    }}).then(function() {
 
 		// Combine all the names into one map
-
 		let nameMaps = [firstNames, middleNames, lastNames, maidenNames, otherInfoNames, plotOwnerNames]
 
 		for (mapID in nameMaps) {
@@ -338,7 +340,6 @@ $().ready(function () {
 				if (!allNamesMap.has(name)) { allNamesMap.set(name, []); }
 
 				ids.forEach(id => {
-
 					let mapKeys = allNamesMap.get(name)
 
 					// If the id isn't in the specified name in the map, add it
@@ -347,21 +348,20 @@ $().ready(function () {
 			})
 		}
 
-		// console.log(allNamesMap)
-		// TODO: Implement this filter into the getMatches function
-		// Example of how to filter names
-		allNamesMap.forEach((ids, name, map) => {
-			if (name.includes("john")) {
-				console.log(name, ids)
-			}
-		})
 	})
 
 	var $results = $("#directoryResults")
 
-	function getMatches(locationInput, blockInput, lotInput, nameInput) {
+	function getMatches(locationInput, blockInput, lotInput, nameInput, nameSortInput) {
 
-		// console.log(locationInput, blockInput, lotInput, nameInput)
+		// console.log([locationInput, blockInput, lotInput, nameInput, nameSortInput])
+
+		var matches = []
+		var lotMatches = []
+		var uniqueResultMap = new Map();
+
+
+
 		let titleText = "Cemetery Directory";
 		if (locationInput != "any") {
 			titleText += ` - ${locationInput.charAt(0).toUpperCase() + locationInput.slice(1)} Lawn`
@@ -375,122 +375,268 @@ $().ready(function () {
 			titleText += ` - Lot ${lotInput}`
 		}
 
-		if (nameInput != "") {	
-			titleText += ` : ${nameInput}`
+		if (nameInput != "") {
+
+			let nameInputs = filterInput(nameInput, ["special", "numbers"]).toLowerCase().split(" ")
+			nameInputs = nameInputs.filter(name => name != "")
+
+			if (nameInput != "" && nameInputs.length > 1) {
+			
+				titleText += ` : ${nameInputs.map(name => name.charAt(0).toUpperCase() + name.slice(1)).join(" ")}`
+			} else if (nameInput != "" && nameInputs.length == 1) {
+				titleText += ` : ${nameInputs[0].charAt(0).toUpperCase() + nameInputs[0].slice(1)}`
+			}
+
+			
+			nameInputs.forEach(nameIn => {
+
+				allNamesMap.forEach((ids, name, map) => {
+					
+					if (!uniqueResultMap.has(nameIn)) {
+						uniqueResultMap.set(nameIn, [])
+					}
+
+
+					if (name.includes(nameIn)) {
+
+						
+
+						ids.forEach(id => {
+
+							if (nameSortInput == "exact" && nameInputs.length > 1) {
+								if(uniqueResultMap.get(nameIn).includes(id)) { return; }
+								uniqueResultMap.get(nameIn).push(id)
+								return;
+							}
+							if (matches.includes(id)) { return; }
+
+							matches.push(id)
+
+
+							// lot = records.get(id).lotID
+							
+							// if (!lotMatches.includes(lot)) {
+							// 	lotMatches.push(lot)
+							// }
+						})
+					}
+				})
+			})
+
+			// TODO: Find a way to find common ids between all unique names (Currently working, need to debug to make sure everything is working correctly)
+			if (nameSortInput == "exact" && nameInputs.length > 1) {
+
+				uniqueResults = []
+
+				uniqueResultMap.forEach((ids, name, map) => {
+					ids.forEach(id => {
+						uniqueResults.push(id)
+					})
+				})
+
+				// console.log(uniqueResults)
+		
+				matches = [...new Set(uniqueResults.filter((item, index) => uniqueResults.indexOf(item) !== index))];
+				// console.log(matches)
+
+				// matches.forEach(id => {
+				// 	console.log(records.get(id))
+				// })
+			}
+
+			// console.log(matches)
+
+
+			// TODO: Add logic to find valid lots (Think this is working correctly, double check and debug)
+			matches.forEach(id => {
+				let lotID = records.get(id).lotID
+				// let recordInfo = records.get(id)
+				let lotInfo = lotIDs.get(lotID)
+
+
+				if (locationInput == "any" || locationInput == lotInfo.Cemetery.toLowerCase()) {
+					// console.log(lotInfo)
+					if (blockInput == "" && lotInput == "") { lotMatches.push(lotID); return;}
+					if ((blockInput != "" && blockInput == lotInfo.Block) && (lotInput != "" && lotInput == lotInfo.Lot)) { lotMatches.push(lotID); return; }
+					if (lotInput == "" && (blockInput != "" && blockInput == lotInfo.Block)) { lotMatches.push(lotID); return; }
+					if (blockInput == "" && (lotInput != "" && lotInput == lotInfo.Lot)) { lotMatches.push(lotID); return; }
+
+				}
+
+				// if (lotMatches.includes(lotID)) { return; }
+
+				// if (blockInput == "" && lotInput == "") {
+				// 	lotMatches.push(lotID)
+				// }
+
+				// if (blockInput != "" && blockInput == recordInfo.blockNum) {
+				// 	lotMatches.push(lotID)
+				// }
+
+				// if (lotInput != "" && lotInput == recordInfo.lotID) {
+				// 	lotMatches.push(lotID)
+				// }
+			
+			})
 		}
+
+		// TODO: Add logic to find valid lots and blocks if no name is entered
+		if (nameInput == "") {
+
+			lotIDs.forEach((lot, lotID, map) => {
+
+				lotInfo = lotIDs.get(lotID)
+				
+
+				if (locationInput == "any" || locationInput == lotInfo.Cemetery.toLowerCase()) {
+					// console.log(lotInfo)
+					if (blockInput == "" && lotInput == "") { return; }
+					if ((blockInput != "" && blockInput == lotInfo.Block) && (lotInput != "" && lotInput == lotInfo.Lot)) { lotMatches.push(lotID); return; }
+					if (lotInput == "" && (blockInput != "" && blockInput == lotInfo.Block)) { lotMatches.push(lotID); return; }
+					if (blockInput == "" && (lotInput != "" && lotInput == lotInfo.Lot)) { lotMatches.push(lotID); return; }
+
+				}
+				
+				
+				return
+
+			})
+
+			
+		}
+		
+
+		// console.log(lotMatches)
+
+
+		// console.log(uniqueResultMap)
+		
+		
+
+		// console.log(matches)
+		// console.log(matches, lotMatches)
+		if (matches.length >= 0 && lotMatches.length == 0) {
+
+			$results.empty();
+
+			$results.append(`
+				<h1 class="errorMessage">
+					No Results Found
+				</h1>
+			`)
+
+			return;
+		}
+
+		let orderedMatches = []
+		let orderedLots = []
+
+
+		lotIDs.forEach((lot, lotID, map) => {
+			if (lotMatches.includes(lotID)) {
+				orderedLots.push(lotID)
+			}
+		})
+
+		// console.log(orderedLots)
+
+		// let diff = []
+
+		// if (matches.length != orderedMatches.length) {
+			
+		// 		matches.forEach(id => {
+		// 			if (!orderedMatches.includes(id)) {
+		// 				diff.push(id)
+		// 			}
+		// 		})
+
+		// }
+
 
 		$("title").html(titleText);
 
 		$results.empty();
 
-			//
-			// CEMETERY SEARCH
-			//
-			if (cemeteryData == null) { return ; }
-
-			for (cemetery in cemeteryData) {
-
-				// Check if cemetery location is valid, else continue to next cemetery
-				if (locationInput != "any" && !cemetery.toLowerCase().includes(locationInput)) { continue; }
-				let locName = cemetery.replace("Lawn", "")
-				for (blockNum in cemeteryData[cemetery]) {
-
-					// Check if block # is valid, else go to next block
-					if (blockInput != "" && blockInput != blockNum) { continue; }
-					for (lotNum in cemeteryData[cemetery][blockNum]) {
-
-						// console.log(cemeteryData[cemetery][blockNum][lotNum])
-
-						// Check if lot # is valid, else go to next lot
-						if (lotInput != "" && lotInput != lotNum) { continue; }
-						$results.append(`
-							<div class="record" id="${locName}-${blockNum}-${lotNum}">
-								<h3>${locName} Lawn - Block ${blockNum}, Lot ${lotNum}</h3>
-							</div>
-						`)
-
-						let hasName = nameInput != "" ? false : true
-
-						let $record = $(`div #${locName}-${blockNum}-${lotNum}`)
-
-						$record.append(`<table id="${locName}-${blockNum}-${lotNum}"></table>`)
-						let $table = $(`table#${locName}-${blockNum}-${lotNum}`)
-						
-						$table.append(`
-
-						<thead>
-							<tr>
-								<th>Grave #</th>
-								<th>Name</th>
-								<th>Plot Owner</th>
-								<th>Burial Date</th>
-							</tr>
-						</thead>
-						<tbody></tbody>
-
-						`)
-
-						// TODO: Update how this works, in terms of the matching the names to the maps
-						let $tbody = $(`table#${locName}-${blockNum}-${lotNum} > tbody`)
-						
-						for (graveNum in cemeteryData[cemetery][blockNum][lotNum]) {
-							for (g in cemeteryData[cemetery][blockNum][lotNum][graveNum]) {
-
-								let d = cemeteryData[cemetery][blockNum][lotNum][graveNum][g]
+		//
+		// CEMETERY SEARCH
+		//
+		if (cemeteryData == null) { return ; }
 
 
-								let fName = d["fName"]
-								let mName = d["mName"]
-								let lName = d["lName"]
-								let burialDate = d["burialDate"]
-								let maidenName = d["maidenName"]
-								let otherInfo = d["otherInfo"]
-								let plotOwner = d["plotOwner"]
+		orderedLots.forEach(lotID => {
 
-								// let dob = getDate(d["dateOfBirth"])
-								// let dod = getDate(d["dateOfDeath"])																			
+			lotInfo = lotIDs.get(lotID)
+			// console.log(matches)
+			
 
-								let fullName = maidenName != "" ? `${fName} ${mName} <i>${maidenName}</i> ${lName}` : `${fName} ${mName} ${lName}`
-								fullName = d["graveLink"] != "" ? `<a href="${d["graveLink"]}" target="_blank">${fullName}</a>` : fullName
-
-
-								
-								
-								if ((fullName.toLowerCase().includes(nameInput.toLowerCase()) ||  plotOwner.toLowerCase().includes(nameInput.toLowerCase())) && (nameInput != "")) {
-									hasName = true
-
-									$tbody.append(`
-										<tr class="highlight">
-											<td class="graveNum">${graveNum}${g}</td>
-											<td class="fullName">${fullName}</td>
-											<td class="plotOwner">${plotOwner}</td>
-											<td class="burialDate">${burialDate}</td>
-										</tr>
-									`);
-
-								} else {
-									$tbody.append(`
-										<tr>
-											<td class="graveNum">${graveNum}${g}</td>
-											<td class="fullName">${fullName}</td>
-											<td class="plotOwner">${plotOwner}</td>
-											<td class="burialDate">${burialDate}</td>
-										</tr>
-									`);
-								}
-									
-							}
-
-							
-						}
-
-						// Remove record, if nameInput is empty, or name is not found in reocrd
-						if (!hasName) { $record.remove() }
-
-					}
-				}
+			if (locationInput != "any") {
+				if (lotInfo.Cemetery.toLowerCase() != locationInput) { return; }
 			}
-		}
+
+			if (blockInput != "") {
+				if (lotInfo.Block != blockInput) { return; }
+			}
+
+			if (lotInput != "") {
+				if (lotInfo.Lot != lotInput) { return; }
+			}
+
+
+			$results.append(`
+				<div class="record" id="LOT_${lotID}">
+					<h3>${lotInfo.Cemetery} Lawn - Block ${lotInfo.Block}, Lot ${lotInfo.Lot}</h3>
+				</div>
+			`)
+
+
+			let $record = $(`div #LOT_${lotID}`)
+
+			$record.append(`<table id="TABLE_${lotID}"></table>`)
+			let $table = $(`table#TABLE_${lotID}`)
+			
+			$table.append(`
+
+				<thead>
+					<tr>
+						<th>Grave #</th>
+						<th>Name</th>
+						<th>Plot Owner</th>
+						<th>Burial Date</th>
+					</tr>
+				</thead>
+				<tbody></tbody>
+
+			`)
+
+			let $tbody = $(`table#TABLE_${lotID} > tbody`)
+
+			lotInfo.recordIDs.forEach(recID => {
+
+				let record = records.get(recID)
+				let isHighlighted = ""
+
+				if (matches.includes(recID)) {
+					isHighlighted = "highlight"
+				} 
+
+
+				$tbody.append(`
+					<tr class="${isHighlighted}">
+						<td class="graveNum">${record.graveNum}</td>
+						<td class="fullName">${record.fullName}</td>
+						<td class="plotOwner">${record.plotOwner}</td>
+						<td class="burialDate">${record.burialDate}</td>
+					</tr>
+				`);
+		
+			})
+
+			
+
+
+		})
+
+	}
 	
 
 	
@@ -523,16 +669,14 @@ $().ready(function () {
 			values[this.name] = $(this).val();
 		});
 
-		// console.log(values)
-
 		let locationInput = values['locationSelection'];
 		let blockInput = filterInput(values['block_input'].charAt(0).toUpperCase(), ["scripts", "special", "extraSpaces"]);
 		let lotInput = filterInput(values['lot_input'].toUpperCase(), ["scripts", "special", "extraSpaces"]);
 		let nameInput =  filterInput(values['name_input'], ["scripts", "special"]);
+		let nameSortInput = values['nameSelection'];
 
-		// console.log(locationInput, blockInput, lotInput, nameInput)
-
-
+		// console.log(values)
+		// console.log([locationInput, blockInput, lotInput, nameInput, nameSortInput])
 
 		// Display filtered input back into the form
 		$("#block_input:text").val(blockInput);
@@ -541,30 +685,7 @@ $().ready(function () {
 
 
 		//TODO: Update how name inputs are matched with the records map
-		getMatches(locationInput, blockInput, lotInput, nameInput)
+		getMatches(locationInput, blockInput, lotInput, nameInput, nameSortInput)
 
 	});
 });
-
-// $(document).on('click', '.moreDetails', function () {
-
-// 	var message = $(this).text().trim();
-
-// 	if (message == "More Details") {
-// 		$(this).html("<h2>Less Details</h2>");
-// 	} else {
-// 		$(this).html("<h2>More Details</h2>")
-// 	}
-
-// 	$(this).next().toggle(400, "swing");
-// });
-
-// $(document).on('click', '.resultMessage', function () {
-// 	$(this).next(".results").toggle(400, "swing")
-// });
-
-
-// when image is loading, fade in
-// $(document).on('load', 'img', function () {
-// 	$(this).fadeIn(1000);
-// });
