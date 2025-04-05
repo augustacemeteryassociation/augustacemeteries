@@ -214,6 +214,10 @@ $().ready(function () {
 
 								let fullName = d["maidenName"] != "" ? `${d["fName"]} ${d["mName"]} <i>${d["maidenName"]}</i> ${d["lName"]}` : `${d["fName"]} ${d["mName"]} ${d["lName"]}`
 
+								if (d["graveLink"] != "") { 
+									fullName = `<a href="${d["graveLink"]}" target="_blank">${fullName}</a>`
+								}
+
 								record = {
 									"firstName": d["fName"],
 									"middleName": d["mName"],
@@ -234,7 +238,8 @@ $().ready(function () {
 									"lotID": lotID,
 									"graveNum": `${graveNum}${g}`,
 									"isInfant": isInfant,
-									"recordID": recordID
+									"recordID": recordID,
+									"graveLink": d["graveLink"]
 								}
 
 								let otherInfoArr = filterInput(record.nickname.toLowerCase(), ["special"]).split(" ")
