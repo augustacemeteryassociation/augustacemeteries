@@ -57,11 +57,17 @@ $(document).ready(function () {
         isPinching = false;
     });
 
+
+    $(".mapSelection > ul > li").on("click", function() {
+        resetMap();
+    })
+
+
     function resetMap() {
         translateX = 0;
         translateY = 0;
         scale = 1;
-        $(this).css("transform", "translate(0px, 0px) scale(1)");
+        $(".svg").css("transform", "translate(0px, 0px) scale(1)");
     }
     
 })
