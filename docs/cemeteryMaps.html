@@ -17,6 +17,7 @@
     <!-- JS IMPORTS -->
     <script type="text/javascript" src="assets/js/jquery-3.5.1.min.js"></script>
     <script type="text/javascript" src="assets/js/load.js"></script>
+    <script type="text/javascript" src="assets/js/mobileMapHandler.js"></script>
 
     <div class="fonts"></div>
 
@@ -113,17 +114,17 @@
                 <li>West Lawn</li>
             </ul>
         </div>
-
-        <div class="svg"></div>
+        <div class="svg-container">
+            <div class="svg"></div>
+        </div>
+        
 
         <script>
             $(".svg").load("./assets/svg/EastLawn.html")
             $(".mapSelection").append("<p>Select any lot to see who is buried there.</p>")
             $(".mapSelection li:first-child").css("border", "5px solid black");
             $(document).ready(function() {
-                
-                
-                
+
                 function viewPort(setting) {
                     
                     var viewportMeta = $("meta[name='viewport']");
