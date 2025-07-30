@@ -3,6 +3,7 @@
         text-wrap: balance;
         color: $purple;
         font-family: "Secular One";
+        text-align: center;
         @include phone {font-size: 1.4em;}
         @include tablet {font-size: 1.5em;}
         @include laptop {font-size: 1.75em; margin: 0 2.25vw;}
@@ -60,6 +61,7 @@
 #veteranList {
     h1 {
         color: $purple;
+        text-align: center;
         font-family: "Secular One";
         margin: 0 auto;
         @include phone {font-size: 1.65em;}
@@ -91,6 +93,7 @@
 
             color: white;
             font-family: "Secular One";
+            text-align: center;
 
             display: inline-block;
             background-color: $purple;
@@ -136,6 +139,7 @@
     // overflow: auto;
     width: 100%;
     display: flex;
+    text-align: center;
     justify-content: center;
     flex-wrap: wrap;
     padding-top: 30px;
