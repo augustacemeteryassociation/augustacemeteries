@@ -154,70 +154,78 @@ function getDate_string(dateObject) {
 
 var $results = $("#results")
 
-function searchMap(cemetery, blockID, lotID) {
+function searchMap(data, cemetery, blockNum, lotNum) {
+    // c = cemetery
+
+    // console.log(cemetery, blockNum, lotNum)
 
     $results.empty();
 
-    $.getJSON("json/graves.json", function (data) {
+    // $.getJSON("json/graves.json", function (data) {
 
-        var count = 0;
-        var exactMatch = []
-        for (c in data) {
+    var count = 0;
+    var exactMatch = []
 
-            $("results").append(c);
+    // for (c in data) {
 
-            for (blockNum in data[c]) {
-                for (lotNum in data[c][blockNum]) {
-                    for (graveNum in data[c][blockNum][lotNum]) {
-                        for (g in data[c][blockNum][lotNum][graveNum]) {
-                            var d = data[c][blockNum][lotNum][graveNum][g]
+    $("results").append(cemetery);
+
+    try {
+        curData = data[cemetery][blockNum][lotNum]
 
 
-                            if (c == cemetery) {
-                                if (blockID == blockNum) {
-                                    if (lotNum == lotID) {
-                                        d["cemetery"] = cemetery
-                                        d['blockNum'] = blockNum
-                                        d['lotNum'] = lotNum
-                                        d['graveNum'] = graveNum
-                                        d['graveSubNum'] = g
+        for (graveNum in curData) {
+        for (g in curData[graveNum]) {
 
-                                        if (d['fName'] != "" && d['lName'] != "") {
-                                            exactMatch.push(d)
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
+            var d = curData[graveNum][g]
+
+            d["cemetery"] = cemetery
+            d['blockNum'] = blockNum
+            d['lotNum'] = lotNum
+            d['graveNum'] = graveNum
+            d['graveSubNum'] = g
+
+            if (d['fName'] != "" || d['lName'] != "") {
+
+                if (exactMatch.includes(d)) {
+                    continue
                 }
+                exactMatch.push(d)   
             }
-
-
         }
+    }     
+    } catch (e) {
+        console.log(e)
+        // continue
+    }
 
+    // curData = data[cemetery][blockNum][lotNum]
 
+    // for (blockNum in data[c]) {
+    //     for (lotNum in data[c][blockNum]) {
+       
 
-        var isExactMatch_length = exactMatch.length
-        var isExactMatch = isExactMatch_length >= 1
+        
 
-        if (isExactMatch) {
+    var isExactMatch_length = exactMatch.length
+    var isExactMatch = isExactMatch_length >= 1
 
-            if (isExactMatch_length == 1) {
-                printPersonRusult(exactMatch, `There is ${exactMatch.length} grave located in:<br> <span>${cemetery.substr(0, 4) + " " + cemetery.substr(4, cemetery.length)}, Block ${blockID} - Lot ${lotID}</span>`, "exactMatch", false);
-            } else {
-                printPersonRusult(exactMatch, `There are ${exactMatch.length} graves located in:<br> <span>${cemetery.substr(0, 4) + " " + cemetery.substr(4, cemetery.length)}, Block ${blockID} - Lot ${lotID}</span>`, "exactMatch", false);
-            }
+    if (isExactMatch) {
 
-        } else if (lotID == "Blank") {
-            $results.append(`<h1 class='resultMessage'><span>Sorry, the lot that you selected is either empty or not available.</span></h1>`);
+        if (isExactMatch_length == 1) {
+            printPersonRusult(exactMatch, `There is ${exactMatch.length} grave located in:<br> <span>${cemetery.substr(0, 4) + " " + cemetery.substr(4, cemetery.length)}, Block ${blockNum} - Lot ${lotNum}</span>`, "exactMatch", false);
         } else {
-            $results.append(`<h1 class='resultMessage'>Sorry, we couldn't find any graves at:<br> <span>${cemetery.substr(0, 4) + " " + cemetery.substr(4, cemetery.length)}, Block ${blockID} - Lot ${lotID}</span></h1>`);
+            printPersonRusult(exactMatch, `There are ${exactMatch.length} graves located in:<br> <span>${cemetery.substr(0, 4) + " " + cemetery.substr(4, cemetery.length)}, Block ${blockNum} - Lot ${lotNum}</span>`, "exactMatch", false);
         }
 
-        $results.append(`<h1 class='toTop'>Go Back to Top of Page</h1>`);
+    } else if (lotNum == "Blank") {
+        $results.append(`<h1 class='resultMessage'><span>Sorry, the lot that you selected is either empty or not available.</span></h1>`);
+    } else {
+        $results.append(`<h1 class='resultMessage'>Sorry, we couldn't find any graves at:<br> <span>${cemetery.substr(0, 4) + " " + cemetery.substr(4, cemetery.length)}, Block ${blockNum} - Lot ${lotNum}</span></h1>`);
+    }
 
-    });
+    $results.append(`<h1 class='toTop'>Go Back to Top of Page</h1>`);
+
 }
 
 function printPersonRusult(results, messageTitle, id = 'defautlResult', hidden = false) {
@@ -346,9 +354,6 @@ function displayPeople(d, id = '', hidden = false) {
     }
 
 }
-
-
-
 
 
 //
