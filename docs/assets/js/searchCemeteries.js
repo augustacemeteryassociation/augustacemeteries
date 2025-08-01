@@ -178,6 +178,19 @@ function getDate_string(dateObject, dashFormat = false) {
 
 $().ready(function () {
 
+	var data
+
+	$.ajax({
+		type: 'GET',
+		dataType: 'json',
+		//url: 'json/graves.json',
+		url: 'https://public-data.augustacemeteryassociation.workers.dev/',
+		async: false,
+		success: function (d) { 
+			data = d
+		}
+	});
+
 	var $results = $("#results")
 
 	function getMatches(fName_input, lName_input, sortOption, dobInput, dodInput) {
@@ -221,7 +234,7 @@ $().ready(function () {
 		fName_input = fName_input.toLowerCase();
 		lName_input = lName_input.toLowerCase();
 
-		$.getJSON("json/graves.json", function (data) {
+		// $.getJSON("json/graves.json", function (data) {
 
 
 			let matches = {
@@ -579,7 +592,7 @@ $().ready(function () {
 			// Print Date of Death Matches
 			if (isDoDMatch) {printPersonResult(dodMatch, `There ${dodMatch.length == 1 ? 'is' : 'are'} ${dodMatch.length} ${dodMatch.length == 1 ? 'match' : 'matches'} for the death date of`, dodString, "", "dodMatch", isHidden); isHidden = true;}
 
-		});
+		// });
 	}
 
 	
