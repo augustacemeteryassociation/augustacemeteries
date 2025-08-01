@@ -188,6 +188,18 @@ $().ready(function () {
 		async: false,
 		success: function (d) { 
 			data = d
+		},
+		error: function(xhr, status, error) {
+			console.log('API request failed, loading data from local file...');
+			$.ajax({
+				type: 'GET',
+				dataType: 'json',
+				url: './json/graves.json',
+				async: false,
+				success: function (d) { 
+					data = d
+				}
+			});
 		}
 	});
 
