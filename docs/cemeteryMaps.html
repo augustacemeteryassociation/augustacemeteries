@@ -125,6 +125,20 @@
             $(".mapSelection li:first-child").css("border", "5px solid black");
             $(document).ready(function() {
 
+                var data
+
+                $.ajax({
+                    type: 'GET',
+                    dataType: 'json',
+                    //url: 'json/graves.json',
+                    url: 'https://public-data.augustacemeteryassociation.workers.dev/',
+                    async: false,
+                    success: function (d) { 
+                        <!-- console.log("request made") -->
+                        data = d
+                    }
+                });
+
                 function viewPort(setting) {
                     
                     var viewportMeta = $("meta[name='viewport']");
@@ -197,7 +211,7 @@
 
                         //                    console.log(`${cemetery}: Block ${blockID}, lot ${lotID}`)
 
-                        searchMap(cemetery, blockID, lotID)
+                        searchMap(data, cemetery, blockID, lotID)
 
                         $([document.documentElement, document.body]).stop().animate({
                             scrollTop: $("#results").offset().top
