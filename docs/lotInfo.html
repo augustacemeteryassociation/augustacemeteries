@@ -130,6 +130,20 @@
         <script>
             $(document).ready(function() {
 
+                var data
+
+                $.ajax({
+                    type: 'GET',
+                    dataType: 'json',
+                    //url: 'json/graves.json',
+                    url: 'https://public-data.augustacemeteryassociation.workers.dev/',
+                    async: false,
+                    success: function (d) { 
+                        <!-- console.log("request made") -->
+                        data = d
+                    }
+                });
+
                 function viewPort(setting) {
                     
                     var viewportMeta = $("meta[name='viewport']");
@@ -344,7 +358,7 @@
                     }
 
 
-                    $.getJSON("json/graves.json", function(data) {
+                    //$.getJSON("json/graves.json", function(data) {
 
                         let takenLots = 0;
                         let validOwner = true;
@@ -440,11 +454,11 @@
                         let $results = $("#results")
                         $results.append(`<h1 class='selected'>${cemetery.substr(0, 4) + " " + cemetery.substr(4, cemetery.length)} - Block ${blockID}, Lot ${lot}</h1>`)
                         $results.append(`<h1 class='availability'>${message}</h1>`)
-                    });
+                    //});
 
                     if (mapInfo[0] == "EastLawn" || "WestLawn" && mapInfo.length == 3) {
 
-                        searchMap(cemetery, blockID, lot)
+                        searchMap(data, cemetery, blockID, lot)
 
                         $([document.documentElement, document.body]).stop().animate({
                             scrollTop: $("#results").offset().top
