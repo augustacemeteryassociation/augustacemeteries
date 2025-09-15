@@ -227,19 +227,31 @@
                         `)
 
                             let graveIDs = []
-                            $("rect").not("#road").each(function() {
+                            $("rect").not(".road").each(function() {
                                 graveIDs.push(this.id)
                             })
 
                             $.getJSON("json/graves.json", function(data) {
+
+
                                 graveIDs.forEach((id) => {
 
                                     let ID = id.split("-")
 
-                                    let cemetery = ID[0];
-                                    let block = ID[1];
-                                    let lot = ID[2];
-                                    let color = "";
+                                    var lot = "Blank";
+                                    console.log(ID, ID.length)
+
+                                    if (ID.length == 3) {
+
+                                        var color = "";
+
+                                        var cemetery = ID[0];
+                                        var block = ID[1];
+                                        var lot = ID[2];
+                                    } 
+
+                                    
+                                    
 
                                     var lotCheck = {
                                         "1": false,
@@ -352,11 +364,17 @@
 
                 $(document).on('click', 'rect', function() {
 
+                  
+
 //                    viewPort('reset');
                     viewPort("zoomOut");
 //                    viewPort("reset");
 
                     var mapInfo = $(this).attr("id").split("-")
+
+                    if (mapInfo.length != 3) {
+                        return
+                    }
                     var cemetery = mapInfo[0]
                     var blockID = mapInfo[1]
                     var lot = mapInfo[2]
