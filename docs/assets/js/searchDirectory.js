@@ -60,6 +60,17 @@ function filterInput(input, filterType) {
 
 function getDate(dateStr) {
 
+	function replaceDashes(str) {
+
+		if (str.includes('--')) {
+			return str.replace(/--/g, '-');
+		} else {
+			return str;
+		}
+	}
+
+	dateStr = replaceDashes(dateStr)
+
 	var d = {}
 	dateArray = []
 
@@ -167,170 +178,179 @@ const lastNames = new Map()
 const maidenNames = new Map()
 const otherInfoNames = new Map()
 const plotOwnerNames = new Map()
+const burialYears = new Map()
 
 $().ready(function () {
 
 	var cemeteryData = null;
 
-	$.ajax({
-		type: 'GET',
-		dataType: 'json',
-		// url: 'json/graves.json',
-		url: 'https://directory-data.augustacemeteryassociation.workers.dev/',
-		async: false,
-		success: function (data) { 
+	async function serializeData(data) {
 
-			cemeteryData = data; 
+		cemeteryData = data; 
 
-			for (cemetery in data) {
-				for (blockNum in data[cemetery]) {
-					for (lotNum in data[cemetery][blockNum]) {
+		for (cemetery in data) {
+			for (blockNum in data[cemetery]) {
+				for (lotNum in data[cemetery][blockNum]) {
 
-						do {
-							lotID = serialize();
-						} while (lotIDs.has(lotID))
+					do {
+						lotID = serialize();
+					} while (lotIDs.has(lotID))
 
-						let lotRecordIDs = []
+					let lotRecordIDs = []
 
-						for (graveNum in data[cemetery][blockNum][lotNum]) {
-							for (g in data[cemetery][blockNum][lotNum][graveNum]) {
+					for (graveNum in data[cemetery][blockNum][lotNum]) {
+						for (g in data[cemetery][blockNum][lotNum][graveNum]) {
 
-								let d = data[cemetery][blockNum][lotNum][graveNum][g]
+							let d = data[cemetery][blockNum][lotNum][graveNum][g]
 
-								// Get new unique record ID
-								do {
-									recordID = serialize();
-								} while (records.has(recordID))
+							// Get new unique record ID
+							do {
+								recordID = serialize();
+							} while (records.has(recordID))
 
-								lotRecordIDs.push(recordID)
+							lotRecordIDs.push(recordID)
 
-								// If record is blank or invalid, skip
-								// if (d['fName'] == "" && d['lName'] == "") { continue }
+							// If record is blank or invalid, skip
+							// if (d['fName'] == "" && d['lName'] == "") { continue }
 
-								let isInfant = false
-								let infantFilterWords = ["infant", "baby"]
+							let isInfant = false
+							let infantFilterWords = ["infant", "baby"]
 
-								if (infantFilterWords.some(word => d['otherInfo'].toLowerCase().includes(word))) { isInfant = true }
+							if (infantFilterWords.some(word => d['otherInfo'].toLowerCase().includes(word))) { isInfant = true }
 
-								let fullName = d["maidenName"] != "" ? `${d["fName"]} ${d["mName"]} <i>${d["maidenName"]}</i> ${d["lName"]}` : `${d["fName"]} ${d["mName"]} ${d["lName"]}`
+							let fullName = d["maidenName"] != "" ? `${d["fName"]} ${d["mName"]} <i>${d["maidenName"]}</i> ${d["lName"]}` : `${d["fName"]} ${d["mName"]} ${d["lName"]}`
 
-								if (d["graveLink"] != "") { 
-									fullName = `<a href="${d["graveLink"]}" target="_blank">${fullName}</a>`
+							if (d["graveLink"] != "") { 
+								fullName = `<a href="${d["graveLink"]}" target="_blank">${fullName}</a>`
+							}
+
+							let burialYear = getYear(d["burialDate"]).toString()
+							if (burialYear == "Unknown" || burialYear.length != 4) { burialYear = "Unknown" }
+
+							record = {
+								"firstName": d["fName"],
+								"middleName": d["mName"],
+								"lastName": d["lName"],
+								"maidenName": d["maidenName"],
+								"fullName": fullName,
+								"nickname": d["otherInfo"],
+								"dateOfBirth": d["dateOfBirth"],
+								"birthYear": getYear(d["dateOfBirth"]),
+								"deathYear": getYear(d["dateOfDeath"]),
+								"dateOfDeath": d["dateOfDeath"],
+								"burialDate": d["burialDate"],
+								"burialYear": burialYear,
+								"estimatedAge": yearDiff(d['dateOfBirth'], d['dateOfDeath']),
+								"plotOwner": d["plotOwner"],
+								"cemetery": cemetery.replace("Lawn", ""),
+								"blockNum": blockNum,
+								"lotNum": lotNum,
+								"lotID": lotID,
+								"graveNum": `${graveNum}${g}`,
+								"isInfant": isInfant,
+								"recordID": recordID,
+								"graveLink": d["graveLink"]
+							}
+
+
+
+							let otherInfoArr = filterInput(record.nickname.toLowerCase(), ["special"]).split(" ")
+							let otherInfoFilterWords = ["", "infant", "infants", "child", "baby", "son", "sons", "daughter", "daughters", "of", "not", "available", "twin", "twins", "and", "mr", "mrs", "jr", "rev"]
+
+							nickNameWordsRemove = ["us", "army", "veteran", "infantry", "available", "buried", "tree", "killed"]
+							nickNameWordsRemove.forEach(word => {
+								if (otherInfoArr.includes(word)) {
+									otherInfoArr = [""]
 								}
+							})
 
-								record = {
-									"firstName": d["fName"],
-									"middleName": d["mName"],
-									"lastName": d["lName"],
-									"maidenName": d["maidenName"],
-									"fullName": fullName,
-									"nickname": d["otherInfo"],
-									"dateOfBirth": d["dateOfBirth"],
-									"birthYear": getYear(d["dateOfBirth"]),
-									"deathYear": getYear(d["dateOfDeath"]),
-									"dateOfDeath": d["dateOfDeath"],
-									"burialDate": d["burialDate"],
-									"estimatedAge": yearDiff(d['dateOfBirth'], d['dateOfDeath']),
-									"plotOwner": d["plotOwner"],
-									"cemetery": cemetery.replace("Lawn", ""),
-									"blockNum": blockNum,
-									"lotNum": lotNum,
-									"lotID": lotID,
-									"graveNum": `${graveNum}${g}`,
-									"isInfant": isInfant,
-									"recordID": recordID,
-									"graveLink": d["graveLink"]
-								}
-
-								let otherInfoArr = filterInput(record.nickname.toLowerCase(), ["special"]).split(" ")
-								let otherInfoFilterWords = ["", "infant", "infants", "child", "baby", "son", "sons", "daughter", "daughters", "of", "not", "available", "twin", "twins", "and", "mr", "mrs", "jr", "rev"]
-
-								nickNameWordsRemove = ["us", "army", "veteran", "infantry", "available", "buried", "tree", "killed"]
-								nickNameWordsRemove.forEach(word => {
-									if (otherInfoArr.includes(word)) {
-										otherInfoArr = [""]
-									}
-								})
-
-								if (otherInfoArr.length > 1 && otherInfoArr[0] != "") {
-									otherInfoArr =  arrWordFilter(otherInfoArr, otherInfoFilterWords)
-									
-									if (otherInfoArr.length >= 1) {
-										otherInfoArr.forEach(name => {
-
-											if (name == "") { return; }
-											if (!otherInfoNames.has(name.toLowerCase())) {
-												otherInfoNames.set(name.toLowerCase(), []);
-											}
-
-											otherInfoNames.get(name.toLowerCase()).push(recordID)
-										})
-									}
-								}
-
-
-								let plotOwners = record.plotOwner.split(" ")
-								let filteredPlotOwners = []
+							if (otherInfoArr.length > 1 && otherInfoArr[0] != "") {
+								otherInfoArr =  arrWordFilter(otherInfoArr, otherInfoFilterWords)
 								
-								plotOwners.forEach(name => {
-									name = filterInput(name.toLowerCase(), ["special", "numbers"])
-									let filteredWords = ["and", "tree", "road", "mr", "mrs", "sr", "jr", "rev", "dr", "of", "not", "available", "for"]
-									if (name != "" && name.length > 1 && !filteredWords.includes(name)) {
-										filteredPlotOwners.push(name)
+								if (otherInfoArr.length >= 1) {
+									otherInfoArr.forEach(name => {
 
-										if (!plotOwnerNames.has(name.toLowerCase())) {
-											plotOwnerNames.set(name.toLowerCase(), []);
+										if (name == "") { return; }
+										if (!otherInfoNames.has(name.toLowerCase())) {
+											otherInfoNames.set(name.toLowerCase(), []);
 										}
 
-										plotOwnerNames.get(name.toLowerCase()).push(recordID)
-									}
-								})
-
-
-								if (!firstNames.has(record.firstName.toLowerCase())) {
-									firstNames.set(record.firstName.toLowerCase(), []);
-								}
-
-								if (!middleNames.has(record.middleName.toLowerCase())) {
-									middleNames.set(record.middleName.toLowerCase(), []);
-								}
-
-								if (!lastNames.has(record.lastName.toLowerCase())) {
-									lastNames.set(record.lastName.toLowerCase(), []);
-								}
-
-								if (!maidenNames.has(record.maidenName.toLowerCase()) && record.maidenName != "") {
-									maidenNames.set(record.maidenName.toLowerCase(), []);
-								}
-
-								
-
-								// Set record key
-								records.set(recordID, record)
-
-
-								firstNames.get(record.firstName.toLowerCase()).push(recordID);
-								middleNames.get(record.middleName.toLowerCase()).push(recordID);
-								lastNames.get(record.lastName.toLowerCase()).push(recordID);
-								if (record.maidenName != "") {
-									maidenNames.get(record.maidenName.toLowerCase()).push(recordID);
+										otherInfoNames.get(name.toLowerCase()).push(recordID)
+									})
 								}
 							}
+
+
+							let plotOwners = record.plotOwner.split(" ")
+							let filteredPlotOwners = []
+							
+							plotOwners.forEach(name => {
+								name = filterInput(name.toLowerCase(), ["special", "numbers"])
+								let filteredWords = ["and", "tree", "road", "mr", "mrs", "sr", "jr", "rev", "dr", "of", "not", "available", "for"]
+								if (name != "" && name.length > 1 && !filteredWords.includes(name)) {
+									filteredPlotOwners.push(name)
+
+									if (!plotOwnerNames.has(name.toLowerCase())) {
+										plotOwnerNames.set(name.toLowerCase(), []);
+									}
+
+									plotOwnerNames.get(name.toLowerCase()).push(recordID)
+								}
+							})
+
+
+							if (!firstNames.has(record.firstName.toLowerCase())) {
+								firstNames.set(record.firstName.toLowerCase(), []);
+							}
+
+							if (!middleNames.has(record.middleName.toLowerCase())) {
+								middleNames.set(record.middleName.toLowerCase(), []);
+							}
+
+							if (!lastNames.has(record.lastName.toLowerCase())) {
+								lastNames.set(record.lastName.toLowerCase(), []);
+							}
+
+							if (!maidenNames.has(record.maidenName.toLowerCase()) && record.maidenName != "") {
+								maidenNames.set(record.maidenName.toLowerCase(), []);
+							}
+
+							// Set record key
+							records.set(recordID, record)
+
+
+							firstNames.get(record.firstName.toLowerCase()).push(recordID);
+							middleNames.get(record.middleName.toLowerCase()).push(recordID);
+							lastNames.get(record.lastName.toLowerCase()).push(recordID);
+							if (record.maidenName != "") {
+								maidenNames.get(record.maidenName.toLowerCase()).push(recordID);
+							}
+
+
+							if (!burialYears.has(record.burialYear.toString())) {
+								burialYears.set(record.burialYear.toString(), []);
+							}
+
+							burialYears.get(record.burialYear.toString()).push(recordID);
+
 						}
-
-
-						// Set Lot ID and matching record IDs
-						lotIDs.set(lotID, {
-							"recordIDs": lotRecordIDs,
-							"Block": blockNum,
-							"Lot": lotNum,
-							"Cemetery": cemetery.replace("Lawn", ""),
-						});
-
 					}
+
+					// Set Lot ID and matching record IDs
+					lotIDs.set(lotID, {
+						"recordIDs": lotRecordIDs,
+						"Block": blockNum,
+						"Lot": lotNum,
+						"Cemetery": cemetery.replace("Lawn", ""),
+					});
+
 				}
 			}
-    }}).then(function() {
+		}
+	}
+
+
+	async function combineNameMaps() {
 
 		// Combine all the names into one map
 		let nameMaps = [firstNames, middleNames, lastNames, maidenNames, otherInfoNames, plotOwnerNames]
@@ -353,21 +373,46 @@ $().ready(function () {
 			})
 		}
 
-	})
+	}
+
+	$.ajax({
+		type: 'GET',
+		dataType: 'json',
+		// url: './json/graves.json',
+		url: 'https://directory-data.augustacemeteryassociation.workers.dev/',
+		async: false,
+		success: function (data) { 
+			serializeData(data);
+		},
+		error: function (xhr, status, error) {
+			console.error('Error fetching JSON data');
+			$.ajax({
+				type: 'GET',
+				dataType: 'json',
+				url: './json/graves.json',
+				async: false,
+				success: async function (data) {
+					await serializeData(data);
+					await combineNameMaps();
+				}
+			});
+		}
+	});
 
 	var $results = $("#directoryResults")
 
-	function getMatches(locationInput, blockInput, lotInput, nameInput, nameSortInput) {
-
-		// console.log([locationInput, blockInput, lotInput, nameInput, nameSortInput])
+	function getMatches(locationInput, blockInput, lotInput, nameInput, burialYear, nameSortInput) {
 
 		var matches = []
+		var blockMatches = []
+		var burialYearMatches = []
 		var lotMatches = []
 		var uniqueResultMap = new Map();
 
-
+		if (burialYear != "" && burialYear.length == 4) { burialYearMatches = burialYears.get(burialYear) }
 
 		let titleText = "Cemetery Directory";
+
 		if (locationInput != "any") {
 			titleText += ` - ${locationInput.charAt(0).toUpperCase() + locationInput.slice(1)} Lawn`
 		}
@@ -378,6 +423,10 @@ $().ready(function () {
 
 		if (lotInput != "") {
 			titleText += ` - Lot ${lotInput}`
+		}
+
+		if (burialYear != "" && nameInput == "") {
+			titleText += ` [${burialYear}]`
 		}
 
 		if (nameInput != "") {
@@ -392,6 +441,9 @@ $().ready(function () {
 				titleText += ` : ${nameInputs[0].charAt(0).toUpperCase() + nameInputs[0].slice(1)}`
 			}
 
+			if (burialYear != "") {
+				titleText += ` [${burialYear}]`
+			}
 			
 			nameInputs.forEach(nameIn => {
 
@@ -404,8 +456,6 @@ $().ready(function () {
 
 					if (name.includes(nameIn)) {
 
-						
-
 						ids.forEach(id => {
 
 							if (nameSortInput == "exact" && nameInputs.length > 1) {
@@ -413,6 +463,8 @@ $().ready(function () {
 								uniqueResultMap.get(nameIn).push(id)
 								return;
 							}
+
+
 							if (matches.includes(id)) { return; }
 
 							matches.push(id)
@@ -438,21 +490,15 @@ $().ready(function () {
 						uniqueResults.push(id)
 					})
 				})
-
-				// console.log(uniqueResults)
 		
 				matches = [...new Set(uniqueResults.filter((item, index) => uniqueResults.indexOf(item) !== index))];
-				// console.log(matches)
 
-				// matches.forEach(id => {
-				// 	console.log(records.get(id))
-				// })
 			}
 
-			// console.log(matches)
-
+			
 
 			// TODO: Add logic to find valid lots (Think this is working correctly, double check and debug)
+
 			matches.forEach(id => {
 				let lotID = records.get(id).lotID
 				// let recordInfo = records.get(id)
@@ -460,7 +506,7 @@ $().ready(function () {
 
 
 				if (locationInput == "any" || locationInput == lotInfo.Cemetery.toLowerCase()) {
-					// console.log(lotInfo)
+
 					if (blockInput == "" && lotInput == "") { lotMatches.push(lotID); return;}
 					if ((blockInput != "" && blockInput == lotInfo.Block) && (lotInput != "" && lotInput == lotInfo.Lot)) { lotMatches.push(lotID); return; }
 					if (lotInput == "" && (blockInput != "" && blockInput == lotInfo.Block)) { lotMatches.push(lotID); return; }
@@ -485,6 +531,25 @@ $().ready(function () {
 			})
 		}
 
+
+		if (matches.length == 0) {
+			matches = burialYearMatches
+		} else {
+			// Filter matches by burial year if specified
+			let tempMatches = []
+			matches.forEach(id => {
+				if (burialYearMatches.includes(id)) {
+					tempMatches.push(id)
+				}
+			})
+
+			if (tempMatches.length > 0) {
+				matches = tempMatches
+			}
+		}
+
+
+
 		// TODO: Add logic to find valid lots and blocks if no name is entered
 		if (nameInput == "") {
 
@@ -494,7 +559,7 @@ $().ready(function () {
 				
 
 				if (locationInput == "any" || locationInput == lotInfo.Cemetery.toLowerCase()) {
-					// console.log(lotInfo)
+
 					if (blockInput == "" && lotInput == "") { return; }
 					if ((blockInput != "" && blockInput == lotInfo.Block) && (lotInput != "" && lotInput == lotInfo.Lot)) { lotMatches.push(lotID); return; }
 					if (lotInput == "" && (blockInput != "" && blockInput == lotInfo.Block)) { lotMatches.push(lotID); return; }
@@ -502,24 +567,21 @@ $().ready(function () {
 
 				}
 				
-				
 				return
 
 			})
-
-			
 		}
+
+
+		if (matches.length > 0 && lotMatches.length == 0) {
+			lotMatches = [...new Set(matches.map(id => records.get(id).lotID))];
+		}
+
+		// if (matches.length == 0 && burialYearMatches.length > 0) {
+		// 	matches = burialYearMatches
+		// }
 		
 
-		// console.log(lotMatches)
-
-
-		// console.log(uniqueResultMap)
-		
-		
-
-		// console.log(matches)
-		// console.log(matches, lotMatches)
 		if (matches.length >= 0 && lotMatches.length == 0) {
 
 			$results.empty();
@@ -543,7 +605,6 @@ $().ready(function () {
 			}
 		})
 
-		// console.log(orderedLots)
 
 		// let diff = []
 
@@ -571,8 +632,6 @@ $().ready(function () {
 		orderedLots.forEach(lotID => {
 
 			lotInfo = lotIDs.get(lotID)
-			// console.log(matches)
-			
 
 			if (locationInput != "any") {
 				if (lotInfo.Cemetery.toLowerCase() != locationInput) { return; }
@@ -587,12 +646,12 @@ $().ready(function () {
 			}
 
 
+
 			$results.append(`
 				<div class="record" id="LOT_${lotID}">
 					<h3>${lotInfo.Cemetery} Lawn - Block ${lotInfo.Block}, Lot ${lotInfo.Lot}</h3>
 				</div>
 			`)
-
 
 			let $record = $(`div #LOT_${lotID}`)
 
@@ -624,6 +683,13 @@ $().ready(function () {
 					isHighlighted = "highlight"
 				} 
 
+				if (burialYear != "" && burialYear.length == 4) {
+					if (record.burialDate.includes(burialYear)) {
+						isHighlighted = "highlight"
+					} else {
+						isHighlighted = ""
+					}
+				}
 
 				$tbody.append(`
 					<tr class="${isHighlighted}">
@@ -635,16 +701,10 @@ $().ready(function () {
 				`);
 		
 			})
-
-			
-
-
 		})
-
 	}
 	
 
-	
 
 	$("select").change(function () {
 		window.stop();
@@ -678,19 +738,22 @@ $().ready(function () {
 		let blockInput = filterInput(values['block_input'].charAt(0).toUpperCase(), ["scripts", "special", "extraSpaces"]);
 		let lotInput = filterInput(values['lot_input'].toUpperCase(), ["scripts", "special", "extraSpaces"]);
 		let nameInput =  filterInput(values['name_input'], ["scripts", "special"]);
+		let burialYear = filterInput(values['burialYear_input'], ["scripts", "alphabet", "special", "extraSpaces"]);
+
+		if (burialYear.length > 4) { burialYear = burialYear.slice(0,4); }
+
 		let nameSortInput = values['nameSelection'];
 
-		// console.log(values)
-		// console.log([locationInput, blockInput, lotInput, nameInput, nameSortInput])
 
 		// Display filtered input back into the form
 		$("#block_input:text").val(blockInput);
 		$("#lot_input:text").val(lotInput);
 		$("#name_input:text").val(nameInput);
+		$("#burialYear_input:text").val(burialYear);
 
 
 		//TODO: Update how name inputs are matched with the records map
-		getMatches(locationInput, blockInput, lotInput, nameInput, nameSortInput)
+		getMatches(locationInput, blockInput, lotInput, nameInput, burialYear, nameSortInput)
 
 	});
 });
