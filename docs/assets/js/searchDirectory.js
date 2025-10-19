@@ -381,8 +381,9 @@ $().ready(function () {
 		// url: './json/graves.json',
 		url: 'https://directory-data.augustacemeteryassociation.workers.dev/',
 		async: false,
-		success: function (data) { 
-			serializeData(data);
+		success: async function (data) { 
+			await serializeData(data);
+			await combineNameMaps();
 		},
 		error: function (xhr, status, error) {
 			console.error('Error fetching JSON data');
