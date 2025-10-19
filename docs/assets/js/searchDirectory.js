@@ -184,7 +184,33 @@ $().ready(function () {
 
 	var cemeteryData = null;
 
-	async function serializeData(data) {
+
+	function combineNameMaps() {
+
+		// Combine all the names into one map
+		let nameMaps = [firstNames, middleNames, lastNames, maidenNames, otherInfoNames, plotOwnerNames]
+
+		for (mapID in nameMaps) {
+
+			let map = nameMaps[mapID]
+
+			map.forEach((ids, name, map) => {
+
+				// If name doesn't exist, create it
+				if (!allNamesMap.has(name)) { allNamesMap.set(name, []); }
+
+				ids.forEach(id => {
+					let mapKeys = allNamesMap.get(name)
+
+					// If the id isn't in the specified name in the map, add it
+					if (!mapKeys.includes(id)) { mapKeys.push(id); }
+				})
+			})
+		}
+
+	}
+
+	function serializeData(data) {
 
 		cemeteryData = data; 
 
@@ -347,33 +373,12 @@ $().ready(function () {
 				}
 			}
 		}
+
+		combineNameMaps();
 	}
 
 
-	async function combineNameMaps() {
-
-		// Combine all the names into one map
-		let nameMaps = [firstNames, middleNames, lastNames, maidenNames, otherInfoNames, plotOwnerNames]
-
-		for (mapID in nameMaps) {
-
-			let map = nameMaps[mapID]
-
-			map.forEach((ids, name, map) => {
-
-				// If name doesn't exist, create it
-				if (!allNamesMap.has(name)) { allNamesMap.set(name, []); }
-
-				ids.forEach(id => {
-					let mapKeys = allNamesMap.get(name)
-
-					// If the id isn't in the specified name in the map, add it
-					if (!mapKeys.includes(id)) { mapKeys.push(id); }
-				})
-			})
-		}
-
-	}
+	
 
 	$.ajax({
 		type: 'GET',
@@ -382,8 +387,7 @@ $().ready(function () {
 		url: 'https://directory-data.augustacemeteryassociation.workers.dev/',
 		async: false,
 		success: async function (data) { 
-			await serializeData(data);
-			await combineNameMaps();
+			serializeData(data);
 		},
 		error: function (xhr, status, error) {
 			console.error('Error fetching JSON data');
@@ -393,8 +397,7 @@ $().ready(function () {
 				url: './json/graves.json',
 				async: false,
 				success: async function (data) {
-					await serializeData(data);
-					await combineNameMaps();
+					serializeData(data);
 				}
 			});
 		}
