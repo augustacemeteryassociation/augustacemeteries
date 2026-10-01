@@ -95,6 +95,23 @@
 
 }
 
+.vet-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #e0e0e0; /* Light gray background */
+    color: #333333;            /* Dark V text */
+    font-size: 12px;
+    font-weight: bold;
+    font-family: serif, sans-serif;
+    margin-right: 6px;         /* Space between icon and name */
+    vertical-align: middle;
+    user-select: none;
+}
+
 @media print {
 
     .highlight {
@@ -204,6 +221,13 @@
 
         
     
+    }
+
+    .vet-badge {
+        background-color: #3a3838 !important;
+        color: #ffffff !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
     }
 }
 

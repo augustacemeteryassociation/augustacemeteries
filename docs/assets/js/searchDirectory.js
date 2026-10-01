@@ -275,10 +275,9 @@ $().ready(function () {
 								"graveNum": `${graveNum}${g}`,
 								"isInfant": isInfant,
 								"recordID": recordID,
-								"graveLink": d["graveLink"]
+								"graveLink": d["graveLink"],
+								"isVeteran": d["isVeteran"]
 							}
-
-
 
 							let otherInfoArr = filterInput(record.nickname.toLowerCase(), ["special"]).split(" ")
 							let otherInfoFilterWords = ["", "infant", "infants", "child", "baby", "son", "sons", "daughter", "daughters", "of", "not", "available", "twin", "twins", "and", "mr", "mrs", "jr", "rev"]
@@ -695,10 +694,14 @@ $().ready(function () {
 					}
 				}
 
+				const vetBadge = record.isVeteran 
+					? `<span class="vet-badge" title="Veteran">V</span>` 
+					: ``;
+
 				$tbody.append(`
 					<tr class="${isHighlighted}">
 						<td class="graveNum">${record.graveNum}</td>
-						<td class="fullName">${record.fullName}</td>
+						<td class="fullName">${vetBadge}${record.fullName}</td>
 						<td class="plotOwner">${record.plotOwner}</td>
 						<td class="burialDate">${record.burialDate}</td>
 					</tr>
