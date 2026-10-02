@@ -1153,11 +1153,10 @@ footer p {
   margin-right: 6px;
   vertical-align: middle;
   -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
-  /* Center alignment tweaks */
+  -moz-user-select: none;
+  user-select: none;
   line-height: 1;
-  padding-bottom: 1px; /* Counteracts serif font baseline bias */
+  padding-bottom: 1px;
 }
 
 @media print {
