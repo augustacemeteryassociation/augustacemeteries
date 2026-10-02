@@ -110,10 +110,8 @@
     margin-right: 6px;
     vertical-align: middle;
     user-select: none;
-
-    /* Center alignment tweaks */
     line-height: 1;
-    padding-bottom: 1px; /* Counteracts serif font baseline bias */
+    padding-bottom: 1px;
 }
 
 @media print {

@@ -95,6 +95,34 @@
 			}
 		}
 
+		.vet-badge {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			width: 18px;
+			height: 18px;
+			border-radius: 4px;
+			background-color: #e0e0e0;
+			color: #333333;
+			font-size: 12px;
+			font-weight: bold;
+			font-family: serif, sans-serif;
+			margin-right: 6px;
+			vertical-align: middle;
+			user-select: none;
+			line-height: 1;
+			padding-bottom: 1px;
+		}
+
+		@media print {
+			.vet-badge {
+				background-color: #3a3838 !important;
+				color: #ffffff !important;
+				-webkit-print-color-adjust: exact;
+				print-color-adjust: exact;
+			}
+		}
+
 	</style>
 </head>
 

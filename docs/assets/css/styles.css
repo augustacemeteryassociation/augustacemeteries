@@ -1153,8 +1153,8 @@ footer p {
   margin-right: 6px;
   vertical-align: middle;
   -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   line-height: 1;
   padding-bottom: 1px;
 }
