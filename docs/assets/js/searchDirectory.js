@@ -567,7 +567,7 @@ $().ready(function () {
 
             $results.append(`
                 <div class="record" id="LOT_${lotID}">
-                    <h3>${lotInfo.Cemetery} Lawn - Block ${lotInfo.Block}, Lot${lotInfo.Lot}</h3>
+                    <h3>${lotInfo.Cemetery} Lawn - Block ${lotInfo.Block}, Lot ${lotInfo.Lot}</h3>
                 </div>
             `);
 
