@@ -178,7 +178,7 @@ const lastNames = new Map()
 const maidenNames = new Map()
 const otherInfoNames = new Map()
 const plotOwnerNames = new Map()
-const yearsMap = new Map() // Updated to store both burial & death years
+const burialYears = new Map()
 
 $().ready(function () {
 
@@ -236,6 +236,9 @@ $().ready(function () {
 
 							lotRecordIDs.push(recordID)
 
+							// If record is blank or invalid, skip
+							// if (d['fName'] == "" && d['lName'] == "") { continue }
+
 							let isInfant = false
 							let infantFilterWords = ["infant", "baby"]
 
@@ -250,9 +253,6 @@ $().ready(function () {
 							let burialYear = getYear(d["burialDate"]).toString()
 							if (burialYear == "Unknown" || burialYear.length != 4) { burialYear = "Unknown" }
 
-							let deathYear = getYear(d["dateOfDeath"]).toString()
-							if (deathYear == "Unknown" || deathYear.length != 4) { deathYear = "Unknown" }
-
 							record = {
 								"firstName": d["fName"],
 								"middleName": d["mName"],
@@ -262,7 +262,7 @@ $().ready(function () {
 								"nickname": d["otherInfo"],
 								"dateOfBirth": d["dateOfBirth"],
 								"birthYear": getYear(d["dateOfBirth"]),
-								"deathYear": deathYear,
+								"deathYear": getYear(d["dateOfDeath"]),
 								"dateOfDeath": d["dateOfDeath"],
 								"burialDate": d["burialDate"],
 								"burialYear": burialYear,
@@ -351,17 +351,12 @@ $().ready(function () {
 								maidenNames.get(record.maidenName.toLowerCase()).push(recordID);
 							}
 
-							// Index both Burial Year and Death Year into yearsMap
-							[record.burialYear.toString(), record.deathYear.toString()].forEach(yr => {
-								if (yr !== "Unknown" && yr.length === 4) {
-									if (!yearsMap.has(yr)) {
-										yearsMap.set(yr, []);
-									}
-									if (!yearsMap.get(yr).includes(recordID)) {
-										yearsMap.get(yr).push(recordID);
-									}
-								}
-							});
+
+							if (!burialYears.has(record.burialYear.toString())) {
+								burialYears.set(record.burialYear.toString(), []);
+							}
+
+							burialYears.get(record.burialYear.toString()).push(recordID);
 
 						}
 					}
@@ -387,6 +382,7 @@ $().ready(function () {
 	$.ajax({
 		type: 'GET',
 		dataType: 'json',
+		// url: './json/graves.json',
 		url: 'https://directory-data.augustacemeteryassociation.workers.dev/',
 		async: false,
 		success: async function (data) { 
@@ -410,33 +406,13 @@ $().ready(function () {
 
 	function getMatches(locationInput, blockInput, lotInput, nameInput, burialYear, nameSortInput) {
 
-		// 1. Check if user provided ANY search input
-		let hasSearchParameters = (
-			(locationInput && locationInput !== "any") ||
-			blockInput !== "" ||
-			lotInput !== "" ||
-			nameInput !== "" ||
-			(burialYear !== "" && burialYear.length === 4)
-		);
-
-		if (!hasSearchParameters) {
-			$results.empty();
-			$results.append(`
-				<h1 class="errorMessage">
-					Please enter a Block #, Lot #, Name, or Year to search.
-				</h1>
-			`);
-			return;
-		}
-
 		var matches = []
-		var yearMatches = []
+		var blockMatches = []
+		var burialYearMatches = []
 		var lotMatches = []
 		var uniqueResultMap = new Map();
 
-		if (burialYear != "" && burialYear.length == 4) { 
-			yearMatches = yearsMap.get(burialYear) || [];
-		}
+		if (burialYear != "" && burialYear.length == 4) { burialYearMatches = burialYears.get(burialYear) }
 
 		let titleText = "Cemetery Directory";
 
@@ -462,6 +438,7 @@ $().ready(function () {
 			nameInputs = nameInputs.filter(name => name != "")
 
 			if (nameInput != "" && nameInputs.length > 1) {
+			
 				titleText += ` : ${nameInputs.map(name => name.charAt(0).toUpperCase() + name.slice(1)).join(" ")}`
 			} else if (nameInput != "" && nameInputs.length == 1) {
 				titleText += ` : ${nameInputs[0].charAt(0).toUpperCase() + nameInputs[0].slice(1)}`
@@ -479,6 +456,7 @@ $().ready(function () {
 						uniqueResultMap.set(nameIn, [])
 					}
 
+
 					if (name.includes(nameIn)) {
 
 						ids.forEach(id => {
@@ -489,14 +467,23 @@ $().ready(function () {
 								return;
 							}
 
+
 							if (matches.includes(id)) { return; }
 
 							matches.push(id)
+
+
+							// lot = records.get(id).lotID
+							
+							// if (!lotMatches.includes(lot)) {
+							// 	lotMatches.push(lot)
+							// }
 						})
 					}
 				})
 			})
 
+			// TODO: Find a way to find common ids between all unique names (Currently working, need to debug to make sure everything is working correctly)
 			if (nameSortInput == "exact" && nameInputs.length > 1) {
 
 				uniqueResults = []
@@ -511,9 +498,15 @@ $().ready(function () {
 
 			}
 
+			
+
+			// TODO: Add logic to find valid lots (Think this is working correctly, double check and debug)
+
 			matches.forEach(id => {
 				let lotID = records.get(id).lotID
+				// let recordInfo = records.get(id)
 				let lotInfo = lotIDs.get(lotID)
+
 
 				if (locationInput == "any" || locationInput == lotInfo.Cemetery.toLowerCase()) {
 
@@ -523,17 +516,32 @@ $().ready(function () {
 					if (blockInput == "" && (lotInput != "" && lotInput == lotInfo.Lot)) { lotMatches.push(lotID); return; }
 
 				}
+
+				// if (lotMatches.includes(lotID)) { return; }
+
+				// if (blockInput == "" && lotInput == "") {
+				// 	lotMatches.push(lotID)
+				// }
+
+				// if (blockInput != "" && blockInput == recordInfo.blockNum) {
+				// 	lotMatches.push(lotID)
+				// }
+
+				// if (lotInput != "" && lotInput == recordInfo.lotID) {
+				// 	lotMatches.push(lotID)
+				// }
 			
 			})
 		}
 
+
 		if (matches.length == 0) {
-			matches = yearMatches
+			matches = burialYearMatches
 		} else {
-			// Filter matches by year input if specified
+			// Filter matches by burial year if specified
 			let tempMatches = []
 			matches.forEach(id => {
-				if (yearMatches.includes(id)) {
+				if (burialYearMatches.includes(id)) {
 					tempMatches.push(id)
 				}
 			})
@@ -543,47 +551,41 @@ $().ready(function () {
 			}
 		}
 
+
+
+		// TODO: Add logic to find valid lots and blocks if no name is entered
 		if (nameInput == "") {
-			// If searching by Year (and no name entered), filter year matches by Location, Block, and Lot
-			if (burialYear != "" && yearMatches.length > 0) {
-				yearMatches.forEach(id => {
-					let lotID = records.get(id).lotID;
-					let lotInfo = lotIDs.get(lotID);
 
-					if (locationInput == "any" || locationInput == lotInfo.Cemetery.toLowerCase()) {
-						if (blockInput == "" && lotInput == "") { lotMatches.push(lotID); return; }
-						if ((blockInput != "" && blockInput == lotInfo.Block) && (lotInput != "" && lotInput == lotInfo.Lot)) { lotMatches.push(lotID); return; }
-						if (lotInput == "" && (blockInput != "" && blockInput == lotInfo.Block)) { lotMatches.push(lotID); return; }
-						if (blockInput == "" && (lotInput != "" && lotInput == lotInfo.Lot)) { lotMatches.push(lotID); return; }
-					}
-				});
-			} else {
-				// Fallback when no Name AND no Year entered
-				lotIDs.forEach((lot, lotID, map) => {
+			lotIDs.forEach((lot, lotID, map) => {
 
-					lotInfo = lotIDs.get(lotID)
+				lotInfo = lotIDs.get(lotID)
+				
 
-					if (locationInput == "any" || locationInput == lotInfo.Cemetery.toLowerCase()) {
+				if (locationInput == "any" || locationInput == lotInfo.Cemetery.toLowerCase()) {
 
-						if (blockInput == "" && lotInput == "") { return; }
-						if ((blockInput != "" && blockInput == lotInfo.Block) && (lotInput != "" && lotInput == lotInfo.Lot)) { lotMatches.push(lotID); return; }
-						if (lotInput == "" && (blockInput != "" && blockInput == lotInfo.Block)) { lotMatches.push(lotID); return; }
-						if (blockInput == "" && (lotInput != "" && lotInput == lotInfo.Lot)) { lotMatches.push(lotID); return; }
+					if (blockInput == "" && lotInput == "") { return; }
+					if ((blockInput != "" && blockInput == lotInfo.Block) && (lotInput != "" && lotInput == lotInfo.Lot)) { lotMatches.push(lotID); return; }
+					if (lotInput == "" && (blockInput != "" && blockInput == lotInfo.Block)) { lotMatches.push(lotID); return; }
+					if (blockInput == "" && (lotInput != "" && lotInput == lotInfo.Lot)) { lotMatches.push(lotID); return; }
 
-					}
-					
-					return
+				}
+				
+				return
 
-				})
-			}
+			})
 		}
+
 
 		if (matches.length > 0 && lotMatches.length == 0) {
 			lotMatches = [...new Set(matches.map(id => records.get(id).lotID))];
 		}
 
-		// 2. Truly No Results Found check
-		if (lotMatches.length == 0) {
+		// if (matches.length == 0 && burialYearMatches.length > 0) {
+		// 	matches = burialYearMatches
+		// }
+		
+
+		if (matches.length >= 0 && lotMatches.length == 0) {
 
 			$results.empty();
 
@@ -599,11 +601,26 @@ $().ready(function () {
 		let orderedMatches = []
 		let orderedLots = []
 
+
 		lotIDs.forEach((lot, lotID, map) => {
 			if (lotMatches.includes(lotID)) {
 				orderedLots.push(lotID)
 			}
 		})
+
+
+		// let diff = []
+
+		// if (matches.length != orderedMatches.length) {
+			
+		// 		matches.forEach(id => {
+		// 			if (!orderedMatches.includes(id)) {
+		// 				diff.push(id)
+		// 			}
+		// 		})
+
+		// }
+
 
 		$("title").html(titleText);
 
@@ -613,6 +630,7 @@ $().ready(function () {
 		// CEMETERY SEARCH
 		//
 		if (cemeteryData == null) { return ; }
+
 
 		orderedLots.forEach(lotID => {
 
@@ -630,9 +648,11 @@ $().ready(function () {
 				if (lotInfo.Lot != lotInput) { return; }
 			}
 
+
+
 			$results.append(`
 				<div class="record" id="LOT_${lotID}">
-					<h3>${lotInfo.Cemetery} Lawn - Block ${lotInfo.Block}, Lot${lotInfo.Lot}</h3>
+					<h3>${lotInfo.Cemetery} Lawn - Block ${lotInfo.Block}, Lot ${lotInfo.Lot}</h3>
 				</div>
 			`)
 
@@ -667,8 +687,7 @@ $().ready(function () {
 				} 
 
 				if (burialYear != "" && burialYear.length == 4) {
-					// Highlight row if searched year appears in either burialDate or dateOfDeath
-					if (record.burialDate.includes(burialYear) || record.dateOfDeath.includes(burialYear)) {
+					if (record.burialDate.includes(burialYear)) {
 						isHighlighted = "highlight"
 					} else {
 						isHighlighted = ""
@@ -710,11 +729,11 @@ $().ready(function () {
 
 	$("form").submit(function () {
 
-		var $results =$("#directoryResults")
+		var $results = $("#directoryResults")
 
 		window.stop();
 		$results.empty()
-		var $inputs =$('form :input');
+		var $inputs = $('form :input');
 		var values = {};
 		var sortOption = $("#sortSelect").val();
 
@@ -739,6 +758,8 @@ $().ready(function () {
 		$("#name_input:text").val(nameInput);
 		$("#burialYear_input:text").val(burialYear);
 
+
+		//TODO: Update how name inputs are matched with the records map
 		getMatches(locationInput, blockInput, lotInput, nameInput, burialYear, nameSortInput)
 
 	});

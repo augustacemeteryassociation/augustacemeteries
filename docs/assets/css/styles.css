@@ -1142,19 +1142,22 @@ footer p {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background-color: #e0e0e0; /* Light gray background */
-  color: #333333; /* Dark V text */
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  background-color: #e0e0e0;
+  color: #333333;
   font-size: 12px;
   font-weight: bold;
   font-family: serif, sans-serif;
-  margin-right: 6px; /* Space between icon and name */
+  margin-right: 6px;
   vertical-align: middle;
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
+  /* Center alignment tweaks */
+  line-height: 1;
+  padding-bottom: 1px; /* Counteracts serif font baseline bias */
 }
 
 @media print {
